@@ -13,9 +13,9 @@ export default function RootLayout({
       <head></head>
       <body>
         <main>
-          <>
+          <div>
             <LayoutComponent>{children}</LayoutComponent>
-          </>
+          </div>
         </main>
       </body>
     </html>
