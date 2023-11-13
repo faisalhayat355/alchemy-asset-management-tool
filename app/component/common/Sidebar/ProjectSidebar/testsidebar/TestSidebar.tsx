@@ -43,7 +43,18 @@ import StarBorderPurple500OutlinedIcon from '@mui/icons-material/StarBorderPurpl
 import WatchLaterOutlinedIcon from '@mui/icons-material/WatchLaterOutlined';
 import WorkOutlineOutlinedIcon from '@mui/icons-material/WorkOutlineOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
-
+import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import StartIcon from '@mui/icons-material/Start';
+import ListIcon from '@mui/icons-material/List';
+import GridViewIcon from '@mui/icons-material/GridView';
+import ViewStreamIcon from '@mui/icons-material/ViewStream';
+import EventAvailableIcon from '@mui/icons-material/EventAvailable';
+import TableChartIcon from '@mui/icons-material/TableChart';
+import DisplaySettingsIcon from '@mui/icons-material/DisplaySettings';
+import SpokeIcon from '@mui/icons-material/Spoke';
+import DescriptionIcon from '@mui/icons-material/Description';
+import ContactMailIcon from '@mui/icons-material/ContactMail';
 
 
 const TestSidebar = () => {
@@ -65,6 +76,9 @@ const TestSidebar = () => {
   const [tools, setTools] = React.useState(false);
   const [advanced, setAdvanced] = React.useState(false);
   const [helpsupport, setHelpSupport] = React.useState(false);
+  const [setup, setSetup] = React.useState(false);
+  const [database, setDatabase] = React.useState(false);
+  const [customizeForms, setCustomizeForms] = React.useState(false);
  
 
   const handleClickAlerts = () => {
@@ -121,6 +135,19 @@ const TestSidebar = () => {
   const handleClickHelpSupport = () => {
     setHelpSupport(!helpsupport);
   };
+  const handleClickSetup = () => {
+    setSetup(!setup);
+  };
+  const handleClickDatabase = () => {
+    setDatabase(!database);
+  };
+
+  const handleClickCustomizeForms = () => {
+    setCustomizeForms(!customizeForms);
+  };
+
+
+  
   return (
     <div style={{height:'81.5vh',overflowY:'auto'}}>
       <List sx={{ width: "100%", maxWidth: 360}}component="nav" aria-labelledby="nested-list-subheader">
@@ -261,7 +288,7 @@ const TestSidebar = () => {
         </ListItemIcon>
       </ListItemButton>
       <Collapse in={assets} timeout="auto" unmountOnExit>
-      <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
+      <Link href="/assets/listofassets" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 3.7 }}>
           <ListOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
@@ -269,7 +296,7 @@ const TestSidebar = () => {
           </ListItemButton>
         </List>
         </Link>
-        <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
+        <Link href="/assets/addassets" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 3.7 }}>
           <AddCircleOutlineOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
@@ -278,7 +305,7 @@ const TestSidebar = () => {
         </List>
         </Link>
         <Divider style={{width:'100%'}}/>
-        <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
+        <Link href="/assets/checkin" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 3.7 }}>
           <PersonAddOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
@@ -286,7 +313,7 @@ const TestSidebar = () => {
           </ListItemButton>
         </List>
         </Link>
-        <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
+        <Link href="/assets/checkout" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 3.7 }}>
           <PersonAddDisabledOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
@@ -294,7 +321,7 @@ const TestSidebar = () => {
           </ListItemButton>
         </List>
         </Link>
-        <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
+        <Link href="/assets/lease" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 3.7 }}>
           <SendOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
@@ -302,7 +329,7 @@ const TestSidebar = () => {
           </ListItemButton>
         </List>
         </Link>
-        <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
+        <Link href="/assets/leasereturn" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 3.7 }}>
           <SendOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
@@ -310,7 +337,7 @@ const TestSidebar = () => {
           </ListItemButton>
         </List>
         </Link>
-        <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
+        <Link href="/assets/dispose" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 3.7 }}>
           <RecyclingOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
@@ -318,7 +345,7 @@ const TestSidebar = () => {
           </ListItemButton>
         </List>
         </Link>
-        <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
+        <Link href="/assets/maintanance" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 3.7 }}>
           <MiscellaneousServicesOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
@@ -327,7 +354,7 @@ const TestSidebar = () => {
         </List>
         </Link>
 
-        <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
+        <Link href="/assets/move" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 3.7 }}>
           <OpenWithOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
@@ -335,7 +362,7 @@ const TestSidebar = () => {
           </ListItemButton>
         </List>
         </Link>
-        <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
+        <Link href="/assets/reserve" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 3.7 }}>
           <CalendarMonthOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
@@ -354,21 +381,21 @@ const TestSidebar = () => {
         </ListItemIcon>
       </ListItemButton>
       <Collapse in={lists} timeout="auto" unmountOnExit>
-      <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
+      <Link href="/lists/listofassets" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 3.7 }}>
             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>List of Assets</Typography>
           </ListItemButton>
         </List>
         </Link>
-        <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
+        <Link href="/lists/listofmaintanance" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 3.7 }}>
             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>List of Maintenance</Typography>
           </ListItemButton>
         </List>
         </Link>
-        <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
+        <Link href="/lists/listofwarranties" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 3.7 }}>
             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>List of Warranties</Typography>
@@ -891,7 +918,7 @@ const TestSidebar = () => {
         </ListItemIcon>
       </ListItemButton>
       <Collapse in={tools} timeout="auto" unmountOnExit>
-      <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
+      <Link href="/tools/import" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 3.7 }}>
           <FileUploadOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
@@ -899,7 +926,7 @@ const TestSidebar = () => {
           </ListItemButton>
         </List>
         </Link>
-        <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
+        <Link href="/tools/export" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 3.7 }}>
           <FileDownloadOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
@@ -907,7 +934,7 @@ const TestSidebar = () => {
           </ListItemButton>
         </List>
         </Link>
-        <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
+        <Link href="/tools/documentgallery" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 3.7 }}>
           <CollectionsBookmarkOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
@@ -915,7 +942,7 @@ const TestSidebar = () => {
           </ListItemButton>
         </List>
         </Link>
-        <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
+        <Link href="/tools/imagegallery" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 3.7 }}>
           <BrokenImageOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
@@ -923,7 +950,7 @@ const TestSidebar = () => {
           </ListItemButton>
         </List>
         </Link>
-        <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
+        <Link href="/tools/audit" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 3.7 }}>
           <BorderColorOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
@@ -942,7 +969,7 @@ const TestSidebar = () => {
         </ListItemIcon>
       </ListItemButton>
       <Collapse in={advanced} timeout="auto" unmountOnExit>
-      <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
+      <Link href="/advanced/persons-employee" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 3.7 }}>
           <Person2OutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
@@ -950,7 +977,7 @@ const TestSidebar = () => {
           </ListItemButton>
         </List>
         </Link>
-        <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
+        <Link href="/advanced/customers" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 3.7 }}>
           <SupportAgentOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
@@ -958,7 +985,7 @@ const TestSidebar = () => {
           </ListItemButton>
         </List>
         </Link>
-        <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
+        <Link href="/advanced/users" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 3.7 }}>
           <PeopleAltOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
@@ -966,7 +993,7 @@ const TestSidebar = () => {
           </ListItemButton>
         </List>
         </Link>
-        <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
+        <Link href="/advanced/security-groups" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 3.7 }}>
           <ManageAccountsOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
@@ -978,44 +1005,204 @@ const TestSidebar = () => {
       <Divider style={{width:'100%'}}/>
 
       <ListItemButton 
-      // onClick={handleClickAdvanced}
+      onClick={handleClickSetup}
       >
         <SettingsOutlinedIcon style={{color:"#f75757",fontSize:'1.4rem',marginRight:'0.6rem'}} />
         <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Setup</Typography> 
-        {advanced ? <ExpandLess /> : <ExpandMore />}
+        {setup ? <ExpandLess /> : <ExpandMore />}
         <ListItemIcon style={{marginLeft:'2rem'}}>
         </ListItemIcon>
       </ListItemButton>
-      <Collapse in={advanced} timeout="auto" unmountOnExit>
-      <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
+      
+      
+      
+      
+      
+      
+      
+      <Collapse in={setup} timeout="auto" unmountOnExit>
+      <Link href="/setup/company-info" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 3.7 }}>
-          <Person2OutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Persons/Employee</Typography>
+          <WorkOutlineIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Company Info</Typography>
           </ListItemButton>
         </List>
         </Link>
-        <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
+        <Link href="/setup/sites" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 3.7 }}>
-          <SupportAgentOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Customers</Typography>
+          <LocationOnIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Sites</Typography>
           </ListItemButton>
         </List>
         </Link>
-        <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
+        <Link href="/setup/location" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 3.7 }}>
-          <PeopleAltOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Users</Typography>
+          <StartIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Locations</Typography>
           </ListItemButton>
         </List>
         </Link>
-        <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
+        <Link href="/setup/categories" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 3.7 }}>
-          <ManageAccountsOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Security Groups</Typography>
+          <ListIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Categories</Typography>
+          </ListItemButton>
+        </List>
+        </Link>
+        <Link href="/setup/department" passHref style={{ textDecoration: "none" }}>
+        <List component="div" disablePadding>
+          <ListItemButton sx={{ pl: 3.7 }}>
+          <GridViewIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Departments</Typography>
+          </ListItemButton>
+        </List>
+        </Link>
+        
+        <List component="div" disablePadding>
+          <ListItemButton sx={{ pl: 3.7 }} onClick={handleClickDatabase}>
+          <ViewStreamIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Databases</Typography>
+            {database ? <ExpandLess /> : <ExpandMore />}
+          </ListItemButton>
+          <Collapse in={database} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}>
+          <Link href="/setup/database/asset-table" passHref style={{ textDecoration: "none" }}>
+          <List component="div" disablePadding>
+          <ListItemButton sx={{ pl:5.5}}>
+            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Asset Table</Typography>
+          </ListItemButton>
+          </List>
+          </Link>
+        <Link href="/setup/database/person-employee" passHref style={{ textDecoration: "none" }}>
+        <List component="div" disablePadding>
+          <ListItemButton sx={{ pl:5.5}}>
+            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Persons/Employee</Typography>
+          </ListItemButton>
+        </List>
+        </Link>
+        <Link href="/setup/database/customer-table" passHref style={{ textDecoration: "none" }}>
+        <List component="div" disablePadding>
+          <ListItemButton sx={{ pl:5.5}}>
+            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Customers Table</Typography>
+          </ListItemButton>
+        </List>
+        </Link>
+        <Link href="/setup/database/maintanance-table" passHref style={{ textDecoration: "none" }}>
+        <List component="div" disablePadding>
+          <ListItemButton sx={{ pl:5.5}}>
+            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Maintanance Table</Typography>
+          </ListItemButton>
+        </List>
+        </Link>
+        <Link href="/setup/database/warranties-table" passHref style={{ textDecoration: "none" }}>
+        <List component="div" disablePadding>
+          <ListItemButton sx={{ pl:5.5}}>
+            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Warranties Table</Typography>
+          </ListItemButton>
+        </List>
+        </Link>
+        <Link href="/setup/database/contract-table" passHref style={{ textDecoration: "none" }}>
+        <List component="div" disablePadding>
+          <ListItemButton sx={{ pl:5.5}}>
+            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Contract Table</Typography>
+          </ListItemButton>
+        </List>
+        </Link>
+          </Collapse>
+        </List>
+        <Link href="/setup/events" passHref style={{ textDecoration: "none" }}>
+        <List component="div" disablePadding>
+          <ListItemButton sx={{ pl: 3.7 }}>
+          <EventAvailableIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Events</Typography>
+          </ListItemButton>
+        </List>
+        </Link>
+        <Link href="/setup/table-option" passHref style={{ textDecoration: "none" }}>
+        <List component="div" disablePadding>
+          <ListItemButton sx={{ pl: 3.7 }}>
+          <TableChartIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Table Options</Typography>
+          </ListItemButton>
+        </List>
+        </Link>
+        <Link href="/setup/options" passHref style={{ textDecoration: "none" }}>
+        <List component="div" disablePadding>
+          <ListItemButton sx={{ pl: 3.7 }}>
+          <DisplaySettingsIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Options</Typography>
+          </ListItemButton>
+        </List>
+        </Link>
+        <Link href="/setup/managed-dashboard" passHref style={{ textDecoration: "none" }}>
+        <List component="div" disablePadding>
+          <ListItemButton sx={{ pl: 3.7 }}>
+          <SpokeIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Managed Dashboard</Typography>
+          </ListItemButton>
+        </List>
+        </Link>
+        {/* <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}> */}
+        <List component="div" disablePadding>
+          <ListItemButton sx={{ pl: 3.7 }} onClick={handleClickCustomizeForms}>
+          <DescriptionIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Customize Forms</Typography>
+            {customizeForms ? <ExpandLess /> : <ExpandMore />}
+          </ListItemButton>
+          <Collapse in={customizeForms} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}>
+      <Link href="/setup/customize-forms/asset-forms" passHref style={{ textDecoration: "none" }}>
+        <List component="div" disablePadding>
+          <ListItemButton sx={{ pl:5.5}}>
+            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Asset Form</Typography>
+          </ListItemButton>
+        </List>
+        </Link>
+        <Link href="/setup/database/person-employee" passHref style={{ textDecoration: "none" }}>
+        <List component="div" disablePadding>
+          <ListItemButton sx={{ pl:5.5}}>
+            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Persons/Employee</Typography>
+          </ListItemButton>
+        </List>
+        </Link>
+        <Link href="/setup/customize-forms/customer-forms" passHref style={{ textDecoration: "none" }}>
+        <List component="div" disablePadding>
+          <ListItemButton sx={{ pl:5.5}}>
+            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Customers Form</Typography>
+          </ListItemButton>
+        </List>
+        </Link>
+        <Link href="/setup/customize-forms/maintanance-form" passHref style={{ textDecoration: "none" }}>
+        <List component="div" disablePadding>
+          <ListItemButton sx={{ pl:5.5}}>
+            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Maintanance Form</Typography>
+          </ListItemButton>
+        </List>
+        </Link>
+        <Link href="/setup/customize-forms/warranty-form" passHref style={{ textDecoration: "none" }}>
+        <List component="div" disablePadding>
+          <ListItemButton sx={{ pl:5.5}}>
+            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Warranty Form</Typography>
+          </ListItemButton>
+        </List>
+        </Link>
+        <Link href="/setup/customize-forms/contract-form" passHref style={{ textDecoration: "none" }}>
+        <List component="div" disablePadding>
+          <ListItemButton sx={{ pl:5.5}}>
+            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Contract Form</Typography>
+          </ListItemButton>
+        </List>
+        </Link>
+      </Collapse>
+        </List>
+        {/* </Link> */}
+        <Link href="/setup/customize-emails" passHref style={{ textDecoration: "none" }}>
+        <List component="div" disablePadding>
+          <ListItemButton sx={{ pl: 3.7 }}>
+          <ContactMailIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Customize Emails</Typography>
           </ListItemButton>
         </List>
         </Link>
@@ -1030,7 +1217,7 @@ const TestSidebar = () => {
         </ListItemIcon>
       </ListItemButton>
       <Collapse in={helpsupport} timeout="auto" unmountOnExit>
-      <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
+      <Link href="/help-support/aboutus" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 3.7 }}>
           <ErrorOutlineOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
@@ -1038,7 +1225,7 @@ const TestSidebar = () => {
           </ListItemButton>
         </List>
         </Link>
-        <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
+        <Link href="/help-support/contactus" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 3.7 }}>
           <CallOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
@@ -1046,7 +1233,7 @@ const TestSidebar = () => {
           </ListItemButton>
         </List>
         </Link>
-        <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
+        <Link href="/help-support/terms-of-service" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 3.7 }}>
           <FavoriteBorderOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
@@ -1054,7 +1241,7 @@ const TestSidebar = () => {
           </ListItemButton>
         </List>
         </Link>
-        <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
+        <Link href="/help-support/privacy-policy" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 3.7 }}>
           <SentimentSatisfiedAltOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
@@ -1062,7 +1249,7 @@ const TestSidebar = () => {
           </ListItemButton>
         </List>
         </Link>
-        <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
+        <Link href="/help-support/videos" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 3.7 }}>
           <SmartDisplayOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
@@ -1070,7 +1257,7 @@ const TestSidebar = () => {
           </ListItemButton>
         </List>
         </Link>
-        <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
+        <Link href="/help-support/user-reviews" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 3.7 }}>
           <StarBorderPurple500OutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
@@ -1078,7 +1265,7 @@ const TestSidebar = () => {
           </ListItemButton>
         </List>
         </Link>
-        <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
+        <Link href="/help-support/change-log" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 3.7 }}>
           <WatchLaterOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />

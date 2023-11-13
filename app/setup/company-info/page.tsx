@@ -1,10 +1,9 @@
 import React from 'react'
-import DashboardPage from '.'
 
 const page = () => {
   return (
     <div>
-      <DashboardPage/>
+      company-info
     </div>
   )
 }
