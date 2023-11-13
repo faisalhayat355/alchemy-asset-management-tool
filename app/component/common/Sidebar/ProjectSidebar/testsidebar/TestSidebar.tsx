@@ -41,8 +41,8 @@ import SentimentSatisfiedAltOutlinedIcon from '@mui/icons-material/SentimentSati
 import SmartDisplayOutlinedIcon from '@mui/icons-material/SmartDisplayOutlined';
 import StarBorderPurple500OutlinedIcon from '@mui/icons-material/StarBorderPurple500Outlined';
 import WatchLaterOutlinedIcon from '@mui/icons-material/WatchLaterOutlined';
-
-
+import WorkOutlineOutlinedIcon from '@mui/icons-material/WorkOutlineOutlined';
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 
 
 
@@ -179,13 +179,13 @@ const TestSidebar = () => {
       </Collapse>
          <Link href="/dashboard" passHref style={{ textDecoration: "none" }}>
       <ListItemButton>
-          <HomeOutlinedIcon style={{color:"#f75757",fontSize:'1rem',marginRight:'0.6rem'}}/>
+          <HomeOutlinedIcon style={{color:"#f75757",fontSize:'1.4rem',marginRight:'0.6rem'}}/>
         <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'bold'}}>Dashboard</Typography>
       </ListItemButton>
       </Link>
       <Divider style={{width:'100%'}}/>
       <ListItemButton onClick={handleClickAlerts}>
-        <FlagOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+        <FlagOutlinedIcon style={{color:"#f75757",fontSize:'1.4rem',marginRight:'0.6rem'}} />
         <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Alerts</Typography>
         {alerts ? <ExpandLess /> : <ExpandMore />}
         <ListItemIcon style={{marginLeft:'2rem'}}>
@@ -254,7 +254,7 @@ const TestSidebar = () => {
         </Link>
       </Collapse>
       <ListItemButton onClick={handleClickAssets}>
-        <FlagOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+        <FlagOutlinedIcon style={{color:"#f75757",fontSize:'1.4rem',marginRight:'0.6rem'}} />
         <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Assets</Typography> 
         {assets ? <ExpandLess /> : <ExpandMore />}
         <ListItemIcon style={{marginLeft:'2rem'}}>
@@ -347,7 +347,7 @@ const TestSidebar = () => {
       <Divider style={{width:'100%'}}/>
 
       <ListItemButton onClick={handleClickLists}>
-        <ListOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+        <ListOutlinedIcon style={{color:"#f75757",fontSize:'1.4rem',marginRight:'0.6rem'}} />
         <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Lists</Typography>
         {lists ? <ExpandLess /> : <ExpandMore />}
         <ListItemIcon style={{marginLeft:'2rem'}}>
@@ -379,7 +379,7 @@ const TestSidebar = () => {
       <Divider style={{width:'100%'}}/>
 
       <ListItemButton onClick={handleClickReports}>
-        <DescriptionOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+        <DescriptionOutlinedIcon style={{color:"#f75757",fontSize:'1.4rem',marginRight:'0.6rem'}} />
         <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Reports</Typography>
         {reports ? <ExpandLess /> : <ExpandMore />}
         <ListItemIcon style={{marginLeft:'2rem'}}>
@@ -884,7 +884,7 @@ const TestSidebar = () => {
       <Divider style={{width:'100%'}}/>
 
       <ListItemButton onClick={handleClickTools}>
-        <FlagOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+        <BuildOutlinedIcon style={{color:"#f75757",fontSize:'1.3rem',marginRight:'0.6rem'}} />
         <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Tools</Typography> 
         {tools ? <ExpandLess /> : <ExpandMore />}
         <ListItemIcon style={{marginLeft:'2rem'}}>
@@ -935,7 +935,7 @@ const TestSidebar = () => {
       </Collapse>
       <Divider style={{width:'100%'}}/>
       <ListItemButton onClick={handleClickAdvanced}>
-        <FlagOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+        <WorkOutlineOutlinedIcon style={{color:"#f75757",fontSize:'1.4rem',marginRight:'0.6rem'}} />
         <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Advanced</Typography> 
         {advanced ? <ExpandLess /> : <ExpandMore />}
         <ListItemIcon style={{marginLeft:'2rem'}}>
@@ -980,7 +980,7 @@ const TestSidebar = () => {
       <ListItemButton 
       // onClick={handleClickAdvanced}
       >
-        <FlagOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+        <SettingsOutlinedIcon style={{color:"#f75757",fontSize:'1.4rem',marginRight:'0.6rem'}} />
         <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Setup</Typography> 
         {advanced ? <ExpandLess /> : <ExpandMore />}
         <ListItemIcon style={{marginLeft:'2rem'}}>
@@ -1023,7 +1023,7 @@ const TestSidebar = () => {
       <Divider style={{width:'100%'}}/>
 
       <ListItemButton onClick={handleClickHelpSupport}>
-        <SupportOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+        <SupportOutlinedIcon style={{color:"#f75757",fontSize:'1.3rem',marginRight:'0.6rem'}} />
         <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Help/Support</Typography> 
         {helpsupport ? <ExpandLess /> : <ExpandMore />}
         <ListItemIcon style={{marginLeft:'2rem'}}>
