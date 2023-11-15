@@ -1,0 +1,38 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "assettagid": "Alchemy2753",
+      "purchasefrom": "Alexa",
+      "assignto": "Alexa",
+      "brand": "Dell",
+      "model": "Lattitude5490",
+      "serialno": "AQH65436",
+      "description": "Dell Lattitude Laptop",
+      "purchasedate": "10/12/2020",
+      "cost": "75K",
+      "site": "Alchemy",
+      "category": "Internal",
+      "location": "Banglore",
+      "department": "Recuriter"
+    },
+    {
+      "assettagid": "HQR453T67",
+      "purchasefrom": "Dell Service Center Banglore",
+      "purchasedate": "2022-12-24",
+      "mobile": "",
+      "address": "",
+      "description": "For Internal Use",
+      "brand": "Dell",
+      "cost": "67000",
+      "model": "Lattitude5478",
+      "serialno": "TR56468",
+      "site": "External-Client",
+      "category": "External",
+      "location": "Hyderabad",
+      "department": "Software Engineer",
+      "id": 5
+    }
+   
+  ]
+}

@@ -1,9 +1,10 @@
 import React from 'react'
+import AssetCreatePage from '.'
 
 const page = () => {
   return (
     <div>
-      Add Assets
+      <AssetCreatePage/>
     </div>
   )
 }
