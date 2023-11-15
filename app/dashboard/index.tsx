@@ -9,7 +9,7 @@ import moment from "moment";
 import { Calendar, dayjsLocalizer } from 'react-big-calendar'
 import dayjs from 'dayjs'
 import "react-big-calendar/lib/css/react-big-calendar.css";
-
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 
 // const localizer = momentLocalizer(moment);
 
@@ -21,7 +21,8 @@ const useStyles = makeStyles({
         background: "#f8fafc",
         border:'1px solid #f1f5f9',
         cursor:'pointer',
-        height:'14.5vh',
+        height:'15.5vh',
+        marginTop:'0.5rem',
         "&:hover": {
             boxShadow: " rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
             cursor:'pointer'
@@ -71,6 +72,10 @@ const useStyles = makeStyles({
         cursor:'pointer',
         height:'56vh',
     },
+    typography: {
+        fontFamily:"Papyrus",
+        fontSize:'1.5rem'
+     }
   });
   
 const DashboardPage = () => {
@@ -81,11 +86,11 @@ const DashboardPage = () => {
         <Box>
             <Grid container sx={{padding:'0.7rem',alignItems:'center'}}>
                 <Grid item xs={9} sx={{display:'flex',alignItems:'center'}} >
-                    <Typography fontSize={"1.8rem"} style={{fontWeight:'normal',color:'#1e293b'}}>Dashboard <span style={{fontSize:'1rem'}}>dashboard & statistics</span></Typography>
+                    <Typography fontSize={"1.8rem"} style={{fontWeight:'bold',color:'#1e293b'}} className={classes.typography}>Dashboard <span style={{fontSize:'1rem'}}>dashboard & statistics</span></Typography>
                 </Grid>
                 <Grid item xs={3} sx={{display:'flex',justifyContent:'flex-end'}}>
                     <Link href="/setup" passHref style={{ textDecoration: "none" }}>
-                    <Button variant="outlined" style={{textTransform:'capitalize',color:'#1e293b',border:'1px solid #1e293b'}} endIcon={<SettingsIcon />}>Manage Dashboard</Button>
+                    <Button variant="outlined" style={{textTransform:'capitalize',background:'white'}} endIcon={<ManageAccountsIcon style={{fontSize:'1.4rem',color:'#a21caf'}}/>}>Manage Dashboard</Button>
                     </Link>
                 </Grid>
                
@@ -149,25 +154,27 @@ const DashboardPage = () => {
                 <Grid item xs={7}>
                     <Paper elevation={0} className={classes.assetvalue}>
                         <Grid container>
-                            <Grid item xs={6}>
+                            <Grid item xs={2}>
                             <Typography sx={{paddingLeft:'1rem'}} fontSize={"1rem"} fontWeight={"bold"}>Alerts</Typography>
                             </Grid>
-                            <Grid item xs={6} style={{display:'flex'}}>
+                            <Grid item xs={10} style={{display:'flex',justifyContent:'flex-end'}}>
                                 <div style={{background:"#3b82f6",color:'white',padding:'0.4rem',borderRadius:'5px',fontSize:'0.7rem'}}>Assets Due</div>
                                 <div style={{background:"#a21caf",marginLeft:'0.7rem',color:'white',padding:'0.4rem',borderRadius:'5px',fontSize:'0.7rem'}}>Maintenance Due</div>
                                 <div style={{background:"#ef4444",marginLeft:'0.7rem',color:'white',padding:'0.4rem',borderRadius:'5px',fontSize:'0.7rem'}}>Warranty Expiring</div>
+                                <div style={{textAlign:'center',width:'17%',background:"#facc15",marginLeft:'0.7rem',color:'white',padding:'0.4rem',borderRadius:'5px',fontSize:'0.7rem'}}>Lease Expiring</div>
+
                             </Grid>
-                            <Grid item xs={11.75} mt={0.5} sx={{display:"flex",justifyContent:'flex-end'}}>
+                            {/* <Grid item xs={11.75} mt={0.5} sx={{display:"flex",justifyContent:'flex-end'}}>
                             <div style={{textAlign:'center',width:'17%',background:"#facc15",marginLeft:'0.7rem',color:'white',padding:'0.4rem',borderRadius:'5px',fontSize:'0.7rem'}}>Lease Expiring</div>
-                            </Grid>
+                            </Grid> */}
                         </Grid>
-                        <Divider style={{width:'100%',paddingLeft:'0.5rem',marginTop:'0.3rem'}}/>
+                        <Divider style={{width:'100%',paddingLeft:'0.5rem',marginTop:'0.6rem'}}/>
                         <Calendar
                             localizer={localizer}
                             //   events={myEventsList}
                             startAccessor="start"
                             endAccessor="end"
-                            style={{ height: 233,marginLeft:'0.6rem',marginTop:'0.3rem' }}
+                            style={{ height: 270,marginLeft:'0.6rem',marginTop:'0.5rem' }}
                             />
                     </Paper>
                 </Grid>

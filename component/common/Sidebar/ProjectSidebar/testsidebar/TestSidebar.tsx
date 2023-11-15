@@ -1,7 +1,52 @@
+import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
+import BorderColorOutlinedIcon from '@mui/icons-material/BorderColorOutlined';
+import BrokenImageOutlinedIcon from '@mui/icons-material/BrokenImageOutlined';
+import BuildOutlinedIcon from '@mui/icons-material/BuildOutlined';
+import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
+import CallOutlinedIcon from '@mui/icons-material/CallOutlined';
+import CollectionsBookmarkOutlinedIcon from '@mui/icons-material/CollectionsBookmarkOutlined';
+import ContactMailIcon from '@mui/icons-material/ContactMail';
+import DescriptionIcon from '@mui/icons-material/Description';
+import DescriptionOutlinedIcon from '@mui/icons-material/DescriptionOutlined';
+import DiamondOutlinedIcon from '@mui/icons-material/DiamondOutlined';
+import DisplaySettingsIcon from '@mui/icons-material/DisplaySettings';
+import ErrorOutlineOutlinedIcon from '@mui/icons-material/ErrorOutlineOutlined';
+import EventAvailableIcon from '@mui/icons-material/EventAvailable';
+import ExitToAppOutlinedIcon from '@mui/icons-material/ExitToAppOutlined';
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
+import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
 import FlagOutlinedIcon from '@mui/icons-material/FlagOutlined';
+import GridViewIcon from '@mui/icons-material/GridView';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import ListIcon from '@mui/icons-material/List';
+import ListOutlinedIcon from '@mui/icons-material/ListOutlined';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import LockOpenOutlinedIcon from '@mui/icons-material/LockOpenOutlined';
+import ManageAccountsOutlinedIcon from '@mui/icons-material/ManageAccountsOutlined';
+import MiscellaneousServicesOutlinedIcon from '@mui/icons-material/MiscellaneousServicesOutlined';
+import OpenWithOutlinedIcon from '@mui/icons-material/OpenWithOutlined';
+import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
+import Person2OutlinedIcon from '@mui/icons-material/Person2Outlined';
+import PersonAddDisabledOutlinedIcon from '@mui/icons-material/PersonAddDisabledOutlined';
+import PersonAddOutlinedIcon from '@mui/icons-material/PersonAddOutlined';
+import RecyclingOutlinedIcon from '@mui/icons-material/RecyclingOutlined';
+import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
+import SentimentSatisfiedAltOutlinedIcon from '@mui/icons-material/SentimentSatisfiedAltOutlined';
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
+import SmartDisplayOutlinedIcon from '@mui/icons-material/SmartDisplayOutlined';
+import SpokeIcon from '@mui/icons-material/Spoke';
+import StarBorderPurple500OutlinedIcon from '@mui/icons-material/StarBorderPurple500Outlined';
+import StartIcon from '@mui/icons-material/Start';
+import SupportAgentOutlinedIcon from '@mui/icons-material/SupportAgentOutlined';
+import SupportOutlinedIcon from '@mui/icons-material/SupportOutlined';
+import TableChartIcon from '@mui/icons-material/TableChart';
+import ViewStreamIcon from '@mui/icons-material/ViewStream';
+import WatchLaterOutlinedIcon from '@mui/icons-material/WatchLaterOutlined';
+import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
+import WorkOutlineOutlinedIcon from '@mui/icons-material/WorkOutlineOutlined';
 import { Divider, Typography } from "@mui/material";
 import Badge from '@mui/material/Badge';
 import Collapse from "@mui/material/Collapse";
@@ -10,51 +55,10 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import Link from "next/link";
 import * as React from "react";
-import BuildOutlinedIcon from '@mui/icons-material/BuildOutlined';
-import Person2OutlinedIcon from '@mui/icons-material/Person2Outlined';
-import LockOpenOutlinedIcon from '@mui/icons-material/LockOpenOutlined';
-import ExitToAppOutlinedIcon from '@mui/icons-material/ExitToAppOutlined';
-import DiamondOutlinedIcon from '@mui/icons-material/DiamondOutlined';
-import ListOutlinedIcon from '@mui/icons-material/ListOutlined';
-import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
-import PersonAddOutlinedIcon from '@mui/icons-material/PersonAddOutlined';
-import PersonAddDisabledOutlinedIcon from '@mui/icons-material/PersonAddDisabledOutlined';
-import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
-import RecyclingOutlinedIcon from '@mui/icons-material/RecyclingOutlined';
-import MiscellaneousServicesOutlinedIcon from '@mui/icons-material/MiscellaneousServicesOutlined';
-import OpenWithOutlinedIcon from '@mui/icons-material/OpenWithOutlined';
-import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
-import DescriptionOutlinedIcon from '@mui/icons-material/DescriptionOutlined';
-import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
-import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
-import CollectionsBookmarkOutlinedIcon from '@mui/icons-material/CollectionsBookmarkOutlined';
-import BrokenImageOutlinedIcon from '@mui/icons-material/BrokenImageOutlined';
-import BorderColorOutlinedIcon from '@mui/icons-material/BorderColorOutlined';
-import SupportAgentOutlinedIcon from '@mui/icons-material/SupportAgentOutlined';
-import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
-import ManageAccountsOutlinedIcon from '@mui/icons-material/ManageAccountsOutlined';
-import SupportOutlinedIcon from '@mui/icons-material/SupportOutlined';
-import ErrorOutlineOutlinedIcon from '@mui/icons-material/ErrorOutlineOutlined';
-import CallOutlinedIcon from '@mui/icons-material/CallOutlined';
-import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
-import SentimentSatisfiedAltOutlinedIcon from '@mui/icons-material/SentimentSatisfiedAltOutlined';
-import SmartDisplayOutlinedIcon from '@mui/icons-material/SmartDisplayOutlined';
-import StarBorderPurple500OutlinedIcon from '@mui/icons-material/StarBorderPurple500Outlined';
-import WatchLaterOutlinedIcon from '@mui/icons-material/WatchLaterOutlined';
-import WorkOutlineOutlinedIcon from '@mui/icons-material/WorkOutlineOutlined';
-import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
-import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import StartIcon from '@mui/icons-material/Start';
-import ListIcon from '@mui/icons-material/List';
-import GridViewIcon from '@mui/icons-material/GridView';
-import ViewStreamIcon from '@mui/icons-material/ViewStream';
-import EventAvailableIcon from '@mui/icons-material/EventAvailable';
-import TableChartIcon from '@mui/icons-material/TableChart';
-import DisplaySettingsIcon from '@mui/icons-material/DisplaySettings';
-import SpokeIcon from '@mui/icons-material/Spoke';
-import DescriptionIcon from '@mui/icons-material/Description';
-import ContactMailIcon from '@mui/icons-material/ContactMail';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+
+
 
 const TestSidebar = () => {
   const [alerts, setAlerts] = React.useState(false);
@@ -151,7 +155,7 @@ const TestSidebar = () => {
     <div style={{height:'81.5vh',overflowY:'auto'}}>
       <List sx={{ width: "100%", maxWidth: 360}}component="nav" aria-labelledby="nested-list-subheader">
       <ListItemButton onClick={handleClickProfile}>
-        <FlagOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+        <AccountCircleIcon style={{color:"#f75757",fontSize:'1.3rem',marginRight:'0.6rem',marginLeft:'0.1rem'}} />
         <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Profile</Typography> 
         {profile ? <ExpandLess /> : <ExpandMore />}
         <ListItemIcon style={{marginLeft:'2rem'}}>
@@ -280,7 +284,7 @@ const TestSidebar = () => {
         </Link>
       </Collapse>
       <ListItemButton onClick={handleClickAssets}>
-        <FlagOutlinedIcon style={{color:"#f75757",fontSize:'1.4rem',marginRight:'0.6rem'}} />
+        <ManageAccountsIcon style={{color:"#f75757",fontSize:'1.4rem',marginRight:'0.6rem'}} />
         <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Assets</Typography> 
         {assets ? <ExpandLess /> : <ExpandMore />}
         <ListItemIcon style={{marginLeft:'2rem'}}>
