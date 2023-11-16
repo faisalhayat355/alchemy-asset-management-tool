@@ -5,7 +5,6 @@ import axios from "axios";
 import { Box, Button, Divider, Grid, IconButton, Paper, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import Link from 'next/link';
-
 import AssetViewComponent from './multipleview';
 import { ViewTypes } from './utility/view.type';
 import { Case, Default, Switch } from "react-if";
@@ -58,10 +57,10 @@ const ListAssetHomeComponent = () => {
       <Grid item xs={0.4}>
         <AssetFilterComponent/>
       </Grid>
-      <Grid item xs={4.4}>
+      <Grid item xs={4.8}>
         <AssetExportComponent users={users}/>
       </Grid>
-      <Grid item xs={1}>
+      <Grid item xs={0.6}>
         <AssetViewComponent onViewSelect={onViewSelect}/>
       </Grid>
       <Grid item xs={2} sx={{display:'flex',justifyContent:'flex-end'}}>
