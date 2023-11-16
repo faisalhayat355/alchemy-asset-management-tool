@@ -152,7 +152,7 @@ const TestSidebar = ({show}:any) => {
 
   
   return (
-    <div style={{height:'81.5vh',overflowY:'auto'}}>
+    <div style={{height:'81.5vh',overflowY:'auto',overflowX:'hidden'}}>
       <List sx={{ width: "100%", maxWidth: 360}}component="nav" aria-labelledby="nested-list-subheader">
       <ListItemButton onClick={handleClickProfile}>
         <AccountCircleIcon style={{color:"#f75757",fontSize:'1.3rem',marginRight:'0.6rem',marginLeft:'0.1rem'}} />

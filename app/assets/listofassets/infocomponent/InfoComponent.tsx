@@ -25,7 +25,7 @@ const Removefunction = (id) => {
     <>
    
      <Grid container mt={0.4}>
-        <Grid container  sx={{border:'1px solid #e2e8f0',width:'98.5%',borderRadius:'5px',alignItems:'center'}}>
+        <Grid container  sx={{border:'1px solid #fecaca',width:'98.5%',borderRadius:'5px',alignItems:'center'}}>
         <Grid item xs={2.5}>
             <Typography fontSize={"0.75rem"} ml={2} noWrap>{items.assettagid}</Typography>
         </Grid>

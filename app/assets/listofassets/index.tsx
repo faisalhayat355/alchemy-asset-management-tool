@@ -25,7 +25,6 @@ const useStyles = makeStyles({
 
 const ListAssetHomeComponent = () => {
   const [users, setUsers] = useState ([]);
-  // const [copyUsers, setCopyUsers]=useState([...users,])
   const [error, setError] = useState ([]);
   const [viewType, setViewType] = useState<ViewTypes>(ViewTypes.LIST);
   const classes = useStyles();
@@ -40,15 +39,13 @@ const ListAssetHomeComponent = () => {
   const onViewSelect = (view: ViewTypes) => {
     setViewType(view);
   };
-
   const onSearchHandler = (c:any) => {
     setUsers(c);
   };
 
   return (
-    <div>
 
-<Box>
+  <Box>
      <Grid container sx={{padding:'1rem'}}>
        <Grid item xs={12}>
          <Typography fontWeight={"bold"} className={classes.typography}>List of Assets</Typography>
@@ -72,9 +69,8 @@ const ListAssetHomeComponent = () => {
         <Button variant='outlined' size='small' style={{background:'#f87171',border:'1px solid #f87171',color:'white',fontSize:'0.8rem',fontWeight:'bold'}}> + Add Asset</Button>
       </Link>
       </Grid>
-      <Divider style={{width:'98.5%',marginTop:'1rem'}}/>
+      <Divider style={{width:'98.5%',marginTop:'1rem',background:'#fecaca'}}/>
      </Grid>
-
      <Grid item xs={12}>
           <Switch>
             <Case condition={viewType === ViewTypes.GRID}>
@@ -94,14 +90,7 @@ const ListAssetHomeComponent = () => {
             </Default>
           </Switch>
         </Grid>
-
-
     </Box>
-
-
-
-       {/* <ListItemComponent users={users}/> */}
-    </div>
   )
 }
 

@@ -12,6 +12,7 @@ interface AssetSearchComponentProps {
 
 const AssetSearchComponent = ({onSearchHandler,users}:AssetSearchComponentProps) => {
     const [searchStr, setSearchStr] = useState<string>("");
+    
 
   // const filterByName = (brand: string) =>  (f): boolean => f.brand.toLowerCase().includes(brand.toLowerCase());
 

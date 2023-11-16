@@ -12,7 +12,7 @@ const Logo = ({ handleMenu, show }: logoProps) => {
     <div style={{ display: "flex", alignItems: "center", paddingBottom: "1rem" }}>
       {show && (
         <Grid textAlign={"left"} pt={1} display={{ xs: "none", sm: "none", md: "block" }}>
-          <img src="./images/alchemyasset.png" alt="logo not found" style={{ width: "95%" }}/>
+          <img src="./images/alchemyasset.png" alt="logo not found" style={{ width: "90%" }}/>
         </Grid>
       )}
       <div style={{marginLeft:'0.5rem'}}>

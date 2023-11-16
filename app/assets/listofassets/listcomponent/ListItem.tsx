@@ -1,6 +1,6 @@
 "use client"
 import SearchIcon from '@mui/icons-material/Search';
-import { Box, Button, Grid, Typography } from '@mui/material';
+import { Box, Button, Grid, Pagination, Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import InputBase from '@mui/material/InputBase';
@@ -9,11 +9,14 @@ import Link from "next/link";
 import AssetsInfoComponent from '../infocomponent/InfoComponent';
 import { makeStyles } from '@mui/styles';
 import { IAssets } from '../models/assets.model';
+import { PaginationHandler } from '../utility/pagination';
+import { useState } from 'react';
 
 const useStyles = makeStyles({
   typography: {
-     fontFamily:"Papyrus",
-     fontSize:'1.3rem'
+     color:"#334155",
+     fontSize:'0.8rem',
+     fontWeight:'bold'
   },
 });
 
@@ -24,40 +27,66 @@ type AssetsProps = {
 const ListItemComponent = ({users}:AssetsProps) => {
   const classes = useStyles();
 
+  let [page, setPage] = useState(1);
+  const PER_PAGE = 8;
+  const count = Math.ceil(users.length / PER_PAGE);
+  const paginationHandler = PaginationHandler(users, PER_PAGE);
+
+  const handleChangePage = (e: any, p: number) => {
+    setPage(p);
+    paginationHandler.jump(p);
+  };
   return (
     <>
     <Box>
      <Grid container sx={{background:'white',paddingLeft:'1rem',paddingBottom:'1rem',width:'97.5%',marginLeft:'1rem',alignItems:'center'}}>
-        <Grid container sx={{border:'1px solid #e2e8f0',padding:'0.2rem',width:'98.5%',borderRadius:'5px'}}>
+        <Grid container sx={{border:'1px solid #fecaca',padding:'0.2rem',width:'98.5%',borderRadius:'5px'}}>
         <Grid item xs={2.5}>
-            <Typography fontWeight={"bold"} fontSize={"0.8rem"} color={"#334155"} ml={1}>Asset Tag ID</Typography>
+            <Typography className={classes.typography} ml={1}>Asset Tag ID</Typography>
         </Grid>
         <Grid item xs={2}>
-            <Typography fontWeight={"bold"} fontSize={"0.8rem"} color={"#334155"}>Department</Typography>
+            <Typography className={classes.typography}>Department</Typography>
         </Grid>
         <Grid item xs={2}>
-            <Typography fontWeight={"bold"} fontSize={"0.8rem"} color={"#334155"}>Brand</Typography>
+            <Typography className={classes.typography}>Brand</Typography>
         </Grid>
         <Grid item xs={2}>
-            <Typography fontWeight={"bold"} fontSize={"0.8rem"} color={"#334155"}>Model</Typography>
+            <Typography className={classes.typography}>Model</Typography>
         </Grid>
         <Grid item xs={2.5}>
-            <Typography fontWeight={"bold"} fontSize={"0.8rem"} color={"#334155"}>Serial No.</Typography>
+            <Typography className={classes.typography}>Serial No.</Typography>
         </Grid>
         <Grid item xs={1}>
-            <Typography fontWeight={"bold"} fontSize={"0.8rem"} color={"#334155"}>Action</Typography>
+            <Typography className={classes.typography}>Action</Typography>
         </Grid>
         </Grid>
-        {users.map((items)=>{
-            return(
-               <>
-                <AssetsInfoComponent items={items}/>
-               </>
-            )
-        })}
-        
      </Grid>     
     </Box>
+    <Grid style={{ marginTop:"-1rem",height: "53vh",background:'white',paddingLeft:'1rem',paddingBottom:'1rem',width:'97.5%',marginLeft:'1rem',alignItems:'center' }}>
+        {paginationHandler
+          .currentData()
+          .reverse()
+          ?.map((items:any, index: number) => {
+            return (
+              <Typography key={index}>
+                 <AssetsInfoComponent items={items}/>
+              </Typography>
+            );
+          })}
+      </Grid>
+      <Grid container mt={1}>
+        <Grid item xs={11.92} display={"flex"} justifyContent={"flex-end"}>
+          <Grid style={{ position: "fixed" }}></Grid>
+          <Pagination
+            count={count}
+            size="small"
+            page={page}
+            variant="outlined"
+            color="primary"
+            onChange={handleChangePage}
+          />
+        </Grid>
+      </Grid>
    </>
   )
 }

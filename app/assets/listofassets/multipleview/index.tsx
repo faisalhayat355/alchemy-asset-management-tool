@@ -1,7 +1,6 @@
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import GridViewIcon from "@mui/icons-material/GridView";
 import ListAltIcon from "@mui/icons-material/ListAlt";
-import TimelineIcon from "@mui/icons-material/Timeline";
 import Stack from "@mui/material/Stack";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
@@ -20,12 +19,6 @@ const viewIconsSet = [
       view: ViewTypes.GRID,
       title: "Grid",
       icon: <GridViewIcon fontSize="small" />,
-    },
-    {
-      id: 3,
-      view: ViewTypes.GRAPH,
-      title: "Graph",
-      icon: <TimelineIcon fontSize="small" />,
     },
     {
       id: 4,
