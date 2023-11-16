@@ -60,7 +60,7 @@ import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 
 
 
-const TestSidebar = () => {
+const TestSidebar = ({show}:any) => {
   const [alerts, setAlerts] = React.useState(false);
   const [profile, setProfile] = React.useState(false);
   const [assets, setAssets] = React.useState(false);
@@ -156,15 +156,19 @@ const TestSidebar = () => {
       <List sx={{ width: "100%", maxWidth: 360}}component="nav" aria-labelledby="nested-list-subheader">
       <ListItemButton onClick={handleClickProfile}>
         <AccountCircleIcon style={{color:"#f75757",fontSize:'1.3rem',marginRight:'0.6rem',marginLeft:'0.1rem'}} />
-        <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Profile</Typography> 
-        {profile ? <ExpandLess /> : <ExpandMore />}
-        <ListItemIcon style={{marginLeft:'2rem'}}>
-        </ListItemIcon>
+        
+        {show && (
+          <div style={{display:'flex'}}>
+            <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550',alignItems:'center'}}>Profile
+          </Typography>
+          {profile ? <ExpandLess style={{marginLeft:'5.3rem'}}/> : <ExpandMore style={{marginLeft:'5.3rem'}}/>} 
+          </div>
+        )}
       </ListItemButton>
       <Collapse in={profile} timeout="auto" unmountOnExit>
       <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          <ListItemButton sx={{ pl: 2.7 }}>
           <Person2OutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>My Profile</Typography>
           </ListItemButton>
@@ -172,7 +176,7 @@ const TestSidebar = () => {
         </Link>
         <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          <ListItemButton sx={{ pl: 2.7 }}>
           <LockOpenOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Change Password</Typography>
           </ListItemButton>
@@ -180,7 +184,7 @@ const TestSidebar = () => {
         </Link>
         <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          <ListItemButton sx={{ pl: 2.7 }}>
           <ExitToAppOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Log out</Typography>
           </ListItemButton>
@@ -191,7 +195,7 @@ const TestSidebar = () => {
       <Collapse in={profile} timeout="auto" unmountOnExit style={{marginTop:'-0.1rem'}}>
       <Link href="/alerts/setupalerts" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          <ListItemButton sx={{ pl: 2.7 }}>
           <Person2OutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
             <Typography sx={{color:'#414242',fontSize:'0.9rem'}}>Account Details</Typography>
           </ListItemButton>
@@ -200,7 +204,7 @@ const TestSidebar = () => {
 
         <Link href="/alerts/setupalerts" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          <ListItemButton sx={{ pl: 2.7 }}>
           <DiamondOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
             <Typography sx={{color:'#414242',fontSize:'0.9rem'}}>Subscription Plan</Typography>
           </ListItemButton>
@@ -210,199 +214,260 @@ const TestSidebar = () => {
          <Link href="/dashboard" passHref style={{ textDecoration: "none" }}>
       <ListItemButton>
           <HomeOutlinedIcon style={{color:"#f75757",fontSize:'1.4rem',marginRight:'0.6rem'}}/>
+          {show && (
         <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'bold'}}>Dashboard</Typography>
+          )}
       </ListItemButton>
       </Link>
       <Divider style={{width:'100%'}}/>
       <ListItemButton onClick={handleClickAlerts}>
         <FlagOutlinedIcon style={{color:"#f75757",fontSize:'1.4rem',marginRight:'0.6rem'}} />
-        <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Alerts</Typography>
-        {alerts ? <ExpandLess /> : <ExpandMore />}
-        <ListItemIcon style={{marginLeft:'2rem'}}>
-        <Badge color="error" overlap="circular" badgeContent="0" ></Badge>
-        </ListItemIcon>
+        {show && (
+          <div style={{display:'flex', alignItems:'center'}}>
+            <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Alerts</Typography>
+            {alerts ? <ExpandLess style={{marginLeft:'4.6rem'}}/> : <ExpandMore style={{marginLeft:'5.6rem'}}/>}
+            <ListItemIcon style={{marginLeft:'0.6rem'}}>
+             <Badge color="error" overlap="circular" badgeContent="0" ></Badge>
+            </ListItemIcon>
+          </div>
+        )}
+        
       </ListItemButton>
+     {show &&(
+     <>
       <Collapse in={alerts} timeout="auto" unmountOnExit>
       <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          {show &&(
+            <ListItemButton sx={{ pl: 2.7 }}>
             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Assets Past Due</Typography>
             <Badge color="primary" overlap="circular" badgeContent="0" style={{marginLeft:'3.2rem'}}></Badge>
           </ListItemButton>
+          )}
         </List>
         </Link>
       </Collapse>
       <Collapse in={alerts} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}>
       <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7}}>
+        {show && (
+            <ListItemButton sx={{ pl: 2.7}}>
             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Leases Expiring</Typography>
             <Badge color="warning" overlap="circular" badgeContent="0" style={{marginLeft:'3.4rem'}}></Badge>
           </ListItemButton>
+        )}
         </List>
         </Link>
       </Collapse>
       <Collapse in={alerts} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}>
       <Link href="/alerts/maintainancedue" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Maintainance Due</Typography>
-            <Badge color="secondary" overlap="circular" badgeContent="0" style={{marginLeft:'2.7rem'}}></Badge>
-          </ListItemButton>
+         {show && (
+           <ListItemButton sx={{ pl: 2.7 }}>
+           <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Maintainance Due</Typography>
+           <Badge color="secondary" overlap="circular" badgeContent="0" style={{marginLeft:'2.7rem'}}></Badge>
+         </ListItemButton>
+         )}
         </List>
         </Link>
       </Collapse>
       <Collapse in={alerts} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}>
       <Link href="/alerts/maintananceoverdue" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Maintainance Overdue</Typography>
-            <Badge color="secondary" overlap="circular" badgeContent="0" style={{marginLeft:'1.1rem'}}></Badge>
-          </ListItemButton>
+         {show && (
+           <ListItemButton sx={{ pl: 2.7 }}>
+           <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Maintainance Overdue</Typography>
+           <Badge color="secondary" overlap="circular" badgeContent="0" style={{marginLeft:'1.1rem'}}></Badge>
+         </ListItemButton>
+         )}
         </List>
         </Link>
       </Collapse>
       <Collapse in={alerts} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}>
       <Link href="/alerts/warrantiesexpire" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Warranties Expiring</Typography>
-            <Badge color="error" overlap="circular" badgeContent="0" style={{marginLeft:'2.3rem'}}></Badge>
-          </ListItemButton>
-        </List>
+       {show && (
+         <List component="div" disablePadding>
+         <ListItemButton sx={{ pl: 2.7 }}>
+           <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Warranties Expiring</Typography>
+           <Badge color="error" overlap="circular" badgeContent="0" style={{marginLeft:'2.3rem'}}></Badge>
+         </ListItemButton>
+       </List>
+       )}
         </Link>
       </Collapse>
     <Divider style={{width:'100%'}}/>
       <Collapse in={alerts} timeout="auto" unmountOnExit style={{marginTop:'-0.1rem'}}>
       <Link href="/alerts/setupalerts" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          <ListItemButton sx={{ pl: 2.7 }}>
           <BuildOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.9rem'}}>Setup Alerts</Typography>
+           {show && (
+             <Typography sx={{color:'#414242',fontSize:'0.9rem'}}>Setup Alerts</Typography>
+           )}
           </ListItemButton>
         </List>
         </Link>
       </Collapse>
+     </>
+      )} 
       <ListItemButton onClick={handleClickAssets}>
         <ManageAccountsIcon style={{color:"#f75757",fontSize:'1.4rem',marginRight:'0.6rem'}} />
-        <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Assets</Typography> 
-        {assets ? <ExpandLess /> : <ExpandMore />}
+     {show &&(
+       <div style={{display:'flex'}}>
+       <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Assets</Typography> 
+         {assets ? <ExpandLess style={{marginLeft:'5.1rem'}}/> : <ExpandMore style={{marginLeft:'5.1rem'}}/>}
+       </div>
+     )}
         <ListItemIcon style={{marginLeft:'2rem'}}>
         </ListItemIcon>
       </ListItemButton>
       <Collapse in={assets} timeout="auto" unmountOnExit>
       <Link href="/assets/listofassets" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          <ListItemButton sx={{ pl: 2.7 }}>
           <ListOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>List of Assets</Typography>
+           {show &&(
+             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>List of Assets</Typography>
+           )}
           </ListItemButton>
         </List>
         </Link>
         <Link href="/assets/addassets" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          <ListItemButton sx={{ pl: 2.7 }}>
           <AddCircleOutlineOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Add an Assets</Typography>
+           {show && (
+             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Add an Assets</Typography>
+           )}
           </ListItemButton>
         </List>
         </Link>
         <Divider style={{width:'100%'}}/>
         <Link href="/assets/checkin" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          <ListItemButton sx={{ pl: 2.7 }}>
           <PersonAddOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Check in</Typography>
+            {show && (
+              <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Check in</Typography>
+            )}
           </ListItemButton>
         </List>
         </Link>
         <Link href="/assets/checkout" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          <ListItemButton sx={{ pl: 2.7 }}>
           <PersonAddDisabledOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Check out</Typography>
+           {show && (
+             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Check out</Typography>
+           )}
           </ListItemButton>
         </List>
         </Link>
         <Link href="/assets/lease" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          <ListItemButton sx={{ pl: 2.7 }}>
           <SendOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Lease</Typography>
+            {show && (
+              <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Lease</Typography>
+            )}
           </ListItemButton>
         </List>
         </Link>
         <Link href="/assets/leasereturn" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          <ListItemButton sx={{ pl: 2.7 }}>
           <SendOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Lease Return</Typography>
+            {show && (
+              <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Lease Return</Typography>
+            )}
           </ListItemButton>
         </List>
         </Link>
         <Link href="/assets/dispose" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          <ListItemButton sx={{ pl: 2.7 }}>
           <RecyclingOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Dispose</Typography>
+            {show && (
+              <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Dispose</Typography>
+            )}
           </ListItemButton>
         </List>
         </Link>
         <Link href="/assets/maintanance" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          <ListItemButton sx={{ pl: 2.7 }}>
           <MiscellaneousServicesOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Maintenance</Typography>
+            {show && (
+              <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Maintenance</Typography>
+            )}
           </ListItemButton>
         </List>
         </Link>
 
         <Link href="/assets/move" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          <ListItemButton sx={{ pl: 2.7 }}>
           <OpenWithOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Move</Typography>
+            {show && (
+              <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Move</Typography>
+            )}
           </ListItemButton>
         </List>
         </Link>
         <Link href="/assets/reserve" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          <ListItemButton sx={{ pl: 2.7 }}>
           <CalendarMonthOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Reserve</Typography>
+            {show && (
+              <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Reserve</Typography>
+            )}
           </ListItemButton>
         </List>
         </Link>
       </Collapse>
       <Divider style={{width:'100%'}}/>
 
+      <Link href="/assets/listofassets" passHref style={{ textDecoration: "none" }}>
       <ListItemButton onClick={handleClickLists}>
         <ListOutlinedIcon style={{color:"#f75757",fontSize:'1.4rem',marginRight:'0.6rem'}} />
-        <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Lists</Typography>
-        {lists ? <ExpandLess /> : <ExpandMore />}
+        {show && (
+          <div style={{display:'flex'}}>
+          <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Lists</Typography>
+            {lists ? <ExpandLess style={{color:'black',marginLeft:'6rem'}}/> : <ExpandMore style={{color:'black',marginLeft:'6rem'}} />}
+          </div>     
+        )}
         <ListItemIcon style={{marginLeft:'2rem'}}>
         </ListItemIcon>
       </ListItemButton>
+      </Link>
+
+
       <Collapse in={lists} timeout="auto" unmountOnExit>
       <Link href="/lists/listofassets" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>List of Assets</Typography>
+        {show && (
+          <ListItemButton sx={{ pl: 2.7 }}>
+             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>List of Assets</Typography>
           </ListItemButton>
+            )}
         </List>
         </Link>
         <Link href="/lists/listofmaintanance" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>List of Maintenance</Typography>
+        {show && (
+          <ListItemButton sx={{ pl: 2.7 }}>
+             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>List of Maintenance</Typography>
           </ListItemButton>
+          )}
         </List>
         </Link>
         <Link href="/lists/listofwarranties" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+        {show && (
+          <ListItemButton sx={{ pl: 2.7 }}>
             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>List of Warranties</Typography>
           </ListItemButton>
+           )}
         </List>
         </Link>
       </Collapse>
@@ -410,68 +475,88 @@ const TestSidebar = () => {
 
       <ListItemButton onClick={handleClickReports}>
         <DescriptionOutlinedIcon style={{color:"#f75757",fontSize:'1.4rem',marginRight:'0.6rem'}} />
-        <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Reports</Typography>
-        {reports ? <ExpandLess /> : <ExpandMore />}
+          {show && (
+        <div style={{display:'flex'}}>
+            <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Reports</Typography>
+            {reports ? <ExpandLess style={{marginLeft:'4.7rem'}}/> : <ExpandMore style={{marginLeft:'4.7rem'}} />}
+        </div>
+          )}
         <ListItemIcon style={{marginLeft:'2rem'}}>
         </ListItemIcon>
       </ListItemButton>
       <Collapse in={reports} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}>
       <Link href="/alerts/warrantiesexpire" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 5 }}>
-            <Typography sx={{color:'#414242',fontSize:'0.9rem'}}>Automated Reports</Typography>
-          </ListItemButton>
+         {show && (
+           <ListItemButton sx={{ pl: 5 }}>
+           <Typography sx={{color:'#414242',fontSize:'0.9rem'}}>Automated Reports</Typography>
+         </ListItemButton>
+         )}
         </List>
         </Link>
       </Collapse>
       <Divider style={{width:'100%'}}/>
       <Collapse in={reports} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 5 }} onClick={handleClickCustomReports} >
-            <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Custom Reports</Typography>
-            {customReports ? <ExpandLess /> : <ExpandMore />}
-          </ListItemButton>
+         {show && (
+           <ListItemButton sx={{ pl: 5 }} onClick={handleClickCustomReports} >
+           <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Custom Reports</Typography>
+           {customReports ? <ExpandLess /> : <ExpandMore />}
+         </ListItemButton>
+         )}
           <Collapse in={customReports} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}>
       <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>New Report</Typography>
-          </ListItemButton>
+         {show && (
+           <ListItemButton sx={{ pl:5.5}}>
+           <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>New Report</Typography>
+         </ListItemButton>
+         )}
         </List>
         </Link>
         <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
+          {show && (
+            <ListItemButton sx={{ pl:5.5}}>
             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>-Asset List</Typography>
           </ListItemButton>
+          )}
         </List>
         </Link>
       </Collapse>
 
-      <ListItemButton sx={{ pl: 5 }} onClick={handleClickAssetReports} >
-            <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Asset Reports</Typography>
-            {assetReports ? <ExpandLess /> : <ExpandMore />}
-          </ListItemButton>
+      {show && (
+        <ListItemButton sx={{ pl: 5 }} onClick={handleClickAssetReports} >
+        <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Asset Reports</Typography>
+        {assetReports ? <ExpandLess /> : <ExpandMore />}
+      </ListItemButton>
+      )}
           <Collapse in={assetReports} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}>
       <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
+        {show && (
+          <List component="div" disablePadding>
           <ListItemButton sx={{ pl:5.5}}>
             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>by Asset Tag</Typography>
           </ListItemButton>
         </List>
+        )}
         </Link>
         <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
+          {show && (
+            <ListItemButton sx={{ pl:5.5}}>
             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>by Tag with Pictures</Typography>
           </ListItemButton>
+          )}
         </List>
         </Link>
         <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>by Category</Typography>
-          </ListItemButton>
+         {show && (
+           <ListItemButton sx={{ pl:5.5}}>
+           <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>by Category</Typography>
+         </ListItemButton>
+         )}
         </List>
         </Link>
         <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
@@ -483,32 +568,41 @@ const TestSidebar = () => {
         </Link>
         <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>by Department</Typography>
-          </ListItemButton>
+         {show && (
+           <ListItemButton sx={{ pl:5.5}}>
+           <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>by Department</Typography>
+         </ListItemButton>
+         )}
         </List>
         </Link>
         <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>by Warranty Info.</Typography>
-          </ListItemButton>
+         {show && (
+           <ListItemButton sx={{ pl:5.5}}>
+           <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>by Warranty Info.</Typography>
+         </ListItemButton>
+         )}
         </List>
         </Link>
         <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
+        {show && (
+            <ListItemButton sx={{ pl:5.5}}>
             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>by Linked Assets</Typography>
           </ListItemButton>
+        )}
         </List>
         </Link>
       </Collapse>
 
-
       <ListItemButton sx={{ pl: 5 }} onClick={handleClickAuditReports} >
-            <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Audit Reports</Typography>
-            {auditReports ? <ExpandLess /> : <ExpandMore />}
-          </ListItemButton>
+          {show && (
+             <div style={{display:'flex'}}>
+             <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Audit Reports</Typography>
+              {auditReports ? <ExpandLess /> : <ExpandMore />}
+             </div>
+          )}
+      </ListItemButton>
       <Collapse in={auditReports} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}>
       <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
@@ -560,12 +654,14 @@ const TestSidebar = () => {
         </List>
         </Link>
       </Collapse>
-
-
       <ListItemButton sx={{ pl: 5 }} onClick={handleClickCheckOutReports} >
-            <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Check-Out Reports</Typography>
+       {show && (
+        <div style={{display:'flex'}}>
+           <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Check-Out Reports</Typography>
             {checkOutReports ? <ExpandLess /> : <ExpandMore />}
-          </ListItemButton>
+        </div>
+       )}
+      </ListItemButton>
       <Collapse in={checkOutReports} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}>
       <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
@@ -610,12 +706,14 @@ const TestSidebar = () => {
         </List>
         </Link>
       </Collapse>
-
-
       <ListItemButton sx={{ pl: 5 }} onClick={handleClickLeasedReports} >
+      {show && (
+        <div style={{display:'flex'}}>
             <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Leased Asset Reports</Typography>
             {leasedReports ? <ExpandLess /> : <ExpandMore />}
-          </ListItemButton>
+        </div>
+      )}    
+      </ListItemButton>
       <Collapse in={leasedReports} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}>
       <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
@@ -654,9 +752,13 @@ const TestSidebar = () => {
         </Link>
       </Collapse>
       <ListItemButton sx={{ pl: 5 }} onClick={handleClickMaintenanceReports} >
-            <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Maintenance Reports</Typography>
+      {show && (
+        <div style={{display:'flex'}}>
+           <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Maintenance Reports</Typography>
             {maintenanceReports ? <ExpandLess /> : <ExpandMore />}
-          </ListItemButton>
+        </div>
+      )}    
+      </ListItemButton>
       <Collapse in={maintenanceReports} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}>
       <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
@@ -695,9 +797,13 @@ const TestSidebar = () => {
         </Link>
       </Collapse>
       <ListItemButton sx={{ pl: 5 }} onClick={handleClickReservationReports} >
+      {show && (
+        <div style={{display:"flex"}}>
             <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Reservation Reports</Typography>
             {reservationReports ? <ExpandLess /> : <ExpandMore />}
-          </ListItemButton>
+        </div>
+      )}  
+      </ListItemButton>
       <Collapse in={reservationReports} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}>
       <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
@@ -708,9 +814,13 @@ const TestSidebar = () => {
         </Link>
       </Collapse>
       <ListItemButton sx={{ pl: 5 }} onClick={handleClickStatusReports} >
+      {show && (
+        <div style={{display:'flex'}}>
             <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Status Reports</Typography>
             {statusReports ? <ExpandLess /> : <ExpandMore />}
-          </ListItemButton>
+        </div>
+      )}    
+      </ListItemButton>
       <Collapse in={statusReports} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}>
       <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
@@ -763,9 +873,13 @@ const TestSidebar = () => {
         </Link>
       </Collapse>
       <ListItemButton sx={{ pl: 5 }} onClick={handleClickTransactionReports} >
-            <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Transaction Reports</Typography>
+      {show && (
+        <div style={{display:'flex'}}>
+           <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Transaction Reports</Typography>
             {transactionReports ? <ExpandLess /> : <ExpandMore />}
-          </ListItemButton>
+        </div>
+      )}     
+      </ListItemButton>
       <Collapse in={transactionReports} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}>
       <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
@@ -867,9 +981,13 @@ const TestSidebar = () => {
         </Link>
       </Collapse>
       <ListItemButton sx={{ pl: 5 }} onClick={handleClickOtherReports} >
+      {show && (
+        <div style={{display:'flex'}}>
             <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Other Reports</Typography>
             {otherReports ? <ExpandLess /> : <ExpandMore />}
-          </ListItemButton>
+        </div>
+      )}    
+      </ListItemButton>
       <Collapse in={otherReports} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}>
       <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
@@ -915,49 +1033,63 @@ const TestSidebar = () => {
 
       <ListItemButton onClick={handleClickTools}>
         <BuildOutlinedIcon style={{color:"#f75757",fontSize:'1.3rem',marginRight:'0.6rem'}} />
-        <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Tools</Typography> 
-        {tools ? <ExpandLess /> : <ExpandMore />}
+       {show && (
+        <div style={{display:'flex'}}>
+          <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Tools</Typography> 
+        {tools ? <ExpandLess style={{marginLeft:'6rem'}}/> : <ExpandMore style={{marginLeft:'6rem'}}/>}
+        </div>
+       )}
         <ListItemIcon style={{marginLeft:'2rem'}}>
         </ListItemIcon>
       </ListItemButton>
       <Collapse in={tools} timeout="auto" unmountOnExit>
       <Link href="/tools/import" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          <ListItemButton sx={{ pl: 2.7 }}>
           <FileUploadOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Import</Typography>
+            {show && (
+              <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Import</Typography>
+            )}
           </ListItemButton>
         </List>
         </Link>
         <Link href="/tools/export" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          <ListItemButton sx={{ pl: 2.7 }}>
           <FileDownloadOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Export</Typography>
+            {show && (
+              <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Export</Typography>
+            )}
           </ListItemButton>
         </List>
         </Link>
         <Link href="/tools/documentgallery" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          <ListItemButton sx={{ pl: 2.7 }}>
           <CollectionsBookmarkOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Documents Gallery</Typography>
+            {show && (
+              <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Documents Gallery</Typography>
+            )}
           </ListItemButton>
         </List>
         </Link>
         <Link href="/tools/imagegallery" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          <ListItemButton sx={{ pl: 2.7 }}>
           <BrokenImageOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Image Gallery</Typography>
+           { show && (
+             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Image Gallery</Typography>
+           )}
           </ListItemButton>
         </List>
         </Link>
         <Link href="/tools/audit" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          <ListItemButton sx={{ pl: 2.7 }}>
           <BorderColorOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Audit</Typography>
+           {show && (
+             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Audit</Typography>
+           )}
           </ListItemButton>
         </List>
         </Link>
@@ -966,110 +1098,131 @@ const TestSidebar = () => {
       <Divider style={{width:'100%'}}/>
       <ListItemButton onClick={handleClickAdvanced}>
         <WorkOutlineOutlinedIcon style={{color:"#f75757",fontSize:'1.4rem',marginRight:'0.6rem'}} />
-        <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Advanced</Typography> 
-        {advanced ? <ExpandLess /> : <ExpandMore />}
+        {show && (
+          <div style={{ display:'flex'}}>
+            <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Advanced</Typography> 
+            {advanced ? <ExpandLess style={{marginLeft:'4rem'}}/> : <ExpandMore style={{marginLeft:'4rem'}}/>}
+          </div>
+        )}
         <ListItemIcon style={{marginLeft:'2rem'}}>
         </ListItemIcon>
       </ListItemButton>
       <Collapse in={advanced} timeout="auto" unmountOnExit>
       <Link href="/advanced/persons-employee" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          <ListItemButton sx={{ pl: 2.7 }}>
           <Person2OutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Persons/Employee</Typography>
+            {show && (
+              <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Persons/Employee</Typography>
+            )}
           </ListItemButton>
         </List>
         </Link>
         <Link href="/advanced/customers" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          <ListItemButton sx={{ pl: 2.7 }}>
           <SupportAgentOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Customers</Typography>
+           {show && (
+             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Customers</Typography>
+           )}
           </ListItemButton>
         </List>
         </Link>
         <Link href="/advanced/users" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          <ListItemButton sx={{ pl: 2.7 }}>
           <PeopleAltOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Users</Typography>
+            {show && (
+              <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Users</Typography>
+            )}
           </ListItemButton>
         </List>
         </Link>
         <Link href="/advanced/security-groups" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          <ListItemButton sx={{ pl: 2.7 }}>
           <ManageAccountsOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Security Groups</Typography>
+            {show && (
+              <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Security Groups</Typography>
+            )}
           </ListItemButton>
         </List>
         </Link>
       </Collapse>
       <Divider style={{width:'100%'}}/>
 
-      <ListItemButton 
-      onClick={handleClickSetup}
-      >
+      <ListItemButton onClick={handleClickSetup}>
         <SettingsOutlinedIcon style={{color:"#f75757",fontSize:'1.4rem',marginRight:'0.6rem'}} />
-        <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Setup</Typography> 
-        {setup ? <ExpandLess /> : <ExpandMore />}
+       {show && (
+        <div style={{display:'flex'}}>
+           <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Setup</Typography> 
+            {setup ? <ExpandLess style={{marginLeft:'5.9rem'}}/> : <ExpandMore style={{marginLeft:'5.9rem'}}/>} 
+        </div>
+       )}
         <ListItemIcon style={{marginLeft:'2rem'}}>
         </ListItemIcon>
       </ListItemButton>
-      
-      
-      
-      
-      
-      
-      
       <Collapse in={setup} timeout="auto" unmountOnExit>
       <Link href="/setup/company-info" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          <ListItemButton sx={{ pl: 2.7 }}>
           <WorkOutlineIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Company Info</Typography>
+           {show && (
+             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Company Info</Typography>
+           )}
           </ListItemButton>
         </List>
         </Link>
         <Link href="/setup/sites" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          <ListItemButton sx={{ pl: 2.7 }}>
           <LocationOnIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Sites</Typography>
+           {show && (
+             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Sites</Typography>
+           )}
           </ListItemButton>
         </List>
         </Link>
         <Link href="/setup/location" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          <ListItemButton sx={{ pl: 2.7 }}>
           <StartIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Locations</Typography>
+           {show && (
+             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Locations</Typography>
+           )}
           </ListItemButton>
         </List>
         </Link>
         <Link href="/setup/categories" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          <ListItemButton sx={{ pl: 2.7 }}>
           <ListIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Categories</Typography>
+            {show && (
+              <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Categories</Typography>
+            )}
           </ListItemButton>
         </List>
         </Link>
         <Link href="/setup/department" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          <ListItemButton sx={{ pl: 2.7 }}>
           <GridViewIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Departments</Typography>
+           {show && (
+             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Departments</Typography>
+           )}
           </ListItemButton>
         </List>
         </Link>
         
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }} onClick={handleClickDatabase}>
+          <ListItemButton sx={{ pl: 2.7 }} onClick={handleClickDatabase}>
           <ViewStreamIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Databases</Typography>
-            {database ? <ExpandLess /> : <ExpandMore />}
+          {show && (
+            <div style={{display:'flex'}}>
+                <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Databases</Typography>
+                {database ? <ExpandLess /> : <ExpandMore />}
+            </div>
+          )}
           </ListItemButton>
           <Collapse in={database} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}>
           <Link href="/setup/database/asset-table" passHref style={{ textDecoration: "none" }}>
@@ -1118,45 +1271,57 @@ const TestSidebar = () => {
         </List>
         <Link href="/setup/events" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          <ListItemButton sx={{ pl: 2.7 }}>
           <EventAvailableIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Events</Typography>
+            {show && (
+              <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Events</Typography>
+            )}
           </ListItemButton>
         </List>
         </Link>
         <Link href="/setup/table-option" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          <ListItemButton sx={{ pl: 2.7 }}>
           <TableChartIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Table Options</Typography>
+           {show && (
+             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Table Options</Typography>
+           )}
           </ListItemButton>
         </List>
         </Link>
         <Link href="/setup/options" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          <ListItemButton sx={{ pl: 2.7 }}>
           <DisplaySettingsIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Options</Typography>
+            {show && (
+              <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Options</Typography>
+            )}
           </ListItemButton>
         </List>
         </Link>
         <Link href="/setup/managed-dashboard" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          <ListItemButton sx={{ pl: 2.7 }}>
           <SpokeIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Managed Dashboard</Typography>
+           {show && (
+             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Managed Dashboard</Typography>
+           )}
           </ListItemButton>
         </List>
         </Link>
         {/* <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}> */}
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }} onClick={handleClickCustomizeForms}>
+          <ListItemButton sx={{ pl: 2.7 }} onClick={handleClickCustomizeForms}>
           <DescriptionIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+           {show && (
+            <div style={{display:'flex'}}>
             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Customize Forms</Typography>
             {customizeForms ? <ExpandLess /> : <ExpandMore />}
+            </div>
+           )}
           </ListItemButton>
           <Collapse in={customizeForms} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}>
-      <Link href="/setup/customize-forms/asset-forms" passHref style={{ textDecoration: "none" }}>
+          <Link href="/setup/customize-forms/asset-forms" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl:5.5}}>
             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Asset Form</Typography>
@@ -1198,14 +1363,16 @@ const TestSidebar = () => {
           </ListItemButton>
         </List>
         </Link>
-      </Collapse>
+          </Collapse>
         </List>
         {/* </Link> */}
         <Link href="/setup/customize-emails" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          <ListItemButton sx={{ pl: 2.7 }}>
           <ContactMailIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Customize Emails</Typography>
+           {show && (
+             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Customize Emails</Typography>
+           )}
           </ListItemButton>
         </List>
         </Link>
@@ -1214,79 +1381,96 @@ const TestSidebar = () => {
 
       <ListItemButton onClick={handleClickHelpSupport}>
         <SupportOutlinedIcon style={{color:"#f75757",fontSize:'1.3rem',marginRight:'0.6rem'}} />
-        <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Help/Support</Typography> 
-        {helpsupport ? <ExpandLess /> : <ExpandMore />}
+       {show && (
+        <div style={{display:'flex'}}>
+           <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Help/Support</Typography> 
+          {helpsupport ? <ExpandLess style={{marginLeft:'2.8rem'}}/> : <ExpandMore style={{marginLeft:'2.8rem'}}/>}
+        </div>
+       )}
         <ListItemIcon style={{marginLeft:'2rem'}}>
         </ListItemIcon>
       </ListItemButton>
       <Collapse in={helpsupport} timeout="auto" unmountOnExit>
       <Link href="/help-support/aboutus" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          <ListItemButton sx={{ pl: 2.7 }}>
           <ErrorOutlineOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>About Us</Typography>
+            {show && (
+              <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>About Us</Typography>
+            )}
           </ListItemButton>
         </List>
         </Link>
         <Link href="/help-support/contactus" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          <ListItemButton sx={{ pl: 2.7 }}>
           <CallOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Contact Us</Typography>
+            {show && (
+              <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Contact Us</Typography>
+            )}
           </ListItemButton>
         </List>
         </Link>
         <Link href="/help-support/terms-of-service" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          <ListItemButton sx={{ pl: 2.7 }}>
           <FavoriteBorderOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Terms of Service</Typography>
+            {show && (
+              <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Terms of Service</Typography>
+            )}
           </ListItemButton>
         </List>
         </Link>
         <Link href="/help-support/privacy-policy" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          <ListItemButton sx={{ pl: 2.7 }}>
           <SentimentSatisfiedAltOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Privacy Policy</Typography>
+           {show && (
+             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Privacy Policy</Typography>
+           )}
           </ListItemButton>
         </List>
         </Link>
         <Link href="/help-support/videos" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          <ListItemButton sx={{ pl: 2.7 }}>
           <SmartDisplayOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Videos</Typography>
+            {show && (
+              <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Videos</Typography>
+            )}
           </ListItemButton>
         </List>
         </Link>
         <Link href="/help-support/user-reviews" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          <ListItemButton sx={{ pl: 2.7 }}>
           <StarBorderPurple500OutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>User Reviews</Typography>
+            {show && (
+              <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>User Reviews</Typography>
+            )}
           </ListItemButton>
         </List>
         </Link>
         <Link href="/help-support/change-log" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3.7 }}>
+          <ListItemButton sx={{ pl: 2.7 }}>
           <WatchLaterOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Changelog</Typography>
+           {show && (
+            <div style={{display:'flex'}}>
+               <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Changelog</Typography>
             <ListItemIcon style={{marginLeft:'1rem'}}>
-        <div style={{background:'#dc2626',width:'90%',height:'3.5vh ',borderRadius:'4px',paddingLeft:'0.6rem',paddingTop:'0.2rem',fontWeight:'bold'}}>
-          <Typography sx={{fontSize:'0.8rem',color:'white'}}>Aug01</Typography>
-        </div>
+              <div style={{background:'#dc2626',width:'90%',height:'3.5vh ',borderRadius:'4px',paddingLeft:'0.6rem',paddingTop:'0.2rem',fontWeight:'bold'}}>
+                <Typography sx={{fontSize:'0.8rem',color:'white'}}>Aug01</Typography>
+              </div>
         </ListItemIcon>
+            </div>
+           )}
           </ListItemButton>
           
         </List>
         </Link>
       </Collapse>
       <Divider style={{width:'100%'}}/>
-
-
-
     </List>
     </div>
   )

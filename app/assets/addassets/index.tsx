@@ -21,7 +21,7 @@ const useStyles = makeStyles({
   
 const AssetCreatePage = () => {
     const classes = useStyles();
-  const [inputData, setInputData] = useState({assettagid:"",purchasefrom:"",purchasedate:"",mobile:"",address:"",description:"",brand:"",cost:"",model:"",serialno:"",site:"",category:"",location:"",department:"",});
+  const [inputData, setInputData] = useState({assettagid:"",purchasefrom:"",purchasedate:"",mobile:"",address:"",description:"",brand:"",cost:"",model:"",serialno:"",site:"",category:"",location:"",department:"",processor:"",ram:"",});
   const router = useRouter()
   
   function handleSubmit(event:any) {
@@ -39,13 +39,13 @@ const AssetCreatePage = () => {
     <div>
     <form onSubmit={handleSubmit}>
      <Box >
-      <Grid container sx={{padding:'1rem'}}>
+      <Grid container sx={{paddingLeft:'1rem',paddingTop:"0.5rem",paddingBottom:'0.5rem'}}>
         <Grid item xs={12}>
           <Typography fontWeight={"bold"} className={classes.typography}>Asset Details</Typography>
         </Grid>
       </Grid>
-      <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #f87171',paddingLeft:'2rem',paddingTop:'0.8rem',paddingBottom:'1rem',width:'85%',marginLeft:'5rem',alignItems:'center',boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}}>
-        <Grid item xs={6} mt={1} >
+      <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #f87171',paddingLeft:'2rem',paddingTop:'0.8rem',paddingBottom:'0.7rem',width:'85%',marginLeft:'5rem',alignItems:'center',boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}}>
+        <Grid item xs={6} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
             <Typography>Asset Tag ID <span style={{color:'red'}}>*</span></Typography>
@@ -57,7 +57,6 @@ const AssetCreatePage = () => {
             </Grid>
           </Grid>
         </Grid>
-
         <Grid item xs={6} mt={1} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
@@ -69,8 +68,7 @@ const AssetCreatePage = () => {
             </Grid>
           </Grid>
         </Grid>
-
-        <Grid item xs={6} mt={1} >
+        <Grid item xs={6} mt={0.6}>
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
             <Typography>Purchased from</Typography>
@@ -92,20 +90,20 @@ const AssetCreatePage = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={6} mt={1} >
+        <Grid item xs={6} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3}>
             <Typography>Cost</Typography>
             </Grid>
             <Grid item xs={8}>
             <FormControl fullWidth sx={{ m: 1 }}>
-          <OutlinedInput startAdornment={<InputAdornment position="start">$</InputAdornment>} placeholder='United State Dollar' fullWidth size='small'
+          <OutlinedInput startAdornment={<InputAdornment position="start">₹</InputAdornment>} fullWidth size='small'
            onChange={(e) => setInputData({ ...inputData, cost: e.target.value })}/>
         </FormControl>
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={6} mt={1} >
+        <Grid item xs={6} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
             <Typography>Model</Typography>
@@ -116,7 +114,7 @@ const AssetCreatePage = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={6} mt={1} >
+        <Grid item xs={6} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
             <Typography>Brand</Typography>
@@ -127,7 +125,7 @@ const AssetCreatePage = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={6} mt={1} >
+        <Grid item xs={6} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
             <Typography>Serial No.</Typography>
@@ -138,15 +136,38 @@ const AssetCreatePage = () => {
             </Grid>
           </Grid>
         </Grid>
+        <Grid item xs={6} mt={1} >
+          <Grid container sx={{alignItems:'center'}}>
+            <Grid item xs={3.2}>
+            <Typography>Processor</Typography>
+            </Grid>
+            <Grid item xs={8}>
+            <TextField id="outlined-basic"  fullWidth size='small'
+            onChange={(e) => setInputData({ ...inputData, processor: e.target.value })}/>
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid item xs={6} mt={1} >
+          <Grid container sx={{alignItems:'center'}}>
+            <Grid item xs={3.2}>
+            <Typography>Ram</Typography>
+            </Grid>
+            <Grid item xs={8}>
+            <TextField id="outlined-basic"  fullWidth size='small'
+            onChange={(e) => setInputData({ ...inputData, ram: e.target.value })}/>
+            </Grid>
+          </Grid>
+        </Grid>
+
       </Grid>
      </Box>
      <Box>
-      <Grid container sx={{paddingLeft:'1rem',paddingTop:'0.5rem',paddingBottom:'0.5rem',marginTop:'0.5rem'}}>
+      <Grid container sx={{paddingLeft:'1rem',paddingTop:'0.5rem',paddingBottom:'0.5rem',marginTop:'0.3rem'}}>
         <Grid item xs={12}>
           <Typography fontWeight={"bold"} className={classes.typography}>Site, Location, Category and Department</Typography>
         </Grid>
       </Grid>
-      <Grid container sx={{marginTop:'0.3rem',background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #f87171',paddingLeft:'2rem',paddingTop:'1rem',paddingBottom:'0.8rem',width:'85%',marginLeft:'5rem',alignItems:'center',boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}}>
+      <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #f87171',paddingLeft:'2rem',paddingTop:'1rem',paddingBottom:'0.8rem',width:'85%',marginLeft:'5rem',alignItems:'center',boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}}>
         <Grid item xs={6} mt={1} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
@@ -197,11 +218,11 @@ const AssetCreatePage = () => {
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={5.2}>
             <Link href="/assets/listofassets" passHref style={{ textDecoration: "none" }}>
-            <button style={{cursor:'pointer',background:'#2563eb',color:'white',width:'90%',border:'none',height:'5vh',borderRadius:'5px'}}> Cancel</button>
+            <button style={{cursor:'pointer',background:'#f87171',color:'white',width:'90%',border:'none',height:'5vh',borderRadius:'5px'}}> Cancel</button>
             </Link>
             </Grid>
             <Grid item xs={3.7}>
-            <button style={{background:'#2563eb',color:'white',width:'130%',border:'none',height:'5vh',borderRadius:'5px'}}> Save</button>
+            <button style={{background:'#f87171',color:'white',width:'130%',border:'none',height:'5vh',borderRadius:'5px'}}> Save</button>
             </Grid>
           </Grid>
         </Grid>

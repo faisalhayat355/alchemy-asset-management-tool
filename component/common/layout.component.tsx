@@ -3,9 +3,9 @@ import { Grid } from "@mui/material";
 import HeaderComponent from "./Header/index";
 import Logo from "./Sidebar/Logo";
 import ProjectSidebar from "./Sidebar/ProjectSidebar/project.sidebar";
-import TestSidebar from "../common/Sidebar/ProjectSidebar/testsidebar/TestSidebar";
+import TestSidebar from "./Sidebar/ProjectSidebar/testsidebar/TestSidebar";
 import { useSession } from "next-auth/react";
-import AssetSidebarComponent from "../common/Sidebar/assetsidebar/assetSidebar"
+import AssetSidebarComponent from "./Sidebar/assetsidebar/assetSidebar"
 
 const LayoutComponent = ({ children }: { children: React.ReactNode }) => {
   const [show, setShow] = useState(true);
@@ -23,7 +23,7 @@ const LayoutComponent = ({ children }: { children: React.ReactNode }) => {
             <Logo handleMenu={handleMenu} show={show} />
             {/* <SidebarComponent show={show} /> */}
             {/* <ProjectSidebar show={show} /> */}
-            <TestSidebar/>
+            <TestSidebar show={show}/>
             {/* <AssetSidebarComponent/> */}
           </Grid>
           <Grid item xs={show ? 10.5 : 10.5} sm={show ? 10.5 : 11.5} md={show ? 10 : 11.5} lg={show ? 10 : 11.5}>
