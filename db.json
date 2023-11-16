@@ -1,24 +1,6 @@
 {
   "users": [
     {
-      "id": 1,
-      "assettagid": "Alchemy2753",
-      "purchasefrom": "Alexa",
-      "assignto": "Alexa",
-      "brand": "Dell",
-      "model": "Lattitude5490",
-      "serialno": "AQH65436",
-      "description": "Dell Lattitude Laptop",
-      "purchasedate": "10/12/2020",
-      "cost": "75K",
-      "site": "Alchemy",
-      "category": "Internal",
-      "location": "Banglore",
-      "department": "Recuriter",
-      "ram": "16GB",
-      "processor": "Core I5"
-    },
-    {
       "assettagid": "ADH65431",
       "purchasefrom": "Lenovo Service Center",
       "purchasedate": "2022-01-16",
@@ -127,25 +109,6 @@
       "processor": "I9",
       "ram": "16GB",
       "id": 7
-    },
-    {
-      "assettagid": "BNM677",
-      "purchasefrom": "Banglore",
-      "purchasedate": "2019-09-10",
-      "mobile": "",
-      "address": "",
-      "description": "Battery Problem",
-      "brand": "Asus",
-      "cost": "65000",
-      "model": "Asus",
-      "serialno": "YTU87867",
-      "site": "External-Client",
-      "category": "Returned",
-      "location": "Delhi NCR",
-      "department": "Accounts",
-      "processor": "I7",
-      "ram": "8GB",
-      "id": 8
     }
   ]
 }

@@ -15,7 +15,7 @@ type AssetsProps = {
 const AssetCalendarView = ({users}:AssetsProps) => {
     const [events, setEvents] = useState([]);
 
-    const calendarCustomer = users?.map((users) => {
+    const calendarAsset = users?.map((users) => {
       return {
         title: users.assettagid,
         start: new Date(users.createdAt),
@@ -23,7 +23,7 @@ const AssetCalendarView = ({users}:AssetsProps) => {
       }
     });
     useEffect(() => {
-      setEvents(calendarCustomer);
+      setEvents(calendarAsset);
     }, []);
   return (
     <>

@@ -36,7 +36,7 @@ const AssetCreatePage = () => {
   }
 
   return (
-    <div>
+  <div>
     <form onSubmit={handleSubmit}>
      <Box >
       <Grid container sx={{paddingLeft:'1rem',paddingTop:"0.5rem",paddingBottom:'0.5rem'}}>
@@ -49,7 +49,6 @@ const AssetCreatePage = () => {
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
             <Typography>Asset Tag ID <span style={{color:'red'}}>*</span></Typography>
-
             </Grid>
             <Grid item xs={8}>
             <TextField id="outlined-basic" fullWidth size='small' 
@@ -158,7 +157,6 @@ const AssetCreatePage = () => {
             </Grid>
           </Grid>
         </Grid>
-
       </Grid>
      </Box>
      <Box>
@@ -201,7 +199,6 @@ const AssetCreatePage = () => {
             </Grid>
           </Grid>
         </Grid>
-       
         <Grid item xs={6} mt={1} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
@@ -230,7 +227,7 @@ const AssetCreatePage = () => {
       </Grid>
      </Box>
      </form>
-    </div>
+  </div>
   )
 }
 

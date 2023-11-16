@@ -14,7 +14,7 @@ const AssetCSVDownload = ({users}:AssetsProps) => {
       <CSVLink
         data={users}
         filename={`asset-list-${new Date().toISOString().slice(0, 10)}`}
-      >
+      style={{color:'black',textDecoration:'none'}}>
         CSV
       </CSVLink>
     </Typography>

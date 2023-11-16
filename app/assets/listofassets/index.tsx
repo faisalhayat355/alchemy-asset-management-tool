@@ -23,24 +23,44 @@ const useStyles = makeStyles({
 });
 
 const ListAssetHomeComponent = () => {
-  const [users, setUsers] = useState ([]);
-  const [error, setError] = useState ([]);
+  const [data, setData] = useState([]);
+  const [users, setUsers] = useState([])
+
+  // const [error, setError] = useState ([]);
   const [viewType, setViewType] = useState<ViewTypes>(ViewTypes.LIST);
   const classes = useStyles();
-
+  // useEffect(() => {
+  //   axios .get("http://localhost:8000/users")
+  //     .then((res) => setUsers(res.data))
+  //     .catch((err) => {
+  //       setError(err.message);
+  //     });
+  // }, []);
+  async function fetchData() {
+    const users = await fetch("http://localhost:8000/users");
+    const result = await users.json();
+    setData(result);
+  }
   useEffect(() => {
-    axios .get("http://localhost:8000/users")
-      .then((res) => setUsers(res.data))
-      .catch((err) => {
-        setError(err.message);
-      });
-  }, []); 
+    fetchData();
+  }, []);
+
+
   const onViewSelect = (view: ViewTypes) => {
     setViewType(view);
   };
   const onSearchHandler = (c:any) => {
     setUsers(c);
   };
+
+  useEffect(()=>{
+    setUsers(data)
+  },[data])
+
+  // const updateUsers = (f)=>{
+  //   setUsers(f);
+  // }
+console.log("users",users);
 
   return (
 
@@ -52,7 +72,7 @@ const ListAssetHomeComponent = () => {
      </Grid>
      <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #f87171',paddingLeft:'1rem',paddingTop:'1rem',paddingBottom:'1rem',width:'97.5%',marginLeft:'1rem',alignItems:'center'}}>
       <Grid item xs={4}>   
-        <AssetSearchComponent onSearchHandler={onSearchHandler} users={users}/>
+        <AssetSearchComponent users={data} setData={setData}/>
       </Grid>
       <Grid item xs={0.4}>
         <AssetFilterComponent/>
