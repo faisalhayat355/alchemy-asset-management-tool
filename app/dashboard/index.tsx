@@ -104,7 +104,7 @@ const DashboardPage = () => {
                         <Grid item xs={8} sx={{display:'flex',justifyContent:'flex-end'}}>
                         <Typography fontSize={"0.9rem"}>Number of Active Asset</Typography>
                         </Grid>
-                        <Grid item xs={11.8} sx={{display:'flex',justifyContent:'flex-end'}}>
+                        <Grid item xs={8} sx={{display:'flex',justifyContent:'flex-end',paddingTop:'1rem'}}>
                         <Typography fontSize={"1.5rem"}>0</Typography>
                         </Grid>
                        </Grid>
@@ -117,10 +117,10 @@ const DashboardPage = () => {
                        <div className={classes.divIcon2}><EqualizerIcon style={{fontSize:'1rem',marginTop:'-1rem'}}/></div>
                        </Grid>
                         <Grid item xs={8} sx={{display:'flex',justifyContent:'flex-end'}}>
-                        <Typography fontSize={"0.9rem"}>Value of Assets</Typography>
+                        <Typography fontSize={"0.9rem"}>Number of Deactive Asset</Typography>
                         </Grid>
-                        <Grid item xs={11.8} sx={{display:'flex',justifyContent:'flex-end'}}>
-                        <Typography fontSize={"1.5rem"}>$0</Typography>
+                        <Grid item xs={8} sx={{display:'flex',justifyContent:'flex-end',paddingTop:'1rem'}}>
+                        <Typography fontSize={"1.5rem"}>0</Typography>
                         </Grid>
                        </Grid>
                     </Paper>
@@ -128,18 +128,18 @@ const DashboardPage = () => {
                 <Grid item xs={3} mt={1.5}>
                     <Paper className={classes.paper} elevation={0} >
                        <Grid container> 
-                       <Grid item xs={4}>
+                       <Grid item xs={3.8}>
                        <div className={classes.divIcon3}><ShoppingCartIcon style={{fontSize:'1rem',marginTop:'-1rem'}}/></div>
                        </Grid>
-                        <Grid item xs={8} sx={{display:'flex',justifyContent:'flex-end'}}>
-                        <Typography fontSize={"0.9rem"}>Purchases in Fiscal Year</Typography>
+                        <Grid item xs={8.2} sx={{display:'flex',justifyContent:'flex-end'}}>
+                        <Typography fontSize={"0.9rem"}>Number of Scrapped Asset</Typography>
                         </Grid>
-                        <Grid item xs={11.8} sx={{display:'flex',justifyContent:'flex-end'}}>
+                        <Grid item xs={9} sx={{display:'flex',justifyContent:'flex-end',paddingTop:'1rem'}}>
                         <Typography fontSize={"1.5rem"}>0</Typography>
                         </Grid>
-                        <Grid item xs={11.8} sx={{display:'flex',justifyContent:'flex-end'}}>
+                        {/* <Grid item xs={11.8} sx={{display:'flex',justifyContent:'flex-end'}}>
                         <Typography fontSize={"0.9rem"}>0 Assets</Typography>
-                        </Grid>
+                        </Grid> */}
                        </Grid>
                     </Paper>
                 </Grid>

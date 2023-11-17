@@ -92,6 +92,25 @@
       "processor": "I9",
       "ram": "16GB",
       "id": 7
+    },
+    {
+      "assettagid": "HYT565",
+      "purchasefrom": "Dell Showroom",
+      "purchasedate": "2021-02-11",
+      "mobile": "",
+      "address": "",
+      "description": "Laptop Purchased",
+      "brand": "Dell",
+      "cost": "76555",
+      "model": "Dell 7890",
+      "serialno": "KL0876L57",
+      "site": "Alchemy",
+      "category": "Alchemy",
+      "location": 0,
+      "department": "Alchemy",
+      "processor": "I5",
+      "ram": "8GB",
+      "id": 8
     }
   ]
 }
