@@ -39,7 +39,7 @@ const GridViewComponent = ({users}:AssetsProps) => {
   
   return (
     <div>
-    <Box  >
+    <Box style={{height:'63vh'}} >
      <Grid container sx={{background:'white',paddingLeft:'1rem',paddingRight:'1rem',paddingBottom:'6rem',width:'97.5%',marginLeft:'1rem',alignItems:'center'}}>
         <Grid container spacing={1}>
           {paginationHandler
