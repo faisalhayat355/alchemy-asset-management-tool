@@ -111,6 +111,25 @@
       "processor": "I5",
       "ram": "8GB",
       "id": 8
+    },
+    {
+      "assettagid": "",
+      "purchasefrom": "Test Data",
+      "purchasedate": "2023-11-22",
+      "mobile": "",
+      "address": "",
+      "description": "Faisal",
+      "brand": "Dell",
+      "cost": "54353",
+      "model": "Dell",
+      "serialno": "fdsf4543345",
+      "site": "Alchemy",
+      "category": "Alchemy",
+      "location": "Noida",
+      "department": "Alchemy",
+      "processor": "i9",
+      "ram": "8GB",
+      "id": 9
     }
   ]
 }

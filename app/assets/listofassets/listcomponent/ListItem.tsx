@@ -41,7 +41,7 @@ const ListItemComponent = ({users}:AssetsProps) => {
     <Box>
      <Grid container sx={{background:'white',paddingLeft:'1rem',paddingBottom:'1rem',width:'97.5%',marginLeft:'1rem',alignItems:'center'}}>
         <Grid container sx={{border:'1px solid #fecaca',padding:'0.2rem',width:'98.5%',borderRadius:'5px'}}>
-        <Grid item xs={2.5}>
+        <Grid item xs={1.55}>
             <Typography className={classes.typography} ml={1}>Asset Tag ID</Typography>
         </Grid>
         <Grid item xs={2}>
@@ -53,10 +53,13 @@ const ListItemComponent = ({users}:AssetsProps) => {
         <Grid item xs={2}>
             <Typography className={classes.typography}>Model</Typography>
         </Grid>
-        <Grid item xs={2.5}>
+        <Grid item xs={2.2}>
             <Typography className={classes.typography}>Serial No.</Typography>
         </Grid>
-        <Grid item xs={1}>
+        <Grid item xs={1.25}>
+            <Typography className={classes.typography}>Status</Typography>
+        </Grid>
+        <Grid item xs={1} sx={{display:'flex',justifyContent:'center'}}>
             <Typography className={classes.typography}>Action</Typography>
         </Grid>
         </Grid>
@@ -65,7 +68,6 @@ const ListItemComponent = ({users}:AssetsProps) => {
     <Grid style={{ marginTop:"-1rem",height: "53vh",background:'white',paddingLeft:'1rem',paddingBottom:'1rem',width:'97.5%',marginLeft:'1rem',alignItems:'center' }}>
         {paginationHandler
           .currentData()
-          .reverse()
           ?.map((items:any, index: number) => {
             return (
               <Typography key={index}>

@@ -1,6 +1,6 @@
 "use client"
 import { Box, Button, Grid, Typography } from '@mui/material';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import FormControl from '@mui/material/FormControl';
 import InputAdornment from '@mui/material/InputAdornment';
@@ -23,7 +23,17 @@ const AssetCreatePage = () => {
     const classes = useStyles();
   const [inputData, setInputData] = useState({assettagid:"",purchasefrom:"",purchasedate:"",mobile:"",address:"",description:"",brand:"",cost:"",model:"",serialno:"",site:"",category:"",location:"",department:"",processor:"",ram:"",});
   const router = useRouter()
-  
+  const [data, setData] = useState([]);
+
+  async function fetchData() {
+      const users = await fetch("http://localhost:8000/users");
+      const result = await users.json();
+      setData(result);
+    }
+    useEffect(() => {
+      fetchData();
+    }, []);
+    let length = data.length;
   function handleSubmit(event:any) {
     event.preventDefault();
     axios
@@ -51,8 +61,10 @@ const AssetCreatePage = () => {
             <Typography>Asset Tag ID <span style={{color:'red'}}>*</span></Typography>
             </Grid>
             <Grid item xs={8}>
-            <TextField id="outlined-basic" fullWidth size='small' 
-                onChange={(e) => setInputData({ ...inputData, assettagid: e.target.value })}/>
+            <TextField id="outlined-basic" fullWidth size='small'
+            value={length+1} disabled
+                // onChange={(e) => setInputData({ ...inputData, assettagid: e.target.value })}
+                />
             </Grid>
           </Grid>
         </Grid>
@@ -226,6 +238,75 @@ const AssetCreatePage = () => {
         </Grid>
       </Grid>
      </Box>
+
+     {/* <Box>
+      <Grid container sx={{paddingLeft:'1rem',paddingTop:'0.5rem',paddingBottom:'0.5rem',marginTop:'0.3rem'}}>
+        <Grid item xs={12}>
+          <Typography fontWeight={"bold"} className={classes.typography}>Choose Condition</Typography>
+        </Grid>
+      </Grid>
+      <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #f87171',paddingLeft:'2rem',paddingTop:'0.8rem',paddingBottom:'0.7rem',width:'97%',marginLeft:'1.3rem',alignItems:'center',boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}}>
+        <Grid item xs={6} mt={1} >
+          <Grid container sx={{alignItems:'center'}}>
+            <Grid item xs={3.2}>
+            <Typography>Site</Typography>
+            </Grid>
+            <Grid item xs={8}>
+            <TextField id="outlined-basic"  fullWidth size='small'
+            onChange={(e) => setInputData({ ...inputData, site: e.target.value })}/>
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid item xs={6} mt={1} >
+          <Grid container sx={{alignItems:'center'}}>
+            <Grid item xs={3.2}>
+            <Typography>Location</Typography>
+            </Grid>
+            <Grid item xs={8}>
+            <TextField id="outlined-basic"  fullWidth size='small'
+            onChange={(e) => setInputData({ ...inputData, location: e.target.value })}/>
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid item xs={6} mt={1} >
+          <Grid container sx={{alignItems:'center'}}>
+            <Grid item xs={3.2}>
+            <Typography>Category</Typography>
+            </Grid>
+            <Grid item xs={8}>
+            <TextField id="outlined-basic"  fullWidth size='small'
+            onChange={(e) => setInputData({ ...inputData, category: e.target.value })}/>
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid item xs={6} mt={1} >
+          <Grid container sx={{alignItems:'center'}}>
+            <Grid item xs={3.2}>
+            <Typography>Department</Typography>
+            </Grid>
+            <Grid item xs={8}>
+            <TextField id="outlined-basic"  fullWidth size='small'
+            onChange={(e) => setInputData({ ...inputData, department: e.target.value })}/>
+            </Grid>
+          </Grid>
+        </Grid>
+      <Grid container sx={{display:'flex',justifyContent:'flex-end',marginTop:'0.7rem'}}>
+        <Grid item xs={2.5} mt={1} >
+          <Grid container sx={{alignItems:'center'}}>
+            <Grid item xs={5.2}>
+            <Link href="/assets/listofassets" passHref style={{ textDecoration: "none" }}>
+            <button style={{cursor:'pointer',background:'#f87171',color:'white',width:'90%',border:'none',height:'5vh',borderRadius:'5px'}}> Cancel</button>
+            </Link>
+            </Grid>
+            <Grid item xs={3.7}>
+            <button style={{background:'#f87171',color:'white',width:'130%',border:'none',height:'5vh',borderRadius:'5px'}}> Save</button>
+            </Grid>
+          </Grid>
+        </Grid>
+        </Grid>
+      </Grid>
+     </Box> */}
+
      </form>
   </div>
   )

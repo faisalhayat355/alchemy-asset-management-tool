@@ -27,7 +27,7 @@ const LayoutComponent = ({ children }: { children: React.ReactNode }) => {
          </Grid>
          <Grid item xs={show ? 10.5 : 10.5} sm={show ? 10.5 : 11.5} md={show ? 10 : 11.5} lg={show ? 10 : 11.5}>
            <HeaderComponent />
-           <div style={{background:'#fef2f2',height:'91vh',paddingLeft:'0.5rem'}}>
+           <div style={{background:'#fef2f2',height:'91vh',paddingLeft:'0.5rem',overflowY:'scroll'}}>
            {children}
            </div>
          </Grid>

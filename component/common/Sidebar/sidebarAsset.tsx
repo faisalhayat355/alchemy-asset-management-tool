@@ -82,7 +82,9 @@ const SidebarAssetComponent = ({show}:any) => {
   const [setup, setSetup] = React.useState(false);
   const [database, setDatabase] = React.useState(false);
   const [customizeForms, setCustomizeForms] = React.useState(false);
- 
+  const [selectedIndex, setSelectedIndex] = React.useState(1);
+
+  
   const handleClickAlerts = () => {
     setAlerts(!alerts);
   };
@@ -148,17 +150,23 @@ const SidebarAssetComponent = ({show}:any) => {
     setCustomizeForms(!customizeForms);
   };
 
+  const handleListItemClick = (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>,
+    index: number,
+  ) => {
+    setSelectedIndex(index);
+  };
 
   
   return (
     <div style={{height:'81.5vh',overflowY:'auto',overflowX:'hidden'}}>
       <List sx={{ width: "100%", maxWidth: 360}}component="nav" aria-labelledby="nested-list-subheader">
-      <ListItemButton onClick={handleClickProfile}>
+      <ListItemButton selected={selectedIndex === 0}
+          onClick={(event) => handleListItemClick(event, 0)} >
         <AccountCircleIcon style={{color:"#f75757",fontSize:'1.3rem',marginRight:'0.6rem',marginLeft:'0.1rem'}} />
-        
         {show && (
-          <div style={{display:'flex'}}>
-            <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550',alignItems:'center'}}>Profile
+          <div style={{display:'flex'}} onClick={handleClickProfile} >
+            <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550',alignItems:'center'}} >Profile
           </Typography>
           {profile ? <ExpandLess style={{marginLeft:'5.3rem'}}/> : <ExpandMore style={{marginLeft:'5.3rem'}}/>} 
           </div>
@@ -211,7 +219,8 @@ const SidebarAssetComponent = ({show}:any) => {
         </Link>
       </Collapse>
          <Link href="/dashboard" passHref style={{ textDecoration: "none" }}>
-      <ListItemButton>
+        <ListItemButton selected={selectedIndex === 1}
+          onClick={(event) => handleListItemClick(event, 1)}>
           <HomeOutlinedIcon style={{color:"#f75757",fontSize:'1.4rem',marginRight:'0.6rem'}}/>
           {show && (
         <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'bold'}}>Dashboard</Typography>
@@ -219,10 +228,11 @@ const SidebarAssetComponent = ({show}:any) => {
       </ListItemButton>
       </Link>
       <Divider style={{width:'100%'}}/>
-      <ListItemButton onClick={handleClickAlerts}>
+      <ListItemButton selected={selectedIndex === 2}
+          onClick={(event) => handleListItemClick(event, 2)} >
         <FlagOutlinedIcon style={{color:"#f75757",fontSize:'1.4rem',marginRight:'0.6rem'}} />
         {show && (
-          <div style={{display:'flex', alignItems:'center'}}>
+          <div style={{display:'flex', alignItems:'center'}} onClick={handleClickAlerts}>
             <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Alerts</Typography>
             {alerts ? <ExpandLess style={{marginLeft:'4.6rem'}}/> : <ExpandMore style={{marginLeft:'5.6rem'}}/>}
             <ListItemIcon style={{marginLeft:'0.6rem'}}>
@@ -309,10 +319,11 @@ const SidebarAssetComponent = ({show}:any) => {
       </Collapse>
      </>
       )} 
-      <ListItemButton onClick={handleClickAssets}>
+      <ListItemButton selected={selectedIndex === 4}
+          onClick={(event) => handleListItemClick(event, 4)} >
         <ManageAccountsIcon style={{color:"#f75757",fontSize:'1.4rem',marginRight:'0.6rem'}} />
      {show &&(
-       <div style={{display:'flex'}}>
+       <div style={{display:'flex'}} onClick={handleClickAssets}>
        <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Assets</Typography> 
          {assets ? <ExpandLess style={{marginLeft:'5.1rem'}}/> : <ExpandMore style={{marginLeft:'5.1rem'}}/>}
        </div>
@@ -427,10 +438,11 @@ const SidebarAssetComponent = ({show}:any) => {
       <Divider style={{width:'100%'}}/>
 
       <Link href="/assets/listofassets" passHref style={{ textDecoration: "none" }}>
-      <ListItemButton onClick={handleClickLists}>
+      <ListItemButton selected={selectedIndex === 5}
+          onClick={(event) => handleListItemClick(event, 5)} >
         <ListOutlinedIcon style={{color:"#f75757",fontSize:'1.4rem',marginRight:'0.6rem'}} />
         {show && (
-          <div style={{display:'flex'}}>
+          <div style={{display:'flex'}} onClick={handleClickLists}>
           <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Lists</Typography>
             {lists ? <ExpandLess style={{color:'black',marginLeft:'6rem'}}/> : <ExpandMore style={{color:'black',marginLeft:'6rem'}} />}
           </div>     
@@ -439,8 +451,6 @@ const SidebarAssetComponent = ({show}:any) => {
         </ListItemIcon>
       </ListItemButton>
       </Link>
-
-
       <Collapse in={lists} timeout="auto" unmountOnExit>
       <Link href="/lists/listofassets" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
@@ -472,10 +482,11 @@ const SidebarAssetComponent = ({show}:any) => {
       </Collapse>
       <Divider style={{width:'100%'}}/>
 
-      <ListItemButton onClick={handleClickReports}>
+      <ListItemButton selected={selectedIndex === 6}
+          onClick={(event) => handleListItemClick(event, 6)}>
         <DescriptionOutlinedIcon style={{color:"#f75757",fontSize:'1.4rem',marginRight:'0.6rem'}} />
           {show && (
-        <div style={{display:'flex'}}>
+        <div style={{display:'flex'}} onClick={handleClickReports}>
             <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Reports</Typography>
             {reports ? <ExpandLess style={{marginLeft:'4.7rem'}}/> : <ExpandMore style={{marginLeft:'4.7rem'}} />}
         </div>
@@ -1030,10 +1041,11 @@ const SidebarAssetComponent = ({show}:any) => {
       </Collapse>
       <Divider style={{width:'100%'}}/>
 
-      <ListItemButton onClick={handleClickTools}>
+      <ListItemButton selected={selectedIndex === 7}
+          onClick={(event) => handleListItemClick(event, 7)} >
         <BuildOutlinedIcon style={{color:"#f75757",fontSize:'1.3rem',marginRight:'0.6rem'}} />
        {show && (
-        <div style={{display:'flex'}}>
+        <div style={{display:'flex'}} onClick={handleClickTools}>
           <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Tools</Typography> 
         {tools ? <ExpandLess style={{marginLeft:'6rem'}}/> : <ExpandMore style={{marginLeft:'6rem'}}/>}
         </div>
@@ -1095,10 +1107,11 @@ const SidebarAssetComponent = ({show}:any) => {
         
       </Collapse>
       <Divider style={{width:'100%'}}/>
-      <ListItemButton onClick={handleClickAdvanced}>
+      <ListItemButton selected={selectedIndex === 8}
+          onClick={(event) => handleListItemClick(event, 8)}>
         <WorkOutlineOutlinedIcon style={{color:"#f75757",fontSize:'1.4rem',marginRight:'0.6rem'}} />
         {show && (
-          <div style={{ display:'flex'}}>
+          <div style={{ display:'flex'}} onClick={handleClickAdvanced}>
             <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Advanced</Typography> 
             {advanced ? <ExpandLess style={{marginLeft:'4rem'}}/> : <ExpandMore style={{marginLeft:'4rem'}}/>}
           </div>
@@ -1150,10 +1163,11 @@ const SidebarAssetComponent = ({show}:any) => {
       </Collapse>
       <Divider style={{width:'100%'}}/>
 
-      <ListItemButton onClick={handleClickSetup}>
+      <ListItemButton selected={selectedIndex === 9}
+          onClick={(event) => handleListItemClick(event, 9)}>
         <SettingsOutlinedIcon style={{color:"#f75757",fontSize:'1.4rem',marginRight:'0.6rem'}} />
        {show && (
-        <div style={{display:'flex'}}>
+        <div style={{display:'flex'}} onClick={handleClickSetup}>
            <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Setup</Typography> 
             {setup ? <ExpandLess style={{marginLeft:'5.9rem'}}/> : <ExpandMore style={{marginLeft:'5.9rem'}}/>} 
         </div>
@@ -1378,10 +1392,11 @@ const SidebarAssetComponent = ({show}:any) => {
       </Collapse>
       <Divider style={{width:'100%'}}/>
 
-      <ListItemButton onClick={handleClickHelpSupport}>
+      <ListItemButton selected={selectedIndex === 10}
+          onClick={(event) => handleListItemClick(event, 10)}>
         <SupportOutlinedIcon style={{color:"#f75757",fontSize:'1.3rem',marginRight:'0.6rem'}} />
        {show && (
-        <div style={{display:'flex'}}>
+        <div style={{display:'flex'}} onClick={handleClickHelpSupport}>
            <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Help/Support</Typography> 
           {helpsupport ? <ExpandLess style={{marginLeft:'2.8rem'}}/> : <ExpandMore style={{marginLeft:'2.8rem'}}/>}
         </div>
