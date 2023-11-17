@@ -32,7 +32,7 @@ import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
 import Person2OutlinedIcon from '@mui/icons-material/Person2Outlined';
 import PersonAddDisabledOutlinedIcon from '@mui/icons-material/PersonAddDisabledOutlined';
 import PersonAddOutlinedIcon from '@mui/icons-material/PersonAddOutlined';
-// import RecyclingOutlinedIcon from '@mui/icons-material/RecyclingOutlined';
+import LogoutIcon from '@mui/icons-material/Logout';
 import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
 import SentimentSatisfiedAltOutlinedIcon from '@mui/icons-material/SentimentSatisfiedAltOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
@@ -57,8 +57,8 @@ import Link from "next/link";
 import * as React from "react";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
-
-
+import AcUnitIcon from '@mui/icons-material/AcUnit';
+import { signOut, useSession } from "next-auth/react";
 
 const SidebarAssetComponent = ({show}:any) => {
   const [alerts, setAlerts] = React.useState(false);
@@ -83,7 +83,6 @@ const SidebarAssetComponent = ({show}:any) => {
   const [database, setDatabase] = React.useState(false);
   const [customizeForms, setCustomizeForms] = React.useState(false);
  
-
   const handleClickAlerts = () => {
     setAlerts(!alerts);
   };
@@ -386,7 +385,7 @@ const SidebarAssetComponent = ({show}:any) => {
         <Link href="/assets/dispose" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 2.7 }}>
-          {/* <RecyclingOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} /> */}
+          <AcUnitIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
             {show && (
               <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Dispose</Typography>
             )}
@@ -1471,6 +1470,18 @@ const SidebarAssetComponent = ({show}:any) => {
         </Link>
       </Collapse>
       <Divider style={{width:'100%'}}/>
+      
+      <ListItemButton style={{marginTop:'1rem'}} onClick={() => signOut()}>
+        <LogoutIcon style={{color:"#f75757",fontSize:'1.3rem',marginRight:'0.6rem'}} />
+       {show && (
+        <div style={{display:'flex'}}>
+           <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Log out</Typography> 
+        </div>
+       )}
+        <ListItemIcon style={{marginLeft:'2rem'}}>
+        </ListItemIcon>
+      </ListItemButton>
+
     </List>
     </div>
   )

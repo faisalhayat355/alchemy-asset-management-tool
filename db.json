@@ -1,23 +1,6 @@
 {
   "users": [
     {
-      "assettagid": "ADH65431",
-      "purchasefrom": "Lenovo Service Center",
-      "purchasedate": "2022-01-16",
-      "mobile": "",
-      "address": "",
-      "description": "Laptop",
-      "brand": "Lenovo",
-      "cost": "87666",
-      "model": "Thinkpad 460",
-      "serialno": "BG654H",
-      "site": "Alchemy",
-      "category": "Alchemy",
-      "location": "Noida",
-      "department": "Recuriter",
-      "id": 2
-    },
-    {
       "assettagid": "546AH986",
       "purchasefrom": "MNG Dell Service Center",
       "purchasedate": "2023-11-12",
