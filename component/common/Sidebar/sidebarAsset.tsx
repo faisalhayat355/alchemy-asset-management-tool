@@ -32,7 +32,7 @@ import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
 import Person2OutlinedIcon from '@mui/icons-material/Person2Outlined';
 import PersonAddDisabledOutlinedIcon from '@mui/icons-material/PersonAddDisabledOutlined';
 import PersonAddOutlinedIcon from '@mui/icons-material/PersonAddOutlined';
-import RecyclingOutlinedIcon from '@mui/icons-material/RecyclingOutlined';
+// import RecyclingOutlinedIcon from '@mui/icons-material/RecyclingOutlined';
 import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
 import SentimentSatisfiedAltOutlinedIcon from '@mui/icons-material/SentimentSatisfiedAltOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
@@ -60,7 +60,7 @@ import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 
 
 
-const TestSidebar = ({show}:any) => {
+const SidebarAssetComponent = ({show}:any) => {
   const [alerts, setAlerts] = React.useState(false);
   const [profile, setProfile] = React.useState(false);
   const [assets, setAssets] = React.useState(false);
@@ -386,7 +386,7 @@ const TestSidebar = ({show}:any) => {
         <Link href="/assets/dispose" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 2.7 }}>
-          <RecyclingOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+          {/* <RecyclingOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} /> */}
             {show && (
               <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Dispose</Typography>
             )}
@@ -1476,4 +1476,4 @@ const TestSidebar = ({show}:any) => {
   )
 }
 
-export default TestSidebar
+export default SidebarAssetComponent

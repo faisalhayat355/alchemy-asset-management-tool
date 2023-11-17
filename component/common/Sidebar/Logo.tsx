@@ -9,15 +9,21 @@ interface logoProps {
 }
 const Logo = ({ handleMenu, show }: logoProps) => {
   return (
-    <div style={{ display: "flex", alignItems: "center", paddingBottom: "1rem" }}>
+    <div
+      style={{ display: "flex", alignItems: "center", paddingBottom: "1rem" }}
+    >
       {show && (
-        <Grid textAlign={"left"} pt={1} display={{ xs: "none", sm: "none", md: "block" }}>
-          <img src="./images/alchemyasset.png" alt="logo not found" style={{ width: "90%" }}/>
+        <Grid
+          textAlign={"left"}
+          pt={1}
+          display={{ xs: "none", sm: "none", md: "block" }}
+        >
+         <img src="./images/alchemyasset.png" alt="logo not found" style={{ width: "90%" }}/>
         </Grid>
       )}
-      <div style={{marginLeft:'0.5rem'}}>
+      <div>
         <IconButton onClick={handleMenu}>
-          {show ? <MenuIcon style={{color:'#84cc16'}}/> : <ListIcon style={{color:'#f75757'}}/>}
+          {show ? <MenuIcon /> : <ListIcon />}
         </IconButton>
       </div>
     </div>
