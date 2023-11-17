@@ -50,7 +50,7 @@ const Logo = ({ handleMenu, show }: logoProps) => {
       )}
       <div>
         <IconButton onClick={handleMenu}>
-          {show ? <MenuIcon/> : <ListIcon style={{marginLeft:'0.5rem',color:'#f75757'}}/>}
+          {show ? <MenuIcon/> : <ListIcon style={{marginLeft:'0.6rem',color:'#f75757'}}/>}
         </IconButton>
       </div>
     </div>

@@ -1,13 +1,10 @@
 "use client"
-import SearchIcon from '@mui/icons-material/Search';
-import { Box, Button, Grid, Typography } from '@mui/material';
-import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
-import InputBase from '@mui/material/InputBase';
+import { Box, Grid, Pagination, Typography } from '@mui/material';
 import Paper from '@mui/material/Paper';
-import Link from "next/link";
 import { makeStyles } from '@mui/styles';
 import { IAssets } from '../models/assets.model';
+import { useState } from 'react';
+import { PaginationHandler } from '../utility/pagination';
 
 const useStyles = makeStyles({
   paper: {
@@ -28,12 +25,25 @@ type AssetsProps = {
 
 const GridViewComponent = ({users}:AssetsProps) => {
   const classes = useStyles();
+
+  let [page, setPage] = useState(1);
+  const PER_PAGE = 6;
+  const count = Math.ceil(users.length / PER_PAGE);
+  const paginationHandler = PaginationHandler(users, PER_PAGE);
+
+  const handleChangePage = (e: any, p: number) => {
+    setPage(p);
+    paginationHandler.jump(p);
+  };
+
+  
   return (
-    <>
-    <Box>
+    <div>
+    <Box  >
      <Grid container sx={{background:'white',paddingLeft:'1rem',paddingRight:'1rem',paddingBottom:'6rem',width:'97.5%',marginLeft:'1rem',alignItems:'center'}}>
         <Grid container spacing={1}>
-          {users?.map((item:any) => {
+          {paginationHandler
+          .currentData().map((item:any) => {
               return (
                 <Grid item xs={4} md={4} sm={4} lg={4} key={item.id}>
                   <Paper variant="outlined" className={classes.paper}>
@@ -137,7 +147,29 @@ const GridViewComponent = ({users}:AssetsProps) => {
         </Grid>
      </Grid>     
     </Box>
-   </>
+
+
+
+
+    <Grid container mt={-4}>
+        <Grid item xs={11.8} display={"flex"} justifyContent={"flex-end"}>
+          <Grid style={{ position: "fixed" }}>
+            <Pagination
+              count={count}
+              size="small"
+              page={page}
+              variant="outlined"
+              color="primary"
+              onChange={handleChangePage}
+            />
+          </Grid>
+        </Grid>
+        <Grid item xs={0.2}></Grid>
+      </Grid>
+
+
+
+   </div>
   )
 }
 
