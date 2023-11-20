@@ -10,8 +10,8 @@ import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles({
   typography: {
-      fontFamily:"Papyrus",
-      fontSize:'1.5rem'
+      fontFamily:"cursive",
+      fontSize:'1.6rem'
    }
 });
 

@@ -17,7 +17,7 @@ import AssetExportComponent from './listcomponent/exportComponent';
 
 const useStyles = makeStyles({
   typography: {
-     fontFamily:"Papyrus",
+     fontFamily:"cursive",
      fontSize:'1.3rem'
   },
 });
@@ -60,8 +60,6 @@ const ListAssetHomeComponent = () => {
   // const updateUsers = (f)=>{
   //   setUsers(f);
   // }
-console.log("users",users);
-
   return (
 
   <Box>

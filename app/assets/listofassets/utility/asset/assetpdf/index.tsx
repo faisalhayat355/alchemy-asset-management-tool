@@ -13,7 +13,7 @@ const AssetPDFDownload = ({users}:AssetsProps) => {
     const fileName = `asset-list-${new Date().toISOString().slice(0, 10)}`;
     const headers = [["Asset Tag ID", "Purchased From", "Brand", "Model", "Serial No.", "Location","Ram","Processor"]];
     const pdfSendData = users?.map((elt) => [
-      elt.assettagid,
+      elt.id,
       elt.purchasefrom,
       elt.brand,
       elt.model,

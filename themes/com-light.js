@@ -7,6 +7,7 @@ export const theme = createTheme({
     subtitle1: {
       fontSize: 12,
       textDecoration: "none",
+      
     },
     subtitle2: {
       fontSize: 12,

@@ -59,6 +59,10 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import AcUnitIcon from '@mui/icons-material/AcUnit';
 import { signOut, useSession } from "next-auth/react";
+import DataSaverOnIcon from '@mui/icons-material/DataSaverOn';
+import AddToQueueIcon from '@mui/icons-material/AddToQueue';
+import LaptopIcon from '@mui/icons-material/Laptop';
+import DesktopAccessDisabledIcon from '@mui/icons-material/DesktopAccessDisabled';
 
 const SidebarAssetComponent = ({show}:any) => {
   const [alerts, setAlerts] = React.useState(false);
@@ -82,6 +86,7 @@ const SidebarAssetComponent = ({show}:any) => {
   const [setup, setSetup] = React.useState(false);
   const [database, setDatabase] = React.useState(false);
   const [customizeForms, setCustomizeForms] = React.useState(false);
+  const [assetsType, setAssetsType] = React.useState(false);
   const [selectedIndex, setSelectedIndex] = React.useState(1);
 
   
@@ -157,9 +162,16 @@ const SidebarAssetComponent = ({show}:any) => {
     setSelectedIndex(index);
   };
 
+
+  const handleClickAssetsType = () => {
+    setAssetsType(!assetsType);
+  };
+
+
+  
   
   return (
-    <div style={{height:'81.5vh',overflowY:'auto',overflowX:'hidden'}}>
+    <div style={{height:'84vh',overflowY:'auto',overflowX:'hidden'}}>
       <List sx={{ width: "100%", maxWidth: 360}}component="nav" aria-labelledby="nested-list-subheader">
       <ListItemButton selected={selectedIndex === 0}
           onClick={(event) => handleListItemClick(event, 0)} >
@@ -198,7 +210,7 @@ const SidebarAssetComponent = ({show}:any) => {
         </List>
         </Link>
       </Collapse>
-    <Divider style={{width:'100%'}}/>
+      <Divider style={{width:'100%'}}/>
       <Collapse in={profile} timeout="auto" unmountOnExit style={{marginTop:'-0.1rem'}}>
       <Link href="/alerts/setupalerts" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
@@ -304,7 +316,7 @@ const SidebarAssetComponent = ({show}:any) => {
        )}
         </Link>
       </Collapse>
-    <Divider style={{width:'100%'}}/>
+      <Divider style={{width:'100%'}}/>
       <Collapse in={alerts} timeout="auto" unmountOnExit style={{marginTop:'-0.1rem'}}>
       <Link href="/alerts/setupalerts" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
@@ -342,7 +354,7 @@ const SidebarAssetComponent = ({show}:any) => {
           </ListItemButton>
         </List>
         </Link>
-        <Link href="/assets/addassets" passHref style={{ textDecoration: "none" }}>
+        {/* <Link href="/assets/addassets" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 2.7 }}>
           <AddCircleOutlineOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
@@ -351,7 +363,52 @@ const SidebarAssetComponent = ({show}:any) => {
            )}
           </ListItemButton>
         </List>
+        </Link> */}
+      <ListItemButton sx={{ pl: 2.7 }} onClick={handleClickAssetsType} >
+        <div style={{display:'flex',alignItems:'center'}}>
+          <ManageAccountsIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+          {show && (
+            <div style={{display:'flex',alignItems:'center'}}>
+                <Typography style={{color:'#414242',fontSize:'0.8rem'}}>Assets</Typography>
+                {assetsType ? <ExpandLess style={{marginLeft:'5.55rem'}} /> : <ExpandMore style={{marginLeft:'5.55rem'}}/>}
+            </div>
+          )} 
+        </div>   
+      </ListItemButton>
+      <Collapse in={assetsType} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}>
+      <Link href="/assets/addassets" passHref style={{ textDecoration: "none" }}>
+        <List component="div" disablePadding>
+          <ListItemButton sx={{ pl:2.8}}>
+          <DataSaverOnIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+            <Typography sx={{color:'#414242',fontSize:'0.75rem'}}>Add an Assets</Typography>
+          </ListItemButton>
+        </List>
         </Link>
+        <Link href="/assets/addassets/addnewassets" passHref style={{ textDecoration: "none" }}>
+        <List component="div" disablePadding>
+          <ListItemButton sx={{ pl:2.8}}>
+          <AddToQueueIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+            <Typography sx={{color:'#414242',fontSize:'0.75rem'}}>Add New Assets</Typography>
+          </ListItemButton>
+        </List>
+        </Link>
+        <Link href="/assets/addassets/addoldassets" passHref style={{ textDecoration: "none" }}>
+        <List component="div" disablePadding>
+          <ListItemButton sx={{ pl:2.8}}>
+          <LaptopIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+            <Typography sx={{color:'#414242',fontSize:'0.75rem'}}>Add Old Assets</Typography>
+          </ListItemButton>
+        </List>
+        </Link>
+        <Link href="/assets/addassets/addscrappedassets" passHref style={{ textDecoration: "none" }}>
+        <List component="div" disablePadding>
+          <ListItemButton sx={{ pl:2.8}}>
+          <DesktopAccessDisabledIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+            <Typography sx={{color:'#414242',fontSize:'0.75rem'}}>Add Scrapped Assets</Typography>
+          </ListItemButton>
+        </List>
+        </Link>
+      </Collapse>
         <Divider style={{width:'100%'}}/>
         <Link href="/assets/checkin" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
@@ -436,7 +493,6 @@ const SidebarAssetComponent = ({show}:any) => {
         </Link>
       </Collapse>
       <Divider style={{width:'100%'}}/>
-
       <Link href="/assets/listofassets" passHref style={{ textDecoration: "none" }}>
       <ListItemButton selected={selectedIndex === 5}
           onClick={(event) => handleListItemClick(event, 5)} >
@@ -481,7 +537,6 @@ const SidebarAssetComponent = ({show}:any) => {
         </Link>
       </Collapse>
       <Divider style={{width:'100%'}}/>
-
       <ListItemButton selected={selectedIndex === 6}
           onClick={(event) => handleListItemClick(event, 6)}>
         <DescriptionOutlinedIcon style={{color:"#f75757",fontSize:'1.4rem',marginRight:'0.6rem'}} />
@@ -1040,7 +1095,6 @@ const SidebarAssetComponent = ({show}:any) => {
         </List>
       </Collapse>
       <Divider style={{width:'100%'}}/>
-
       <ListItemButton selected={selectedIndex === 7}
           onClick={(event) => handleListItemClick(event, 7)} >
         <BuildOutlinedIcon style={{color:"#f75757",fontSize:'1.3rem',marginRight:'0.6rem'}} />
@@ -1162,7 +1216,6 @@ const SidebarAssetComponent = ({show}:any) => {
         </Link>
       </Collapse>
       <Divider style={{width:'100%'}}/>
-
       <ListItemButton selected={selectedIndex === 9}
           onClick={(event) => handleListItemClick(event, 9)}>
         <SettingsOutlinedIcon style={{color:"#f75757",fontSize:'1.4rem',marginRight:'0.6rem'}} />
@@ -1391,7 +1444,6 @@ const SidebarAssetComponent = ({show}:any) => {
         </Link>
       </Collapse>
       <Divider style={{width:'100%'}}/>
-
       <ListItemButton selected={selectedIndex === 10}
           onClick={(event) => handleListItemClick(event, 10)}>
         <SupportOutlinedIcon style={{color:"#f75757",fontSize:'1.3rem',marginRight:'0.6rem'}} />
@@ -1485,7 +1537,6 @@ const SidebarAssetComponent = ({show}:any) => {
         </Link>
       </Collapse>
       <Divider style={{width:'100%'}}/>
-      
       <ListItemButton style={{marginTop:'1rem'}} onClick={() => signOut()}>
         <LogoutIcon style={{color:"#f75757",fontSize:'1.3rem',marginRight:'0.6rem'}} />
        {show && (
@@ -1496,7 +1547,6 @@ const SidebarAssetComponent = ({show}:any) => {
         <ListItemIcon style={{marginLeft:'2rem'}}>
         </ListItemIcon>
       </ListItemButton>
-
     </List>
     </div>
   )

@@ -30,10 +30,6 @@ const ViewAssetComponent = () => {
   };
   convertObj(assets);
 
-  console.log("convertObjconvertObjconvertObj",convertObj);
-  
-
-
   return (
     <div>
 

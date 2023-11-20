@@ -9,7 +9,6 @@ import axios from "axios";
 import Link from "next/link";
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from "react";
-import StatusTab from './status-tab';
 
 
 
@@ -20,7 +19,7 @@ const useStyles = makeStyles({
     },
   });
   
-const AssetCreatePage = () => {
+const AssetNewAssetPage = () => {
     const classes = useStyles();
   const [inputData, setInputData] = useState({assettagid:"",purchasefrom:"",purchasedate:"",mobile:"",address:"",description:"",brand:"",cost:"",model:"",serialno:"",site:"",category:"",location:"",department:"",processor:"",ram:"",status:"",});
   // const [ram,setRam]=useState()
@@ -28,7 +27,7 @@ const AssetCreatePage = () => {
   const [data, setData] = useState([]);
 
   async function fetchData() {
-      const users = await fetch("http://localhost:8000/users");
+      const users = await fetch("http://localhost:8000/newAsset");
       const result = await users.json();
       setData(result);
     }
@@ -39,7 +38,7 @@ const AssetCreatePage = () => {
   function handleSubmit(event:any) {
     event.preventDefault();
     axios
-      .post("http://localhost:8000/users", inputData)
+      .post("http://localhost:8000/newAsset", inputData)
       .then((res) => {
         alert("Data Submited Successfully");
         router.push('/assets/listofassets', { scroll: false })
@@ -53,7 +52,7 @@ const AssetCreatePage = () => {
      <Box >
       <Grid container sx={{paddingLeft:'1rem',paddingTop:"0.5rem",paddingBottom:'0.5rem'}}>
         <Grid item xs={12}>
-          <Typography fontWeight={"bold"} className={classes.typography}>Asset Details</Typography>
+          <Typography fontWeight={"bold"} className={classes.typography}>Add New Asset Details</Typography>
         </Grid>
       </Grid>
       <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #f87171',paddingLeft:'2rem',paddingTop:'0.8rem',paddingBottom:'0.7rem',width:'97%',marginLeft:'1.3rem',alignItems:'center',boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}}>
@@ -317,4 +316,4 @@ const AssetCreatePage = () => {
   )
 }
 
-export default AssetCreatePage
+export default AssetNewAssetPage

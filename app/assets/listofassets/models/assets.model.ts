@@ -7,12 +7,15 @@ type IAssets = {
     model: string;
     serialno?: string;
     description?: string;
-    purchasedate?: string;
+    purchasedate?: number;
     cost?: string;
     site?: string;
+    ram?: string;
+    processor?: string;
     category?: string;
-    location: number;
-    department: number;
+    location: string;
+    department: string;
+    
   };
   
   export type { IAssets } ;

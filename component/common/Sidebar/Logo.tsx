@@ -7,7 +7,7 @@ import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles({
   typography: {
-      fontFamily:"Lucida Handwriting",
+      fontFamily:"cursive",
       fontSize:'1.9rem',
       paddingLeft:'0.6rem',
       fontWeight:'bold',
@@ -16,7 +16,7 @@ const useStyles = makeStyles({
       color:'#f75757'
    },
    typographyspan: {
-    fontFamily:"Papyrus",
+    fontFamily:"cursive",
     fontSize:'1.1rem',
     fontWeight:'bold',
     color:'#84cc16'
@@ -43,15 +43,15 @@ const Logo = ({ handleMenu, show }: logoProps) => {
         >
          {/* <img src="./images/alchemyasset.png" alt="logo not found" style={{ width: "90%" }}/> */}
          <Typography className={classes.typography}>Alchemy</Typography>
-         <Divider style={{marginLeft:'1rem',paddingRight:'1rem'}}>
+         <Divider style={{marginLeft:'1rem',width:'100%'}}>
          <Typography className={classes.typographyspan}>Asset Tool</Typography>
          </Divider>
         </Grid>
       )}
       <div>
-        <IconButton onClick={handleMenu}>
-          {show ? <MenuIcon/> : <ListIcon style={{marginLeft:'0.6rem',color:'#f75757'}}/>}
-        </IconButton>
+        <div onClick={handleMenu}>
+          {show ? <MenuIcon style={{marginLeft:'1rem',color:'black',cursor:'pointer'}}/> : <ListIcon style={{marginTop:'1rem',marginLeft:'1rem',color:'#f75757',cursor:'pointer'}}/>}
+        </div>
       </div>
     </div>
   );

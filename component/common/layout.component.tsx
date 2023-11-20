@@ -18,7 +18,7 @@ const LayoutComponent = ({ children }: { children: React.ReactNode }) => {
       {session && (
          <Grid container>
          <Grid item  xs={show ? 1.5 : 1.5}sm={show ? 1.5 : 0.5}  md={show ? 2 : 0.5} lg={show ? 2 : 0.5}
-           textAlign={show ? "right" : "left"} style={{ backgroundColor: "#f8fafc",height:'99.3vh' }} >
+           textAlign={show ? "right" : "left"} style={{ backgroundColor: "#f8fafc",height:'99.9vh' }} >
            <Logo handleMenu={handleMenu} show={show} />
            {/* <SidebarComponent show={show} /> */}
            {/* <ProjectSidebar show={show} /> */}
@@ -27,7 +27,7 @@ const LayoutComponent = ({ children }: { children: React.ReactNode }) => {
          </Grid>
          <Grid item xs={show ? 10.5 : 10.5} sm={show ? 10.5 : 11.5} md={show ? 10 : 11.5} lg={show ? 10 : 11.5}>
            <HeaderComponent />
-           <div style={{background:'#fef2f2',height:'91vh',paddingLeft:'0.5rem',overflowY:'hidden'}}>
+           <div style={{background:'#fef2f2',height:'91.5vh',paddingLeft:'0.5rem',overflowY:'auto'}}>
            {children}
            </div>
          </Grid>
