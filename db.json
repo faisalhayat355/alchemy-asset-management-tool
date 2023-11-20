@@ -195,7 +195,6 @@
     }
   ],
   "newAsset": [
-   
     {
       "assettagid": "",
       "purchasefrom": "",
@@ -415,6 +414,26 @@
       "department": "Software Engineer",
       "ram": "16 GB",
       "id": 1
+    },
+    {
+      "assettagid": "",
+      "purchasefrom": "",
+      "purchasedate": "",
+      "mobile": "",
+      "address": "",
+      "description": "",
+      "brand": "",
+      "cost": "",
+      "model": "",
+      "serialno": "",
+      "site": "",
+      "category": "",
+      "location": "",
+      "department": "",
+      "processor": "",
+      "ram": "16 GB",
+      "status": "",
+      "id": 2
     }
   ]
 }

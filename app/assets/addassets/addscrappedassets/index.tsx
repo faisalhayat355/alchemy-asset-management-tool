@@ -26,7 +26,7 @@ const AssetScrappedAssetPage = () => {
   const [data, setData] = useState([]);
 
   async function fetchData() {
-      const users = await fetch("http://localhost:8000/oldAsset");
+      const users = await fetch("http://localhost:8000/scrappedAsset");
       const result = await users.json();
       setData(result);
     }
@@ -37,10 +37,10 @@ const AssetScrappedAssetPage = () => {
   function handleSubmit(event:any) {
     event.preventDefault();
     axios
-      .post("http://localhost:8000/oldAsset", inputData)
+      .post("http://localhost:8000/scrappedAsset", inputData)
       .then((res) => {
         alert("Data Submited Successfully");
-        router.push('/assets/listofassets', { scroll: false })
+        router.push('/assets/addassets/addscrappedassets/scrappedassetlist', { scroll: false })
       })
       .catch((err) => console.log(err));
   }
@@ -285,7 +285,7 @@ const AssetScrappedAssetPage = () => {
         <Grid item xs={2.5} mt={1} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={5.2}>
-            <Link href="/assets/listofassets" passHref style={{ textDecoration: "none" }}>
+            <Link href="/assets/addassets/addscrappedassets/scrappedassetlist" passHref style={{ textDecoration: "none" }}>
             <button style={{cursor:'pointer',background:'#f87171',color:'white',width:'90%',border:'none',height:'5vh',borderRadius:'5px'}}> Cancel</button>
             </Link>
             </Grid>

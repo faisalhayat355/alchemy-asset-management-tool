@@ -2,8 +2,8 @@
 import { Box, Grid, Pagination, Typography } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import { makeStyles } from '@mui/styles';
-import { IAssets } from '../models/assets.model';
 import { useState } from 'react';
+import { IAssets } from '../models/assets.model';
 import { PaginationHandler } from '../utility/pagination';
 
 const useStyles = makeStyles({

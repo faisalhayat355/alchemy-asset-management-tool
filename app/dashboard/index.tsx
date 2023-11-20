@@ -14,7 +14,6 @@ import { Calendar, momentLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import moment from "moment";
 import { IAssets } from '../assets/listofassets/models/assets.model';
-
 const localizer = momentLocalizer(moment);
 
 const useStyles = makeStyles({
@@ -175,7 +174,6 @@ const DashboardPage = () => {
                        </Grid>
                         <Grid item xs={8} sx={{display:'flex',justifyContent:'center'}}>
                         <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Total Asset</Typography>
-                        
                         </Grid>
                         <Grid item xs={8} sx={{display:'flex',justifyContent:'flex-end',paddingTop:'1rem'}}>
                         <Typography fontSize={"1.5rem"}>{length}</Typography>
@@ -214,6 +212,7 @@ const DashboardPage = () => {
                     </Paper>
                 </Grid>
                 <Grid item xs={3} mt={1.5}>
+                <Link href="/assets/addassets/addscrappedassets/scrappedassetlist" passHref style={{ textDecoration: "none" }}>
                     <Paper className={classes.paper} elevation={0} >
                        <Grid container> 
                        <Grid item xs={3.8}>
@@ -227,6 +226,8 @@ const DashboardPage = () => {
                         </Grid>
                        </Grid>
                     </Paper>
+                    </Link>
+
                 </Grid>
                </Grid>  
                <Grid container spacing={1} mt={0.1}>
