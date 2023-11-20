@@ -149,8 +149,6 @@ const DashboardPage = () => {
         setEvents(calendarAsset);
       }, []);
 
-
-
   return (
     <div>
         <Box>
