@@ -167,6 +167,7 @@ const DashboardPage = () => {
                 </Grid>
                <Grid container spacing={1}>
                <Grid item xs={3} mt={1.5}>
+               <Link href="/assets/listofassets" passHref style={{ textDecoration: "none" }}>
                     <Paper className={classes.paper} elevation={0} >
                        <Grid container> 
                        <Grid item xs={4}>
@@ -180,6 +181,7 @@ const DashboardPage = () => {
                         </Grid>
                        </Grid>
                     </Paper>
+                    </Link>
                 </Grid>
                 <Grid item xs={3} mt={1.5}>
                     <Paper className={classes.paper} elevation={0} >
@@ -197,6 +199,8 @@ const DashboardPage = () => {
                     </Paper>
                 </Grid>
                 <Grid item xs={3} mt={1.5}>
+
+                <Link href="/assets/addassets/addoldassets/oldassetlist" passHref style={{ textDecoration: "none" }}>
                     <Paper className={classes.paper} elevation={0} >
                        <Grid container> 
                        <Grid item xs={3.8}>
@@ -210,6 +214,8 @@ const DashboardPage = () => {
                         </Grid>
                        </Grid>
                     </Paper>
+                </Link>
+
                 </Grid>
                 <Grid item xs={3} mt={1.5}>
                 <Link href="/assets/addassets/addscrappedassets/scrappedassetlist" passHref style={{ textDecoration: "none" }}>
