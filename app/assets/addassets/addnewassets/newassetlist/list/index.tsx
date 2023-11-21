@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { IAssets } from '../../../../listofassets/models/assets.model';
 import { PaginationHandler } from '../../../../listofassets/utility/pagination';
 import OldAssetInfoComponent from '../../../addoldassets/oldassetlist/info';
+import NewAssetInfoComponent from '../info';
 
 
 const useStyles = makeStyles({
@@ -18,7 +19,7 @@ const useStyles = makeStyles({
   type AssetsProps = {
       users: Array<IAssets>;
     };
-const NewAssetListComponent = ({users}:any) => {
+const NewAssetListComponent = ({users}:AssetsProps) => {
     const classes = useStyles();
 
     let [page, setPage] = useState(1);
@@ -66,7 +67,7 @@ const NewAssetListComponent = ({users}:any) => {
           ?.map((items:any, index: number) => {
             return (
               <Typography key={index}>
-                 <OldAssetInfoComponent items={items}/>
+                 <NewAssetInfoComponent items={items}/>
               </Typography>
             );
           })}

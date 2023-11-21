@@ -1,18 +1,10 @@
 "use client"
-import SearchIcon from '@mui/icons-material/Search';
-import { Box, Button, Grid, Pagination, Typography } from '@mui/material';
-import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
-import InputBase from '@mui/material/InputBase';
-import Paper from '@mui/material/Paper';
-import Link from "next/link";
+import { Box, Grid, Pagination, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-
 import { useState } from 'react';
-import { IAssets } from '../../../../listofassets/models/assets.model';
-import { PaginationHandler } from '../../../../listofassets/utility/pagination';
-import AssetScrappedInfoComponent from '../../../addscrappedassets/scrappedassetlist/info';
-import OldAssetInfoComponent from '../info';
+import { IAssets } from '../../../listofassets/models/assets.model';
+import { PaginationHandler } from '../../../listofassets/utility/pagination';
+import EmployeeInfoComponent from '../info';
 
 
 const useStyles = makeStyles({
@@ -26,7 +18,7 @@ const useStyles = makeStyles({
   type AssetsProps = {
       users: Array<IAssets>;
     };
-const OldListAssetComponent = ({users}:AssetsProps) => {
+const EmployeeListComponent = ({users}:AssetsProps) => {
     const classes = useStyles();
 
     let [page, setPage] = useState(1);
@@ -39,31 +31,37 @@ const OldListAssetComponent = ({users}:AssetsProps) => {
       paginationHandler.jump(p);
     };
   return (
-    <div>
-     <Box>
+    <>
+       <Box>
      <Grid container sx={{background:'white',paddingLeft:'1rem',paddingBottom:'1rem',width:'97.5%',marginLeft:'1rem',alignItems:'center'}}>
         <Grid container sx={{border:'1px solid #fecaca',padding:'0.2rem',width:'98.5%',borderRadius:'5px'}}>
+        <Grid item xs={0.6}>
+            <Typography className={classes.typography} ml={1}>S No.</Typography>
+        </Grid>
         <Grid item xs={1.55}>
             <Typography className={classes.typography} ml={1}>Asset Tag ID</Typography>
         </Grid>
+        <Grid item xs={1.5}>
+            <Typography className={classes.typography}>Employee ID</Typography>
+        </Grid>
         <Grid item xs={2}>
+            <Typography className={classes.typography}>First Name</Typography>
+        </Grid>
+        <Grid item xs={2}>
+            <Typography className={classes.typography}>Last Name</Typography>
+        </Grid>
+        <Grid item xs={1.5}>
             <Typography className={classes.typography}>Department</Typography>
         </Grid>
-        <Grid item xs={2}>
-            <Typography className={classes.typography}>Ram</Typography>
+        <Grid item xs={1.5}>
+            <Typography className={classes.typography}>Employement Type</Typography>
         </Grid>
-        <Grid item xs={2}>
-            <Typography className={classes.typography}>Processor</Typography>
-        </Grid>
-        <Grid item xs={2.2}>
+        <Grid item xs={1.3} sx={{display:'flex',justifyContent:'center'}}>
             <Typography className={classes.typography}>Location</Typography>
         </Grid>
-        <Grid item xs={1.25}>
-            <Typography className={classes.typography}>Department</Typography>
-        </Grid>
-        <Grid item xs={1} sx={{display:'flex',justifyContent:'center'}}>
-            <Typography className={classes.typography}>Category</Typography>
-        </Grid>
+        {/* <Grid item xs={0.5} sx={{display:'flex',justifyContent:'flex-end'}}>
+            <Typography className={classes.typography}>Action</Typography>
+        </Grid> */}
         </Grid>
      </Grid>     
     </Box>
@@ -74,7 +72,7 @@ const OldListAssetComponent = ({users}:AssetsProps) => {
           ?.map((items:any, index: number) => {
             return (
               <Typography key={index}>
-                 <OldAssetInfoComponent items={items}/>
+                 <EmployeeInfoComponent items={items}/>
               </Typography>
             );
           })}
@@ -91,9 +89,9 @@ const OldListAssetComponent = ({users}:AssetsProps) => {
             onChange={handleChangePage}
           />
         </Grid>
-      </Grid>
-    </div>
+      </Grid> 
+    </>
   )
 }
 
-export default OldListAssetComponent
+export default EmployeeListComponent

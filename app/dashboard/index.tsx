@@ -165,7 +165,7 @@ const DashboardPage = () => {
                     </Link>
                 </Grid>
                <Grid container spacing={1}>
-               <Grid item xs={3} mt={1.5}>
+               <Grid item xs={4} mt={1.5}>
                <Link href="/assets/listofassets" passHref style={{ textDecoration: "none" }}>
                     <Paper className={classes.paper} elevation={0} >
                        <Grid container> 
@@ -182,7 +182,7 @@ const DashboardPage = () => {
                     </Paper>
                     </Link>
                 </Grid>
-                <Grid item xs={3} mt={1.5}>
+                <Grid item xs={4} mt={1.5}>
                 <Link href="/assets/addassets/addnewassets/newassetlist" passHref style={{ textDecoration: "none" }}>
                     <Paper className={classes.paper} elevation={0} >
                        <Grid container> 
@@ -190,7 +190,7 @@ const DashboardPage = () => {
                        <div className={classes.divIcon2}><AddToQueueIcon style={{fontSize:'1rem',marginTop:'-1rem'}}/></div>
                        </Grid>
                         <Grid item xs={8} sx={{display:'flex',justifyContent:'center'}}>
-                        <Typography fontSize={"0.9rem"} fontWeight={"bold"}>New Asset</Typography>
+                        <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Active Asset</Typography>
                         </Grid>
                         <Grid item xs={8} sx={{display:'flex',justifyContent:'flex-end',paddingTop:'1rem'}}>
                         <Typography fontSize={"1.5rem"}>{newAssetData}</Typography>
@@ -199,7 +199,7 @@ const DashboardPage = () => {
                     </Paper>
                     </Link>
                 </Grid>
-                <Grid item xs={3} mt={1.5}>
+                <Grid item xs={4} mt={1.5}>
 
                 <Link href="/assets/addassets/addoldassets/oldassetlist" passHref style={{ textDecoration: "none" }}>
                     <Paper className={classes.paper} elevation={0} >
@@ -208,7 +208,7 @@ const DashboardPage = () => {
                        <div className={classes.divIcon3}><LaptopIcon style={{fontSize:'1rem',marginTop:'-1rem'}}/></div>
                        </Grid>
                         <Grid item xs={8.2} sx={{display:'flex',justifyContent:'center'}}>
-                        <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Old Asset</Typography>
+                        <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Stock Asset</Typography>
                         </Grid>
                         <Grid item xs={8} sx={{display:'flex',justifyContent:'flex-end',paddingTop:'1rem'}}>
                         <Typography fontSize={"1.5rem"}>{oldAssetData}</Typography>
@@ -218,7 +218,7 @@ const DashboardPage = () => {
                 </Link>
 
                 </Grid>
-                <Grid item xs={3} mt={1.5}>
+                {/* <Grid item xs={3} mt={1.5}>
                 <Link href="/assets/addassets/addscrappedassets/scrappedassetlist" passHref style={{ textDecoration: "none" }}>
                     <Paper className={classes.paper} elevation={0} >
                        <Grid container> 
@@ -235,7 +235,7 @@ const DashboardPage = () => {
                     </Paper>
                     </Link>
 
-                </Grid>
+                </Grid> */}
                </Grid>  
                <Grid container spacing={1} mt={0.1}>
                 <Grid item xs={5}>

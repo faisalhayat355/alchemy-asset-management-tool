@@ -397,5 +397,32 @@
       "status": "",
       "id": 2
     }
+  ],
+  "employeeManagement": [
+    {
+      "id": "1",
+      "assettagid": "Alchemy324",
+      "employeeid": "ALS/1891",
+      "firstName": "Alexa",
+      "lastName": "John",
+      "department": "Developer",
+      "position": "Manager",
+      "employementType": "Internal",
+      "location": "Banglore",
+      "mobile": "9208765432",
+      "email": "test@alchemytechsol.com"
+    },
+    {
+      "assettagid": "",
+      "employeeid": "",
+      "firstName": "Faisal",
+      "lastName": "Hayat",
+      "department": "",
+      "position": "",
+      "employementType": "",
+      "location": "",
+      "email": "",
+      "id": "BFrZQwz"
+    }
   ]
 }

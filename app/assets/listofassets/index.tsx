@@ -2,7 +2,7 @@
 import ListItemComponent from './listcomponent/ListItem'
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Box, Button, Divider, Grid, IconButton, Paper, Typography } from '@mui/material';
+import { Box, Button, Divider, Grid, IconButton, Paper, Tooltip, Typography, Zoom } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import Link from 'next/link';
 import AssetViewComponent from './multipleview';
@@ -13,7 +13,7 @@ import AssetCalendarView from './listcomponent/calendarView';
 import AssetSearchComponent from './listcomponent/searchComponent';
 import AssetFilterComponent from './listcomponent/filterComponent';
 import AssetExportComponent from './listcomponent/exportComponent';
-
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const useStyles = makeStyles({
   typography: {
@@ -63,8 +63,15 @@ const ListAssetHomeComponent = () => {
   return (
 
   <Box>
-     <Grid container sx={{padding:'1rem'}}>
-       <Grid item xs={12}>
+     <Grid container sx={{padding:'1rem',alignItems:'center'}}>
+     <Link href="/dashboard" passHref style={{ textDecoration: "none" }}>
+      <Grid item xs={0.6}>
+      <Tooltip title="Back" TransitionComponent={Zoom} arrow>
+      <IconButton><ArrowBackIcon/></IconButton>
+      </Tooltip>
+      </Grid>
+      </Link>
+       <Grid item xs={11}>
          <Typography fontWeight={"bold"} className={classes.typography}>List of Assets</Typography>
        </Grid>
      </Grid>

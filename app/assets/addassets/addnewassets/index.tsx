@@ -18,7 +18,7 @@ const useStyles = makeStyles({
   });
   
 const AssetNewAssetPage = () => {
-    const classes = useStyles();
+  const classes = useStyles();
   const [inputData, setInputData] = useState({assettagid:"",purchasefrom:"",purchasedate:"",mobile:"",address:"",description:"",brand:"",cost:"",model:"",serialno:"",site:"",category:"",location:"",department:"",processor:"",ram:"",status:"",});
   // const [ram,setRam]=useState()
   const router = useRouter()

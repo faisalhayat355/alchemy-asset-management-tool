@@ -63,6 +63,8 @@ import DataSaverOnIcon from '@mui/icons-material/DataSaverOn';
 import AddToQueueIcon from '@mui/icons-material/AddToQueue';
 import LaptopIcon from '@mui/icons-material/Laptop';
 import DesktopAccessDisabledIcon from '@mui/icons-material/DesktopAccessDisabled';
+import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
+
 
 const SidebarAssetComponent = ({show}:any) => {
   const [alerts, setAlerts] = React.useState(false);
@@ -400,11 +402,19 @@ const SidebarAssetComponent = ({show}:any) => {
           </ListItemButton>
         </List>
         </Link>
-        <Link href="/assets/addassets/addscrappedassets" passHref style={{ textDecoration: "none" }}>
+        <Link href="/assets/addassets/addscrappedassets/scrappedassetlist" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl:2.8}}>
           <DesktopAccessDisabledIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
             <Typography sx={{color:'#414242',fontSize:'0.75rem'}}>Add Scrapped Assets</Typography>
+          </ListItemButton>
+        </List>
+        </Link>
+        <Link href="/assets/addassets/employeemanagement" passHref style={{ textDecoration: "none" }}>
+        <List component="div" disablePadding>
+          <ListItemButton sx={{ pl:2.8}}>
+          <PersonAddAltIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+            <Typography sx={{color:'#414242',fontSize:'0.75rem'}}>Employee Management</Typography>
           </ListItemButton>
         </List>
         </Link>

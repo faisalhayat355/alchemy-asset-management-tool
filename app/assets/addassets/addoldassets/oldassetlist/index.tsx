@@ -51,7 +51,7 @@ const OldAssetHomeComponent = () => {
      <Grid container sx={{padding:'1rem',alignItems:'center'}}>
      <Link href="/dashboard" passHref style={{ textDecoration: "none" }}>
       <Grid item xs={0.6}>
-      <Tooltip title="Dashboard" TransitionComponent={Zoom} arrow>
+      <Tooltip title="Back" TransitionComponent={Zoom} arrow>
       <IconButton><ArrowBackIcon/></IconButton>
       </Tooltip>
       </Grid>

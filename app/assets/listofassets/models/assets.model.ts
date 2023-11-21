@@ -1,5 +1,5 @@
 type IAssets = {
-    id: string;
+    id: number;
     assettagid: string;
     purchasefrom: string;
     assignto: string;
@@ -15,6 +15,7 @@ type IAssets = {
     category?: string;
     location: string;
     department: string;
+    
     
   };
   

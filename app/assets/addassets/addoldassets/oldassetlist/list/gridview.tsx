@@ -24,7 +24,7 @@ type AssetsProps = {
   users: Array<IAssets>;
 };
 
-const OldAssetGridViewComponent = ({users}:any) => {
+const OldAssetGridViewComponent = ({users}:AssetsProps) => {
     const classes = useStyles();
 
     let [page, setPage] = useState(1);
@@ -154,7 +154,6 @@ const OldAssetGridViewComponent = ({users}:any) => {
                         </Grid>
                       </Grid>
                     </Box>
-                    
                   </Paper>
                 </Grid>
               );
@@ -177,9 +176,6 @@ const OldAssetGridViewComponent = ({users}:any) => {
         </Grid>
         <Grid item xs={0.2}></Grid>
       </Grid>
-
-
-
    </div>
   )
 }

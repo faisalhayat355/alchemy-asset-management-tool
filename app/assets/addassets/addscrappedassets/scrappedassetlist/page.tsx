@@ -6,7 +6,6 @@ import ListAssetHomeComponent from '../../../listofassets'
 const page = () => {
   return (
     <div>
-      {/* <ScrappedAssetList/> */}
       <ListScrapedHomeComponent/>
     </div>
   )
