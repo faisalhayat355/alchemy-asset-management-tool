@@ -10,8 +10,6 @@ import Link from "next/link";
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from "react";
 
-
-
 const useStyles = makeStyles({
     typography: {
        fontFamily:"cursive",
@@ -41,7 +39,7 @@ const AssetNewAssetPage = () => {
       .post("http://localhost:8000/newAsset", inputData)
       .then((res) => {
         alert("Data Submited Successfully");
-        router.push('/assets/listofassets', { scroll: false })
+        router.push('/assets/addassets/addnewassets/newassetlist', { scroll: false })
       })
       .catch((err) => console.log(err));
   }
@@ -286,7 +284,7 @@ const AssetNewAssetPage = () => {
         <Grid item xs={2.5} mt={1} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={5.2}>
-            <Link href="/assets/listofassets" passHref style={{ textDecoration: "none" }}>
+            <Link href="/assets/addassets/addnewassets/newassetlist" passHref style={{ textDecoration: "none" }}>
             <button style={{cursor:'pointer',background:'#f87171',color:'white',width:'90%',border:'none',height:'5vh',borderRadius:'5px'}}> Cancel</button>
             </Link>
             </Grid>

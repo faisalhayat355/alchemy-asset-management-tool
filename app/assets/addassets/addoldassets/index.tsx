@@ -10,8 +10,6 @@ import Link from "next/link";
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from "react";
 
-
-
 const useStyles = makeStyles({
     typography: {
        fontFamily:"cursive",
@@ -41,13 +39,10 @@ const AssetOldAssetPage = () => {
       .post("http://localhost:8000/oldAsset", inputData)
       .then((res) => {
         alert("Data Submited Successfully");
-        router.push('/assets/listofassets', { scroll: false })
+        router.push('/assets/addassets/addoldassets/oldassetlist', { scroll: false })
       })
       .catch((err) => console.log(err));
   }
-
-
-  console.log("Olddata",data);
   
   
   return (
@@ -290,7 +285,7 @@ const AssetOldAssetPage = () => {
         <Grid item xs={2.5} mt={1} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={5.2}>
-            <Link href="/assets/listofassets" passHref style={{ textDecoration: "none" }}>
+            <Link href="/assets/addassets/addoldassets/oldassetlist" passHref style={{ textDecoration: "none" }}>
             <button style={{cursor:'pointer',background:'#f87171',color:'white',width:'90%',border:'none',height:'5vh',borderRadius:'5px'}}> Cancel</button>
             </Link>
             </Grid>
@@ -311,7 +306,6 @@ const AssetOldAssetPage = () => {
       </Grid>
       <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #f87171',paddingLeft:'2rem',paddingTop:'0.8rem',paddingBottom:'0.7rem',width:'97%',marginLeft:'1.3rem',alignItems:'center',boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}}>
        <StatusTab/>
-      
       </Grid>
      </Box> */}
 

@@ -7,19 +7,19 @@ import IconButton from '@mui/material/IconButton';
 import Link from 'next/link';
 
 
-const AssetScrappedInfoComponent = ({items}:any) => {
-  const Removefunction = (id) => {
-    if (window.confirm('Do you want to remove?')) {
-        fetch("http://localhost:8000/scrappedAsset/" + id, {
-            method: "DELETE"
-        }).then((res) => {
-            alert('Removed successfully.')
-            window.location.reload();
-        }).catch((err) => {
-            console.log(err.message)
-        })
-    }
-  }
+const OldAssetInfoComponent = ({items}:any) => {
+    const Removefunction = (id) => {
+        if (window.confirm('Do you want to remove?')) {
+            fetch("http://localhost:8000/oldAsset/" + id, {
+                method: "DELETE"
+            }).then((res) => {
+                alert('Removed successfully.')
+                window.location.reload();
+            }).catch((err) => {
+                console.log(err.message)
+            })
+        }
+      }
   return (
     <>
     <Grid container mt={0.4}>
@@ -74,4 +74,4 @@ const AssetScrappedInfoComponent = ({items}:any) => {
   )
 }
 
-export default AssetScrappedInfoComponent
+export default OldAssetInfoComponent

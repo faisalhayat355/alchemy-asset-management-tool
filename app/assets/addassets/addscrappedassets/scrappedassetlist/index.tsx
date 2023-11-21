@@ -1,18 +1,17 @@
 "use client"
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { Box, Button, Divider, Grid, IconButton, Paper, Typography } from '@mui/material';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { Box, Button, Divider, Grid, IconButton, Tooltip, Typography, Zoom } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import Link from 'next/link';
-import AssetSearchComponent from "../../../listofassets/listcomponent/searchComponent";
-import AssetFilterComponent from "../../../listofassets/listcomponent/filterComponent";
-import AssetExportComponent from "../../../listofassets/listcomponent/exportComponent";
-import AssetViewComponent from "../../../listofassets/multipleview";
+import { useEffect, useState } from "react";
 import { Case, Default, Switch } from "react-if";
-import { ViewTypes } from "../../../listofassets/utility/view.type";
-import GridViewComponent from "../../../listofassets/listcomponent/gridView";
 import AssetCalendarView from "../../../listofassets/listcomponent/calendarView";
-import ListItemComponent from "../../../listofassets/listcomponent/ListItem";
+import AssetExportComponent from "../../../listofassets/listcomponent/exportComponent";
+import AssetFilterComponent from "../../../listofassets/listcomponent/filterComponent";
+import GridViewComponent from "../../../listofassets/listcomponent/gridView";
+import AssetSearchComponent from "../../../listofassets/listcomponent/searchComponent";
+import AssetViewComponent from "../../../listofassets/multipleview";
+import { ViewTypes } from "../../../listofassets/utility/view.type";
 import ScrappedListComponent from "./list";
 
 const useStyles = makeStyles({
@@ -25,17 +24,9 @@ const useStyles = makeStyles({
 const ListScrapedHomeComponent = () => {
   const [data, setData] = useState([]);
   const [users, setUsers] = useState([])
-
-  // const [error, setError] = useState ([]);
   const [viewType, setViewType] = useState<ViewTypes>(ViewTypes.LIST);
   const classes = useStyles();
-  // useEffect(() => {
-  //   axios .get("http://localhost:8000/users")
-  //     .then((res) => setUsers(res.data))
-  //     .catch((err) => {
-  //       setError(err.message);
-  //     });
-  // }, []);
+
   async function fetchData() {
     const users = await fetch("http://localhost:8000/scrappedAsset");
     const result = await users.json();
@@ -63,9 +54,16 @@ const ListScrapedHomeComponent = () => {
   return (
 
   <Box>
-     <Grid container sx={{padding:'1rem'}}>
-       <Grid item xs={12}>
-         <Typography fontWeight={"bold"} className={classes.typography}>List of Assets</Typography>
+     <Grid container sx={{padding:'1rem',alignItems:'center'}}>
+     <Link href="/dashboard" passHref style={{ textDecoration: "none" }}>
+      <Grid item xs={0.6}>
+      <Tooltip title="Dashboard" TransitionComponent={Zoom} arrow>
+      <IconButton><ArrowBackIcon/></IconButton>
+      </Tooltip>
+      </Grid>
+      </Link>
+       <Grid item xs={11}>
+         <Typography fontWeight={"bold"} className={classes.typography}>List of Scrapped Assets</Typography>
        </Grid>
      </Grid>
      <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #f87171',paddingLeft:'1rem',paddingTop:'1rem',paddingBottom:'1rem',width:'97.5%',marginLeft:'1rem',alignItems:'center'}}>
@@ -75,10 +73,10 @@ const ListScrapedHomeComponent = () => {
       <Grid item xs={0.4}>
         <AssetFilterComponent/>
       </Grid>
-      <Grid item xs={4.6}>
+      <Grid item xs={4}>
         <AssetExportComponent users={users}/>
       </Grid>
-      <Grid item xs={0.8}>
+      <Grid item xs={1.4}>
         <AssetViewComponent onViewSelect={onViewSelect}/>
       </Grid>
       <Grid item xs={2} sx={{display:'flex',justifyContent:'flex-end'}}>

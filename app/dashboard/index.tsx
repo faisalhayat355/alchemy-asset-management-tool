@@ -1,18 +1,17 @@
 "use client"
 import AddIcon from '@mui/icons-material/Add';
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import AddToQueueIcon from '@mui/icons-material/AddToQueue';
+import DesktopAccessDisabledIcon from '@mui/icons-material/DesktopAccessDisabled';
+import LaptopIcon from '@mui/icons-material/Laptop';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import SettingsIcon from '@mui/icons-material/Settings';
-import ToggleOffIcon from '@mui/icons-material/ToggleOff';
-import ToggleOnIcon from '@mui/icons-material/ToggleOn';
 import { Box, Button, Divider, Grid, Paper, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import dayjs from 'dayjs';
+import moment from "moment";
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import moment from "moment";
 import { IAssets } from '../assets/listofassets/models/assets.model';
 const localizer = momentLocalizer(moment);
 
@@ -184,10 +183,11 @@ const DashboardPage = () => {
                     </Link>
                 </Grid>
                 <Grid item xs={3} mt={1.5}>
+                <Link href="/assets/addassets/addnewassets/newassetlist" passHref style={{ textDecoration: "none" }}>
                     <Paper className={classes.paper} elevation={0} >
                        <Grid container> 
                        <Grid item xs={4}>
-                       <div className={classes.divIcon2}><ToggleOnIcon style={{fontSize:'1rem',marginTop:'-1rem'}}/></div>
+                       <div className={classes.divIcon2}><AddToQueueIcon style={{fontSize:'1rem',marginTop:'-1rem'}}/></div>
                        </Grid>
                         <Grid item xs={8} sx={{display:'flex',justifyContent:'center'}}>
                         <Typography fontSize={"0.9rem"} fontWeight={"bold"}>New Asset</Typography>
@@ -197,6 +197,7 @@ const DashboardPage = () => {
                         </Grid>
                        </Grid>
                     </Paper>
+                    </Link>
                 </Grid>
                 <Grid item xs={3} mt={1.5}>
 
@@ -204,7 +205,7 @@ const DashboardPage = () => {
                     <Paper className={classes.paper} elevation={0} >
                        <Grid container> 
                        <Grid item xs={3.8}>
-                       <div className={classes.divIcon3}><ToggleOffIcon style={{fontSize:'1rem',marginTop:'-1rem'}}/></div>
+                       <div className={classes.divIcon3}><LaptopIcon style={{fontSize:'1rem',marginTop:'-1rem'}}/></div>
                        </Grid>
                         <Grid item xs={8.2} sx={{display:'flex',justifyContent:'center'}}>
                         <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Old Asset</Typography>
@@ -222,7 +223,7 @@ const DashboardPage = () => {
                     <Paper className={classes.paper} elevation={0} >
                        <Grid container> 
                        <Grid item xs={3.8}>
-                       <div className={classes.divIcon4}><DeleteOutlineIcon style={{fontSize:'1rem',marginTop:'-1rem'}}/></div>
+                       <div className={classes.divIcon4}><DesktopAccessDisabledIcon style={{fontSize:'1rem',marginTop:'-1rem'}}/></div>
                        </Grid>
                         <Grid item xs={8.2} sx={{display:'flex',justifyContent:'center'}}>
                         <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Scrapped Asset</Typography>

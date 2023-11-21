@@ -11,7 +11,8 @@ import { makeStyles } from '@mui/styles';
 import { useState } from 'react';
 import { IAssets } from '../../../../listofassets/models/assets.model';
 import { PaginationHandler } from '../../../../listofassets/utility/pagination';
-import AssetScrappedInfoComponent from '../info';
+import AssetScrappedInfoComponent from '../../../addscrappedassets/scrappedassetlist/info';
+import OldAssetInfoComponent from '../info';
 
 
 const useStyles = makeStyles({
@@ -25,21 +26,21 @@ const useStyles = makeStyles({
   type AssetsProps = {
       users: Array<IAssets>;
     };
-const ScrappedListComponent = ({users}:AssetsProps) => {
+const OldListAssetComponent = ({users}:any) => {
     const classes = useStyles();
 
-  let [page, setPage] = useState(1);
-  const PER_PAGE = 8;
-  const count = Math.ceil(users.length / PER_PAGE);
-  const paginationHandler = PaginationHandler(users, PER_PAGE);
-
-  const handleChangePage = (e: any, p: number) => {
-    setPage(p);
-    paginationHandler.jump(p);
-  };
+    let [page, setPage] = useState(1);
+    const PER_PAGE = 8;
+    const count = Math.ceil(users.length / PER_PAGE);
+    const paginationHandler = PaginationHandler(users, PER_PAGE);
+  
+    const handleChangePage = (e: any, p: number) => {
+      setPage(p);
+      paginationHandler.jump(p);
+    };
   return (
-    <>
-        <Box>
+    <div>
+     <Box>
      <Grid container sx={{background:'white',paddingLeft:'1rem',paddingBottom:'1rem',width:'97.5%',marginLeft:'1rem',alignItems:'center'}}>
         <Grid container sx={{border:'1px solid #fecaca',padding:'0.2rem',width:'98.5%',borderRadius:'5px'}}>
         <Grid item xs={1.55}>
@@ -66,13 +67,14 @@ const ScrappedListComponent = ({users}:AssetsProps) => {
         </Grid>
      </Grid>     
     </Box>
+
     <Grid style={{ marginTop:"-1rem",height: "53vh",background:'white',paddingLeft:'1rem',paddingBottom:'1rem',width:'97.5%',marginLeft:'1rem',alignItems:'center' }}>
         {paginationHandler
           .currentData()
           ?.map((items:any, index: number) => {
             return (
               <Typography key={index}>
-                 <AssetScrappedInfoComponent items={items}/>
+                 <OldAssetInfoComponent items={items}/>
               </Typography>
             );
           })}
@@ -90,8 +92,8 @@ const ScrappedListComponent = ({users}:AssetsProps) => {
           />
         </Grid>
       </Grid>
-    </>
+    </div>
   )
 }
 
-export default ScrappedListComponent
+export default OldListAssetComponent

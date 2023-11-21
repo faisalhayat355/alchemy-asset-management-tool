@@ -79,7 +79,7 @@ const AssetScrappedAssetPage = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={6} mt={0.6}>
+        {/* <Grid item xs={6} mt={0.6}>
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
             <Typography>Purchased from</Typography>
@@ -100,8 +100,8 @@ const AssetScrappedAssetPage = () => {
              onChange={(e) => setInputData({ ...inputData, purchasedate: e.target.value })}/>
             </Grid>
           </Grid>
-        </Grid>
-        <Grid item xs={6} >
+        </Grid> */}
+        {/* <Grid item xs={6} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3}>
             <Typography>Cost</Typography>
@@ -113,8 +113,8 @@ const AssetScrappedAssetPage = () => {
         </FormControl>
             </Grid>
           </Grid>
-        </Grid>
-        <Grid item xs={6} >
+        </Grid> */}
+        <Grid item xs={6} mt={0.3}>
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
             <Typography>Model</Typography>
@@ -125,7 +125,7 @@ const AssetScrappedAssetPage = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={6} >
+        <Grid item xs={6} mt={1}>
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
             <Typography>Brand</Typography>
@@ -136,7 +136,7 @@ const AssetScrappedAssetPage = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={6} >
+        <Grid item xs={6} mt={0.6}>
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
             <Typography>Serial No.</Typography>
