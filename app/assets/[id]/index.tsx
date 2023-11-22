@@ -1,52 +1,247 @@
-"use client"
-import axios from 'axios';
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'next/navigation'
-import { Box, Grid } from '@mui/material';
+"use client";
+import React from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import {
+  Grid,
+  Typography,
+  TextField,
+  FormControl,
+  Select,
+  MenuItem,
+} from "@mui/material";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import Button from "@mui/material/Button";
+import { makeStyles } from "@mui/styles";
+import { IAssets } from "../listofassets/models/assets.model";
+import DescriptionIcon from '@mui/icons-material/Description';
+import { updateAsset } from "../services/assetAction";
 
-const EditAssetComponent = () => {
-  const [assets, setAssets] = useState ([]);
-  const [error, setError] = useState ([]);
-  const {id} = useParams()
+const country = [
+  { id: 1, name: "India", label: "India" },
+  { id: 2, name: "Australia", label: "Australia" },
+  { id: 3, name: "America", label: "America" },
+  { id: 4, name: "Spain", label: "Spain" },
+  { id: 5, name: "US", label: "US" },
+  { id: 5, name: "UK", label: "UK" },
+];
+const state = [
+  { id: 1, name: "Bihar", label: "Bihar" },
+  { id: 2, name: "Maharastra", label: "Maharastra" },
+  { id: 3, name: "MP", label: "MP" },
+  { id: 4, name: "UP", label: "UP" },
+  { id: 5, name: "GOA", label: "GOA" },
+  { id: 6, name: "Assam", label: "Assam" },
+  { id: 7, name: "Kerala", label: "Kerala" },
+];
 
-  useEffect(() => {
-    axios .get("http://localhost:8000/users/" + id,)
-      .then((res) => setAssets(res.data))
-      .catch((err) => {
-        setError(err.message);
-      });
-  }, []);
-  // console.log("assets ID", assets);
-  
-  // const convertObj = (assets) => {
-  //   const keys = Object.keys(assets);
-  //   const arr = [];
-  //   for (let i = 0; i < keys.length; i++) {
-  //     arr.push(assets[keys[i]]);
-  //   }
-  //   console.log(arr);
-  
-  //   return arr;
-  // };
-  // convertObj(assets);
-
-  // console.log("convertObjconvertObjconvertObj",convertObj);
-  
-
-
-  return (
-    <div>
-
-         {/* {assets?.map((data)=>{
-            return(
-               <div key={data.id}>
-                {data.id}
-               </div>
-            )
-        })} */}
-
-    </div>
-  )
+const useStyles = makeStyles({
+  errormessage: {
+    fontSize: "0.75rem",
+    color: "red",
+  },
+  container:{
+    background:'#F5F5F5',
+    height:'91vh',
+    paddingLeft:'1rem',
+    paddingTop:'1rem',
+   
+  },
+  card:{
+    background: "white",
+    width: "98.5%", 
+    borderRadius:'8px'
+  }
+});
+interface IUserProp {
+  user: IAssets | undefined;
 }
 
-export default EditAssetComponent
+const schema = yup
+  .object({
+    description: yup.string().required("First Name is required"),
+    brand: yup.string().required("Last Name is required"),
+    // mobile: yup
+    //   .string()
+    //   .required("Mobile Number is Required")
+    //   .min(10, "Enter 10-digit Mobile Number")
+    //   .max(10, "Enter Number that's 10 or Less"),
+    // pinCode: yup.string().required("Pin Code is required"),
+    // address: yup.string().required("Address is required"),
+    // country: yup.string().required("Country is required"),
+    // state: yup.string().required("state is required"),
+    // email: yup
+    //   .string()
+    //   .email("This must be a email")
+    //   .required("Email is required"),
+  })
+  .required();
+
+const EditAssetComponent = ({ user }: IUserProp) => {
+  console.log("useruseruser",user)
+  const {
+    register,
+    setValue,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
+    defaultValues: {
+      description: user?.description,
+      brand: user?.brand,
+     
+     
+    },
+    resolver: yupResolver(schema),
+  });
+  const classes = useStyles();
+  const router = useRouter();
+
+  const onSubmit = async (data: any) => {
+    if (user?.id) {
+      try {
+        const newUser = {
+          id: user.id, 
+          description: data?.description,
+          brand: data?.brand,
+        };
+        await updateAsset(user.id, newUser); 
+        router.push('/assets/listofassets', { scroll: false });
+      } catch (error) {
+    
+        console.error('Error updating asset:', error);
+      }
+    }
+  };
+  
+
+  return (
+    <div className={classes.container}>
+      <Typography variant="h6" pb={3}>Update Asset</Typography>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Grid container className={classes.card}p={4}>
+          <Grid item xs={12} mb={3} pl={1}>
+          </Grid>
+          <Grid item xs={12} sm={6} md={4} lg={4} pl={1} pr={1}>
+            <Typography>Description</Typography>
+            <TextField fullWidth {...register("description")} size="small" />
+            <p className={classes.errormessage}>{errors.description?.message}</p>
+          </Grid>
+          <Grid item xs={12} sm={6} md={4} lg={4} pl={1} pr={1}>
+            <Typography>Brand</Typography>
+            <TextField fullWidth {...register("brand")} size="small" />
+            <p className={classes.errormessage}>{errors.brand?.message}</p>
+          </Grid>
+          {/* <Grid item xs={12} sm={6} md={4} lg={4} pl={1} pr={1}>
+            <Typography>Email</Typography>
+            <TextField
+              type="email"
+              fullWidth
+              {...register("email")}
+              size="small"
+            />
+            <p className={classes.errormessage}>{errors.email?.message}</p>
+          </Grid>
+          <Grid item xs={12} sm={6} md={4} lg={4} pl={1} pr={1}>
+            <Typography>Mobile</Typography>
+            <TextField fullWidth {...register("mobile")} size="small" />
+            <p className={classes.errormessage}>{errors.mobile?.message}</p>
+          </Grid>
+          <Grid item xs={12} sm={6} md={4} lg={4} pl={1} pr={1}>
+            <Typography>Address</Typography>
+            <TextField fullWidth {...register("address")} size="small" />
+            <p className={classes.errormessage}>{errors.address?.message}</p>
+          </Grid>
+          <Grid item xs={12} sm={6} md={4} lg={4} pl={1} pr={1}>
+            <Typography>State</Typography>
+            <FormControl fullWidth size="small">
+              <Select
+                onChange={(e) =>
+                  setValue("state", e.target.value, {
+                    shouldValidate: true,
+                  })
+                }
+              >
+                {state.map((f) => {
+                  return (
+                    <MenuItem key={f.id} value={f.name}>
+                      {f.label}
+                    </MenuItem>
+                  );
+                })}
+              </Select>
+            </FormControl>
+            <span className={classes.errormessage}>
+              {errors.country?.message}
+            </span>
+          </Grid> */}
+          {/* <Grid item xs={12} sm={6} md={4} lg={4} pl={1} pr={1}>
+            <Typography>Country</Typography> */}
+            {/* <TextField fullWidth {...register("country")} size="small" />
+            <p className={classes.errormessage}>{errors.country?.message}</p> */}
+
+            {/* <FormControl fullWidth size="small">
+              <Select
+                onChange={(e) =>
+                  setValue("country", e.target.value, {
+                    shouldValidate: true,
+                  })
+                }
+              >
+                {country.map((k) => {
+                  return (
+                    <MenuItem key={k.id} value={k.name}>
+                      {k.label}
+                    </MenuItem>
+                  );
+                })}
+              </Select>
+            </FormControl>
+            <span className={classes.errormessage}>
+              {errors.country?.message}
+            </span>
+          </Grid> */}
+          {/* <Grid item xs={12} sm={6} md={4} lg={4} pl={1} pr={1}>
+            <Typography>PinCode</Typography>
+            <TextField fullWidth {...register("pinCode")} size="small" />
+            <p className={classes.errormessage}>{errors.pinCode?.message}</p>
+          </Grid> */}
+
+          <Grid item xs={12} sm={12} md={12} lg={12} mt={2} pl={1} pr={1}>
+            <Grid container>
+              <Grid
+                item
+                xs={12}
+                style={{ display: "flex", justifyContent: "flex-end" }}
+              >
+                <Link href={"/assets/listofassets"} style={{ textDecoration: "none" }}>
+                  <Button
+                    variant="contained"
+                    style={{ textTransform: "capitalize",background:'#FFC107' }}
+                  >
+                    Close
+                  </Button>
+                </Link>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  style={{
+                    marginLeft: "2rem",
+                    textTransform: "capitalize",
+                    background:'#FFC107'
+                  }}
+                >
+                  Submit
+                </Button>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
+      </form>
+    </div>
+  );
+};
+
+export default EditAssetComponent;

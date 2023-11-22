@@ -110,7 +110,7 @@ const ListAssetHomeComponent = () => {
               <AssetCalendarView users={users} />
             </Case>
             <Default>
-              <ListItemComponent users={users} />
+              <ListItemComponent />
             </Default>
           </Switch>
         </Grid>

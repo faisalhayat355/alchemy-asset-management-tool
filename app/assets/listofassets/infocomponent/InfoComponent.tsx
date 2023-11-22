@@ -54,11 +54,11 @@ const Removefunction = (id) => {
                 </Link>
               </Grid>
               <Grid item xs={4}>
-              {/* <Link href={`/assets/viewassets/${items.id}`}> */}
+              <Link href={`/assets/${items.id}`}>
               <IconButton>
                 <EditIcon style={{fontSize:'1.1rem'}}/>
                 </IconButton>
-                {/* </Link> */}
+                </Link>
               </Grid>
               {/* <Grid item xs={3}>
                 <IconButton>
