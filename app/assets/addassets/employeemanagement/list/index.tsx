@@ -45,10 +45,10 @@ const EmployeeListComponent = ({users}:AssetsProps) => {
             <Typography className={classes.typography}>Employee ID</Typography>
         </Grid>
         <Grid item xs={2}>
-            <Typography className={classes.typography}>First Name</Typography>
+            <Typography className={classes.typography}>Name</Typography>
         </Grid>
         <Grid item xs={2}>
-            <Typography className={classes.typography}>Last Name</Typography>
+            <Typography className={classes.typography}>Position</Typography>
         </Grid>
         <Grid item xs={1.5}>
             <Typography className={classes.typography}>Department</Typography>

@@ -16,10 +16,10 @@ const EmployeeInfoComponent = ({items}:any) => {
            <Typography fontSize={"0.75rem"} noWrap>{items.employeeid}</Typography>
        </Grid>
        <Grid item xs={2}>
-           <Typography fontSize={"0.75rem"} noWrap>{items.firstName}</Typography>
+           <Typography fontSize={"0.75rem"} noWrap>{items.name}</Typography>
        </Grid>
        <Grid item xs={2}>
-           <Typography fontSize={"0.75rem"} noWrap>{items.lastName}</Typography>
+           <Typography fontSize={"0.75rem"} noWrap>{items.position}</Typography>
        </Grid>
        <Grid item xs={1.5}>
            <Typography fontSize={"0.75rem"} noWrap>{items.department}</Typography>

@@ -4,7 +4,7 @@
       "id": 1,
       "description": "Dell Laptop Problem",
       "brand": "DellSSSSSSSSSS",
-      "name": "Arjun Rao"
+      "name": "Faisal Hayat"
     },
     {
       "id": 2,
@@ -65,6 +65,24 @@
       "department": "Admin",
       "processor": "Core i7",
       "name": "Akshay Kumar"
+    },
+    {
+      "id": 6,
+      "assettagid": "",
+      "description": "Mouse Pad Problem",
+      "brand": "dell",
+      "serialno": "ghg65656",
+      "model": "dell",
+      "cost": "56565",
+      "site": "Alchemy",
+      "category": "Internal",
+      "location": "Banglore",
+      "purchasedate": "2022-08-12",
+      "purchasefrom": "Service",
+      "ram": "8 GB",
+      "department": "Admin",
+      "processor": "Dual Core",
+      "name": "Shreyas Iyer"
     }
   ],
   "newAsset": [
@@ -276,20 +294,19 @@
       "id": "1",
       "assettagid": "Alchemy324",
       "employeeid": "ALS/1891",
-      "firstName": "Alexa",
-      "lastName": "John",
+      "name": "Ravindra Jadeja",
       "department": "Developer",
       "position": "Manager",
       "employementType": "Internal",
       "location": "Banglore",
       "mobile": "9208765432",
-      "email": "test@alchemytechsol.com"
+      "email": "test@alchemytechsol.com",
+      "assigndate": ""
     },
     {
       "assettagid": "",
       "employeeid": "",
-      "firstName": "Faisal",
-      "lastName": "Hayat",
+      "name": "Shubhman Gill",
       "department": "",
       "position": "",
       "employementType": "",
@@ -298,22 +315,42 @@
       "id": "BFrZQwz"
     },
     {
-      "name": "Core i5",
+      "name": "MS Dhoni",
       "id": "BJlcFC3",
-      "firstName": "Akshay",
-      "lastName": "Kumar"
+      "firstName": "Akshay"
     },
     {
       "assettagid": "6785",
       "employeeid": "ALS7861",
-      "firstName": "Arjun",
-      "lastName": "Rao",
+      "name": "Shreyas Iyer",
       "department": "Recruiter",
       "position": "Manager",
       "employementType": "Alchemy",
       "location": "Banglore",
       "email": "9876543212",
       "id": "-ZJaS8b"
+    },
+    {
+      "assettagid": "4343",
+      "employeeid": "ALS/56756",
+      "name": "Rohit Sharma",
+      "department": "Accounts",
+      "position": "Admin",
+      "employementType": "Alchemy",
+      "location": "Noida",
+      "email": "8787676566",
+      "id": "qEdsnjh"
+    },
+    {
+      "assettagid": "",
+      "employeeid": "ALS/1876",
+      "name": "Virat Kohli",
+      "department": "Manager",
+      "position": "Tester",
+      "employementType": "Alchemy",
+      "location": "Philippines",
+      "email": "9000000776",
+      "id": "XbG6Ti7"
     }
   ]
 }

@@ -19,7 +19,7 @@ const useStyles = makeStyles({
   
 const AddEmployeeManagement = () => {
   const classes = useStyles();
-  const [inputData, setInputData] = useState({assettagid:"",employeeid:"",firstName:"",lastName:"",department:"",position:"",employementType:"",location:"",email:""});
+  const [inputData, setInputData] = useState({employeeid:"",name:"",department:"",position:"",employementType:"",location:"",email:""});
   // const [ram,setRam]=useState()
   const router = useRouter()
   const [data, setData] = useState([]);
@@ -41,7 +41,7 @@ const AddEmployeeManagement = () => {
         alert("Data Submited Successfully");
         router.push('/assets/employeeManagement', { scroll: false })
       })
-      .catch((err) => console.log(err));
+      
   }
   return (
     <div>
@@ -53,7 +53,7 @@ const AddEmployeeManagement = () => {
         </Grid>
       </Grid>
       <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #f87171',paddingLeft:'2rem',paddingTop:'0.8rem',paddingBottom:'10.1rem',width:'97%',marginLeft:'1.3rem',alignItems:'center',boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}}>
-        <Grid item xs={6} >
+        {/* <Grid item xs={6} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
             <Typography>Asset Tag ID <span style={{color:'red'}}>*</span></Typography>
@@ -63,7 +63,7 @@ const AddEmployeeManagement = () => {
             onChange={(e) => setInputData({ ...inputData, assettagid: e.target.value })}/>
             </Grid>
           </Grid>
-        </Grid>
+        </Grid> */}
         <Grid item xs={6} mt={1} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
@@ -78,15 +78,15 @@ const AddEmployeeManagement = () => {
         <Grid item xs={6} mt={0.6}>
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
-            <Typography>First Name</Typography>
+            <Typography>Name</Typography>
             </Grid>
             <Grid item xs={8}>
             <TextField id="outlined-basic"  fullWidth size='small'
-            onChange={(e) => setInputData({ ...inputData, firstName: e.target.value })}/>
+            onChange={(e) => setInputData({ ...inputData, name: e.target.value })}/>
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={6} mt={1} >
+        {/* <Grid item xs={6} mt={1} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
             <Typography>Last Name</Typography>
@@ -96,7 +96,7 @@ const AddEmployeeManagement = () => {
             onChange={(e) => setInputData({ ...inputData, lastName: e.target.value })}/>
             </Grid>
           </Grid>
-        </Grid>
+        </Grid> */}
         <Grid item xs={6} mt={1}>
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
@@ -122,6 +122,17 @@ const AddEmployeeManagement = () => {
         <Grid item xs={6} mt={1}>
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
+            <Typography>Position</Typography>
+            </Grid>
+            <Grid item xs={8}>
+            <TextField id="outlined-basic"  fullWidth size='small'
+            onChange={(e) => setInputData({ ...inputData, position: e.target.value })}/>
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid item xs={6} mt={1}>
+          <Grid container sx={{alignItems:'center'}}>
+            <Grid item xs={3.2}>
             <Typography>Department</Typography>
             </Grid>
             <Grid item xs={8}>
@@ -139,26 +150,7 @@ const AddEmployeeManagement = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={6} mt={1}>
-          <Grid container sx={{alignItems:'center'}}>
-            <Grid item xs={3.2}>
-            <Typography>Position</Typography>
-            </Grid>
-            <Grid item xs={8}>
-            <select style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}  onChange={(e) => setInputData({ ...inputData, position: e.target.value })}>
-                <option>Select Position</option>
-                <option>Accounts</option>
-                <option>Admin</option>
-                <option>HR</option>
-                <option>Developer</option>
-                <option>Manager</option>
-                <option>Recruiter</option>
-              </select>
-            {/* <TextField id="outlined-basic"  fullWidth size='small'
-            onChange={(e) => setInputData({ ...inputData, position: e.target.value })}/> */}
-            </Grid>
-          </Grid>
-        </Grid>
+        
         <Grid item xs={6} mt={1} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
@@ -167,8 +159,8 @@ const AddEmployeeManagement = () => {
             <Grid item xs={8}>
             <select style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}  onChange={(e) => setInputData({ ...inputData, employementType: e.target.value })}>
                 <option>Select Type</option>
-                <option>Alchemy</option>
-                <option>External-Client</option>
+                <option>Alchemy Internal</option>
+                <option>Alchemy External</option>
               </select>
             {/* <TextField id="outlined-basic"  fullWidth size='small'
             onChange={(e) => setInputData({ ...inputData, employementType: e.target.value })}/> */}
@@ -188,44 +180,11 @@ const AddEmployeeManagement = () => {
                 <option>Select Location</option>
                 <option>Banglore</option>
                 <option>Noida</option>
+                <option>Philippines</option>
               </select>
             </Grid>
           </Grid>
         </Grid>
-        
-        {/* <Grid item xs={6} mt={1} >
-          <Grid container sx={{alignItems:'center'}}>
-            <Grid item xs={3.2}>
-            <Typography>Processor</Typography>
-            </Grid>
-            <Grid item xs={8}>
-            
-              <select style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}  onChange={(e) => setInputData({ ...inputData, processor: e.target.value })}>
-                <option>Select Processor</option>
-                <option>Pentium</option>
-                <option>Dual Core</option>
-                <option>Core i3</option>
-                <option>Core i5</option>
-                <option>Core i7</option>
-                <option>Core i9</option>
-              </select>
-            </Grid>
-          </Grid>
-        </Grid> */}
-        {/* <Grid container sx={{display:'flex',justifyContent:'flex-end',marginTop:'0.7rem'}}>
-        <Grid item xs={2.5} mt={8} >
-          <Grid container sx={{alignItems:'center'}}>
-            <Grid item xs={5.2}>
-            <Link href="/assets/addassets/addnewassets/newassetlist" passHref style={{ textDecoration: "none" }}>
-            <button style={{cursor:'pointer',background:'#f87171',color:'white',width:'90%',border:'none',height:'5vh',borderRadius:'5px'}}> Cancel</button>
-            </Link>
-            </Grid>
-            <Grid item xs={3.7}>
-            <button style={{background:'#f87171',color:'white',width:'130%',border:'none',height:'5vh',borderRadius:'5px'}}> Save</button>
-            </Grid>
-          </Grid>
-        </Grid>
-        </Grid> */}
         <Grid container mt={5}>
           <Grid item xs={12} >
             <Grid container >
@@ -239,7 +198,7 @@ const AddEmployeeManagement = () => {
                   </Link>
                   </Grid>
                   <Grid item xs={5.6}>
-                  <button style={{fontWeight:'bold',fontSize:'0.9rem',background:'#f87171',color:'white',width:'99%',border:'none',height:'6vh',borderRadius:'5px'}}> Save</button>
+                  <button style={{cursor:'pointer',fontWeight:'bold',fontSize:'0.9rem',background:'#f87171',color:'white',width:'99%',border:'none',height:'6vh',borderRadius:'5px'}}> Save</button>
                   </Grid>
                 </Grid>
 

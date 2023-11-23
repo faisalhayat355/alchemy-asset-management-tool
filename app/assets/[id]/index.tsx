@@ -1,6 +1,6 @@
 "use client";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Grid, TextField, Typography } from "@mui/material";
+import { Autocomplete, Grid, TextField, Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import { makeStyles } from "@mui/styles";
 import Link from "next/link";
@@ -75,7 +75,8 @@ const EditAssetComponent = ({ user }: IUserProp) => {
       ram:user?.ram,
       department:user?.department,
       processor:user?.processor,
-      name:user?.name
+      name:user?.name,
+      assigndate:user?.assigndate
     },
     resolver: yupResolver(schema),
   });
@@ -101,7 +102,8 @@ const EditAssetComponent = ({ user }: IUserProp) => {
           ram:data?.ram,
           department:data?.department,
           processor:data?.processor,
-          name:data?.name
+          name:data?.name,
+          assigndate:data?.assigndate
         };
         await updateAsset(user.id, newUser); 
         router.push('/assets/listofassets', { scroll: false });
@@ -115,28 +117,31 @@ const EditAssetComponent = ({ user }: IUserProp) => {
       <Typography className={classes.typography} fontWeight={"bold"}>Update Asset</Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Grid container className={classes.card} style={{height:'50vh'}}>
-        <Grid item xs={12}>
+        <Grid item xs={6}>
             <Grid container sx={{alignItems:'center'}}>
-              <Grid item xs={1.6}>
+              <Grid item xs={3.2}>
               <Typography>Assign To </Typography>
               </Grid>
-              <Grid item xs={10.3}>
-              <select style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}  {...register("name")}>
-                {employeeData.map((items) => {
-                  return (
-                    <>
-                    <option>
-                      {`${items.firstName} ${items.lastName}`}
-                    </option>
-                    </>
-                  );
-                })}
-              </select>
+              <Grid item xs={8.6}>
+              <Autocomplete size="small" id="free-solo-demo" freeSolo options={employeeData.map((option) => option.name)}
+              renderInput={(params) => <TextField {...params} label="Select Employee" {...register("name")}/>}/>
               <p className={classes.errormessage}>{errors.name?.message}</p>
               </Grid>
             </Grid> 
           </Grid>
-          <Grid item xs={6} mt={1}>
+          <Grid item xs={6}>
+            <Grid container sx={{alignItems:'center'}}>
+              <Grid item xs={3.2}>
+              <Typography>Assign Date </Typography>
+              </Grid>
+              <Grid item xs={8.6}>
+              <input type="date" id="birthday" name="birthday" style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}
+             {...register("assigndate")}/>
+             <p className={classes.errormessage}>{errors.assigndate?.message}</p>
+              </Grid>
+            </Grid> 
+          </Grid>
+          <Grid item xs={6}>
             <Grid container sx={{alignItems:'center'}}>
               <Grid item xs={3.2}>
               <Typography>Asset Tag ID </Typography>
@@ -147,7 +152,7 @@ const EditAssetComponent = ({ user }: IUserProp) => {
               </Grid>
             </Grid> 
           </Grid>
-          <Grid item xs={6} mt={1}>
+          <Grid item xs={6} >
             <Grid container sx={{alignItems:'center'}}>
               <Grid item xs={3.2}>
               <Typography>Description </Typography>

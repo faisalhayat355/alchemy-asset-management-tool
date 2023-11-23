@@ -16,9 +16,7 @@ type IAssets = {
     location: string;
     department: string;
     name:string;
-    firstName:string;
-    lastName:string;
-    
+    assigndate:string;
     
   };
   

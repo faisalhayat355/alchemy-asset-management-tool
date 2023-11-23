@@ -75,8 +75,7 @@ const EmployeeGridViewComponent = ({users}:AssetsProps) => {
                         </Grid>
                         <Grid item xs={6} paddingLeft={2}>
                           <Typography noWrap variant="subtitle1" >
-                            {/* {item?.purchasefrom} */}
-                            {`${item.firstName} ${item.lastName}`}
+                            {item.name}
                           </Typography>
                         </Grid>
                       </Grid>
