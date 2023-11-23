@@ -31,28 +31,28 @@ const ListItemComponent = () => {
       {
         accessorKey: 'name',
         header: 'Name',
-        size: 160,
+        size: 150,
         isResizable: true,
         enableSorting: true,
       },
       {
         accessorKey: 'department',
         header: 'Department',
-        size: 160,
+        size: 170,
         isResizable: true,
         enableSorting: true,
       },
       {
         accessorKey: 'brand',
         header: 'Brand',
-        size: 150,
+        size: 140,
         isResizable: true,
         enableSorting: true,
       },
       {
         accessorKey: 'model',
         header: 'Model',
-        size: 130,
+        size: 140,
         isResizable: true,
         enableSorting: true,
       },
@@ -128,7 +128,8 @@ const ListItemComponent = () => {
     enableStickyHeader: true,
     enableStickyFooter: true,
     manualFiltering: true,
-    enableRowSelection: true,
+    // enableRowSelection: true,
+    
   });
 
   const handleView = (rowData: Post) => {
