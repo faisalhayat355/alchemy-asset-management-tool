@@ -76,7 +76,8 @@ const EditAssetComponent = ({ user }: IUserProp) => {
       department:user?.department,
       processor:user?.processor,
       name:user?.name,
-      assigndate:user?.assigndate
+      assigndate:user?.assigndate,
+      id:user?.id
     },
     resolver: yupResolver(schema),
   });
@@ -114,7 +115,7 @@ const EditAssetComponent = ({ user }: IUserProp) => {
   }
   return (
     <div className={classes.container}>
-      <Typography className={classes.typography} fontWeight={"bold"}>Update Asset</Typography>
+      <Typography style={{fontFamily:"cursive", fontSize:'1.3rem',paddingBottom:'0.5rem'}} fontWeight={"bold"}>Update Asset</Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Grid container className={classes.card} style={{height:'50vh'}}>
         <Grid item xs={6}>
@@ -135,7 +136,7 @@ const EditAssetComponent = ({ user }: IUserProp) => {
               <Typography>Assign Date </Typography>
               </Grid>
               <Grid item xs={8.6}>
-              <input type="date" id="birthday" name="birthday" style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}
+              <input type="date" id="assign" name="assign" style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}
              {...register("assigndate")}/>
              <p className={classes.errormessage}>{errors.assigndate?.message}</p>
               </Grid>
@@ -147,8 +148,8 @@ const EditAssetComponent = ({ user }: IUserProp) => {
               <Typography>Asset Tag ID </Typography>
               </Grid>
               <Grid item xs={8.6}>
-              <TextField fullWidth {...register("assettagid")} size="small" disabled/>
-              <p className={classes.errormessage}>{errors.assettagid?.message}</p>
+              <TextField fullWidth {...register("id")} size="small" disabled/>
+              <p className={classes.errormessage}>{errors.id?.message}</p>
               </Grid>
             </Grid> 
           </Grid>

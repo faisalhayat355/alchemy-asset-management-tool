@@ -1,5 +1,4 @@
 "use client"
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import EditIcon from '@mui/icons-material/Edit';
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import { Grid, Typography } from '@mui/material';
@@ -7,8 +6,8 @@ import IconButton from '@mui/material/IconButton';
 import Link from 'next/link';
 
 
-const OldAssetInfoComponent = ({items}:any) => {
-    const Removefunction = (id) => {
+const StockAssetInfoComponent = ({items}:any) => {
+    const Removefunction = (id:any) => {
         if (window.confirm('Do you want to remove?')) {
             fetch("http://localhost:8000/oldAsset/" + id, {
                 method: "DELETE"
@@ -74,4 +73,4 @@ const OldAssetInfoComponent = ({items}:any) => {
   )
 }
 
-export default OldAssetInfoComponent
+export default StockAssetInfoComponent

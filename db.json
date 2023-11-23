@@ -4,6 +4,7 @@
       "id": 1,
       "description": "Dell Laptop Problem",
       "brand": "DellSSSSSSSSSS",
+      "category": "Returned",
       "name": "Faisal Hayat"
     },
     {
@@ -64,7 +65,8 @@
       "ram": "16 GB",
       "department": "Admin",
       "processor": "Core i7",
-      "name": "Akshay Kumar"
+      "name": "Akshay Kumar",
+      "assigndate": "2023-11-10"
     },
     {
       "id": 6,
@@ -82,7 +84,8 @@
       "ram": "8 GB",
       "department": "Admin",
       "processor": "Dual Core",
-      "name": "Shreyas Iyer"
+      "name": "Rohit Sharma",
+      "assigndate": "2023-11-23"
     }
   ],
   "newAsset": [

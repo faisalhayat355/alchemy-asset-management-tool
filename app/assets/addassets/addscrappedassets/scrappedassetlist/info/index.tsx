@@ -1,17 +1,11 @@
 "use client"
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import EditIcon from '@mui/icons-material/Edit';
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import { Grid, Typography } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import Link from 'next/link';
-import { IAssets } from '../../../../listofassets/models/assets.model';
 
-type AssetsProps = {
-  items: Array<IAssets>;
-};
-
-const AssetScrappedInfoComponent = ({items}:AssetsProps) => {
+const AssetScrappedInfoComponent = ({items}:any) => {
   const Removefunction = (id:any) => {
     if (window.confirm('Do you want to remove?')) {
         fetch("http://localhost:8000/scrappedAsset/" + id, {

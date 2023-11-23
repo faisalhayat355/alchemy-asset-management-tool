@@ -1,25 +1,14 @@
 "use client"
 import { Box, Grid, Typography } from '@mui/material';
-import FormControl from '@mui/material/FormControl';
-import InputAdornment from '@mui/material/InputAdornment';
-import OutlinedInput from '@mui/material/OutlinedInput';
 import TextField from '@mui/material/TextField';
-import { makeStyles } from '@mui/styles';
 import axios from "axios";
 import Link from "next/link";
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from "react";
 
 
-const useStyles = makeStyles({
-    typography: {
-       fontFamily:"cursive",
-       fontSize:'1.3rem'
-    },
-  });
   
 const AssetScrappedAssetPage = () => {
-    const classes = useStyles();
   const [inputData, setInputData] = useState({assettagid:"",purchasefrom:"",purchasedate:"",mobile:"",address:"",description:"",brand:"",cost:"",model:"",serialno:"",site:"",category:"",location:"",department:"",processor:"",ram:"",status:"",});
   // const [ram,setRam]=useState()
   const router = useRouter()
@@ -51,7 +40,7 @@ const AssetScrappedAssetPage = () => {
      <Box >
       <Grid container sx={{paddingLeft:'1rem',paddingTop:"0.5rem",paddingBottom:'0.5rem'}}>
         <Grid item xs={12}>
-          <Typography fontWeight={"bold"} className={classes.typography}>Add Scrapped Asset Details</Typography>
+          <Typography fontWeight={"bold"} style={{fontFamily:"cursive",fontSize:'1.3rem'}}>Add Scrapped Asset Details</Typography>
         </Grid>
       </Grid>
       <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #f87171',paddingLeft:'2rem',paddingTop:'0.8rem',paddingBottom:'0.7rem',width:'97%',marginLeft:'1.3rem',alignItems:'center',boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}}>
@@ -79,41 +68,6 @@ const AssetScrappedAssetPage = () => {
             </Grid>
           </Grid>
         </Grid>
-        {/* <Grid item xs={6} mt={0.6}>
-          <Grid container sx={{alignItems:'center'}}>
-            <Grid item xs={3.2}>
-            <Typography>Purchased from</Typography>
-            </Grid>
-            <Grid item xs={8}>
-            <TextField id="outlined-basic"  fullWidth size='small'
-            onChange={(e) => setInputData({ ...inputData, purchasefrom: e.target.value })}/>
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item xs={6} mt={1} >
-          <Grid container sx={{alignItems:'center'}}>
-            <Grid item xs={3.2}>
-            <Typography>Purchased Date</Typography>
-            </Grid>
-            <Grid item xs={8}>
-             <input type="date" id="birthday" name="birthday" style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}
-             onChange={(e) => setInputData({ ...inputData, purchasedate: e.target.value })}/>
-            </Grid>
-          </Grid>
-        </Grid> */}
-        {/* <Grid item xs={6} >
-          <Grid container sx={{alignItems:'center'}}>
-            <Grid item xs={3}>
-            <Typography>Cost</Typography>
-            </Grid>
-            <Grid item xs={8}>
-            <FormControl fullWidth sx={{ m: 1 }}>
-          <OutlinedInput startAdornment={<InputAdornment position="start">₹</InputAdornment>} fullWidth size='small'
-           onChange={(e) => setInputData({ ...inputData, cost: e.target.value })}/>
-        </FormControl>
-            </Grid>
-          </Grid>
-        </Grid> */}
         <Grid item xs={6} mt={0.3}>
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
@@ -153,8 +107,6 @@ const AssetScrappedAssetPage = () => {
             <Typography>Processor</Typography>
             </Grid>
             <Grid item xs={8}>
-            {/* <TextField id="outlined-basic"  fullWidth size='small'
-            onChange={(e) => setInputData({ ...inputData, processor: e.target.value })}/> */}
               <select style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}  onChange={(e) => setInputData({ ...inputData, processor: e.target.value })}>
                 <option>Select Processor</option>
                 <option>Pentium</option>
@@ -179,8 +131,6 @@ const AssetScrappedAssetPage = () => {
                 <option>8 GB</option>
                 <option>16 GB</option>
               </select>
-            {/* <TextField id="outlined-basic"  fullWidth size='small'
-            onChange={(e) => setInputData({ ...inputData, ram: e.target.value })}/> */}
             </Grid>
           </Grid>
         </Grid>
@@ -189,7 +139,7 @@ const AssetScrappedAssetPage = () => {
      <Box>
       <Grid container sx={{paddingLeft:'1rem',paddingTop:'0.5rem',paddingBottom:'0.5rem',marginTop:'0.3rem'}}>
         <Grid item xs={12}>
-          <Typography fontWeight={"bold"} className={classes.typography}>Site, Location, Category and Department</Typography>
+          <Typography fontWeight={"bold"} style={{fontFamily:"cursive",fontSize:'1.3rem'}}>Site, Location, Category and Department</Typography>
         </Grid>
       </Grid>
       <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #f87171',paddingLeft:'2rem',paddingTop:'0.8rem',paddingBottom:'0.7rem',width:'97%',marginLeft:'1.3rem',alignItems:'center',boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}}>

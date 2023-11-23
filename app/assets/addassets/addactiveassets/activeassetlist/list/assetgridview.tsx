@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { IAssets } from '../../../../listofassets/models/assets.model';
 import { PaginationHandler } from '../../../../listofassets/utility/pagination';
 
+
 const useStyles = makeStyles({
   paper: {
     background: "#fffbeb",
@@ -23,23 +24,24 @@ type AssetsProps = {
   users: Array<IAssets>;
 };
 
-const StockAssetGridViewComponent = ({users}:AssetsProps) => {
-    const classes = useStyles();
+const ActiveAssetGridViewComponent = ({users}:AssetsProps) => {
+  const classes = useStyles();
 
-    let [page, setPage] = useState(1);
-    const PER_PAGE = 6;
-    const count = Math.ceil(users.length / PER_PAGE);
-    const paginationHandler = PaginationHandler(users, PER_PAGE);
-  
-    const handleChangePage = (e: any, p: number) => {
-      setPage(p);
-      paginationHandler.jump(p);
-    };
+  let [page, setPage] = useState(1);
+  const PER_PAGE = 6;
+  const count = Math.ceil(users.length / PER_PAGE);
+  const paginationHandler = PaginationHandler(users, PER_PAGE);
+
+  const handleChangePage = (e: any, p: number) => {
+    setPage(p);
+    paginationHandler.jump(p);
+  };
+
   
   return (
     <div>
     <Box style={{height:'63vh'}} >
-     <Grid container sx={{background:'white',paddingLeft:'1rem',paddingRight:'1rem',paddingBottom:'1rem',width:'97.5%',marginLeft:'1rem',alignItems:'center'}}>
+     <Grid container sx={{background:'white',paddingLeft:'1rem',paddingRight:'1rem',paddingBottom:'4.5rem',width:'97.5%',marginLeft:'1rem',alignItems:'center'}}>
         <Grid container spacing={2}>
           {paginationHandler
           .currentData().map((item:any) => {
@@ -66,14 +68,14 @@ const StockAssetGridViewComponent = ({users}:AssetsProps) => {
                     <Box paddingLeft={2}>
                       <Grid container>
                         <Grid item xs={5}>
-                          <Typography variant="subtitle1" fontWeight={"bold"}>Site</Typography>
+                          <Typography variant="subtitle1" fontWeight={"bold"}>Purchased From</Typography>
                         </Grid>
                         <Grid item xs={1}>
                           <Typography> :</Typography>
                         </Grid>
                         <Grid item xs={6} paddingLeft={2}>
                           <Typography noWrap variant="subtitle1" >
-                            {item?.site}
+                            {item?.purchasefrom}
                           </Typography>
                         </Grid>
                       </Grid>
@@ -81,29 +83,14 @@ const StockAssetGridViewComponent = ({users}:AssetsProps) => {
                     <Box paddingLeft={2}>
                       <Grid container>
                         <Grid item xs={5}>
-                          <Typography variant="subtitle1" fontWeight={"bold"}>Processor</Typography>
+                          <Typography variant="subtitle1" fontWeight={"bold"}>Purchased Date</Typography>
                         </Grid>
                         <Grid item xs={1}>
                           <Typography> :</Typography>
                         </Grid>
                         <Grid item xs={6} paddingLeft={2}>
                           <Typography noWrap variant="subtitle1" >
-                            {item?.processor}
-                          </Typography>
-                        </Grid>
-                      </Grid>
-                    </Box>
-                    <Box paddingLeft={2}>
-                      <Grid container>
-                        <Grid item xs={5}>
-                          <Typography variant="subtitle1" fontWeight={"bold"}>Ram</Typography>
-                        </Grid>
-                        <Grid item xs={1}>
-                          <Typography> :</Typography>
-                        </Grid>
-                        <Grid item xs={6} paddingLeft={2}>
-                          <Typography noWrap variant="subtitle1" >
-                            {item?.ram}
+                            {item?.purchasedate}
                           </Typography>
                         </Grid>
                       </Grid>
@@ -153,6 +140,7 @@ const StockAssetGridViewComponent = ({users}:AssetsProps) => {
                         </Grid>
                       </Grid>
                     </Box>
+                    
                   </Paper>
                 </Grid>
               );
@@ -160,23 +148,20 @@ const StockAssetGridViewComponent = ({users}:AssetsProps) => {
         </Grid>
      </Grid>     
     </Box>
-    <Grid container mt={-2.8}>
-        <Grid item xs={11.9} display={"flex"} justifyContent={"flex-end"}>
+    <Grid container mt={-1.5}>
+        <Grid item xs={11.8} display={"flex"} justifyContent={"flex-end"}>
           <Grid style={{ position: "fixed" }}>
-            <Pagination
-              count={count}
-              size="small"
-              page={page}
-              variant="outlined"
-              color="primary"
-              onChange={handleChangePage}
-            />
+            <Pagination count={count} size="small" page={page} variant="outlined" color="primary" 
+            onChange={handleChangePage}/>
           </Grid>
         </Grid>
         <Grid item xs={0.2}></Grid>
       </Grid>
+
+
+
    </div>
   )
 }
 
-export default StockAssetGridViewComponent
+export default ActiveAssetGridViewComponent

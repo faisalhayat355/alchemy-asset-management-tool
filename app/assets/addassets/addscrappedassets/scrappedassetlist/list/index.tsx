@@ -1,32 +1,15 @@
 "use client"
-import SearchIcon from '@mui/icons-material/Search';
-import { Box, Button, Grid, Pagination, Typography } from '@mui/material';
-import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
-import InputBase from '@mui/material/InputBase';
-import Paper from '@mui/material/Paper';
-import Link from "next/link";
-import { makeStyles } from '@mui/styles';
-
+import { Box, Grid, Pagination, Typography } from '@mui/material';
 import { useState } from 'react';
 import { IAssets } from '../../../../listofassets/models/assets.model';
 import { PaginationHandler } from '../../../../listofassets/utility/pagination';
 import AssetScrappedInfoComponent from '../info';
 
 
-const useStyles = makeStyles({
-    typography: {
-       color:"#334155",
-       fontSize:'0.8rem',
-       fontWeight:'bold'
-    },
-  });
-  
   type AssetsProps = {
       users: Array<IAssets>;
     };
 const ScrappedListComponent = ({users}:AssetsProps) => {
-    const classes = useStyles();
 
   let [page, setPage] = useState(1);
   const PER_PAGE = 8;
@@ -39,29 +22,29 @@ const ScrappedListComponent = ({users}:AssetsProps) => {
   };
   return (
     <>
-        <Box>
-     <Grid container sx={{background:'white',paddingLeft:'1rem',paddingBottom:'1rem',width:'97.5%',marginLeft:'1rem',alignItems:'center'}}>
+    <Box>
+      <Grid container sx={{background:'white',paddingLeft:'1rem',paddingBottom:'1rem',width:'97.5%',marginLeft:'1rem',alignItems:'center'}}>
         <Grid container sx={{border:'1px solid #fecaca',padding:'0.2rem',width:'98.5%',borderRadius:'5px'}}>
         <Grid item xs={1.55}>
-            <Typography className={classes.typography} ml={1}>Asset Tag ID</Typography>
+            <Typography style={{color:"#334155",fontSize:'0.8rem',fontWeight:'bold'}} ml={1}>Asset Tag ID</Typography>
         </Grid>
         <Grid item xs={2}>
-            <Typography className={classes.typography}>Department</Typography>
+            <Typography style={{color:"#334155",fontSize:'0.8rem',fontWeight:'bold'}}>Department</Typography>
         </Grid>
         <Grid item xs={2}>
-            <Typography className={classes.typography}>Ram</Typography>
+            <Typography style={{color:"#334155",fontSize:'0.8rem',fontWeight:'bold'}}>Ram</Typography>
         </Grid>
         <Grid item xs={2}>
-            <Typography className={classes.typography}>Processor</Typography>
+            <Typography style={{color:"#334155",fontSize:'0.8rem',fontWeight:'bold'}}>Processor</Typography>
         </Grid>
         <Grid item xs={2.2}>
-            <Typography className={classes.typography}>Location</Typography>
+            <Typography style={{color:"#334155",fontSize:'0.8rem',fontWeight:'bold'}}>Location</Typography>
         </Grid>
         <Grid item xs={1.25}>
-            <Typography className={classes.typography}>Department</Typography>
+            <Typography style={{color:"#334155",fontSize:'0.8rem',fontWeight:'bold'}}>Department</Typography>
         </Grid>
         <Grid item xs={1} sx={{display:'flex',justifyContent:'center'}}>
-            <Typography className={classes.typography}>Category</Typography>
+            <Typography style={{color:"#334155",fontSize:'0.8rem',fontWeight:'bold'}}>Category</Typography>
         </Grid>
         </Grid>
      </Grid>     
@@ -80,14 +63,8 @@ const ScrappedListComponent = ({users}:AssetsProps) => {
       <Grid container mt={1}>
         <Grid item xs={11.92} display={"flex"} justifyContent={"flex-end"}>
           <Grid style={{ position: "fixed" }}></Grid>
-          <Pagination
-            count={count}
-            size="small"
-            page={page}
-            variant="outlined"
-            color="primary"
-            onChange={handleChangePage}
-          />
+          <Pagination count={count} size="small" page={page}
+            variant="outlined" color="primary" onChange={handleChangePage}/>
         </Grid>
       </Grid>
     </>

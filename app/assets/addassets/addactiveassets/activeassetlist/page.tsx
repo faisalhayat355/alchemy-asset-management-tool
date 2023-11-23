@@ -1,10 +1,9 @@
-import React from 'react'
-import NewAssetListHomeComponent from '.'
+import ActiveAssetListHomeComponent from '.'
 
 const page = () => {
   return (
     <div>
-      <NewAssetListHomeComponent/>
+      <ActiveAssetListHomeComponent/>
     </div>
   )
 }

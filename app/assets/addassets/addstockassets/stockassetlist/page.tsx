@@ -1,10 +1,9 @@
-import React from 'react'
-import OldAssetHomeComponent from '.'
+import StockAssetList from '.'
 
 const page = () => {
   return (
     <div>
-      <OldAssetHomeComponent/>
+      <StockAssetList/>
     </div>
   )
 }

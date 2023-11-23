@@ -11,7 +11,7 @@ type AssetsProps = {
   items: Array<IAssets>;
 };
 
-const NewAssetInfoComponent = ({items}:AssetsProps) => {
+const ActiveAssetInfoComponent = ({items}:AssetsProps) => {
   // const Removefunction = (id) => {
   //   if (window.confirm('Do you want to remove?')) {
   //       fetch("http://localhost:8000/newAsset/" + id, {
@@ -78,4 +78,4 @@ const NewAssetInfoComponent = ({items}:AssetsProps) => {
   )
 }
 
-export default NewAssetInfoComponent
+export default ActiveAssetInfoComponent

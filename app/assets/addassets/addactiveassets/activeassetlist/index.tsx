@@ -1,43 +1,24 @@
 "use client"
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Box, Button, Divider, Grid, IconButton, Tooltip, Typography, Zoom } from '@mui/material';
-import { makeStyles } from '@mui/styles';
 import Link from 'next/link';
 import { useEffect, useState } from "react";
 import { Case, Default, Switch } from "react-if";
 import AssetCalendarView from "../../../listofassets/listcomponent/calendarView";
 import AssetExportComponent from "../../../listofassets/listcomponent/exportComponent";
 import AssetFilterComponent from "../../../listofassets/listcomponent/filterComponent";
-import GridViewComponent from "../../../listofassets/listcomponent/gridView";
 import AssetSearchComponent from "../../../listofassets/listcomponent/searchComponent";
 import AssetViewComponent from "../../../listofassets/multipleview";
 import { ViewTypes } from "../../../listofassets/utility/view.type";
-import NewAssetListComponent from './list';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import Fade from '@mui/material/Fade';
+import ActiveAssetListComponent from './list';
+import ActiveAssetGridViewComponent from './list/assetgridview';
 
 
-const useStyles = makeStyles({
-  typography: {
-     fontFamily:"cursive",
-     fontSize:'1.3rem'
-  },
-});
-
-
-const NewAssetListHomeComponent = () => {
-    const [data, setData] = useState([]);
+const ActiveAssetListHomeComponent = () => {
+  const [data, setData] = useState([]);
   const [users, setUsers] = useState([])
 
-  // const [error, setError] = useState ([]);
   const [viewType, setViewType] = useState<ViewTypes>(ViewTypes.LIST);
-  const classes = useStyles();
-  // useEffect(() => {
-  //   axios .get("http://localhost:8000/users")
-  //     .then((res) => setUsers(res.data))
-  //     .catch((err) => {
-  //       setError(err.message);
-  //     });
-  // }, []);
   async function fetchData() {
     const users = await fetch("http://localhost:8000/newAsset");
     const result = await users.json();
@@ -66,7 +47,7 @@ const NewAssetListHomeComponent = () => {
       </Grid>
       </Link>
        <Grid item xs={11}>
-         <Typography fontWeight={"bold"} className={classes.typography}>List of Active Assets</Typography>
+         <Typography fontWeight={"bold"} style={{fontFamily:"cursive",fontSize:'1.3rem'}}>List of Active Assets</Typography>
        </Grid>
      </Grid>
      <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #f87171',paddingLeft:'1rem',paddingTop:'1rem',paddingBottom:'1rem',width:'97.5%',marginLeft:'1rem',alignItems:'center'}}>
@@ -92,7 +73,7 @@ const NewAssetListHomeComponent = () => {
      <Grid item xs={12}>
           <Switch>
             <Case condition={viewType === ViewTypes.GRID}>
-              <GridViewComponent users={users} />
+              <ActiveAssetGridViewComponent users={users} />
             </Case>
             {/* <Case condition={viewType === ViewTypes.GRAPH}>
               <CustomerGraphView customer={copyCustomer} />
@@ -104,7 +85,7 @@ const NewAssetListHomeComponent = () => {
               <AssetCalendarView users={users} />
             </Case>
             <Default>
-              <NewAssetListComponent users={users} />
+              <ActiveAssetListComponent users={users} />
             </Default>
           </Switch>
         </Grid>
@@ -113,4 +94,4 @@ const NewAssetListHomeComponent = () => {
   )
 }
 
-export default NewAssetListHomeComponent
+export default ActiveAssetListHomeComponent

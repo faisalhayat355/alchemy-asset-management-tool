@@ -79,9 +79,11 @@ const ListItemComponent = () => {
             {cell.row.original && (
              <Box>
                 <Tooltip title="View">
+                <Link href={`/assets/viewassets/${cell.row.original.id}`}>
                   <IconButton onClick={() => handleView(cell.row.original)}>
                     <VisibilityIcon style={{fontSize:'1rem'}}/>
                   </IconButton>
+                  </Link>
                 </Tooltip>
                 <Tooltip title="Edit">
                   <Link href={`/assets/${cell.row.original.id}`}>

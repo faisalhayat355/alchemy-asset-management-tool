@@ -1,26 +1,15 @@
 "use client"
 import { Box, Grid, Pagination, Typography } from '@mui/material';
-import { makeStyles } from '@mui/styles';
 import { useState } from 'react';
 import { IAssets } from '../../../../listofassets/models/assets.model';
 import { PaginationHandler } from '../../../../listofassets/utility/pagination';
-import OldAssetInfoComponent from '../../../addoldassets/oldassetlist/info';
-import NewAssetInfoComponent from '../info';
+import ActiveAssetInfoComponent from '../info';
 
 
-const useStyles = makeStyles({
-    typography: {
-       color:"#334155",
-       fontSize:'0.8rem',
-       fontWeight:'bold'
-    },
-  });
-  
   type AssetsProps = {
       users: Array<IAssets>;
     };
-const NewAssetListComponent = ({users}:AssetsProps) => {
-    const classes = useStyles();
+const ActiveAssetListComponent = ({users}:AssetsProps) => {
 
     let [page, setPage] = useState(1);
     const PER_PAGE = 8;
@@ -37,25 +26,25 @@ const NewAssetListComponent = ({users}:AssetsProps) => {
      <Grid container sx={{background:'white',paddingLeft:'1rem',paddingBottom:'1rem',width:'97.5%',marginLeft:'1rem',alignItems:'center'}}>
         <Grid container sx={{border:'1px solid #fecaca',padding:'0.2rem',width:'98.5%',borderRadius:'5px'}}>
         <Grid item xs={1.55}>
-            <Typography className={classes.typography} ml={1}>Asset Tag ID</Typography>
+            <Typography style={{ color:"#334155",fontSize:'0.8rem',fontWeight:'bold'}} ml={1}>Asset Tag ID</Typography>
         </Grid>
         <Grid item xs={2}>
-            <Typography className={classes.typography}>Department</Typography>
+            <Typography style={{ color:"#334155",fontSize:'0.8rem',fontWeight:'bold'}}>Department</Typography>
         </Grid>
         <Grid item xs={2}>
-            <Typography className={classes.typography}>Ram</Typography>
+            <Typography style={{ color:"#334155",fontSize:'0.8rem',fontWeight:'bold'}}>Ram</Typography>
         </Grid>
         <Grid item xs={2}>
-            <Typography className={classes.typography}>Processor</Typography>
+            <Typography style={{ color:"#334155",fontSize:'0.8rem',fontWeight:'bold'}}>Processor</Typography>
         </Grid>
         <Grid item xs={2.2}>
-            <Typography className={classes.typography}>Location</Typography>
+            <Typography style={{ color:"#334155",fontSize:'0.8rem',fontWeight:'bold'}}>Location</Typography>
         </Grid>
         <Grid item xs={1.25}>
-            <Typography className={classes.typography}>Department</Typography>
+            <Typography style={{ color:"#334155",fontSize:'0.8rem',fontWeight:'bold'}}>Department</Typography>
         </Grid>
         <Grid item xs={1} sx={{display:'flex',justifyContent:'center'}}>
-            <Typography className={classes.typography}>Category</Typography>
+            <Typography style={{ color:"#334155",fontSize:'0.8rem',fontWeight:'bold'}}>Category</Typography>
         </Grid>
         </Grid>
      </Grid>     
@@ -67,7 +56,7 @@ const NewAssetListComponent = ({users}:AssetsProps) => {
           ?.map((items:any, index: number) => {
             return (
               <Typography key={index}>
-                 <NewAssetInfoComponent items={items}/>
+                 <ActiveAssetInfoComponent items={items}/>
               </Typography>
             );
           })}
@@ -89,4 +78,4 @@ const NewAssetListComponent = ({users}:AssetsProps) => {
   )
 }
 
-export default NewAssetListComponent
+export default ActiveAssetListComponent

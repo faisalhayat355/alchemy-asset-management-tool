@@ -4,21 +4,14 @@ import FormControl from '@mui/material/FormControl';
 import InputAdornment from '@mui/material/InputAdornment';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import TextField from '@mui/material/TextField';
-import { makeStyles } from '@mui/styles';
 import axios from "axios";
 import Link from "next/link";
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from "react";
 
-const useStyles = makeStyles({
-    typography: {
-       fontFamily:"cursive",
-       fontSize:'1.3rem'
-    },
-  });
+
   
 const AssetCreatePage = () => {
-    const classes = useStyles();
   const [inputData, setInputData] = useState({assettagid:"",purchasefrom:"",purchasedate:"",mobile:"",address:"",description:"",brand:"",cost:"",model:"",serialno:"",site:"",category:"",location:"",department:"",processor:"",ram:"",status:"",});
   // const [ram,setRam]=useState()
   const router = useRouter()
@@ -50,7 +43,7 @@ const AssetCreatePage = () => {
      <Box >
       <Grid container sx={{paddingLeft:'1rem',paddingTop:"0.5rem",paddingBottom:'0.5rem'}}>
         <Grid item xs={12}>
-          <Typography fontWeight={"bold"} className={classes.typography}>Asset Details</Typography>
+          <Typography fontWeight={"bold"} style={{fontFamily:"cursive", fontSize:'1.3rem'}}>Asset Details</Typography>
         </Grid>
       </Grid>
       <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #f87171',paddingLeft:'2rem',paddingTop:'0.8rem',paddingBottom:'0.7rem',width:'97%',marginLeft:'1.3rem',alignItems:'center',boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}}>
@@ -182,7 +175,7 @@ const AssetCreatePage = () => {
      <Box>
       <Grid container sx={{paddingLeft:'1rem',paddingTop:'0.5rem',paddingBottom:'0.5rem',marginTop:'0.3rem'}}>
         <Grid item xs={12}>
-          <Typography fontWeight={"bold"} className={classes.typography}>Site, Location, Category and Department</Typography>
+          <Typography fontWeight={"bold"} style={{fontFamily:"cursive", fontSize:'1.3rem'}}>Site, Location, Category and Department</Typography>
         </Grid>
       </Grid>
       <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #f87171',paddingLeft:'2rem',paddingTop:'0.8rem',paddingBottom:'0.7rem',width:'97%',marginLeft:'1.3rem',alignItems:'center',boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}}>

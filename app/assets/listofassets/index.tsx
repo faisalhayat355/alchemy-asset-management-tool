@@ -65,7 +65,7 @@ const ListAssetHomeComponent = () => {
       </Grid>
       </Link>
        <Grid item xs={3}>
-         <Typography fontWeight={"bold"} className={classes.typography}>List of Assets</Typography>
+         <Typography fontWeight={"bold"} style={{fontFamily:"cursive", fontSize:'1.3rem'}}>List of Assets</Typography>
        </Grid>
        <Grid item xs={0.5}>
         <AssetExportComponent users={users}/>

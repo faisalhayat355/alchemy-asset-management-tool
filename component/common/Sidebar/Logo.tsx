@@ -42,9 +42,10 @@ const Logo = ({ handleMenu, show }: logoProps) => {
           display={{ xs: "none", sm: "none", md: "block" }}
         >
          {/* <img src="./images/alchemyasset.png" alt="logo not found" style={{ width: "90%" }}/> */}
-         <Typography className={classes.typography}>Alchemy</Typography>
+         <Typography style={{ fontFamily:"cursive",fontSize:'1.9rem',paddingLeft:'0.6rem',fontWeight:'bold', 
+         marginRight:'1rem', marginLeft:'1rem',color:'#f75757'}}>Alchemy</Typography>
          <Divider style={{marginLeft:'1rem',width:'100%'}}>
-         <Typography className={classes.typographyspan}>Asset Tool</Typography>
+         <Typography style={{fontFamily:"cursive",fontSize:'1.1rem', fontWeight:'bold', color:'#84cc16'}}>Asset Tool</Typography>
          </Divider>
         </Grid>
       )}

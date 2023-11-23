@@ -1,7 +1,6 @@
 "use client"
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Box, Button, Divider, Grid, IconButton, Tooltip, Typography, Zoom } from '@mui/material';
-import { makeStyles } from '@mui/styles';
 import Link from 'next/link';
 import { useEffect, useState } from "react";
 import { Case, Default, Switch } from "react-if";
@@ -11,23 +10,14 @@ import AssetFilterComponent from "../../../listofassets/listcomponent/filterComp
 import AssetSearchComponent from "../../../listofassets/listcomponent/searchComponent";
 import AssetViewComponent from "../../../listofassets/multipleview";
 import { ViewTypes } from "../../../listofassets/utility/view.type";
-import OldAssetGridViewComponent from './list/gridview';
-import OldListAssetComponent from "./list/listcomponent";
+import StockAssetGridViewComponent from './list/gridview';
+import StockListAssetComponent from './list/listcomponent';
 
-
-const useStyles = makeStyles({
-  typography: {
-     fontFamily:"cursive",
-     fontSize:'1.3rem'
-  },
-});
-
-const OldAssetHomeComponent = () => {
+const StockAssetList = () => {
   const [data, setData] = useState([]);
   const [users, setUsers] = useState([])
 
   const [viewType, setViewType] = useState<ViewTypes>(ViewTypes.LIST);
-  const classes = useStyles();
   async function fetchData() {
     const users = await fetch("http://localhost:8000/oldAsset");
     const result = await users.json();
@@ -57,7 +47,7 @@ const OldAssetHomeComponent = () => {
       </Grid>
       </Link>
        <Grid item xs={11}>
-         <Typography fontWeight={"bold"} className={classes.typography}>List of Stock Assets</Typography>
+         <Typography fontWeight={"bold"} style={{fontFamily:"cursive",fontSize:'1.3rem'}}>List of Stock Assets</Typography>
        </Grid>
      </Grid>
      <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #f87171',paddingLeft:'1rem',paddingTop:'1rem',paddingBottom:'1rem',width:'97.5%',marginLeft:'1rem',alignItems:'center'}}>
@@ -83,7 +73,7 @@ const OldAssetHomeComponent = () => {
      <Grid item xs={12}>
           <Switch>
             <Case condition={viewType === ViewTypes.GRID}>
-              <OldAssetGridViewComponent users={users}/>
+              <StockAssetGridViewComponent users={users}/>
             </Case>
             {/* <Case condition={viewType === ViewTypes.GRAPH}>
               <CustomerGraphView customer={copyCustomer} />
@@ -95,7 +85,7 @@ const OldAssetHomeComponent = () => {
               <AssetCalendarView users={users} />
             </Case>
             <Default>
-              <OldListAssetComponent users={users} />
+              <StockListAssetComponent users={users} />
             </Default>
           </Switch>
         </Grid>
@@ -104,4 +94,4 @@ const OldAssetHomeComponent = () => {
   )
 }
 
-export default OldAssetHomeComponent
+export default StockAssetList

@@ -1,10 +1,9 @@
-import React from 'react'
-import AssetOldAssetPage from '.'
+import AssetStockAssetPage from '.'
 
 const page = () => {
   return (
     <div>
-      <AssetOldAssetPage/>
+      <AssetStockAssetPage/>
     </div>
   )
 }
