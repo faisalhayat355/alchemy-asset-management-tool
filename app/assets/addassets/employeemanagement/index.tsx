@@ -14,6 +14,7 @@ import AssetSearchComponent from '../../listofassets/listcomponent/searchCompone
 import AssetViewComponent from '../../listofassets/multipleview';
 import { ViewTypes } from '../../listofassets/utility/view.type';
 import EmployeeListComponent from './list';
+import EmployeeGridViewComponent from './list/gridView';
 
 const useStyles = makeStyles({
   typography: {
@@ -89,7 +90,7 @@ const EmployeeManagementHome = () => {
      <Grid item xs={12}>
           <Switch>
             <Case condition={viewType === ViewTypes.GRID}>
-              <GridViewComponent users={users} />
+              <EmployeeGridViewComponent users={users} />
             </Case>
             {/* <Case condition={viewType === ViewTypes.GRAPH}>
               <CustomerGraphView customer={copyCustomer} />

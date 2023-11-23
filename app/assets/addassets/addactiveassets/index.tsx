@@ -17,15 +17,15 @@ const useStyles = makeStyles({
     },
   });
   
-const AssetOldAssetPage = () => {
-    const classes = useStyles();
+const AssetNewAssetPage = () => {
+  const classes = useStyles();
   const [inputData, setInputData] = useState({assettagid:"",purchasefrom:"",purchasedate:"",mobile:"",address:"",description:"",brand:"",cost:"",model:"",serialno:"",site:"",category:"",location:"",department:"",processor:"",ram:"",status:"",});
   // const [ram,setRam]=useState()
   const router = useRouter()
   const [data, setData] = useState([]);
 
   async function fetchData() {
-      const users = await fetch("http://localhost:8000/oldAsset");
+      const users = await fetch("http://localhost:8000/newAsset");
       const result = await users.json();
       setData(result);
     }
@@ -36,14 +36,13 @@ const AssetOldAssetPage = () => {
   function handleSubmit(event:any) {
     event.preventDefault();
     axios
-      .post("http://localhost:8000/oldAsset", inputData)
+      .post("http://localhost:8000/newAsset", inputData)
       .then((res) => {
         alert("Data Submited Successfully");
-        router.push('/assets/addassets/addoldassets/oldassetlist', { scroll: false })
+        router.push('/assets/addassets/addnewassets/newassetlist', { scroll: false })
       })
       .catch((err) => console.log(err));
   }
-  
   
   return (
   <div>
@@ -51,7 +50,7 @@ const AssetOldAssetPage = () => {
      <Box >
       <Grid container sx={{paddingLeft:'1rem',paddingTop:"0.5rem",paddingBottom:'0.5rem'}}>
         <Grid item xs={12}>
-          <Typography fontWeight={"bold"} className={classes.typography}>Add Old Asset Details</Typography>
+          <Typography fontWeight={"bold"} className={classes.typography}>Add Active Asset Details</Typography>
         </Grid>
       </Grid>
       <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #f87171',paddingLeft:'2rem',paddingTop:'0.8rem',paddingBottom:'0.7rem',width:'97%',marginLeft:'1.3rem',alignItems:'center',boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}}>
@@ -63,7 +62,6 @@ const AssetOldAssetPage = () => {
             <Grid item xs={8}>
             <TextField id="outlined-basic" fullWidth size='small'
             value={length+1} disabled
-                // onChange={(e) => setInputData({ ...inputData, assettagid: e.target.value })}
                 />
             </Grid>
           </Grid>
@@ -285,12 +283,12 @@ const AssetOldAssetPage = () => {
         <Grid item xs={2.5} mt={1} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={5.2}>
-            <Link href="/assets/addassets/addoldassets/oldassetlist" passHref style={{ textDecoration: "none" }}>
+            <Link href="/assets/addassets/addactiveassets/activeassetlist" passHref style={{ textDecoration: "none" }}>
             <button style={{cursor:'pointer',background:'#f87171',color:'white',width:'90%',border:'none',height:'5vh',borderRadius:'5px'}}> Cancel</button>
             </Link>
             </Grid>
             <Grid item xs={3.7}>
-            <button style={{background:'#f87171',color:'white',width:'130%',border:'none',height:'5vh',borderRadius:'5px'}}> Save</button>
+            <button style={{cursor:'pointer',background:'#f87171',color:'white',width:'130%',border:'none',height:'5vh',borderRadius:'5px'}}> Save</button>
             </Grid>
           </Grid>
         </Grid>
@@ -306,6 +304,7 @@ const AssetOldAssetPage = () => {
       </Grid>
       <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #f87171',paddingLeft:'2rem',paddingTop:'0.8rem',paddingBottom:'0.7rem',width:'97%',marginLeft:'1.3rem',alignItems:'center',boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}}>
        <StatusTab/>
+      
       </Grid>
      </Box> */}
 
@@ -314,4 +313,4 @@ const AssetOldAssetPage = () => {
   )
 }
 
-export default AssetOldAssetPage
+export default AssetNewAssetPage

@@ -29,23 +29,23 @@ const useStyles = makeStyles({
         },
     },
     divIcon: {
-        borderRadius:'5px',background:'#3b82f6',height:'3vh',width:'45%',
+        borderRadius:'5px',background:'#3b82f6',height:'3vh',width:'35%',
         marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
         paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',color:'white',
         transition: "width 2s, height 2s, transform 2s",
         "&:hover": {
-            borderRadius:'5px',background:'#1e40af',height:'3vh',width:'45%',
+            borderRadius:'5px',background:'#1e40af',height:'3vh',width:'35%',
             marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
             paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',transform: "rotate(180deg)",
         },
     },
     divIcon2: {
-        borderRadius:'5px',background:'#a21caf',height:'3vh',width:'45%',
+        borderRadius:'5px',background:'#a21caf',height:'3vh',width:'35%',
         marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
         paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',color:'white',
         transition: "width 2s, height 2s, transform 2s",
         "&:hover": {
-            borderRadius:'5px',background:' #c026d3',height:'3vh',width:'45%',
+            borderRadius:'5px',background:' #c026d3',height:'3vh',width:'35%',
             marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
             paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',transform: "rotate(180deg)",
             
@@ -53,12 +53,12 @@ const useStyles = makeStyles({
         },
     },
     divIcon3: {
-        borderRadius:'5px',background:' #ef4444 ',height:'3vh',width:'45%',
+        borderRadius:'5px',background:' #ef4444 ',height:'3vh',width:'35%',
         marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
         paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',color:'white',
         transition: "width 2s, height 2s, transform 2s",
         "&:hover": {
-            borderRadius:'5px',background:'#dc2626',height:'3vh',width:'45%',
+            borderRadius:'5px',background:'#dc2626',height:'3vh',width:'35%',
             marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
             paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',transform: "rotate(180deg)",  
         },
@@ -80,7 +80,7 @@ const useStyles = makeStyles({
         background: "#f8fafc",
         border:'1px solid #f1f5f9',
         cursor:'pointer',
-        height:'56vh',
+        height:'61vh',
     },
     typography: {
         fontFamily:"cursive",
@@ -183,7 +183,7 @@ const DashboardPage = () => {
                     </Link>
                 </Grid>
                 <Grid item xs={4} mt={1.5}>
-                <Link href="/assets/addassets/addnewassets/newassetlist" passHref style={{ textDecoration: "none" }}>
+                <Link href="/assets/addassets/addactiveassets/activeassetlist" passHref style={{ textDecoration: "none" }}>
                     <Paper className={classes.paper} elevation={0} >
                        <Grid container> 
                        <Grid item xs={4}>
@@ -200,8 +200,7 @@ const DashboardPage = () => {
                     </Link>
                 </Grid>
                 <Grid item xs={4} mt={1.5}>
-
-                <Link href="/assets/addassets/addoldassets/oldassetlist" passHref style={{ textDecoration: "none" }}>
+                <Link href="/assets/addassets/addstockassets/stockassetlist" passHref style={{ textDecoration: "none" }}>
                     <Paper className={classes.paper} elevation={0} >
                        <Grid container> 
                        <Grid item xs={3.8}>
@@ -216,8 +215,8 @@ const DashboardPage = () => {
                        </Grid>
                     </Paper>
                 </Link>
-
                 </Grid>
+                
                 {/* <Grid item xs={3} mt={1.5}>
                 <Link href="/assets/addassets/addscrappedassets/scrappedassetlist" passHref style={{ textDecoration: "none" }}>
                     <Paper className={classes.paper} elevation={0} >
@@ -234,8 +233,8 @@ const DashboardPage = () => {
                        </Grid>
                     </Paper>
                     </Link>
-
                 </Grid> */}
+
                </Grid>  
                <Grid container spacing={1} mt={0.1}>
                 <Grid item xs={5}>
@@ -262,7 +261,7 @@ const DashboardPage = () => {
                             startAccessor="start" endAccessor="end"
                             style={{ height: 270,marginLeft:'0.6rem',marginTop:'0.5rem' }}/> */}
                              <Calendar events={events} startAccessor="start"
-                              endAccessor="end" defaultDate={moment().toDate()} localizer={localizer} />
+                              endAccessor="end" defaultDate={moment().toDate()} localizer={localizer} style={{ height: 305,marginLeft:'0.6rem',marginTop:'0.5rem' }}/>
                     </Paper>
                 </Grid>
             </Grid>              

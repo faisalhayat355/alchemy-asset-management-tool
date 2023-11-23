@@ -44,56 +44,46 @@ const ListAssetHomeComponent = () => {
   useEffect(() => {
     fetchData();
   }, []);
-
-
   const onViewSelect = (view: ViewTypes) => {
     setViewType(view);
   };
-  const onSearchHandler = (c:any) => {
-    setUsers(c);
-  };
-
   useEffect(()=>{
     setUsers(data)
   },[data])
 
-  // const updateUsers = (f)=>{
-  //   setUsers(f);
-  // }
   return (
 
   <Box>
-     <Grid container sx={{padding:'1rem',alignItems:'center'}}>
-     <Link href="/dashboard" passHref style={{ textDecoration: "none" }}>
+     <Grid container sx={{padding:'0.8rem',alignItems:'center'}}>
+     
+      <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #f87171',paddingTop:'0.1rem',width:'99.9%',alignItems:'center',marginLeft:"0.2rem"}}>
+      <Link href="/dashboard" passHref style={{ textDecoration: "none" }}>
       <Grid item xs={0.6}>
       <Tooltip title="Back" TransitionComponent={Zoom} arrow>
       <IconButton><ArrowBackIcon/></IconButton>
       </Tooltip>
       </Grid>
       </Link>
-       <Grid item xs={11}>
+       <Grid item xs={3}>
          <Typography fontWeight={"bold"} className={classes.typography}>List of Assets</Typography>
        </Grid>
-     </Grid>
-     <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #f87171',paddingLeft:'1rem',paddingTop:'1rem',paddingBottom:'1rem',width:'97.5%',marginLeft:'1rem',alignItems:'center'}}>
-      <Grid item xs={4}>   
-        <AssetSearchComponent users={data} setData={setData}/>
-      </Grid>
-      <Grid item xs={0.4}>
-        <AssetFilterComponent/>
-      </Grid>
-      <Grid item xs={4.8}>
+       <Grid item xs={0.5}>
         <AssetExportComponent users={users}/>
       </Grid>
-      <Grid item xs={0.6}>
+      <Grid item xs={0.8}>
+        <AssetFilterComponent/>
+      </Grid>
+
+      <Grid item xs={6}>
         <AssetViewComponent onViewSelect={onViewSelect}/>
       </Grid>
-      <Grid item xs={2} sx={{display:'flex',justifyContent:'flex-end'}}>
+      <Grid item xs={1.2} sx={{display:'flex',justifyContent:'flex-end'}}>
       <Link href="/assets/addassets" passHref style={{ textDecoration: "none" }}>
         <Button variant='outlined' size='small' style={{background:'#f87171',border:'1px solid #f87171',color:'white',fontSize:'0.8rem',fontWeight:'bold'}}> + Add Asset</Button>
       </Link>
       </Grid>
-      <Divider style={{width:'98.5%',marginTop:'1rem',background:'#fecaca'}}/>
+     </Grid>
+     
      </Grid>
      <Grid item xs={12}>
           <Switch>
@@ -110,7 +100,10 @@ const ListAssetHomeComponent = () => {
               <AssetCalendarView users={users} />
             </Case>
             <Default>
-              <ListItemComponent />
+             <Grid style={{marginLeft:'1rem',width:'97.5%',marginTop:"-1rem"}}>
+             <Divider style={{width:'100%',marginTop:'0.2rem',background:'#fecaca'}}/>
+             <ListItemComponent />
+             </Grid>
             </Default>
           </Switch>
         </Grid>

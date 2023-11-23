@@ -1,9 +1,70 @@
 {
   "users": [
     {
+      "id": 1,
+      "description": "Dell Laptop Problem",
+      "brand": "DellSSSSSSSSSS",
+      "name": "Arjun Rao"
+    },
+    {
+      "id": 2,
+      "assettagid": "ALS/1891",
+      "description": "Laptop Keyboard Problem Test4",
+      "brand": "Dell",
+      "serialno": "ASH767",
+      "model": "Lattitude5490",
+      "cost": "765555",
+      "site": "External-Client",
+      "category": "Returned",
+      "location": "Noida",
+      "purchasedate": "2022-12-11",
+      "purchasefrom": "Service Center",
+      "ram": "8 GB",
+      "department": "Manager",
+      "processor": "Core i7",
+      "name": "Faisal Hayat"
+    },
+    {
       "id": 3,
-      "description": "Laptop Charger Issue",
-      "brand": "DellSSSSSSSSSS"
+      "description": "Laptop Keyboard Problem",
+      "brand": "Dell",
+      "name": "Hayat"
+    },
+    {
+      "id": 4,
+      "assettagid": "",
+      "description": "Laptop KeyboardSSSSSSSSS",
+      "brand": "Dell",
+      "serialno": "delll76767",
+      "model": "Dell 5433",
+      "cost": "65656",
+      "site": "External-Client",
+      "category": "Returned",
+      "location": "Noida",
+      "purchasedate": "2022-12-11",
+      "purchasefrom": "Service Center",
+      "ram": "8 GB",
+      "department": "Manager",
+      "processor": "Core i7",
+      "name": "Faisal Hayat"
+    },
+    {
+      "id": 5,
+      "assettagid": "",
+      "description": "Laptop Screen Damage",
+      "brand": "Aasus",
+      "serialno": "AA987JJ322",
+      "model": "Aasus 8765",
+      "cost": "76000",
+      "site": "Alchemy",
+      "category": "Internal",
+      "location": "Banglore",
+      "purchasedate": "2021-05-09",
+      "purchasefrom": "SMT Desktop Point",
+      "ram": "16 GB",
+      "department": "Admin",
+      "processor": "Core i7",
+      "name": "Akshay Kumar"
     }
   ],
   "newAsset": [
@@ -238,7 +299,21 @@
     },
     {
       "name": "Core i5",
-      "id": "BJlcFC3"
+      "id": "BJlcFC3",
+      "firstName": "Akshay",
+      "lastName": "Kumar"
+    },
+    {
+      "assettagid": "6785",
+      "employeeid": "ALS7861",
+      "firstName": "Arjun",
+      "lastName": "Rao",
+      "department": "Recruiter",
+      "position": "Manager",
+      "employementType": "Alchemy",
+      "location": "Banglore",
+      "email": "9876543212",
+      "id": "-ZJaS8b"
     }
   ]
 }

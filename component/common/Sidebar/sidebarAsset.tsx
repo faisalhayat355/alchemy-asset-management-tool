@@ -386,19 +386,19 @@ const SidebarAssetComponent = ({show}:any) => {
           </ListItemButton>
         </List>
         </Link>
-        <Link href="/assets/addassets/addnewassets" passHref style={{ textDecoration: "none" }}>
+        <Link href="/assets/addassets/addactiveassets" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl:2.8}}>
           <AddToQueueIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.75rem'}}>Add New Assets</Typography>
+            <Typography sx={{color:'#414242',fontSize:'0.75rem'}}>Add Active Assets</Typography>
           </ListItemButton>
         </List>
         </Link>
-        <Link href="/assets/addassets/addoldassets" passHref style={{ textDecoration: "none" }}>
+        <Link href="/assets/addassets/addstockassets" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl:2.8}}>
           <LaptopIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.75rem'}}>Add Old Assets</Typography>
+            <Typography sx={{color:'#414242',fontSize:'0.75rem'}}>Add Stock Assets</Typography>
           </ListItemButton>
         </List>
         </Link>

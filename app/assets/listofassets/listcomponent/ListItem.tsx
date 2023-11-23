@@ -23,38 +23,70 @@ const ListItemComponent = () => {
     () => [
       {
         accessorKey: 'id',
-        header: 'User ID',
-        size: 150,
+        header: 'ID',
+        size: 100,
+        isResizable: true,
+        enableSorting: true,
+      },
+      {
+        accessorKey: 'name',
+        header: 'Name',
+        size: 160,
+        isResizable: true,
+        enableSorting: true,
+      },
+      {
+        accessorKey: 'department',
+        header: 'Department',
+        size: 160,
+        isResizable: true,
+        enableSorting: true,
       },
       {
         accessorKey: 'brand',
-        header: 'ID',
+        header: 'Brand',
         size: 150,
         isResizable: true,
         enableSorting: true,
       },
       {
-        accessorKey: 'description',
-        header: 'Body',
-        size: 400,
+        accessorKey: 'model',
+        header: 'Model',
+        size: 130,
+        isResizable: true,
+        enableSorting: true,
+      },
+      {
+        accessorKey: 'serialno',
+        header: 'Serial No.',
+        size: 150,
+        isResizable: true,
+        enableSorting: true,
+      },
+      {
+        accessorKey: 'location',
+        header: 'Location',
+        size: 140,
+        isResizable: true,
+        enableSorting: true,
       },
       {
         accessorKey: 'actions',
         header: 'Actions',
-        size: 200,
+        size: 140,
         Cell: ({ cell }) => (
           <div>
             {cell.row.original && (
              <Box>
                 <Tooltip title="View">
                   <IconButton onClick={() => handleView(cell.row.original)}>
-                    <VisibilityIcon />
+                    <VisibilityIcon style={{fontSize:'1rem'}}/>
                   </IconButton>
                 </Tooltip>
                 <Tooltip title="Edit">
                   <Link href={`/assets/${cell.row.original.id}`}>
                       <IconButton onClick={() => handleEdit(cell.row.original)}>
-                        <EditIcon />
+                        <EditIcon style={{fontSize:'1rem'}}/>
                       </IconButton>
                   </Link>
                 </Tooltip>
@@ -88,7 +120,7 @@ const ListItemComponent = () => {
     data,
     enableColumnOrdering: true,
     enableColumnFilterModes: true,
-    enableRowOrdering: true,
+    // enableRowOrdering: true,
     autoResetPageIndex: true,
     enableSorting: true,
     enableColumnResizing: true,
@@ -107,7 +139,14 @@ const ListItemComponent = () => {
     console.log('Edit post:', rowData);
   };
 
-  return <MaterialReactTable table={table} />;
+  return(
+
+    <div >
+
+  <MaterialReactTable table={table}/>
+  </div>
+    ) 
+  ;
 };
 
 export default ListItemComponent;

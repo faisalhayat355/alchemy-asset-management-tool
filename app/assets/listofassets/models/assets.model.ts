@@ -15,6 +15,9 @@ type IAssets = {
     category?: string;
     location: string;
     department: string;
+    name:string;
+    firstName:string;
+    lastName:string;
     
     
   };

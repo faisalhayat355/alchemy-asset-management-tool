@@ -1,41 +1,15 @@
 "use client";
-import React from "react";
-import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-import {
-  Grid,
-  Typography,
-  TextField,
-  FormControl,
-  Select,
-  MenuItem,
-} from "@mui/material";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
+import { Grid, TextField, Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import { makeStyles } from "@mui/styles";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
 import { IAssets } from "../listofassets/models/assets.model";
-import DescriptionIcon from '@mui/icons-material/Description';
 import { updateAsset } from "../services/assetAction";
-
-const country = [
-  { id: 1, name: "India", label: "India" },
-  { id: 2, name: "Australia", label: "Australia" },
-  { id: 3, name: "America", label: "America" },
-  { id: 4, name: "Spain", label: "Spain" },
-  { id: 5, name: "US", label: "US" },
-  { id: 5, name: "UK", label: "UK" },
-];
-const state = [
-  { id: 1, name: "Bihar", label: "Bihar" },
-  { id: 2, name: "Maharastra", label: "Maharastra" },
-  { id: 3, name: "MP", label: "MP" },
-  { id: 4, name: "UP", label: "UP" },
-  { id: 5, name: "GOA", label: "GOA" },
-  { id: 6, name: "Assam", label: "Assam" },
-  { id: 7, name: "Kerala", label: "Kerala" },
-];
 
 const useStyles = makeStyles({
   errormessage: {
@@ -43,56 +17,65 @@ const useStyles = makeStyles({
     color: "red",
   },
   container:{
-    background:'#F5F5F5',
-    height:'91vh',
     paddingLeft:'1rem',
-    paddingTop:'1rem',
+    paddingTop:'0.5rem',
+    paddingRight:'1rem'
    
   },
   card:{
     background: "white",
-    width: "98.5%", 
-    borderRadius:'8px'
-  }
+    width: "95%", 
+    borderRadius:"8px",
+    borderTop:'3px solid #f87171',
+    paddingLeft:'1rem',
+    paddingRight:'0.5rem',
+    paddingTop:'0.5rem'
+  },
+  typography: {
+    fontFamily:"cursive",
+    fontSize:'1.3rem',
+    paddingBottom:'0.5rem'
+ },
 });
 interface IUserProp {
   user: IAssets | undefined;
 }
-
 const schema = yup
   .object({
     description: yup.string().required("First Name is required"),
     brand: yup.string().required("Last Name is required"),
-    // mobile: yup
-    //   .string()
-    //   .required("Mobile Number is Required")
-    //   .min(10, "Enter 10-digit Mobile Number")
-    //   .max(10, "Enter Number that's 10 or Less"),
-    // pinCode: yup.string().required("Pin Code is required"),
-    // address: yup.string().required("Address is required"),
-    // country: yup.string().required("Country is required"),
-    // state: yup.string().required("state is required"),
-    // email: yup
-    //   .string()
-    //   .email("This must be a email")
-    //   .required("Email is required"),
   })
   .required();
 
 const EditAssetComponent = ({ user }: IUserProp) => {
-  console.log("useruseruser",user)
-  const {
-    register,
-    setValue,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm({
+  const [employeeData, setEmployeeData] = useState([]);
+  
+  async function fetchData() {
+    const users = await fetch("http://localhost:8000/employeeManagement");
+    const result = await users.json();
+    setEmployeeData(result);
+  }
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const {register,setValue,handleSubmit,formState: { errors },reset,} = useForm({
     defaultValues: {
+      assettagid:user?.assettagid,
       description: user?.description,
       brand: user?.brand,
-     
-     
+      serialno:user?.serialno,
+      model:user?.model,
+      cost:user?.cost,
+      site:user?.site,
+      category:user?.category,
+      location:user?.location,
+      purchasedate:user?.purchasedate,
+      purchasefrom:user?.purchasefrom,
+      ram:user?.ram,
+      department:user?.department,
+      processor:user?.processor,
+      name:user?.name
     },
     resolver: yupResolver(schema),
   });
@@ -103,142 +86,227 @@ const EditAssetComponent = ({ user }: IUserProp) => {
     if (user?.id) {
       try {
         const newUser = {
-          id: user.id, 
+          id: user.id,
+          assettagid:data.assettagid, 
           description: data?.description,
           brand: data?.brand,
+          serialno:data?.serialno,
+          model:data?.model,
+          cost:data?.cost,
+          site:data?.site,
+          category:data?.category,
+          location:data?.location,
+          purchasedate:data?.purchasedate,
+          purchasefrom:data?.purchasefrom,
+          ram:data?.ram,
+          department:data?.department,
+          processor:data?.processor,
+          name:data?.name
         };
         await updateAsset(user.id, newUser); 
         router.push('/assets/listofassets', { scroll: false });
       } catch (error) {
-    
         console.error('Error updating asset:', error);
       }
     }
-  };
-  
-
+  }
   return (
     <div className={classes.container}>
-      <Typography variant="h6" pb={3}>Update Asset</Typography>
+      <Typography className={classes.typography} fontWeight={"bold"}>Update Asset</Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Grid container className={classes.card}p={4}>
-          <Grid item xs={12} mb={3} pl={1}>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={4} pl={1} pr={1}>
-            <Typography>Description</Typography>
-            <TextField fullWidth {...register("description")} size="small" />
-            <p className={classes.errormessage}>{errors.description?.message}</p>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={4} pl={1} pr={1}>
-            <Typography>Brand</Typography>
-            <TextField fullWidth {...register("brand")} size="small" />
-            <p className={classes.errormessage}>{errors.brand?.message}</p>
-          </Grid>
-          {/* <Grid item xs={12} sm={6} md={4} lg={4} pl={1} pr={1}>
-            <Typography>Email</Typography>
-            <TextField
-              type="email"
-              fullWidth
-              {...register("email")}
-              size="small"
-            />
-            <p className={classes.errormessage}>{errors.email?.message}</p>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={4} pl={1} pr={1}>
-            <Typography>Mobile</Typography>
-            <TextField fullWidth {...register("mobile")} size="small" />
-            <p className={classes.errormessage}>{errors.mobile?.message}</p>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={4} pl={1} pr={1}>
-            <Typography>Address</Typography>
-            <TextField fullWidth {...register("address")} size="small" />
-            <p className={classes.errormessage}>{errors.address?.message}</p>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={4} pl={1} pr={1}>
-            <Typography>State</Typography>
-            <FormControl fullWidth size="small">
-              <Select
-                onChange={(e) =>
-                  setValue("state", e.target.value, {
-                    shouldValidate: true,
-                  })
-                }
-              >
-                {state.map((f) => {
+        <Grid container className={classes.card} style={{height:'50vh'}}>
+        <Grid item xs={12}>
+            <Grid container sx={{alignItems:'center'}}>
+              <Grid item xs={1.6}>
+              <Typography>Assign To </Typography>
+              </Grid>
+              <Grid item xs={10.3}>
+              <select style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}  {...register("name")}>
+                {employeeData.map((items) => {
                   return (
-                    <MenuItem key={f.id} value={f.name}>
-                      {f.label}
-                    </MenuItem>
+                    <>
+                    <option>
+                      {`${items.firstName} ${items.lastName}`}
+                    </option>
+                    </>
                   );
                 })}
-              </Select>
-            </FormControl>
-            <span className={classes.errormessage}>
-              {errors.country?.message}
-            </span>
-          </Grid> */}
-          {/* <Grid item xs={12} sm={6} md={4} lg={4} pl={1} pr={1}>
-            <Typography>Country</Typography> */}
-            {/* <TextField fullWidth {...register("country")} size="small" />
-            <p className={classes.errormessage}>{errors.country?.message}</p> */}
-
-            {/* <FormControl fullWidth size="small">
-              <Select
-                onChange={(e) =>
-                  setValue("country", e.target.value, {
-                    shouldValidate: true,
-                  })
-                }
-              >
-                {country.map((k) => {
-                  return (
-                    <MenuItem key={k.id} value={k.name}>
-                      {k.label}
-                    </MenuItem>
-                  );
-                })}
-              </Select>
-            </FormControl>
-            <span className={classes.errormessage}>
-              {errors.country?.message}
-            </span>
-          </Grid> */}
-          {/* <Grid item xs={12} sm={6} md={4} lg={4} pl={1} pr={1}>
-            <Typography>PinCode</Typography>
-            <TextField fullWidth {...register("pinCode")} size="small" />
-            <p className={classes.errormessage}>{errors.pinCode?.message}</p>
-          </Grid> */}
-
+              </select>
+              <p className={classes.errormessage}>{errors.name?.message}</p>
+              </Grid>
+            </Grid> 
+          </Grid>
+          <Grid item xs={6} mt={1}>
+            <Grid container sx={{alignItems:'center'}}>
+              <Grid item xs={3.2}>
+              <Typography>Asset Tag ID </Typography>
+              </Grid>
+              <Grid item xs={8.6}>
+              <TextField fullWidth {...register("assettagid")} size="small" disabled/>
+              <p className={classes.errormessage}>{errors.assettagid?.message}</p>
+              </Grid>
+            </Grid> 
+          </Grid>
+          <Grid item xs={6} mt={1}>
+            <Grid container sx={{alignItems:'center'}}>
+              <Grid item xs={3.2}>
+              <Typography>Description </Typography>
+              </Grid>
+              <Grid item xs={8.6}>
+              <TextField fullWidth {...register("description")} size="small" disabled/>
+              <p className={classes.errormessage}>{errors.description?.message}</p>
+              </Grid>
+            </Grid> 
+          </Grid>
+          <Grid item xs={6}>
+            <Grid container sx={{alignItems:'center'}}>
+              <Grid item xs={3.2}>
+              <Typography>Purchase Date </Typography>
+              </Grid>
+              <Grid item xs={8.6}>
+              <TextField fullWidth {...register("purchasedate")} size="small" disabled />
+              <p className={classes.errormessage}>{errors.purchasedate?.message}</p>
+              </Grid>
+            </Grid> 
+          </Grid>
+          <Grid item xs={6}>
+            <Grid container sx={{alignItems:'center'}}>
+              <Grid item xs={3.2}>
+              <Typography>Purchase From </Typography>
+              </Grid>
+              <Grid item xs={8.6}>
+              <TextField fullWidth {...register("purchasefrom")} size="small" disabled/>
+              <p className={classes.errormessage}>{errors.purchasefrom?.message}</p>
+              </Grid>
+            </Grid> 
+          </Grid>
+          <Grid item xs={6}>
+            <Grid container sx={{alignItems:'center'}}>
+              <Grid item xs={3.2}>
+              <Typography>Ram</Typography>
+              </Grid>
+              <Grid item xs={8.6}>
+              <TextField fullWidth {...register("ram")} size="small" disabled/>
+              <p className={classes.errormessage}>{errors.ram?.message}</p>
+              </Grid>
+            </Grid> 
+          </Grid>
+          <Grid item xs={6}>
+            <Grid container sx={{alignItems:'center'}}>
+              <Grid item xs={3.2}>
+              <Typography>Brand</Typography>
+              </Grid>
+              <Grid item xs={8.6}>
+              <TextField fullWidth {...register("brand")} size="small" disabled/>
+              <p className={classes.errormessage}>{errors.brand?.message}</p>
+              </Grid>
+            </Grid> 
+          </Grid>
+          <Grid item xs={6}>
+            <Grid container sx={{alignItems:'center'}}>
+              <Grid item xs={3.2}>
+              <Typography>Processor</Typography>
+              </Grid>
+              <Grid item xs={8.6}>
+              <TextField fullWidth {...register("processor")} size="small" disabled/>
+              <p className={classes.errormessage}>{errors.processor?.message}</p>
+              </Grid>
+            </Grid> 
+          </Grid>
+          <Grid item xs={6}>
+            <Grid container sx={{alignItems:'center'}}>
+              <Grid item xs={3.2}>
+              <Typography>Serial No.</Typography>
+              </Grid>
+              <Grid item xs={8.6}>
+              <TextField fullWidth {...register("serialno")} size="small" disabled/>
+              <p className={classes.errormessage}>{errors.serialno?.message}</p>
+              </Grid>
+            </Grid> 
+          </Grid>
+          <Grid item xs={6}>
+            <Grid container sx={{alignItems:'center'}}>
+              <Grid item xs={3.2}>
+              <Typography>Model</Typography>
+              </Grid>
+              <Grid item xs={8.6}>
+              <TextField fullWidth {...register("model")} size="small" disabled/>
+              <p className={classes.errormessage}>{errors.model?.message}</p>
+              </Grid>
+            </Grid> 
+          </Grid>
+          <Grid item xs={6}>
+            <Grid container sx={{alignItems:'center'}}>
+              <Grid item xs={3.2}>
+              <Typography>Cost</Typography>
+              </Grid>
+              <Grid item xs={8.6}>
+              <TextField fullWidth {...register("cost")} size="small" disabled/>
+              <p className={classes.errormessage}>{errors.cost?.message}</p>
+              </Grid>
+            </Grid> 
+          </Grid>
+        </Grid>
+      <Grid container className={classes.card} style={{height:'32vh',marginTop:"0.5rem"}}>
+        <Grid item xs={6}>
+            <Grid container sx={{alignItems:'center'}}>
+              <Grid item xs={3.2}>
+              <Typography>Site</Typography>
+              </Grid>
+              <Grid item xs={8.6}>
+              <TextField fullWidth {...register("site")} size="small" disabled/>
+              <p className={classes.errormessage}>{errors.site?.message}</p>
+              </Grid>
+            </Grid> 
+          </Grid>
+          <Grid item xs={6}>
+            <Grid container sx={{alignItems:'center'}}>
+              <Grid item xs={3.2}>
+              <Typography>Category</Typography>
+              </Grid>
+              <Grid item xs={8.6}>
+              <TextField fullWidth {...register("category")} size="small" disabled/>
+              <p className={classes.errormessage}>{errors.category?.message}</p>
+              </Grid>
+            </Grid> 
+          </Grid>
+          <Grid item xs={6}>
+            <Grid container sx={{alignItems:'center'}}>
+              <Grid item xs={3.2}>
+              <Typography>Location</Typography>
+              </Grid>
+              <Grid item xs={8.6}>
+              <TextField fullWidth {...register("location")} size="small" disabled/>
+              <p className={classes.errormessage}>{errors.location?.message}</p>
+              </Grid>
+            </Grid> 
+          </Grid>
+          <Grid item xs={6}>
+            <Grid container sx={{alignItems:'center'}}>
+              <Grid item xs={3.2}>
+              <Typography>Department</Typography>
+              </Grid>
+              <Grid item xs={8.6}>
+              <TextField fullWidth {...register("department")} size="small" disabled/>
+              <p className={classes.errormessage}>{errors.department?.message}</p>
+              </Grid>
+            </Grid> 
+          </Grid>
           <Grid item xs={12} sm={12} md={12} lg={12} mt={2} pl={1} pr={1}>
             <Grid container>
-              <Grid
-                item
-                xs={12}
-                style={{ display: "flex", justifyContent: "flex-end" }}
-              >
+              <Grid item xs={12} style={{ display: "flex", justifyContent: "flex-end" }}>
                 <Link href={"/assets/listofassets"} style={{ textDecoration: "none" }}>
-                  <Button
-                    variant="contained"
-                    style={{ textTransform: "capitalize",background:'#FFC107' }}
-                  >
+                  <Button variant="contained" style={{ marginRight:'2rem',textTransform: "capitalize",background:'#f87171',color:'white',width:'110%' }}>
                     Close
                   </Button>
                 </Link>
-                <Button
-                  type="submit"
-                  variant="contained"
-                  style={{
-                    marginLeft: "2rem",
-                    textTransform: "capitalize",
-                    background:'#FFC107'
-                  }}
-                >
+                <Button type="submit" variant="contained" style={{ marginLeft: "2rem",textTransform: "capitalize",background:'#f87171',color:'white',width:'11%'}}>
                   Submit
                 </Button>
               </Grid>
             </Grid>
           </Grid>
-        </Grid>
+      </Grid>
       </form>
     </div>
   );
