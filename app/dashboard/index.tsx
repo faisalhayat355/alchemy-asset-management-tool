@@ -82,10 +82,7 @@ const useStyles = makeStyles({
         cursor:'pointer',
         height:'61vh',
     },
-    typography: {
-        fontFamily:"cursive",
-        fontSize:'1.5rem'
-     }
+  
   });
   
 const DashboardPage = () => {
@@ -134,6 +131,7 @@ const DashboardPage = () => {
       useEffect(() => {
         fetchScrapData();
       }, []);
+      
       let scrapAssetData = scrapAsset.length;
 
       const calendarAsset = data?.map((data : IAssets) => {
@@ -152,7 +150,7 @@ const DashboardPage = () => {
         <Box>
             <Grid container sx={{padding:'0.7rem',alignItems:'center'}}>
                 <Grid item xs={8.5} sx={{display:'flex',alignItems:'center'}}>
-                    <Typography fontSize={"1.8rem"} style={{fontWeight:'bold',color:'#1e293b'}} className={classes.typography}>Dashboard <span style={{fontSize:'1rem'}}>dashboard & statistics</span></Typography>
+                    <Typography fontSize={"1.8rem"} style={{fontWeight:'bold',color:'#1e293b',fontFamily:"cursive",fontSize:'1.5rem'}}>Dashboard <span style={{fontSize:'1rem'}}>dashboard & statistics</span></Typography>
                 </Grid>
                 <Grid item xs={1.4} >
                 <Link href="/assets/addassets" passHref style={{ textDecoration: "none" }}>

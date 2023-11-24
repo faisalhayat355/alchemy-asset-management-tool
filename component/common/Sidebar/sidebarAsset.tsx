@@ -233,79 +233,7 @@ const SidebarAssetComponent = ({show}:any) => {
       </ListItemButton>
       </Link>
       <Divider style={{width:'100%'}}/>
-      <ListItemButton selected={selectedIndex === 2}
-          onClick={(event) => handleListItemClick(event, 2)} >
-        <FlagOutlinedIcon style={{color:"#f75757",fontSize:'1.4rem',marginRight:'0.6rem'}} />
-        {show && (
-          <div style={{display:'flex', alignItems:'center'}} onClick={handleClickAlerts}>
-            <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Alerts</Typography>
-            {/* <div style={{marginLeft:'2.5rem'}}>
-            <Badge color="error" overlap="circular" badgeContent="0" ></Badge>
-            </div> */}
-            {alerts ? <ExpandLess style={{marginLeft:'5.5rem'}}/> : <ExpandMore style={{marginLeft:'5.5rem'}}/>}
-           
-          </div>
-        )}
-      </ListItemButton>
-     {show &&(
-     <>
-       <Collapse in={alerts} timeout="auto" unmountOnExit>
-      <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3 }}>
-          <FiberManualRecordIcon style={{color:"#f75757",fontSize:'0.7rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Assets Past Due</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3 }}>
-          <FiberManualRecordIcon style={{color:"#f75757",fontSize:'0.7rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Leases Expiring</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/maintainancedue" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3 }}>
-          <FiberManualRecordIcon style={{color:"#f75757",fontSize:'0.7rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Maintainance Due</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/maintananceoverdue" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3 }}>
-          <FiberManualRecordIcon style={{color:"#f75757",fontSize:'0.7rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Maintainance Overdue</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/warrantiesexpire" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3 }}>
-          <FiberManualRecordIcon style={{color:"#f75757",fontSize:'0.7rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Warranties Expiring</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-      </Collapse>
-      <Divider style={{width:'100%'}}/>
-      <Collapse in={alerts} timeout="auto" unmountOnExit style={{marginTop:'-0.1rem'}}>
-      <Link href="/alerts/setupalerts" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 3 }}>
-          <BuildOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-           {show && (
-             <Typography sx={{color:'#414242',fontSize:'0.9rem'}}>Setup Alerts</Typography>
-           )}
-          </ListItemButton>
-        </List>
-        </Link>
-      </Collapse>
-     </>
-      )} 
+     
       <ListItemButton selected={selectedIndex === 4}
           onClick={(event) => handleListItemClick(event, 4)} >
         <ManageAccountsIcon style={{color:"#f75757",fontSize:'1.4rem',marginRight:'0.6rem'}} />
@@ -315,8 +243,6 @@ const SidebarAssetComponent = ({show}:any) => {
          {assets ? <ExpandLess style={{marginLeft:'5.1rem'}}/> : <ExpandMore style={{marginLeft:'5.1rem'}}/>}
        </div>
      )}
-        <ListItemIcon style={{marginLeft:'2rem'}}>
-        </ListItemIcon>
       </ListItemButton>
       <Collapse in={assets} timeout="auto" unmountOnExit>
       <Link href="/assets/listofassets" passHref style={{ textDecoration: "none" }}>
@@ -476,6 +402,82 @@ const SidebarAssetComponent = ({show}:any) => {
         </Link>
       </Collapse>
       <Divider style={{width:'100%'}}/>
+
+      <ListItemButton selected={selectedIndex === 2}
+          onClick={(event) => handleListItemClick(event, 2)} >
+        <FlagOutlinedIcon style={{color:"#f75757",fontSize:'1.4rem',marginRight:'0.6rem'}} />
+        {show && (
+          <div style={{display:'flex', alignItems:'center'}} onClick={handleClickAlerts}>
+            <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Alerts</Typography>
+            {/* <div style={{marginLeft:'2.5rem'}}>
+            <Badge color="error" overlap="circular" badgeContent="0" ></Badge>
+            </div> */}
+            {alerts ? <ExpandLess style={{marginLeft:'5.5rem'}}/> : <ExpandMore style={{marginLeft:'5.5rem'}}/>}
+           
+          </div>
+        )}
+      </ListItemButton>
+     {show &&(
+     <>
+       <Collapse in={alerts} timeout="auto" unmountOnExit>
+      <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
+        <List component="div" disablePadding>
+          <ListItemButton sx={{ pl: 3 }}>
+          <FiberManualRecordIcon style={{color:"#f75757",fontSize:'0.7rem',marginRight:'0.6rem'}} />
+            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Assets Past Due</Typography>
+          </ListItemButton>
+        </List>
+        </Link>
+        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
+        <List component="div" disablePadding>
+          <ListItemButton sx={{ pl: 3 }}>
+          <FiberManualRecordIcon style={{color:"#f75757",fontSize:'0.7rem',marginRight:'0.6rem'}} />
+            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Leases Expiring</Typography>
+          </ListItemButton>
+        </List>
+        </Link>
+        <Link href="/alerts/maintainancedue" passHref style={{ textDecoration: "none" }}>
+        <List component="div" disablePadding>
+          <ListItemButton sx={{ pl: 3 }}>
+          <FiberManualRecordIcon style={{color:"#f75757",fontSize:'0.7rem',marginRight:'0.6rem'}} />
+            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Maintainance Due</Typography>
+          </ListItemButton>
+        </List>
+        </Link>
+        <Link href="/alerts/maintananceoverdue" passHref style={{ textDecoration: "none" }}>
+        <List component="div" disablePadding>
+          <ListItemButton sx={{ pl: 3 }}>
+          <FiberManualRecordIcon style={{color:"#f75757",fontSize:'0.7rem',marginRight:'0.6rem'}} />
+            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Maintainance Overdue</Typography>
+          </ListItemButton>
+        </List>
+        </Link>
+        <Link href="/alerts/warrantiesexpire" passHref style={{ textDecoration: "none" }}>
+        <List component="div" disablePadding>
+          <ListItemButton sx={{ pl: 3 }}>
+          <FiberManualRecordIcon style={{color:"#f75757",fontSize:'0.7rem',marginRight:'0.6rem'}} />
+            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Warranties Expiring</Typography>
+          </ListItemButton>
+        </List>
+        </Link>
+      </Collapse>
+      <Divider style={{width:'100%'}}/>
+      <Collapse in={alerts} timeout="auto" unmountOnExit style={{marginTop:'-0.1rem'}}>
+      <Link href="/alerts/setupalerts" passHref style={{ textDecoration: "none" }}>
+        <List component="div" disablePadding>
+          <ListItemButton sx={{ pl: 3 }}>
+          <BuildOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+           {show && (
+             <Typography sx={{color:'#414242',fontSize:'0.9rem'}}>Setup Alerts</Typography>
+           )}
+          </ListItemButton>
+        </List>
+        </Link>
+      </Collapse>
+     </>
+      )} 
+
+
       <Link href="/assets/listofassets" passHref style={{ textDecoration: "none" }}>
       <ListItemButton selected={selectedIndex === 5}
           onClick={(event) => handleListItemClick(event, 5)} >
