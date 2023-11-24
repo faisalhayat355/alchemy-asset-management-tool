@@ -55,7 +55,6 @@ const ListAssetHomeComponent = () => {
 
   <Box>
      <Grid container sx={{padding:'0.8rem',alignItems:'center'}}>
-     
       <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #f87171',paddingTop:'0.1rem',width:'99.9%',alignItems:'center',marginLeft:"0.2rem"}}>
       <Link href="/dashboard" passHref style={{ textDecoration: "none" }}>
       <Grid item xs={0.6}>
@@ -67,12 +66,12 @@ const ListAssetHomeComponent = () => {
        <Grid item xs={3}>
          <Typography fontWeight={"bold"} style={{fontFamily:"cursive", fontSize:'1.3rem'}}>List of Assets</Typography>
        </Grid>
-       <Grid item xs={0.5}>
+       <Grid item xs={1.3}>
         <AssetExportComponent users={users}/>
       </Grid>
-      <Grid item xs={0.8}>
+      {/* <Grid item xs={0.8}>
         <AssetFilterComponent/>
-      </Grid>
+      </Grid> */}
 
       <Grid item xs={6}>
         <AssetViewComponent onViewSelect={onViewSelect}/>

@@ -1,23 +1,21 @@
 "use client"
+import { useEffect, useState } from "react";
+import axios from "axios";
+import Link from "next/link";
 import { Box, Grid, Typography } from '@mui/material';
 import FormControl from '@mui/material/FormControl';
 import InputAdornment from '@mui/material/InputAdornment';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import TextField from '@mui/material/TextField';
-import axios from "axios";
-import Link from "next/link";
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from "react";
 
-  
 const AssetActiveAssetPage = () => {
   const [inputData, setInputData] = useState({assettagid:"",purchasefrom:"",purchasedate:"",mobile:"",address:"",description:"",brand:"",cost:"",model:"",serialno:"",site:"",category:"",location:"",department:"",processor:"",ram:"",status:"",});
-  // const [ram,setRam]=useState()
   const router = useRouter()
   const [data, setData] = useState([]);
 
   async function fetchData() {
-      const users = await fetch("http://localhost:8000/newAsset");
+      const users = await fetch("http://localhost:8000/activeAsset");
       const result = await users.json();
       setData(result);
     }
@@ -28,7 +26,7 @@ const AssetActiveAssetPage = () => {
   function handleSubmit(event:any) {
     event.preventDefault();
     axios
-      .post("http://localhost:8000/newAsset", inputData)
+      .post("http://localhost:8000/activeAsset", inputData)
       .then((res) => {
         alert("Data Submited Successfully");
         router.push('/assets/addassets/addnewassets/newassetlist', { scroll: false })
@@ -52,9 +50,7 @@ const AssetActiveAssetPage = () => {
             <Typography>Asset Tag ID <span style={{color:'red'}}>*</span></Typography>
             </Grid>
             <Grid item xs={8}>
-            <TextField id="outlined-basic" fullWidth size='small'
-            value={length+1} disabled
-                />
+            <TextField id="outlined-basic" fullWidth size='small' value={length+1} disabled />
             </Grid>
           </Grid>
         </Grid>
@@ -98,9 +94,9 @@ const AssetActiveAssetPage = () => {
             </Grid>
             <Grid item xs={8}>
             <FormControl fullWidth sx={{ m: 1 }}>
-          <OutlinedInput startAdornment={<InputAdornment position="start">₹</InputAdornment>} fullWidth size='small'
-           onChange={(e) => setInputData({ ...inputData, cost: e.target.value })}/>
-        </FormControl>
+              <OutlinedInput startAdornment={<InputAdornment position="start">₹</InputAdornment>} fullWidth size='small'
+              onChange={(e) => setInputData({ ...inputData, cost: e.target.value })}/>
+            </FormControl>
             </Grid>
           </Grid>
         </Grid>
@@ -143,8 +139,6 @@ const AssetActiveAssetPage = () => {
             <Typography>Processor</Typography>
             </Grid>
             <Grid item xs={8}>
-            {/* <TextField id="outlined-basic"  fullWidth size='small'
-            onChange={(e) => setInputData({ ...inputData, processor: e.target.value })}/> */}
               <select style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}  onChange={(e) => setInputData({ ...inputData, processor: e.target.value })}>
                 <option>Select Processor</option>
                 <option>Pentium</option>
@@ -187,12 +181,10 @@ const AssetActiveAssetPage = () => {
             <Typography>Site</Typography>
             </Grid>
             <Grid item xs={8}>
-            {/* <TextField id="outlined-basic"  fullWidth size='small'
-            onChange={(e) => setInputData({ ...inputData, site: e.target.value })}/> */}
              <select style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}  onChange={(e) => setInputData({ ...inputData, site: e.target.value })}>
                 <option>Select Site</option>
-                <option>Alchemy</option>
-                <option>External-Client</option>
+                <option>Alchemy Internal</option>
+                <option>Alchemy External</option>
               </select>
             </Grid>
           </Grid>
@@ -203,12 +195,11 @@ const AssetActiveAssetPage = () => {
             <Typography>Location</Typography>
             </Grid>
             <Grid item xs={8}>
-            {/* <TextField id="outlined-basic"  fullWidth size='small'
-            onChange={(e) => setInputData({ ...inputData, location: e.target.value })}/> */}
              <select style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}  onChange={(e) => setInputData({ ...inputData, location: e.target.value })}>
                 <option>Select Location</option>
                 <option>Banglore</option>
                 <option>Noida</option>
+                <option>Philippines</option>
               </select>
             </Grid>
           </Grid>
@@ -219,8 +210,6 @@ const AssetActiveAssetPage = () => {
             <Typography>Category</Typography>
             </Grid>
             <Grid item xs={8}>
-            {/* <TextField id="outlined-basic"  fullWidth size='small'
-            onChange={(e) => setInputData({ ...inputData, category: e.target.value })}/> */}
             <select style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}  onChange={(e) => setInputData({ ...inputData, category: e.target.value })}>
                 <option>Select Category</option>
                 <option>External</option>
@@ -238,8 +227,6 @@ const AssetActiveAssetPage = () => {
             <Typography>Department</Typography>
             </Grid>
             <Grid item xs={8}>
-            {/* <TextField id="outlined-basic"  fullWidth size='small'
-            onChange={(e) => setInputData({ ...inputData, department: e.target.value })}/> */}
               <select style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}  onChange={(e) => setInputData({ ...inputData, department: e.target.value })}>
                 <option>Select Department</option>
                 <option>Accounts</option>
@@ -253,22 +240,6 @@ const AssetActiveAssetPage = () => {
             </Grid>
           </Grid>
         </Grid>
-{/* 
-        <Grid item xs={6} mt={1} >
-          <Grid container sx={{alignItems:'center'}}>
-            <Grid item xs={3.2}>
-            <Typography>Status</Typography>
-            </Grid>
-            <Grid item xs={8}>
-              <select style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}  onChange={(e) => setInputData({ ...inputData, status: e.target.value })}>
-                <option>Active</option>
-                <option>Deactive</option>
-                <option>Scrapped</option>
-              </select>
-            </Grid>
-          </Grid>
-        </Grid>
- */}
       <Grid container sx={{display:'flex',justifyContent:'flex-end',marginTop:'0.7rem'}}>
         <Grid item xs={2.5} mt={1} >
           <Grid container sx={{alignItems:'center'}}>
@@ -285,19 +256,6 @@ const AssetActiveAssetPage = () => {
         </Grid>
       </Grid>
      </Box>
-
-     {/* <Box>
-      <Grid container sx={{paddingLeft:'1rem',paddingTop:'0.5rem',paddingBottom:'0.5rem',marginTop:'0.3rem'}}>
-        <Grid item xs={12}>
-          <Typography fontWeight={"bold"} className={classes.typography}>Status</Typography>
-        </Grid>
-      </Grid>
-      <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #f87171',paddingLeft:'2rem',paddingTop:'0.8rem',paddingBottom:'0.7rem',width:'97%',marginLeft:'1.3rem',alignItems:'center',boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}}>
-       <StatusTab/>
-      
-      </Grid>
-     </Box> */}
-
      </form>
   </div>
   )

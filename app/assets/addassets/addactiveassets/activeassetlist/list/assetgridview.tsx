@@ -7,6 +7,7 @@ import { IAssets } from '../../../../listofassets/models/assets.model';
 import { PaginationHandler } from '../../../../listofassets/utility/pagination';
 
 
+
 const useStyles = makeStyles({
   paper: {
     background: "#fffbeb",
@@ -140,7 +141,6 @@ const ActiveAssetGridViewComponent = ({users}:AssetsProps) => {
                         </Grid>
                       </Grid>
                     </Box>
-                    
                   </Paper>
                 </Grid>
               );
