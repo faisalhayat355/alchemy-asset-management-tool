@@ -5,7 +5,8 @@
       "description": "Dell Laptop Problem",
       "brand": "DellSSSSSSSSSS",
       "category": "Returned",
-      "name": "Faisal Hayat"
+      "name": "",
+      "assigndate": ""
     },
     {
       "id": 2,
@@ -23,7 +24,8 @@
       "ram": "8 GB",
       "department": "Manager",
       "processor": "Core i7",
-      "name": "Faisal Hayat"
+      "name": "",
+      "assigndate": ""
     },
     {
       "id": 3,
@@ -88,24 +90,42 @@
       "assigndate": "2023-11-23"
     },
     {
+      "id": 7,
       "assettagid": "",
-      "purchasefrom": "SRK Laptop Care Shivajinagar ",
-      "purchasedate": "2023-11-22",
-      "mobile": "",
-      "address": "",
       "description": "Laptop condition is Good ",
       "brand": "Lenovo",
-      "cost": "490000",
-      "model": "Lenovo Thinkpad X",
       "serialno": "ltr56878hu",
+      "model": "Lenovo Thinkpad X",
+      "cost": "490000",
       "site": "Alchemy Internal",
       "category": "External",
       "location": "Banglore",
+      "purchasedate": "2023-11-22",
+      "purchasefrom": "SRK Laptop Care Shivajinagar ",
+      "ram": "8 GB",
       "department": "Admin",
       "processor": "Core i5",
+      "name": "Ankush",
+      "assigndate": "2023-11-24"
+    },
+    {
+      "id": 8,
+      "assettagid": "",
+      "description": "gygh",
+      "brand": "Vostro",
+      "serialno": "jhjhj6565",
+      "model": "Dell",
+      "cost": "43434",
+      "site": "Alchemy External",
+      "category": "Internal",
+      "location": "Banglore",
+      "purchasedate": "2023-11-24",
+      "purchasefrom": "MRT",
       "ram": "8 GB",
-      "status": "",
-      "id": 7
+      "department": "HR",
+      "processor": "Dual Core",
+      "name": "Rohit Sharma",
+      "assigndate": "2023-11-22"
     }
   ],
   "activeAsset": [
@@ -384,6 +404,17 @@
       "location": "Noida",
       "email": "786543568",
       "id": "a5qDQD-"
+    },
+    {
+      "employeeid": "ALS/1900",
+      "name": "Arjun Rao",
+      "department": "Recruiter",
+      "position": "Digital Marketing",
+      "employementType": "Alchemy Internal",
+      "location": "Banglore",
+      "email": "8884445556",
+      "status": "Active",
+      "id": "bOLYZVy"
     }
   ]
 }

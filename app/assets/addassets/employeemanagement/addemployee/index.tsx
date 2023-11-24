@@ -19,7 +19,7 @@ const useStyles = makeStyles({
   
 const AddEmployeeManagement = () => {
   const classes = useStyles();
-  const [inputData, setInputData] = useState({employeeid:"",name:"",department:"",position:"",employementType:"",location:"",email:""});
+  const [inputData, setInputData] = useState({employeeid:"",name:"",department:"",position:"",employementType:"",location:"",email:"",status:""});
   // const [ram,setRam]=useState()
   const router = useRouter()
   const [data, setData] = useState([]);
@@ -185,6 +185,24 @@ const AddEmployeeManagement = () => {
             </Grid>
           </Grid>
         </Grid>
+
+        <Grid item xs={6} mt={1} >
+          <Grid container sx={{alignItems:'center'}}>
+            <Grid item xs={3.2}>
+            <Typography>Status</Typography>
+            </Grid>
+            <Grid item xs={8}>
+            {/* <TextField id="outlined-basic"  fullWidth size='small'
+            onChange={(e) => setInputData({ ...inputData, location: e.target.value })}/> */}
+             <select style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}  onChange={(e) => setInputData({ ...inputData, status: e.target.value })}>
+                <option>Select Status</option>
+                <option>Active</option>
+                <option>Inactive</option>
+              </select>
+            </Grid>
+          </Grid>
+        </Grid>
+
         <Grid container mt={5}>
           <Grid item xs={12} >
             <Grid container >

@@ -71,6 +71,13 @@ const EmployeeListComponent = () => {
         isResizable: true,
         enableSorting: true,
       },
+      {
+        accessorKey: 'status',
+        header: 'Status.',
+        size: 150,
+        isResizable: true,
+        enableSorting: true,
+      },
      
       
     ],
