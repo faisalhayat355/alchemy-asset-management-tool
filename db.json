@@ -86,6 +86,26 @@
       "processor": "Dual Core",
       "name": "Rohit Sharma",
       "assigndate": "2023-11-23"
+    },
+    {
+      "assettagid": "",
+      "purchasefrom": "SRK Laptop Care Shivajinagar ",
+      "purchasedate": "2023-11-22",
+      "mobile": "",
+      "address": "",
+      "description": "Laptop condition is Good ",
+      "brand": "Lenovo",
+      "cost": "490000",
+      "model": "Lenovo Thinkpad X",
+      "serialno": "ltr56878hu",
+      "site": "Alchemy Internal",
+      "category": "External",
+      "location": "Banglore",
+      "department": "Admin",
+      "processor": "Core i5",
+      "ram": "8 GB",
+      "status": "",
+      "id": 7
     }
   ],
   "activeAsset": [
@@ -294,7 +314,7 @@
   ],
   "employeeManagement": [
     {
-      "id": "1",
+      "id": "WHrXQnz",
       "assettagid": "Alchemy324",
       "employeeid": "ALS/1891",
       "name": "Ravindra Jadeja",
@@ -354,6 +374,16 @@
       "location": "Philippines",
       "email": "9000000776",
       "id": "XbG6Ti7"
+    },
+    {
+      "employeeid": "ALS/1812",
+      "name": "Ankush",
+      "department": "Manager",
+      "position": "Role",
+      "employementType": "Alchemy Internal",
+      "location": "Noida",
+      "email": "786543568",
+      "id": "a5qDQD-"
     }
   ]
 }

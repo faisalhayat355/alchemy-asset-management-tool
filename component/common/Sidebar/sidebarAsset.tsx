@@ -1,3 +1,4 @@
+import * as React from "react";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import AcUnitIcon from '@mui/icons-material/AcUnit';
 import AddToQueueIcon from '@mui/icons-material/AddToQueue';
@@ -61,9 +62,8 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import { signOut } from "next-auth/react";
 import Link from "next/link";
-import * as React from "react";
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
-
+import "../../styles.css";
 
 const SidebarAssetComponent = ({show}:any) => {
   const [alerts, setAlerts] = React.useState(false);
@@ -162,9 +162,10 @@ const SidebarAssetComponent = ({show}:any) => {
   const handleClickAssetsType = () => {
     setAssetsType(!assetsType);
   };
-
   return (
-    <div style={{height:'84vh',overflowY:'auto',overflowX:'hidden'}}>
+    <>
+ 
+    <div style={{height:'78vh',overflowY:'auto',overflowX:'hidden'}}>
       <List sx={{ width: "100%", maxWidth: 360}}component="nav" aria-labelledby="nested-list-subheader">
       <ListItemButton selected={selectedIndex === 0}
           onClick={(event) => handleListItemClick(event, 0)} >
@@ -213,7 +214,6 @@ const SidebarAssetComponent = ({show}:any) => {
           </ListItemButton>
         </List>
         </Link>
-
         <Link href="/alerts/setupalerts" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 2.7 }}>
@@ -402,7 +402,6 @@ const SidebarAssetComponent = ({show}:any) => {
         </Link>
       </Collapse>
       <Divider style={{width:'100%'}}/>
-
       <ListItemButton selected={selectedIndex === 2}
           onClick={(event) => handleListItemClick(event, 2)} >
         <FlagOutlinedIcon style={{color:"#f75757",fontSize:'1.4rem',marginRight:'0.6rem'}} />
@@ -476,8 +475,6 @@ const SidebarAssetComponent = ({show}:any) => {
       </Collapse>
      </>
       )} 
-
-
       <Link href="/assets/listofassets" passHref style={{ textDecoration: "none" }}>
       <ListItemButton selected={selectedIndex === 5}
           onClick={(event) => handleListItemClick(event, 5)} >
@@ -1522,7 +1519,10 @@ const SidebarAssetComponent = ({show}:any) => {
         </Link>
       </Collapse>
       <Divider style={{width:'100%'}}/>
-      <ListItemButton style={{marginTop:'1rem'}} onClick={() => signOut()}>
+    </List>
+    </div>
+
+    <ListItemButton  onClick={() => signOut()}>
         <LogoutIcon style={{color:"#f75757",fontSize:'1.3rem',marginRight:'0.6rem'}} />
        {show && (
         <div style={{display:'flex'}}>
@@ -1532,8 +1532,7 @@ const SidebarAssetComponent = ({show}:any) => {
         <ListItemIcon style={{marginLeft:'2rem'}}>
         </ListItemIcon>
       </ListItemButton>
-    </List>
-    </div>
+    </>
   )
 }
 export default SidebarAssetComponent

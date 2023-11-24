@@ -1,5 +1,5 @@
 "use client"
-import { Box, Grid, Pagination, Typography } from '@mui/material';
+import { Box, Divider, Grid, Pagination, Typography } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import { makeStyles } from '@mui/styles';
 import { useState } from 'react';
@@ -40,9 +40,10 @@ const EmployeeGridViewComponent = ({users}:AssetsProps) => {
   
   return (
     <div>
-    <Box style={{height:'63vh'}} >
-     <Grid container sx={{background:'white',paddingLeft:'1rem',paddingRight:'1rem',paddingBottom:'4.5rem',width:'97.5%',marginLeft:'1rem',alignItems:'center'}}>
-        <Grid container spacing={2}>
+    <Box sx={{marginTop:"-0.8rem",height:'73vh',background:'white',paddingLeft:'1rem',paddingRight:'1rem',paddingBottom:'4.5rem',width:'97.4%',marginLeft:'1rem',alignItems:'center'}} >
+     <Grid container >
+      <Divider style={{width:'100%',marginTop:'0.7rem'}}/>
+        <Grid container spacing={2} mt={"0.1rem"}>
           {paginationHandler
           .currentData().map((item:any) => {
               return (
@@ -149,10 +150,7 @@ const EmployeeGridViewComponent = ({users}:AssetsProps) => {
      </Grid>     
     </Box>
 
-
-
-
-    <Grid container mt={-1.5}>
+    <Grid container mt={2.5}>
         <Grid item xs={11.8} display={"flex"} justifyContent={"flex-end"}>
           <Grid style={{ position: "fixed" }}>
             <Pagination
