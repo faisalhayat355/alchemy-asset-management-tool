@@ -15,7 +15,7 @@ const AssetStockAssetPage = () => {
   const [data, setData] = useState([]);
 
   async function fetchData() {
-      const users = await fetch("http://localhost:8000/oldAsset");
+      const users = await fetch("http://localhost:8000/stockAsset");
       const result = await users.json();
       setData(result);
     }
@@ -26,10 +26,10 @@ const AssetStockAssetPage = () => {
   function handleSubmit(event:any) {
     event.preventDefault();
     axios
-      .post("http://localhost:8000/oldAsset", inputData)
+      .post("http://localhost:8000/stockAsset", inputData)
       .then((res) => {
         alert("Data Submited Successfully");
-        router.push('/assets/addassets/addoldassets/oldassetlist', { scroll: false })
+        router.push('/assets/addassets/addstockassets/stockassetlist', { scroll: false })
       })
       .catch((err) => console.log(err));
   }

@@ -107,7 +107,7 @@ const DashboardPage = () => {
       let length = data.length;
       
       async function fetchNewData() {
-        const users = await fetch("http://localhost:8000/newAsset");
+        const users = await fetch("http://localhost:8000/activeAsset");
         const result = await users.json();
         setNewAsset(result);
       }
@@ -117,7 +117,7 @@ const DashboardPage = () => {
       let newAssetData = newAsset.length;
 
       async function fetchOldData() {
-        const users = await fetch("http://localhost:8000/oldAsset");
+        const users = await fetch("http://localhost:8000/stockAsset");
         const result = await users.json();
         setOldAsset(result);
       }

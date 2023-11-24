@@ -187,8 +187,8 @@ const AssetCreatePage = () => {
             <Grid item xs={8}>
              <select style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}  onChange={(e) => setInputData({ ...inputData, site: e.target.value })}>
                 <option>Select Site</option>
-                <option>Alchemy</option>
-                <option>External-Client</option>
+                <option>Alchemy Internal</option>
+                <option>Alchemy External</option>
               </select>
             </Grid>
           </Grid>
@@ -203,6 +203,7 @@ const AssetCreatePage = () => {
                 <option>Select Location</option>
                 <option>Banglore</option>
                 <option>Noida</option>
+                <option>Philippines</option>
               </select>
             </Grid>
           </Grid>

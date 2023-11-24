@@ -1,4 +1,6 @@
-import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import AcUnitIcon from '@mui/icons-material/AcUnit';
+import AddToQueueIcon from '@mui/icons-material/AddToQueue';
 import BorderColorOutlinedIcon from '@mui/icons-material/BorderColorOutlined';
 import BrokenImageOutlinedIcon from '@mui/icons-material/BrokenImageOutlined';
 import BuildOutlinedIcon from '@mui/icons-material/BuildOutlined';
@@ -6,8 +8,10 @@ import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined
 import CallOutlinedIcon from '@mui/icons-material/CallOutlined';
 import CollectionsBookmarkOutlinedIcon from '@mui/icons-material/CollectionsBookmarkOutlined';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
+import DataSaverOnIcon from '@mui/icons-material/DataSaverOn';
 import DescriptionIcon from '@mui/icons-material/Description';
 import DescriptionOutlinedIcon from '@mui/icons-material/DescriptionOutlined';
+import DesktopAccessDisabledIcon from '@mui/icons-material/DesktopAccessDisabled';
 import DiamondOutlinedIcon from '@mui/icons-material/DiamondOutlined';
 import DisplaySettingsIcon from '@mui/icons-material/DisplaySettings';
 import ErrorOutlineOutlinedIcon from '@mui/icons-material/ErrorOutlineOutlined';
@@ -21,18 +25,21 @@ import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
 import FlagOutlinedIcon from '@mui/icons-material/FlagOutlined';
 import GridViewIcon from '@mui/icons-material/GridView';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import LaptopIcon from '@mui/icons-material/Laptop';
 import ListIcon from '@mui/icons-material/List';
 import ListOutlinedIcon from '@mui/icons-material/ListOutlined';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import LockOpenOutlinedIcon from '@mui/icons-material/LockOpenOutlined';
+import LogoutIcon from '@mui/icons-material/Logout';
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import ManageAccountsOutlinedIcon from '@mui/icons-material/ManageAccountsOutlined';
 import MiscellaneousServicesOutlinedIcon from '@mui/icons-material/MiscellaneousServicesOutlined';
 import OpenWithOutlinedIcon from '@mui/icons-material/OpenWithOutlined';
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
 import Person2OutlinedIcon from '@mui/icons-material/Person2Outlined';
+import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
 import PersonAddDisabledOutlinedIcon from '@mui/icons-material/PersonAddDisabledOutlined';
 import PersonAddOutlinedIcon from '@mui/icons-material/PersonAddOutlined';
-import LogoutIcon from '@mui/icons-material/Logout';
 import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
 import SentimentSatisfiedAltOutlinedIcon from '@mui/icons-material/SentimentSatisfiedAltOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
@@ -48,22 +55,14 @@ import WatchLaterOutlinedIcon from '@mui/icons-material/WatchLaterOutlined';
 import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
 import WorkOutlineOutlinedIcon from '@mui/icons-material/WorkOutlineOutlined';
 import { Divider, Typography } from "@mui/material";
-import Badge from '@mui/material/Badge';
 import Collapse from "@mui/material/Collapse";
 import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
+import { signOut } from "next-auth/react";
 import Link from "next/link";
 import * as React from "react";
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
-import AcUnitIcon from '@mui/icons-material/AcUnit';
-import { signOut, useSession } from "next-auth/react";
-import DataSaverOnIcon from '@mui/icons-material/DataSaverOn';
-import AddToQueueIcon from '@mui/icons-material/AddToQueue';
-import LaptopIcon from '@mui/icons-material/Laptop';
-import DesktopAccessDisabledIcon from '@mui/icons-material/DesktopAccessDisabled';
-import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 
 
 const SidebarAssetComponent = ({show}:any) => {
@@ -91,7 +90,6 @@ const SidebarAssetComponent = ({show}:any) => {
   const [assetsType, setAssetsType] = React.useState(false);
   const [selectedIndex, setSelectedIndex] = React.useState(1);
 
-  
   const handleClickAlerts = () => {
     setAlerts(!alerts);
   };
@@ -152,26 +150,19 @@ const SidebarAssetComponent = ({show}:any) => {
   const handleClickDatabase = () => {
     setDatabase(!database);
   };
-
   const handleClickCustomizeForms = () => {
     setCustomizeForms(!customizeForms);
   };
-
   const handleListItemClick = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>,
     index: number,
   ) => {
     setSelectedIndex(index);
   };
-
-
   const handleClickAssetsType = () => {
     setAssetsType(!assetsType);
   };
 
-
-  
-  
   return (
     <div style={{height:'84vh',overflowY:'auto',overflowX:'hidden'}}>
       <List sx={{ width: "100%", maxWidth: 360}}component="nav" aria-labelledby="nested-list-subheader">
@@ -248,81 +239,63 @@ const SidebarAssetComponent = ({show}:any) => {
         {show && (
           <div style={{display:'flex', alignItems:'center'}} onClick={handleClickAlerts}>
             <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Alerts</Typography>
-            {alerts ? <ExpandLess style={{marginLeft:'4.6rem'}}/> : <ExpandMore style={{marginLeft:'5.6rem'}}/>}
-            <ListItemIcon style={{marginLeft:'0.6rem'}}>
-             <Badge color="error" overlap="circular" badgeContent="0" ></Badge>
-            </ListItemIcon>
+            {/* <div style={{marginLeft:'2.5rem'}}>
+            <Badge color="error" overlap="circular" badgeContent="0" ></Badge>
+            </div> */}
+            {alerts ? <ExpandLess style={{marginLeft:'5.5rem'}}/> : <ExpandMore style={{marginLeft:'5.5rem'}}/>}
+           
           </div>
         )}
-        
       </ListItemButton>
      {show &&(
      <>
-      <Collapse in={alerts} timeout="auto" unmountOnExit>
+       <Collapse in={alerts} timeout="auto" unmountOnExit>
       <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          {show &&(
-            <ListItemButton sx={{ pl: 2.7 }}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Assets Past Due</Typography>
-            <Badge color="primary" overlap="circular" badgeContent="0" style={{marginLeft:'3.2rem'}}></Badge>
+          <ListItemButton sx={{ pl: 3 }}>
+          <FiberManualRecordIcon style={{color:"#f75757",fontSize:'0.7rem',marginRight:'0.6rem'}} />
+            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Assets Past Due</Typography>
           </ListItemButton>
-          )}
         </List>
         </Link>
-      </Collapse>
-      <Collapse in={alerts} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}>
-      <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
+        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-        {show && (
-            <ListItemButton sx={{ pl: 2.7}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Leases Expiring</Typography>
-            <Badge color="warning" overlap="circular" badgeContent="0" style={{marginLeft:'3.4rem'}}></Badge>
+          <ListItemButton sx={{ pl: 3 }}>
+          <FiberManualRecordIcon style={{color:"#f75757",fontSize:'0.7rem',marginRight:'0.6rem'}} />
+            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Leases Expiring</Typography>
           </ListItemButton>
-        )}
         </List>
         </Link>
-      </Collapse>
-      <Collapse in={alerts} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}>
-      <Link href="/alerts/maintainancedue" passHref style={{ textDecoration: "none" }}>
+        <Link href="/alerts/maintainancedue" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-         {show && (
-           <ListItemButton sx={{ pl: 2.7 }}>
-           <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Maintainance Due</Typography>
-           <Badge color="secondary" overlap="circular" badgeContent="0" style={{marginLeft:'2.7rem'}}></Badge>
-         </ListItemButton>
-         )}
+          <ListItemButton sx={{ pl: 3 }}>
+          <FiberManualRecordIcon style={{color:"#f75757",fontSize:'0.7rem',marginRight:'0.6rem'}} />
+            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Maintainance Due</Typography>
+          </ListItemButton>
         </List>
         </Link>
-      </Collapse>
-      <Collapse in={alerts} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}>
-      <Link href="/alerts/maintananceoverdue" passHref style={{ textDecoration: "none" }}>
+        <Link href="/alerts/maintananceoverdue" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-         {show && (
-           <ListItemButton sx={{ pl: 2.7 }}>
-           <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Maintainance Overdue</Typography>
-           <Badge color="secondary" overlap="circular" badgeContent="0" style={{marginLeft:'1.1rem'}}></Badge>
-         </ListItemButton>
-         )}
+          <ListItemButton sx={{ pl: 3 }}>
+          <FiberManualRecordIcon style={{color:"#f75757",fontSize:'0.7rem',marginRight:'0.6rem'}} />
+            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Maintainance Overdue</Typography>
+          </ListItemButton>
         </List>
         </Link>
-      </Collapse>
-      <Collapse in={alerts} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}>
-      <Link href="/alerts/warrantiesexpire" passHref style={{ textDecoration: "none" }}>
-       {show && (
-         <List component="div" disablePadding>
-         <ListItemButton sx={{ pl: 2.7 }}>
-           <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Warranties Expiring</Typography>
-           <Badge color="error" overlap="circular" badgeContent="0" style={{marginLeft:'2.3rem'}}></Badge>
-         </ListItemButton>
-       </List>
-       )}
+        <Link href="/alerts/warrantiesexpire" passHref style={{ textDecoration: "none" }}>
+        <List component="div" disablePadding>
+          <ListItemButton sx={{ pl: 3 }}>
+          <FiberManualRecordIcon style={{color:"#f75757",fontSize:'0.7rem',marginRight:'0.6rem'}} />
+            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Warranties Expiring</Typography>
+          </ListItemButton>
+        </List>
         </Link>
       </Collapse>
       <Divider style={{width:'100%'}}/>
       <Collapse in={alerts} timeout="auto" unmountOnExit style={{marginTop:'-0.1rem'}}>
       <Link href="/alerts/setupalerts" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 2.7 }}>
+          <ListItemButton sx={{ pl: 3 }}>
           <BuildOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
            {show && (
              <Typography sx={{color:'#414242',fontSize:'0.9rem'}}>Setup Alerts</Typography>
@@ -1561,5 +1534,4 @@ const SidebarAssetComponent = ({show}:any) => {
     </div>
   )
 }
-
 export default SidebarAssetComponent
