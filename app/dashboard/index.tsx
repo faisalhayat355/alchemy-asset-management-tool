@@ -1,9 +1,8 @@
 "use client"
 import AddIcon from '@mui/icons-material/Add';
 import AddToQueueIcon from '@mui/icons-material/AddToQueue';
-import DesktopAccessDisabledIcon from '@mui/icons-material/DesktopAccessDisabled';
 import LaptopIcon from '@mui/icons-material/Laptop';
-import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { Box, Button, Divider, Grid, Paper, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
@@ -13,6 +12,8 @@ import { useEffect, useState } from 'react';
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import { IAssets } from '../assets/listofassets/models/assets.model';
+
+
 const localizer = momentLocalizer(moment);
 
 const useStyles = makeStyles({
@@ -29,41 +30,38 @@ const useStyles = makeStyles({
         },
     },
     divIcon: {
-        borderRadius:'5px',background:'#3b82f6',height:'3vh',width:'33%',
+        borderRadius:'5px',background:'#3b82f6',height:'3vh',width:'43%',
         marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
         paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',color:'white',
         transition: "width 2s, height 2s, transform 2s",
         "&:hover": {
-            borderRadius:'5px',background:'#1e40af',height:'3vh',width:'33%',
+            borderRadius:'5px',background:'#1e40af',height:'3vh',width:'43%',
             marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
             paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',transform: "rotate(180deg)",
         },
     },
     divIcon2: {
-        borderRadius:'5px',background:'#a21caf',height:'3vh',width:'33%',
+        borderRadius:'5px',background:'#a21caf',height:'3vh',width:'43%',
         marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
         paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',color:'white',
         transition: "width 2s, height 2s, transform 2s",
         "&:hover": {
-            borderRadius:'5px',background:' #c026d3',height:'3vh',width:'33%',
-            marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
-            paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',transform: "rotate(180deg)",
-            
-            
-        },
-    },
-    divIcon3: {
-        borderRadius:'5px',background:' #ef4444 ',height:'3vh',width:'35%',
-        marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
-        paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',color:'white',
-        transition: "width 2s, height 2s, transform 2s",
-        "&:hover": {
-            borderRadius:'5px',background:'#dc2626',height:'3vh',width:'35%',
+            borderRadius:'5px',background:' #c026d3',height:'3vh',width:'43%',
             marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
             paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',transform: "rotate(180deg)",  
         },
     },
-
+    divIcon3: {
+        borderRadius:'5px',background:' #ef4444 ',height:'3vh',width:'45%',
+        marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
+        paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',color:'white',
+        transition: "width 2s, height 2s, transform 2s",
+        "&:hover": {
+            borderRadius:'5px',background:'#dc2626',height:'3vh',width:'45%',
+            marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
+            paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',transform: "rotate(180deg)",  
+        },
+    },
     divIcon4: {
         borderRadius:'5px',background:'#facc15',height:'3vh',width:'45%',
         marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
@@ -91,6 +89,8 @@ const DashboardPage = () => {
     const [newAsset,setNewAsset]=useState([])
     const [oldAsset,setOldAsset] = useState([])
     const [scrapAsset,setScrapAsset] = useState([])
+    const [employee,setEmployee] = useState([])
+
     const [events, setEvents] = useState([]);
 
     async function fetchData() {
@@ -134,6 +134,17 @@ const DashboardPage = () => {
       
       let scrapAssetData = scrapAsset.length;
 
+      async function fetchEmployeeData() {
+        const users = await fetch("http://localhost:8000/employeeManagement");
+        const result = await users.json();
+        setEmployee(result);
+      }
+      useEffect(() => {
+        fetchEmployeeData();
+      }, []);
+      
+      let employeeData = employee.length;
+
       const calendarAsset = data?.map((data : IAssets) => {
         return {
           title: data.purchasefrom,
@@ -163,7 +174,7 @@ const DashboardPage = () => {
                     </Link>
                 </Grid> */}
                <Grid container spacing={1}>
-               <Grid item lg={4} mt={1.5} xs={12} md={6}>
+               <Grid item lg={3} mt={1.5} xs={6} md={6}>
                <Link href="/assets/listofassets" passHref style={{ textDecoration: "none" }}>
                     <Paper className={classes.paper} elevation={0} >
                        <Grid container> 
@@ -180,7 +191,7 @@ const DashboardPage = () => {
                     </Paper>
                     </Link>
                 </Grid>
-                <Grid item lg={4} mt={1.5} xs={12} md={6}>
+                <Grid item lg={3} mt={1.5} xs={6} md={6}>
                 <Link href="/assets/addassets/addactiveassets/activeassetlist" passHref style={{ textDecoration: "none" }}>
                     <Paper className={classes.paper} elevation={0} >
                        <Grid container> 
@@ -197,7 +208,7 @@ const DashboardPage = () => {
                     </Paper>
                     </Link>
                 </Grid>
-                <Grid item lg={4} mt={1.5} xs={12} md={6}>
+                <Grid item lg={3} mt={1.5} xs={6} md={6}>
                 <Link href="/assets/addassets/addstockassets/stockassetlist" passHref style={{ textDecoration: "none" }}>
                     <Paper className={classes.paper} elevation={0} >
                        <Grid container> 
@@ -209,6 +220,23 @@ const DashboardPage = () => {
                         </Grid>
                         <Grid item xs={8} sx={{display:'flex',justifyContent:'flex-end',paddingTop:'1rem'}}>
                         <Typography fontSize={"1.5rem"}>{oldAssetData}</Typography>
+                        </Grid>
+                       </Grid>
+                    </Paper>
+                </Link>
+                </Grid>
+                <Grid item lg={3} mt={1.5} xs={6} md={6}>
+                <Link href="/assets/addassets/employeemanagement" passHref style={{ textDecoration: "none" }}>
+                    <Paper className={classes.paper} elevation={0} >
+                       <Grid container> 
+                       <Grid item xs={3.8}>
+                       <div className={classes.divIcon4}><PeopleOutlineIcon style={{fontSize:'1rem',marginTop:'-1rem'}}/></div>
+                       </Grid>
+                        <Grid item xs={8.2} sx={{display:'flex',justifyContent:'center'}}>
+                        <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Total Employee</Typography>
+                        </Grid>
+                        <Grid item xs={8} sx={{display:'flex',justifyContent:'flex-end',paddingTop:'1rem'}}>
+                        <Typography fontSize={"1.5rem"}>{employeeData}</Typography>
                         </Grid>
                        </Grid>
                     </Paper>

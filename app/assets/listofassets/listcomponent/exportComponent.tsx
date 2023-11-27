@@ -19,7 +19,6 @@ const AssetExportComponent = ({users}:any) => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  console.log("usersData",users);
 
   return (
     <>

@@ -17,6 +17,7 @@ type IAssets = {
     department: string;
     name:string;
     assigndate:string;
+    disktype:string;
     
     
   };

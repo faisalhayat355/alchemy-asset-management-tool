@@ -10,9 +10,6 @@ const DashboardGraphView = ({ newAsset }: any) => {
     {type: "Banglore",value: newAsset?.filter((item:IAssets) => item.location == "Banglore")?.length,color: "blue",},
     {type: "Noida",value: newAsset.filter((item:IAssets) => item.location == "Noida").length,color: "red",}
   ]
-
-console.log("countryDatacountryDatacountryData",countryData);
-
   return (
     <Paper elevation={3}>
       <Grid container mt={2} p={2}>

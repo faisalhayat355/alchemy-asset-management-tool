@@ -42,7 +42,7 @@ const schema = yup
   .required();
 
 
-const ViewAssetComponent = ({user}:any) => {
+const ViewEmployeeAssetComponent = ({user}:any) => {
   const [employeeData, setEmployeeData] = useState([]);
   
   async function fetchData() {
@@ -341,4 +341,4 @@ const ViewAssetComponent = ({user}:any) => {
   )
 }
 
-export default ViewAssetComponent
+export default ViewEmployeeAssetComponent

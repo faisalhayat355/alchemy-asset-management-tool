@@ -10,7 +10,7 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import TextField from '@mui/material/TextField';
   
 const AssetCreatePage = () => {
-  const [inputData, setInputData] = useState({assettagid:"",purchasefrom:"",purchasedate:"",mobile:"",address:"",description:"",brand:"",cost:"",model:"",serialno:"",site:"",category:"",location:"",department:"",processor:"",ram:"",status:"",remarks:""});
+  const [inputData, setInputData] = useState({assettagid:"",purchasefrom:"",purchasedate:"",mobile:"",address:"",description:"",brand:"",cost:"",model:"",serialno:"",site:"",category:"",location:"",department:"",processor:"",ram:"",status:"",remarks:"",disktype:""});
   // const [ram,setRam]=useState()
   const router = useRouter()
   const [data, setData] = useState([]);
@@ -164,6 +164,21 @@ const AssetCreatePage = () => {
                 <option>4 GB</option>
                 <option>8 GB</option>
                 <option>16 GB</option>
+              </select>
+            </Grid>
+          </Grid>
+        </Grid>
+
+        <Grid item lg={6} xs={12} mt={1} >
+          <Grid container sx={{alignItems:'center'}}>
+            <Grid item xs={3.2}>
+            <Typography>Disk Type</Typography>
+            </Grid>
+            <Grid item xs={8}>
+              <select style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}  onChange={(e) => setInputData({ ...inputData, disktype: e.target.value })}>
+                <option>Select Disk</option>
+                <option>SSD</option>
+                <option>HDD</option>
               </select>
             </Grid>
           </Grid>

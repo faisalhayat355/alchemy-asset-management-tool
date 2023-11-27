@@ -72,6 +72,27 @@ const EmployeeListComponent = () => {
         isResizable: true,
         enableSorting: true,
       },
+
+      {
+        accessorKey: 'actions',
+        header: 'Actions',
+        size: 140,
+        Cell: ({ cell }) => (
+          <div>
+            {cell.row.original && (
+             <Box>
+                <Tooltip title="View">
+                <Link href={`/assets/viewemployee/${cell.row.original.id}`}>
+                  <IconButton onClick={() => handleView(cell.row.original)}>
+                    <VisibilityIcon style={{fontSize:'1rem'}}/>
+                  </IconButton>
+                  </Link>
+                </Tooltip>
+                </Box>
+            )}
+          </div>
+        ),
+      },
      
       
     ],

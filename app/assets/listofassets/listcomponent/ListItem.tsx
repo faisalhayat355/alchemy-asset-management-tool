@@ -1,21 +1,22 @@
 import { useEffect, useMemo, useState } from 'react';
 import axios from 'axios';
-import {
-  MaterialReactTable,
-  useMaterialReactTable,
-  type MRT_ColumnDef,
-} from 'material-react-table';
+import Link from 'next/link';
+import {MaterialReactTable, useMaterialReactTable,type MRT_ColumnDef}from 'material-react-table';
 import Tooltip from '@mui/material/Tooltip';
+import { Box } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import EditIcon from '@mui/icons-material/Edit';
-import Link from 'next/link';
-import { Box } from '@mui/material';
 
 type Post = {
   id: number;
   description: string;
   brand: string;
+  name:string;
+  department:string;
+  model:string;
+  serialno:string;
+  remarks:string;
 };
 
 const ListItemComponent = () => {
@@ -23,7 +24,7 @@ const ListItemComponent = () => {
     () => [
       {
         accessorKey: 'id',
-        header: 'ID',
+        header: 'Asset Tag ID',
         size: 100,
         isResizable: true,
         enableSorting: true,
@@ -97,13 +98,11 @@ const ListItemComponent = () => {
           </div>
         ),
       },
-      
     ],
     [],
   );
 
   const [data, setData] = useState<Post[]>([]);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -113,7 +112,6 @@ const ListItemComponent = () => {
         console.error('Error fetching data:', error);
       }
     };
-
     fetchData();
   }, []);
 
@@ -133,7 +131,6 @@ const ListItemComponent = () => {
     // enableRowSelection: true,
     
   });
-
   const handleView = (rowData: Post) => {
     console.log('View post:', rowData);
   };
@@ -141,13 +138,11 @@ const ListItemComponent = () => {
   const handleEdit = (rowData: Post) => {
     console.log('Edit post:', rowData);
   };
-
   return(
 
-    <div >
-
-  <MaterialReactTable table={table}/>
-  </div>
+    <div>
+        <MaterialReactTable table={table}/>
+    </div>
     ) 
   ;
 };
