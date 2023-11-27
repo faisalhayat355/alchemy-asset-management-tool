@@ -1,6 +1,6 @@
 import React from 'react'
 import ImportExportIcon from '@mui/icons-material/ImportExport';
-import { IconButton, Typography } from '@mui/material';
+import { IconButton, Tooltip, Typography } from '@mui/material';
 import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
@@ -23,9 +23,11 @@ const AssetExportComponent = ({users}:any) => {
 
   return (
     <>
+    <Tooltip title="Import">
       <IconButton  onClick={handleClick} >
           <FileDownloadOutlinedIcon style={{fontSize:'1.3rem'}}/>
       </IconButton>
+    </Tooltip>
       
       <Menu id="basic-menu" anchorEl={anchorEl} open={open} onClose={handleClose}
           MenuListProps={{'aria-labelledby': 'basic-button',}}>

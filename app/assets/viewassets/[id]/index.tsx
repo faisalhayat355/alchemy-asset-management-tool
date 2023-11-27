@@ -334,13 +334,13 @@ const ViewAssetComponent = ({user}:any) => {
           <Grid item xs={4}>
             <Grid container>
               <Grid item xs={4.4}>
-                <Typography fontSize={"1rem"} fontWeight={"bold"}>Location</Typography>
+                <Typography fontSize={"1rem"} fontWeight={"bold"}>Remarks</Typography>
               </Grid>
               <Grid item xs={0.6}>
                 <Typography>:</Typography>
               </Grid>
               <Grid item xs={7}>
-              <Typography fontSize={"1rem"}>{user?.location}</Typography>
+              <Typography fontSize={"1rem"}>{user?.remarks}</Typography>
               </Grid>
             </Grid>
           </Grid>

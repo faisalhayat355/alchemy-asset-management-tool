@@ -1,15 +1,13 @@
 "use client"
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { useRouter } from 'next/navigation';
+import Link from "next/link";
 import { Box, Grid, Typography } from '@mui/material';
 import FormControl from '@mui/material/FormControl';
 import InputAdornment from '@mui/material/InputAdornment';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import TextField from '@mui/material/TextField';
-import axios from "axios";
-import Link from "next/link";
-import { useRouter } from 'next/navigation';
-import { useEffect, useState } from "react";
-
-
   
 const AssetCreatePage = () => {
   const [inputData, setInputData] = useState({assettagid:"",purchasefrom:"",purchasedate:"",mobile:"",address:"",description:"",brand:"",cost:"",model:"",serialno:"",site:"",category:"",location:"",department:"",processor:"",ram:"",status:"",remarks:""});
@@ -47,7 +45,7 @@ const AssetCreatePage = () => {
         </Grid>
       </Grid>
       <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #f87171',paddingLeft:'2rem',paddingTop:'0.8rem',paddingBottom:'5rem',width:'97%',marginLeft:'1.3rem',alignItems:'center',boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}}>
-        <Grid item xs={6} >
+        <Grid item lg={6} xs={12}>
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
             <Typography>Asset Tag ID <span style={{color:'red'}}>*</span></Typography>
@@ -58,7 +56,7 @@ const AssetCreatePage = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={6} mt={1} >
+        <Grid item lg={6} xs={12} mt={1} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
             <Typography>Description <span style={{color:'red'}}>*</span></Typography>
@@ -69,7 +67,7 @@ const AssetCreatePage = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={6} mt={0.6}>
+        <Grid item lg={6} xs={12} mt={0.6}>
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
             <Typography>Purchased from</Typography>
@@ -80,7 +78,7 @@ const AssetCreatePage = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={6} mt={1} >
+        <Grid item lg={6} xs={12} mt={1} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
             <Typography>Purchased Date</Typography>
@@ -91,7 +89,7 @@ const AssetCreatePage = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={6} >
+        <Grid item lg={6} xs={12} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3}>
             <Typography>Cost</Typography>
@@ -104,7 +102,7 @@ const AssetCreatePage = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={6} >
+        <Grid item lg={6} xs={12} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
             <Typography>Model</Typography>
@@ -115,7 +113,7 @@ const AssetCreatePage = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={6} >
+        <Grid item lg={6} xs={12} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
             <Typography>Brand</Typography>
@@ -126,7 +124,7 @@ const AssetCreatePage = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={6} >
+        <Grid item lg={6} xs={12} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
             <Typography>Serial No.</Typography>
@@ -137,7 +135,7 @@ const AssetCreatePage = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={6} mt={1} >
+        <Grid item lg={6} xs={12} mt={1} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
             <Typography>Processor</Typography>
@@ -155,7 +153,7 @@ const AssetCreatePage = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={6} mt={1} >
+        <Grid item lg={6} xs={12} mt={1} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
             <Typography>Ram</Typography>
@@ -171,7 +169,7 @@ const AssetCreatePage = () => {
           </Grid>
         </Grid>
 
-        <Grid item xs={6} mt={1}>
+        <Grid item lg={6} xs={12} mt={1}>
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
             <Typography>Remarks</Typography>
@@ -186,7 +184,7 @@ const AssetCreatePage = () => {
 
 
         <Grid container sx={{display:'flex',justifyContent:'flex-end',marginTop:'0.7rem'}}>
-        <Grid item xs={2.5} mt={1} >
+        <Grid item lg={2.5} xs={4} mt={1} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={5.2}>
             <Link href="/assets/listofassets" passHref style={{ textDecoration: "none" }}>

@@ -1,9 +1,7 @@
-import React from "react";
-import { Divider, Grid, IconButton, Typography } from "@mui/material";
+import ClearAllIcon from '@mui/icons-material/ClearAll';
 import MenuIcon from "@mui/icons-material/Menu";
-import ListIcon from "@mui/icons-material/List";
+import { Divider, Fade, Grid, Tooltip, Typography } from "@mui/material";
 import { makeStyles } from '@mui/styles';
-
 
 const useStyles = makeStyles({
   typography: {
@@ -51,7 +49,8 @@ const Logo = ({ handleMenu, show }: logoProps) => {
       )}
       <div>
         <div onClick={handleMenu}>
-          {show ? <MenuIcon style={{marginLeft:'1rem',color:'black',cursor:'pointer'}}/> : <ListIcon style={{marginTop:'1rem',marginLeft:'1rem',color:'#f75757',cursor:'pointer'}}/>}
+          {show ? <MenuIcon style={{marginLeft:'1rem',color:'black',cursor:'pointer'}}/>   : <Tooltip title="Expand Menu" arrow TransitionComponent={Fade}
+          TransitionProps={{ timeout: 600 }} placement="right-start"><ClearAllIcon style={{marginTop:'1rem',marginLeft:'1rem',color:'#f75757',cursor:'pointer',fontSize:'1.7rem'}}/> </Tooltip>}
         </div>
       </div>
     </div>

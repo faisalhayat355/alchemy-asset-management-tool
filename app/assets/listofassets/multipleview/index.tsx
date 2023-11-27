@@ -1,6 +1,7 @@
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import GridViewIcon from "@mui/icons-material/GridView";
 import ListAltIcon from "@mui/icons-material/ListAlt";
+import { Tooltip } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
@@ -12,19 +13,19 @@ const viewIconsSet = [
       id: 1,
       view: ViewTypes.LIST,
       title: "List",
-      icon: <ListAltIcon fontSize="small" />,
+      icon: <Tooltip title="List" ><ListAltIcon fontSize="small" /></Tooltip>,
     },
     {
       id: 2,
       view: ViewTypes.GRID,
       title: "Grid",
-      icon: <GridViewIcon fontSize="small" />,
+      icon: <Tooltip title="Grid" ><GridViewIcon fontSize="small" /></Tooltip>,
     },
     {
       id: 4,
       view: ViewTypes.CALENDAR,
       title: "Calendar",
-      icon: <CalendarMonthIcon fontSize="small" />,
+      icon: <Tooltip title="Calendar" ><CalendarMonthIcon fontSize="small" /></Tooltip>,
     },
     
   ];

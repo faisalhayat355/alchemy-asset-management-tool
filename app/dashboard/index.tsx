@@ -29,23 +29,23 @@ const useStyles = makeStyles({
         },
     },
     divIcon: {
-        borderRadius:'5px',background:'#3b82f6',height:'3vh',width:'35%',
+        borderRadius:'5px',background:'#3b82f6',height:'3vh',width:'33%',
         marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
         paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',color:'white',
         transition: "width 2s, height 2s, transform 2s",
         "&:hover": {
-            borderRadius:'5px',background:'#1e40af',height:'3vh',width:'35%',
+            borderRadius:'5px',background:'#1e40af',height:'3vh',width:'33%',
             marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
             paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',transform: "rotate(180deg)",
         },
     },
     divIcon2: {
-        borderRadius:'5px',background:'#a21caf',height:'3vh',width:'35%',
+        borderRadius:'5px',background:'#a21caf',height:'3vh',width:'33%',
         marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
         paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',color:'white',
         transition: "width 2s, height 2s, transform 2s",
         "&:hover": {
-            borderRadius:'5px',background:' #c026d3',height:'3vh',width:'35%',
+            borderRadius:'5px',background:' #c026d3',height:'3vh',width:'33%',
             marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
             paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',transform: "rotate(180deg)",
             
@@ -80,7 +80,7 @@ const useStyles = makeStyles({
         background: "#f8fafc",
         border:'1px solid #f1f5f9',
         cursor:'pointer',
-        height:'61vh',
+        height:'61.8vh',
     },
   
   });
@@ -149,21 +149,21 @@ const DashboardPage = () => {
     <div>
         <Box>
             <Grid container sx={{padding:'0.7rem',alignItems:'center'}}>
-                <Grid item xs={8.5} sx={{display:'flex',alignItems:'center'}}>
+                <Grid item lg={10.8} xs={12} md={10.35} sx={{display:'flex',alignItems:'center'}}>
                     <Typography fontSize={"1.8rem"} style={{fontWeight:'bold',color:'#1e293b',fontFamily:"cursive",fontSize:'1.5rem'}}>Dashboard <span style={{fontSize:'1rem'}}>dashboard & statistics</span></Typography>
                 </Grid>
-                <Grid item xs={1.4} >
+                <Grid item lg={1.2} xs={12} md={1.65}>
                 <Link href="/assets/addassets" passHref style={{ textDecoration: "none" }}>
                     <Button variant='outlined' size='small' style={{textTransform:'capitalize',background:'white'}} endIcon={<AddIcon style={{fontSize:'1.4rem',color:'#a21caf'}}/>}> Add Asset</Button>
                 </Link>
                 </Grid>
-                <Grid item xs={2.1} style={{display:'flex',justifyContent:'flex-end'}}>
+                {/* <Grid item xs={2.1} style={{display:'flex',justifyContent:'flex-end'}}>
                     <Link href="/setup" passHref style={{ textDecoration: "none" }}>
                     <Button variant="outlined" size='small' style={{textTransform:'capitalize',background:'white'}} endIcon={<ManageAccountsIcon style={{fontSize:'1.4rem',color:'#a21caf'}}/>}>Manage Dashboard</Button>
                     </Link>
-                </Grid>
+                </Grid> */}
                <Grid container spacing={1}>
-               <Grid item xs={4} mt={1.5}>
+               <Grid item lg={4} mt={1.5} xs={12} md={6}>
                <Link href="/assets/listofassets" passHref style={{ textDecoration: "none" }}>
                     <Paper className={classes.paper} elevation={0} >
                        <Grid container> 
@@ -180,7 +180,7 @@ const DashboardPage = () => {
                     </Paper>
                     </Link>
                 </Grid>
-                <Grid item xs={4} mt={1.5}>
+                <Grid item lg={4} mt={1.5} xs={12} md={6}>
                 <Link href="/assets/addassets/addactiveassets/activeassetlist" passHref style={{ textDecoration: "none" }}>
                     <Paper className={classes.paper} elevation={0} >
                        <Grid container> 
@@ -197,7 +197,7 @@ const DashboardPage = () => {
                     </Paper>
                     </Link>
                 </Grid>
-                <Grid item xs={4} mt={1.5}>
+                <Grid item lg={4} mt={1.5} xs={12} md={6}>
                 <Link href="/assets/addassets/addstockassets/stockassetlist" passHref style={{ textDecoration: "none" }}>
                     <Paper className={classes.paper} elevation={0} >
                        <Grid container> 
@@ -235,13 +235,13 @@ const DashboardPage = () => {
 
                </Grid>  
                <Grid container spacing={1} mt={0.1}>
-                <Grid item xs={5}>
+                <Grid item lg={5} xs={12}>
                     <Paper elevation={0} className={classes.assetvalue}>
                         <Typography sx={{paddingLeft:'1rem'}} fontSize={"1rem"} fontWeight={"bold"}>Asset Value <span style={{fontWeight:'normal',fontSize:'0.8rem'}}>by Category</span></Typography>
                         <Divider style={{width:'100%',paddingLeft:'0.5rem',marginTop:'0.5rem'}}/>
                     </Paper>
                 </Grid>
-                <Grid item xs={7}>
+                <Grid item lg={7} xs={12}>
                     <Paper elevation={0} className={classes.assetvalue}>
                         <Grid container>
                             <Grid item xs={1}>

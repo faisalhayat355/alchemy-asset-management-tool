@@ -1,19 +1,16 @@
 "use client"
-import ListItemComponent from './listcomponent/ListItem'
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { Box, Button, Divider, Grid, IconButton, Paper, Tooltip, Typography, Zoom } from '@mui/material';
-import { makeStyles } from '@mui/styles';
+import { useEffect, useState } from "react";
 import Link from 'next/link';
+import { Box, Button, Divider, Grid, IconButton, Tooltip, Typography, Zoom } from '@mui/material';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { makeStyles } from '@mui/styles';
+import { Case, Default, Switch } from "react-if";
+import AssetCalendarView from './listcomponent/calendarView';
+import AssetExportComponent from './listcomponent/exportComponent';
+import GridViewComponent from './listcomponent/gridView';
+import ListItemComponent from './listcomponent/ListItem';
 import AssetViewComponent from './multipleview';
 import { ViewTypes } from './utility/view.type';
-import { Case, Default, Switch } from "react-if";
-import GridViewComponent from './listcomponent/gridView';
-import AssetCalendarView from './listcomponent/calendarView';
-import AssetSearchComponent from './listcomponent/searchComponent';
-import AssetFilterComponent from './listcomponent/filterComponent';
-import AssetExportComponent from './listcomponent/exportComponent';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const useStyles = makeStyles({
   typography: {
@@ -50,7 +47,6 @@ const ListAssetHomeComponent = () => {
   useEffect(()=>{
     setUsers(data)
   },[data])
-
   return (
 
   <Box>
@@ -58,8 +54,8 @@ const ListAssetHomeComponent = () => {
       <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #f87171',paddingTop:'0.1rem',width:'99.9%',alignItems:'center',marginLeft:"0.2rem"}}>
       <Link href="/dashboard" passHref style={{ textDecoration: "none" }}>
       <Grid item xs={0.6}>
-      <Tooltip title="Back" TransitionComponent={Zoom} arrow>
-      <IconButton><ArrowBackIcon/></IconButton>
+      <Tooltip title="Back" TransitionComponent={Zoom}>
+      <IconButton style={{marginLeft:'0.1rem',marginRight:'0.3rem'}}><ArrowBackIcon style={{fontSize:'1.2rem',}}/></IconButton>
       </Tooltip>
       </Grid>
       </Link>

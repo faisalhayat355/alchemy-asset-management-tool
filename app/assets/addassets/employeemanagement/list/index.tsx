@@ -44,33 +44,27 @@ const EmployeeListComponent = () => {
         enableSorting: true,
       },
       {
+        accessorKey: 'email',
+        header: 'Email',
+        size: 140,
+        isResizable: true,
+        enableSorting: true,
+      },
+      {
+        accessorKey: 'mobile',
+        header: 'Contact',
+        size: 140,
+        isResizable: true,
+        enableSorting: true,
+      },
+      {
         accessorKey: 'position',
         header: 'Position',
         size: 170,
         isResizable: true,
         enableSorting: true,
       },
-      {
-        accessorKey: 'department',
-        header: 'Department',
-        size: 140,
-        isResizable: true,
-        enableSorting: true,
-      },
-      {
-        accessorKey: 'employementType',
-        header: 'Employement Type',
-        size: 140,
-        isResizable: true,
-        enableSorting: true,
-      },
-      {
-        accessorKey: 'location',
-        header: 'Location.',
-        size: 150,
-        isResizable: true,
-        enableSorting: true,
-      },
+
       {
         accessorKey: 'status',
         header: 'Status.',

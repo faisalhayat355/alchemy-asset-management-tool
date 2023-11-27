@@ -70,7 +70,7 @@ const EmployeeManagementHome = () => {
              <AssetCalendarView users={users} />
            </Case>
            <Default>
-            <Grid style={{marginLeft:'1rem',width:'97.4%',marginTop:"-1rem"}}>
+            <Grid style={{marginLeft:'1rem',width:'97.45%',marginTop:"-1rem",border:'none'}}>
             <Divider style={{width:'100%',marginTop:'0.2rem',background:'#fecaca'}}/>
             <EmployeeListComponent />
             </Grid>

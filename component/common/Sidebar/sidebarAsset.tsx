@@ -55,7 +55,7 @@ import ViewStreamIcon from '@mui/icons-material/ViewStream';
 import WatchLaterOutlinedIcon from '@mui/icons-material/WatchLaterOutlined';
 import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
 import WorkOutlineOutlinedIcon from '@mui/icons-material/WorkOutlineOutlined';
-import { Divider, Typography } from "@mui/material";
+import { Divider, Fade, Tooltip, Typography } from "@mui/material";
 import Collapse from "@mui/material/Collapse";
 import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -169,12 +169,15 @@ const SidebarAssetComponent = ({show}:any) => {
       <List sx={{ width: "100%", maxWidth: 360}}component="nav" aria-labelledby="nested-list-subheader">
       <ListItemButton selected={selectedIndex === 0}
           onClick={(event) => handleListItemClick(event, 0)} >
+            <Tooltip title="Profile" arrow TransitionComponent={Fade}
+          TransitionProps={{ timeout: 600 }} placement="right-start">
         <AccountCircleIcon style={{color:"#f75757",fontSize:'1.3rem',marginRight:'0.6rem',marginLeft:'0.1rem'}} />
+        </Tooltip>
         {show && (
-          <div style={{display:'flex'}} onClick={handleClickProfile} >
+          <div style={{display:'flex',alignItems:'center'}} onClick={handleClickProfile} >
             <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550',alignItems:'center'}} >Profile
           </Typography>
-          {profile ? <ExpandLess style={{marginLeft:'5.3rem'}}/> : <ExpandMore style={{marginLeft:'5.3rem'}}/>} 
+          {profile ? <ExpandLess style={{marginLeft:'5.3rem',color:"#f75757"}}/> : <ExpandMore style={{marginLeft:'5.3rem'}}/>} 
           </div>
         )}
       </ListItemButton>
@@ -183,7 +186,9 @@ const SidebarAssetComponent = ({show}:any) => {
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 2.7 }}>
           <Person2OutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+          {show &&(
             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>My Profile</Typography>
+          )}
           </ListItemButton>
         </List>
         </Link>
@@ -191,7 +196,9 @@ const SidebarAssetComponent = ({show}:any) => {
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 2.7 }}>
           <LockOpenOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+          {show && (
             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Change Password</Typography>
+          )}
           </ListItemButton>
         </List>
         </Link>
@@ -199,7 +206,9 @@ const SidebarAssetComponent = ({show}:any) => {
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 2.7 }}>
           <ExitToAppOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+          {show && (
             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Log out</Typography>
+          )}
           </ListItemButton>
         </List>
         </Link>
@@ -210,7 +219,9 @@ const SidebarAssetComponent = ({show}:any) => {
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 2.7 }}>
           <Person2OutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.9rem'}}>Account Details</Typography>
+          {show && (
+            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Account Details</Typography>
+          )}
           </ListItemButton>
         </List>
         </Link>
@@ -218,7 +229,9 @@ const SidebarAssetComponent = ({show}:any) => {
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 2.7 }}>
           <DiamondOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            <Typography sx={{color:'#414242',fontSize:'0.9rem'}}>Subscription Plan</Typography>
+          {show && (
+            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Subscription Plan</Typography>
+          )}
           </ListItemButton>
         </List>
         </Link>
@@ -226,24 +239,31 @@ const SidebarAssetComponent = ({show}:any) => {
          <Link href="/dashboard" passHref style={{ textDecoration: "none" }}>
         <ListItemButton selected={selectedIndex === 1}
           onClick={(event) => handleListItemClick(event, 1)}>
+          <Tooltip title="Dashboard" arrow TransitionComponent={Fade}
+          TransitionProps={{ timeout: 600 }} placement="right-start">
           <HomeOutlinedIcon style={{color:"#f75757",fontSize:'1.4rem',marginRight:'0.6rem'}}/>
+        </Tooltip>
           {show && (
-        <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'bold'}}>Dashboard</Typography>
+        <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'bold',marginTop:'0.2rem'}}>Dashboard</Typography>
           )}
       </ListItemButton>
       </Link>
       <Divider style={{width:'100%'}}/>
-     
-      <ListItemButton selected={selectedIndex === 4}
-          onClick={(event) => handleListItemClick(event, 4)} >
+
+      <Link href="/assets/listofassets" passHref style={{ textDecoration: "none" }}>
+      <ListItemButton selected={selectedIndex === 4} onClick={(event) => handleListItemClick(event, 4)} >
+        <Tooltip title="Assets" arrow TransitionComponent={Fade}
+        TransitionProps={{ timeout: 600 }} placement="right-start">
         <ManageAccountsIcon style={{color:"#f75757",fontSize:'1.4rem',marginRight:'0.6rem'}} />
+        </Tooltip>
      {show &&(
-       <div style={{display:'flex'}} onClick={handleClickAssets}>
+       <div style={{display:'flex',alignItems:'center'}} onClick={handleClickAssets}>
        <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Assets</Typography> 
-         {assets ? <ExpandLess style={{marginLeft:'5.1rem'}}/> : <ExpandMore style={{marginLeft:'5.1rem'}}/>}
+         {assets ? <ExpandLess style={{marginLeft:'5.1rem',color:"#f75757"}}/> : <ExpandMore style={{marginLeft:'5.1rem',color:'#414242'}}/>}
        </div>
      )}
       </ListItemButton>
+      </Link>
       <Collapse in={assets} timeout="auto" unmountOnExit>
       <Link href="/assets/listofassets" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
@@ -271,7 +291,7 @@ const SidebarAssetComponent = ({show}:any) => {
           {show && (
             <div style={{display:'flex',alignItems:'center'}}>
                 <Typography style={{color:'#414242',fontSize:'0.8rem'}}>Assets</Typography>
-                {assetsType ? <ExpandLess style={{marginLeft:'5.55rem'}} /> : <ExpandMore style={{marginLeft:'5.55rem'}}/>}
+                {assetsType ? <ExpandLess style={{marginLeft:'5.55rem',color:"#f75757"}} /> : <ExpandMore style={{marginLeft:'5.55rem'}}/>}
             </div>
           )} 
         </div>   
@@ -405,11 +425,14 @@ const SidebarAssetComponent = ({show}:any) => {
       <Divider style={{width:'100%'}}/>
       <ListItemButton selected={selectedIndex === 6}
           onClick={(event) => handleListItemClick(event, 6)}>
-        <DescriptionOutlinedIcon style={{color:"#f75757",fontSize:'1.4rem',marginRight:'0.6rem'}} />
+          <Tooltip title="Reports" arrow TransitionComponent={Fade}
+          TransitionProps={{ timeout: 600 }} placement="right-start">
+          <DescriptionOutlinedIcon style={{color:"#f75757",fontSize:'1.4rem',marginRight:'0.6rem'}} />
+          </Tooltip>
           {show && (
-        <div style={{display:'flex'}} onClick={handleClickReports}>
+        <div style={{display:'flex',alignItems:'center'}} onClick={handleClickReports}>
             <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Reports</Typography>
-            {reports ? <ExpandLess style={{marginLeft:'4.7rem'}}/> : <ExpandMore style={{marginLeft:'4.7rem'}} />}
+            {reports ? <ExpandLess style={{marginLeft:'4.7rem',color:"#f75757"}}/> : <ExpandMore style={{marginLeft:'4.7rem'}} />}
         </div>
           )}
         <ListItemIcon style={{marginLeft:'2rem'}}>
@@ -432,7 +455,7 @@ const SidebarAssetComponent = ({show}:any) => {
          {show && (
            <ListItemButton sx={{ pl: 5 }} onClick={handleClickCustomReports} >
            <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Custom Reports</Typography>
-           {customReports ? <ExpandLess /> : <ExpandMore />}
+           {customReports ? <ExpandLess style={{marginLeft:'2.8rem',color:"#f75757"}}/> : <ExpandMore style={{marginLeft:'2.8rem'}}/>}
          </ListItemButton>
          )}
           <Collapse in={customReports} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}>
@@ -459,7 +482,7 @@ const SidebarAssetComponent = ({show}:any) => {
       {show && (
         <ListItemButton sx={{ pl: 5 }} onClick={handleClickAssetReports} >
         <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Asset Reports</Typography>
-        {assetReports ? <ExpandLess /> : <ExpandMore />}
+        {assetReports ? <ExpandLess style={{marginLeft:'3.6rem',color:"#f75757"}}/> : <ExpandMore style={{marginLeft:'3.6rem'}}/>}
       </ListItemButton>
       )}
           <Collapse in={assetReports} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}>
@@ -530,7 +553,7 @@ const SidebarAssetComponent = ({show}:any) => {
           {show && (
              <div style={{display:'flex'}}>
              <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Audit Reports</Typography>
-              {auditReports ? <ExpandLess /> : <ExpandMore />}
+              {auditReports ? <ExpandLess style={{marginLeft:'3.7rem',color:"#f75757"}}/> : <ExpandMore style={{marginLeft:'3.7rem'}}/>}
              </div>
           )}
       </ListItemButton>
@@ -589,7 +612,7 @@ const SidebarAssetComponent = ({show}:any) => {
        {show && (
         <div style={{display:'flex'}}>
            <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Check-Out Reports</Typography>
-            {checkOutReports ? <ExpandLess /> : <ExpandMore />}
+            {checkOutReports ? <ExpandLess style={{marginLeft:'1.8rem',color:'#f75757'}}/> : <ExpandMore style={{marginLeft:'1.8rem'}}/>}
         </div>
        )}
       </ListItemButton>
@@ -641,7 +664,7 @@ const SidebarAssetComponent = ({show}:any) => {
       {show && (
         <div style={{display:'flex'}}>
             <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Leased Asset Reports</Typography>
-            {leasedReports ? <ExpandLess /> : <ExpandMore />}
+            {leasedReports ? <ExpandLess style={{marginLeft:'0.75rem',color:"#f75757"}}/> : <ExpandMore style={{marginLeft:'0.75rem'}}/>}
         </div>
       )}    
       </ListItemButton>
@@ -686,7 +709,7 @@ const SidebarAssetComponent = ({show}:any) => {
       {show && (
         <div style={{display:'flex'}}>
            <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Maintenance Reports</Typography>
-            {maintenanceReports ? <ExpandLess /> : <ExpandMore />}
+            {maintenanceReports ? <ExpandLess style={{marginLeft:'1rem',color:"#f75757"}}/> : <ExpandMore style={{marginLeft:'1rem'}}/>}
         </div>
       )}    
       </ListItemButton>
@@ -731,7 +754,7 @@ const SidebarAssetComponent = ({show}:any) => {
       {show && (
         <div style={{display:"flex"}}>
             <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Reservation Reports</Typography>
-            {reservationReports ? <ExpandLess /> : <ExpandMore />}
+            {reservationReports ? <ExpandLess style={{marginLeft:'1.3rem',color:"#f75757"}}/> : <ExpandMore style={{marginLeft:'1.3rem'}}/>}
         </div>
       )}  
       </ListItemButton>
@@ -748,7 +771,7 @@ const SidebarAssetComponent = ({show}:any) => {
       {show && (
         <div style={{display:'flex'}}>
             <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Status Reports</Typography>
-            {statusReports ? <ExpandLess /> : <ExpandMore />}
+            {statusReports ? <ExpandLess style={{marginLeft:'3.3rem',color:"#f75757"}}/> : <ExpandMore style={{marginLeft:'3.3rem'}}/>}
         </div>
       )}    
       </ListItemButton>
@@ -807,7 +830,7 @@ const SidebarAssetComponent = ({show}:any) => {
       {show && (
         <div style={{display:'flex'}}>
            <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Transaction Reports</Typography>
-            {transactionReports ? <ExpandLess /> : <ExpandMore />}
+            {transactionReports ? <ExpandLess style={{marginLeft:'1.3rem',color:"#f75757"}}/> : <ExpandMore style={{marginLeft:'1.3rem'}}/>}
         </div>
       )}     
       </ListItemButton>
@@ -915,7 +938,7 @@ const SidebarAssetComponent = ({show}:any) => {
       {show && (
         <div style={{display:'flex'}}>
             <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Other Reports</Typography>
-            {otherReports ? <ExpandLess /> : <ExpandMore />}
+            {otherReports ? <ExpandLess style={{marginLeft:'3.5rem',color:"#f75757"}}/> : <ExpandMore style={{marginLeft:'3.5rem'}}/>}
         </div>
       )}    
       </ListItemButton>
@@ -963,11 +986,14 @@ const SidebarAssetComponent = ({show}:any) => {
       <Divider style={{width:'100%'}}/>
       <ListItemButton selected={selectedIndex === 9}
           onClick={(event) => handleListItemClick(event, 9)}>
-        <SettingsOutlinedIcon style={{color:"#f75757",fontSize:'1.4rem',marginRight:'0.6rem'}} />
+          <Tooltip title="Setup" arrow TransitionComponent={Fade}
+          TransitionProps={{ timeout: 600 }} placement="right-start">
+          <SettingsOutlinedIcon style={{color:"#f75757",fontSize:'1.4rem',marginRight:'0.6rem'}} />
+          </Tooltip>
        {show && (
-        <div style={{display:'flex'}} onClick={handleClickSetup}>
+        <div style={{display:'flex',alignItems:'center'}} onClick={handleClickSetup}>
            <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Setup</Typography> 
-            {setup ? <ExpandLess style={{marginLeft:'5.9rem'}}/> : <ExpandMore style={{marginLeft:'5.9rem'}}/>} 
+            {setup ? <ExpandLess style={{marginLeft:'5.6rem',color:"#f75757"}}/> : <ExpandMore style={{marginLeft:'5.6rem'}}/>} 
         </div>
        )}
         <ListItemIcon style={{marginLeft:'2rem'}}>
@@ -988,11 +1014,14 @@ const SidebarAssetComponent = ({show}:any) => {
       <Divider style={{width:'100%'}}/>
       <ListItemButton selected={selectedIndex === 10}
           onClick={(event) => handleListItemClick(event, 10)}>
-        <SupportOutlinedIcon style={{color:"#f75757",fontSize:'1.3rem',marginRight:'0.6rem'}} />
+          <Tooltip title="Help/Support" arrow TransitionComponent={Fade}
+          TransitionProps={{ timeout: 600 }} placement="right-start">
+          <SupportOutlinedIcon style={{color:"#f75757",fontSize:'1.3rem',marginRight:'0.6rem'}} />
+          </Tooltip>
        {show && (
-        <div style={{display:'flex'}} onClick={handleClickHelpSupport}>
+        <div style={{display:'flex',alignItems:'center'}} onClick={handleClickHelpSupport}>
            <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Help/Support</Typography> 
-          {helpsupport ? <ExpandLess style={{marginLeft:'2.8rem'}}/> : <ExpandMore style={{marginLeft:'2.8rem'}}/>}
+          {helpsupport ? <ExpandLess style={{marginLeft:'2.5rem',color:"#f75757"}}/> : <ExpandMore style={{marginLeft:'2.5rem'}}/>}
         </div>
        )}
         <ListItemIcon style={{marginLeft:'2rem'}}>
@@ -1039,7 +1068,7 @@ const SidebarAssetComponent = ({show}:any) => {
           </ListItemButton>
         </List>
         </Link>
-        <Link href="/help-support/videos" passHref style={{ textDecoration: "none" }}>
+        {/* <Link href="/help-support/videos" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 2.7 }}>
           <SmartDisplayOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
@@ -1048,8 +1077,8 @@ const SidebarAssetComponent = ({show}:any) => {
             )}
           </ListItemButton>
         </List>
-        </Link>
-        <Link href="/help-support/user-reviews" passHref style={{ textDecoration: "none" }}>
+        </Link> */}
+        {/* <Link href="/help-support/user-reviews" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 2.7 }}>
           <StarBorderPurple500OutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
@@ -1058,8 +1087,8 @@ const SidebarAssetComponent = ({show}:any) => {
             )}
           </ListItemButton>
         </List>
-        </Link>
-        <Link href="/help-support/change-log" passHref style={{ textDecoration: "none" }}>
+        </Link> */}
+        {/* <Link href="/help-support/change-log" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 2.7 }}>
           <WatchLaterOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
@@ -1076,14 +1105,17 @@ const SidebarAssetComponent = ({show}:any) => {
           </ListItemButton>
           
         </List>
-        </Link>
+        </Link> */}
       </Collapse>
       <Divider style={{width:'100%'}}/>
     </List>
     </div>
 
     <ListItemButton  onClick={() => signOut()}>
-        <LogoutIcon style={{color:"#f75757",fontSize:'1.3rem',marginRight:'0.6rem'}} />
+      <Tooltip title="Logout" arrow TransitionComponent={Fade}
+        TransitionProps={{ timeout: 600 }} placement="right-start">
+      <LogoutIcon style={{color:"#f75757",fontSize:'1.3rem',marginRight:'0.6rem'}} />
+      </Tooltip>
        {show && (
         <div style={{display:'flex'}}>
            <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Log out</Typography> 

@@ -64,8 +64,8 @@ const ListItemComponent = () => {
         enableSorting: true,
       },
       {
-        accessorKey: 'location',
-        header: 'Location',
+        accessorKey: 'remarks',
+        header: 'Remarks',
         size: 140,
         isResizable: true,
         enableSorting: true,

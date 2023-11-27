@@ -59,6 +59,10 @@ const EditAssetComponent = ({ user }: IUserProp) => {
     fetchData();
   }, []);
 
+console.log("employeeDataemployeeDataemployeeData>>>",employeeData);
+
+
+
   const {register,setValue,handleSubmit,formState: { errors },reset,} = useForm({
     defaultValues: {
       assettagid:user?.assettagid,
@@ -260,12 +264,17 @@ const EditAssetComponent = ({ user }: IUserProp) => {
               <Typography>Site</Typography>
               </Grid>
               <Grid item xs={8.6}>
-              <TextField fullWidth {...register("site")} size="small" disabled/>
+              {/* <TextField fullWidth {...register("site")} size="small" disabled/> */}
+              <select style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}} {...register("site")}>
+                <option>Select Type</option>
+                <option>Alchemy Internal</option>
+                <option>Alchemy External</option>
+              </select>
               <p className={classes.errormessage}>{errors.site?.message}</p>
               </Grid>
             </Grid> 
           </Grid>
-          <Grid item xs={6}>
+          {/* <Grid item xs={6}>
             <Grid container sx={{alignItems:'center'}}>
               <Grid item xs={3.2}>
               <Typography>Category</Typography>
@@ -275,14 +284,20 @@ const EditAssetComponent = ({ user }: IUserProp) => {
               <p className={classes.errormessage}>{errors.category?.message}</p>
               </Grid>
             </Grid> 
-          </Grid>
+          </Grid> */}
           <Grid item xs={6}>
             <Grid container sx={{alignItems:'center'}}>
               <Grid item xs={3.2}>
               <Typography>Location</Typography>
               </Grid>
               <Grid item xs={8.6}>
-              <TextField fullWidth {...register("location")} size="small" disabled/>
+              {/* <TextField fullWidth {...register("location")} size="small" disabled/> */}
+              <select style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}} {...register("location")}>
+                <option>Select Location</option>
+                <option>Banglore</option>
+                <option>Noida</option>
+                <option>Philippines</option>
+              </select>
               <p className={classes.errormessage}>{errors.location?.message}</p>
               </Grid>
             </Grid> 
@@ -293,7 +308,18 @@ const EditAssetComponent = ({ user }: IUserProp) => {
               <Typography>Department</Typography>
               </Grid>
               <Grid item xs={8.6}>
-              <TextField fullWidth {...register("department")} size="small" disabled/>
+              {/* <TextField fullWidth {...register("department")} size="small"/> */}
+              {/* <Autocomplete size="small" id="free-solo-demo" freeSolo options={Array.from(new Set(employeeData.map((option) => option.department)))}
+              renderInput={(params) => <TextField {...params} label="Select Employee" {...register("department")}/>}/> */}
+                <select style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}  {...register("department")}>
+                <option>Select Department</option>
+                <option>Accounts</option>
+                <option>Admin</option>
+                <option>HR</option>
+                <option>Developer</option>
+                <option>Manager</option>
+                <option>Recruiter</option>
+              </select>
               <p className={classes.errormessage}>{errors.department?.message}</p>
               </Grid>
             </Grid> 
