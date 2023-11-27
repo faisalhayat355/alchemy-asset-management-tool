@@ -124,7 +124,7 @@ const EditAssetComponent = ({ user }: IUserProp) => {
               <Typography>Assign To </Typography>
               </Grid>
               <Grid item xs={8.6}>
-              <Autocomplete size="small" id="free-solo-demo" freeSolo options={employeeData.map((option) => option.name)}
+              <Autocomplete size="small" id="free-solo-demo" freeSolo options={Array.from(new Set(employeeData.map((option) => option.name)))}
               renderInput={(params) => <TextField {...params} label="Select Employee" {...register("name")}/>}/>
               <p className={classes.errormessage}>{errors.name?.message}</p>
               </Grid>
