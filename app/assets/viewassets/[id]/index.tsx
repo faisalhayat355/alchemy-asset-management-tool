@@ -31,7 +31,7 @@ const useStyles = makeStyles({
     paddingTop:'0.5rem'
   },
 });
-interface IUserProp {
+type IUserProp = {
   user: IAssets | undefined;
 }
 const schema = yup

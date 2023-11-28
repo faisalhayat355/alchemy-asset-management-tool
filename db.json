@@ -4,20 +4,21 @@
       "id": 1,
       "description": "Dell Laptop Problem",
       "brand": "DellSSSSSSSSSS",
-      "category": "Returned",
-      "department": "Manager",
-      "name": "MS Dhoni",
+      "serialno": "ASH767",
+      "model": "Lattitude5490",
+      "cost": "76000",
       "site": "Alchemy External",
+      "category": "Returned",
+      "location": "Noida",
       "purchasedate": "2022-12-11",
       "purchasefrom": "Service Center",
       "ram": "8 GB",
-      "model": "Lattitude5490",
-      "assigndate": "2023-12-12",
+      "department": "Manager",
       "processor": "Core i7",
-      "cost": "76000",
+      "name": "Shreyas Iyer",
+      "assigndate": "2023-12-12",
       "disktype": "SSD",
-      "serialno": "ASH767",
-      "remarks": "Remarks"
+      "remarks": "Laptop is Working Condition"
     },
     {
       "id": 2,
@@ -35,9 +36,9 @@
       "ram": "8 GB",
       "department": "HR",
       "processor": "Core i7",
-      "name": "Ankush",
-      "remarks": "Remarks",
-      "assigndate": "2023-12-12"
+      "name": "Virat Kohli",
+      "assigndate": "2023-12-12",
+      "remarks": "Remarks"
     },
     {
       "id": 3,
@@ -127,9 +128,8 @@
       "processor": "Core i5",
       "name": "Hayat Khan",
       "assigndate": "2023-11-24",
-      "remarks": "Remarks",
-      "disktype": "SSD"
-      
+      "disktype": "SSD",
+      "remarks": "Remarks"
     },
     {
       "id": 8,
@@ -186,10 +186,9 @@
       "ram": "8 GB",
       "department": "Developer",
       "processor": "Core i7",
-      "name": "Kumar Siddharth",
+      "name": "MS Dhoni",
       "assigndate": "2023-11-27",
-      "disktype": "HDD",
-      "remarks": "Good Condition"
+      "disktype": "HDD"
     }
   ],
   "activeAsset": [

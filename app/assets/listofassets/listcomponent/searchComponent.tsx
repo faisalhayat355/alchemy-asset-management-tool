@@ -5,7 +5,7 @@ import { Divider, IconButton, Paper } from '@mui/material';
 import { IAssets } from '../models/assets.model';
 
 
-interface AssetSearchComponentProps {
+type AssetSearchComponentProps = {
   users: Array<IAssets>;
 
 }

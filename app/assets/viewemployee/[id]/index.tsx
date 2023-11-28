@@ -31,7 +31,7 @@ const useStyles = makeStyles({
     paddingTop:'0.5rem'
   },
 });
-interface IUserProp {
+type IUserProp ={
   user: IAssets | undefined;
 }
 const schema = yup
@@ -100,7 +100,7 @@ const ViewEmployeeAssetComponent = ({user}:any) => {
           name:data?.name,
         };
         await updateAsset(user.id, newUser); 
-        router.push('/assets/listofassets', { scroll: false });
+        router.push('/assets/listofassets');
       } catch (error) {
         console.error('Error updating asset:', error);
       }
@@ -110,30 +110,30 @@ const ViewEmployeeAssetComponent = ({user}:any) => {
     <div className={classes.container}>
     <Typography style={{fontFamily:"cursive", fontSize:'1.3rem',paddingBottom:'0.5rem'}} fontWeight={"bold"}>View Employee</Typography>
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Grid container className={classes.card} style={{height:'50vh',paddingLeft:'4rem',paddingTop:'1rem'}}>
+      <Grid container className={classes.card} style={{height:'50vh',paddingLeft:'4rem',paddingTop:'1rem',marginTop:'1rem'}}>
           <Grid item xs={8}>
             <Grid container>
               <Grid item xs={3}>
-                <Typography fontSize={"1rem"} fontWeight={"bold"}>Name</Typography>
+                <Typography fontSize={"1rem"} fontWeight={"bold"}>ID</Typography>
               </Grid>
               <Grid item xs={1}>
                 <Typography>:</Typography>
               </Grid>
               <Grid item xs={8}>
-              <Typography fontSize={"1rem"}>{user?.name}</Typography>
+              <Typography fontSize={"1rem"}>{user?.id}</Typography>
               </Grid>
             </Grid>
           </Grid>
           <Grid item xs={4}>
             <Grid container>
               <Grid item xs={4.4}>
-                <Typography fontSize={"1rem"} fontWeight={"bold"}>Id</Typography>
+                <Typography fontSize={"1rem"} fontWeight={"bold"}>Name</Typography>
               </Grid>
               <Grid item xs={0.6}>
                 <Typography>:</Typography>
               </Grid>
               <Grid item xs={7}>
-              <Typography fontSize={"1rem"}>{user?.id}</Typography>
+              <Typography fontSize={"1rem"}>{user?.name}</Typography>
               </Grid>
             </Grid>
           </Grid>
@@ -203,11 +203,11 @@ const ViewEmployeeAssetComponent = ({user}:any) => {
             </Grid>
           </Grid>
 
-          <Grid item xs={12} sm={12} md={12} lg={12} mt={1} pl={1} pr={1}>
+          <Grid item xs={12} sm={12} md={12} lg={12} mt={2} pl={1} pr={1}>
           <Grid container>
             <Grid item xs={11.7} style={{ display: "flex", justifyContent: "flex-end" }}>
               <Link href={"/assets/addassets/employeemanagement"} style={{ textDecoration: "none" }}>
-                <Button variant="contained" style={{textTransform: "capitalize",background:'#1F7DA9',color:'white',width:'110%' }}>
+                <Button variant="contained" style={{textTransform: "capitalize",background:'#1F7DA9',color:'white',width:'140%' }}>
                   Close
                 </Button>
               </Link>

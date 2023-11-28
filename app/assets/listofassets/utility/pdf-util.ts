@@ -1,7 +1,7 @@
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 
-interface DownloadProps {
+type DownloadProps = {
   headers: string[][];
   title: string;
   fileName: string;

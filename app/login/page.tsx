@@ -88,14 +88,14 @@ const SignIn: NextPage = (props): JSX.Element => {
                     </Grid>
                     <Grid item xs={12} my={2}>
                       <Button fullWidth type="submit" value="Login" variant="contained">
-                        Login
+                        Log In
                       </Button>
                     </Grid>
-                    <Grid item xs={12} my={1}>
+                    {/* <Grid item xs={12} my={1}>
                       <Button fullWidth type="submit" value="Login"variant="contained">
                         New User? Register Account
                       </Button>
-                    </Grid>
+                    </Grid> */}
                   </form>
                 </Item>
               </Grid>

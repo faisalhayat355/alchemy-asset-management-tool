@@ -7,7 +7,7 @@ import ActiveStatus from './activeStatus';
 import DeactiveStatus from './deactiveStatus';
 import ScrappedStatus from './scrappedStatus';
 
-interface TabPanelProps {
+type TabPanelProps = {
   children?: React.ReactNode;
   index: number;
   value: number;

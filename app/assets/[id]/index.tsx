@@ -37,8 +37,10 @@ const useStyles = makeStyles({
     paddingBottom:'0.5rem'
  },
 });
-interface IUserProp {
+type IUserProp = {
   user: IAssets | undefined;
+  
+  
 }
 const schema = yup
   .object({
@@ -48,7 +50,7 @@ const schema = yup
   .required();
 
 const EditAssetComponent = ({ user }: IUserProp) => {
-  const [employeeData, setEmployeeData] = useState([]);
+  const [employeeData, setEmployeeData] = useState <any[]>([]);
   
   async function fetchData() {
     const users = await fetch("http://localhost:8000/employeeManagement");
@@ -77,6 +79,7 @@ const EditAssetComponent = ({ user }: IUserProp) => {
       name:user?.name,
       assigndate:user?.assigndate,
       disktype:user?.disktype,
+      remarks:user?.remarks,
       id:user?.id
     },
     resolver: yupResolver(schema),
@@ -105,10 +108,11 @@ const EditAssetComponent = ({ user }: IUserProp) => {
           processor:data?.processor,
           name:data?.name,
           assigndate:data?.assigndate,
-          disktype:data?.disktype
+          disktype:data?.disktype,
+          remarks:data?.remarks
         };
         await updateAsset(user.id, newUser); 
-        router.push('/assets/listofassets', { scroll: false });
+        router.push('/assets/listofassets');
       } catch (error) {
         console.error('Error updating asset:', error);
       }

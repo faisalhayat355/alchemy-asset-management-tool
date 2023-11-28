@@ -1,12 +1,11 @@
 "use client";
-import { useSession } from "next-auth/react";
+import { useSession } from "next-auth/react"
 import DashboardPage from "./dashboard";
-import Dashboard from "./dashboard";
 import SignIn from "./login/page";
 
 const page = () => {
-  const { data: session } = useSession();
-  if (session) {
+  const { data: session, status } = useSession()
+  if (status === "authenticated") {
     return (
       <>
         {/* Signed in as {session.user.email} <br />
