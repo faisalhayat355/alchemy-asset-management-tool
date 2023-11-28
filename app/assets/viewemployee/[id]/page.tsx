@@ -4,7 +4,6 @@ import axios from "axios";
 import ViewEmployeeAssetComponent from ".";
 import { IAssets } from "../../listofassets/models/assets.model";
 
-
 const fetchData = async (id: string) => {
   const res = await axios.get<IAssets>(`http://localhost:8000/employeeManagement/${id}`)
   return res.data 
@@ -15,9 +14,7 @@ export default function Page({ params, searchParams }: {
   searchParams: { _id: string },
 }) {
 
-
   const { data , error, isError, isLoading } = useQuery([`user-${params?.id}`], async() => await fetchData(params?.id))
-
   if (isLoading) { 
    return (<>Please wait .....</>)
   }

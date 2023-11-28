@@ -49,7 +49,7 @@ const AddEmployeeManagement = () => {
           <Typography fontWeight={"bold"} className={classes.typography}>Add Employee Details</Typography>
         </Grid>
       </Grid>
-      <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #f87171',paddingLeft:'2rem',paddingTop:'0.8rem',paddingBottom:'10.1rem',width:'97%',marginLeft:'1.3rem',alignItems:'center',boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}}>
+      <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #1F7DA9',paddingLeft:'2rem',paddingTop:'0.8rem',paddingBottom:'10.1rem',width:'97%',marginLeft:'1.3rem',alignItems:'center',boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}}>
         <Grid item xs={6} mt={1} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
@@ -177,11 +177,11 @@ const AddEmployeeManagement = () => {
                 <Grid container>
                   <Grid item xs={6.4}>
                   <Link href="/assets/addassets/employeemanagement" passHref style={{ textDecoration: "none" }}>
-                  <button style={{fontWeight:'bold',fontSize:'0.9rem',cursor:'pointer',background:'#f87171',color:'white',width:'94%',border:'none',height:'6vh',borderRadius:'5px'}}> Cancel</button>
+                  <button style={{fontWeight:'bold',fontSize:'0.9rem',cursor:'pointer',background:'#1F7DA9',color:'white',width:'94%',border:'none',height:'6vh',borderRadius:'5px'}}> Cancel</button>
                   </Link>
                   </Grid>
                   <Grid item xs={5.6}>
-                  <button style={{cursor:'pointer',fontWeight:'bold',fontSize:'0.9rem',background:'#f87171',color:'white',width:'99%',border:'none',height:'6vh',borderRadius:'5px'}}> Save</button>
+                  <button style={{cursor:'pointer',fontWeight:'bold',fontSize:'0.9rem',background:'#1F7DA9',color:'white',width:'99%',border:'none',height:'6vh',borderRadius:'5px'}}> Save</button>
                   </Grid>
                 </Grid>
               </Grid>

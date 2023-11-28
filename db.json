@@ -17,7 +17,7 @@
       "cost": "76000",
       "disktype": "SSD",
       "serialno": "ASH767",
-      "remarks":"Remarks"
+      "remarks": "Remarks"
     },
     {
       "id": 2,
@@ -36,7 +36,7 @@
       "department": "HR",
       "processor": "Core i7",
       "name": "Ankush",
-      "remarks":"Remarks",
+      "remarks": "Remarks",
       "assigndate": "2023-12-12"
     },
     {
@@ -51,7 +51,7 @@
       "serialno": "delll76767",
       "name": "Virat Kohli",
       "assigndate": "2009-11-12",
-      "remarks":"Remarks"
+      "remarks": "Remarks"
     },
     {
       "id": 4,
@@ -69,7 +69,7 @@
       "department": "Manager",
       "processor": "Core i7",
       "name": "Faisal Hayat",
-      "remarks":"Remarks"
+      "remarks": "Remarks"
     },
     {
       "id": 5,
@@ -88,7 +88,7 @@
       "processor": "Core i7",
       "name": "Akshay Kumar",
       "assigndate": "2023-11-10",
-      "remarks":"Remarks"
+      "remarks": "Remarks"
     },
     {
       "id": 6,
@@ -107,7 +107,7 @@
       "processor": "Dual Core",
       "name": "Rohit Sharma",
       "assigndate": "2023-11-23",
-      "remarks":"Remarks"
+      "remarks": "Remarks"
     },
     {
       "id": 7,
@@ -119,15 +119,17 @@
       "cost": "490000",
       "site": "Alchemy Internal",
       "category": "External",
+      "location": "Banglore",
       "purchasedate": "2023-11-22",
       "purchasefrom": "SRK Laptop Care Shivajinagar ",
       "ram": "8 GB",
-      "department": "Admin",
+      "department": "Developer",
       "processor": "Core i5",
-      "name": "Ankush",
+      "name": "Hayat Khan",
       "assigndate": "2023-11-24",
-      "remarks":"Good Condition"
-
+      "remarks": "Remarks",
+      "disktype": "SSD"
+      
     },
     {
       "id": 8,
@@ -146,7 +148,7 @@
       "processor": "Dual Core",
       "name": "Akash Shrivastava",
       "assigndate": "2023-11-27",
-      "remarks":"Good Condition"
+      "remarks": "Good Condition"
     },
     {
       "id": 9,
@@ -166,7 +168,7 @@
       "processor": "Core i7",
       "name": "Shruti Singh",
       "assigndate": "2023-11-27",
-      "remarks":"Good Condition"
+      "remarks": "Good Condition"
     },
     {
       "id": 11,
@@ -187,7 +189,7 @@
       "name": "Kumar Siddharth",
       "assigndate": "2023-11-27",
       "disktype": "HDD",
-      "remarks":"Good Condition"
+      "remarks": "Good Condition"
     }
   ],
   "activeAsset": [
@@ -555,6 +557,18 @@
       "status": "Active",
       "mobile": "8766566767",
       "id": "ntaHTFF"
+    },
+    {
+      "employeeid": "ALS/1891",
+      "name": "Hayat Khan",
+      "department": "",
+      "position": "React JS Developer",
+      "employementType": "",
+      "location": "",
+      "email": "hayatkhan@gmail.com",
+      "status": "Active",
+      "mobile": "8884441987",
+      "id": "qQ_kfBb"
     }
   ]
 }

@@ -171,13 +171,13 @@ const SidebarAssetComponent = ({show}:any) => {
           onClick={(event) => handleListItemClick(event, 0)} >
             <Tooltip title="Profile" arrow TransitionComponent={Fade}
           TransitionProps={{ timeout: 600 }} placement="right-start">
-        <AccountCircleIcon style={{color:"#f75757",fontSize:'1.3rem',marginRight:'0.6rem',marginLeft:'0.1rem'}} />
+        <AccountCircleIcon style={{color:"#1F7DA9",fontSize:'1.3rem',marginRight:'0.6rem',marginLeft:'0.1rem'}} />
         </Tooltip>
         {show && (
           <div style={{display:'flex',alignItems:'center'}} onClick={handleClickProfile} >
             <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550',alignItems:'center'}} >Profile
           </Typography>
-          {profile ? <ExpandLess style={{marginLeft:'5.3rem',color:"#f75757"}}/> : <ExpandMore style={{marginLeft:'5.3rem'}}/>} 
+          {profile ? <ExpandLess style={{marginLeft:'5.3rem',color:"#1F7DA9"}}/> : <ExpandMore style={{marginLeft:'5.3rem'}}/>} 
           </div>
         )}
       </ListItemButton>
@@ -185,7 +185,7 @@ const SidebarAssetComponent = ({show}:any) => {
       <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 2.7 }}>
-          <Person2OutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+          <Person2OutlinedIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
           {show &&(
             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>My Profile</Typography>
           )}
@@ -195,7 +195,7 @@ const SidebarAssetComponent = ({show}:any) => {
         <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 2.7 }}>
-          <LockOpenOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+          <LockOpenOutlinedIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
           {show && (
             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Change Password</Typography>
           )}
@@ -205,7 +205,7 @@ const SidebarAssetComponent = ({show}:any) => {
         <Link href="/alerts/assetpastdue" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 2.7 }}>
-          <ExitToAppOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+          <ExitToAppOutlinedIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
           {show && (
             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Log out</Typography>
           )}
@@ -218,7 +218,7 @@ const SidebarAssetComponent = ({show}:any) => {
       <Link href="/alerts/setupalerts" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 2.7 }}>
-          <Person2OutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+          <Person2OutlinedIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
           {show && (
             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Account Details</Typography>
           )}
@@ -228,7 +228,7 @@ const SidebarAssetComponent = ({show}:any) => {
         <Link href="/alerts/setupalerts" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 2.7 }}>
-          <DiamondOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+          <DiamondOutlinedIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
           {show && (
             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Subscription Plan</Typography>
           )}
@@ -241,7 +241,7 @@ const SidebarAssetComponent = ({show}:any) => {
           onClick={(event) => handleListItemClick(event, 1)}>
           <Tooltip title="Dashboard" arrow TransitionComponent={Fade}
           TransitionProps={{ timeout: 600 }} placement="right-start">
-          <HomeOutlinedIcon style={{color:"#f75757",fontSize:'1.4rem',marginRight:'0.6rem'}}/>
+          <HomeOutlinedIcon style={{color:"#1F7DA9",fontSize:'1.4rem',marginRight:'0.6rem'}}/>
         </Tooltip>
           {show && (
         <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'bold',marginTop:'0.2rem'}}>Dashboard</Typography>
@@ -254,44 +254,35 @@ const SidebarAssetComponent = ({show}:any) => {
       <ListItemButton selected={selectedIndex === 4} onClick={(event) => handleListItemClick(event, 4)} >
         <Tooltip title="Assets" arrow TransitionComponent={Fade}
         TransitionProps={{ timeout: 600 }} placement="right-start">
-        <ManageAccountsIcon style={{color:"#f75757",fontSize:'1.4rem',marginRight:'0.6rem'}} />
+        <ManageAccountsIcon style={{color:"#1F7DA9",fontSize:'1.4rem',marginRight:'0.6rem'}} />
         </Tooltip>
      {show &&(
        <div style={{display:'flex',alignItems:'center'}} onClick={handleClickAssets}>
        <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Assets</Typography> 
-         {assets ? <ExpandLess style={{marginLeft:'5.1rem',color:"#f75757"}}/> : <ExpandMore style={{marginLeft:'5.1rem',color:'#414242'}}/>}
+         {assets ? <ExpandLess style={{marginLeft:'5.1rem',color:"#1F7DA9"}}/> : <ExpandMore style={{marginLeft:'5.1rem',color:'#414242'}}/>}
        </div>
      )}
       </ListItemButton>
       </Link>
+      {show && (
       <Collapse in={assets} timeout="auto" unmountOnExit>
       <Link href="/assets/listofassets" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 2.7 }}>
-          <ListOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+          <ListOutlinedIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
            {show &&(
              <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>List of Assets</Typography>
            )}
           </ListItemButton>
         </List>
         </Link>
-        {/* <Link href="/assets/addassets" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 2.7 }}>
-          <AddCircleOutlineOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-           {show && (
-             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Add an Assets</Typography>
-           )}
-          </ListItemButton>
-        </List>
-        </Link> */}
       <ListItemButton sx={{ pl: 2.7 }} onClick={handleClickAssetsType} >
         <div style={{display:'flex',alignItems:'center'}}>
-          <ManageAccountsIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+          <ManageAccountsIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
           {show && (
             <div style={{display:'flex',alignItems:'center'}}>
                 <Typography style={{color:'#414242',fontSize:'0.8rem'}}>Assets</Typography>
-                {assetsType ? <ExpandLess style={{marginLeft:'5.55rem',color:"#f75757"}} /> : <ExpandMore style={{marginLeft:'5.55rem'}}/>}
+                {assetsType ? <ExpandLess style={{marginLeft:'5.55rem',color:"#1F7DA9"}} /> : <ExpandMore style={{marginLeft:'5.55rem'}}/>}
             </div>
           )} 
         </div>   
@@ -300,7 +291,7 @@ const SidebarAssetComponent = ({show}:any) => {
       <Link href="/assets/addassets" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl:2.8}}>
-          <DataSaverOnIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+          <DataSaverOnIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
             <Typography sx={{color:'#414242',fontSize:'0.75rem'}}>Add an Assets</Typography>
           </ListItemButton>
         </List>
@@ -308,7 +299,7 @@ const SidebarAssetComponent = ({show}:any) => {
         <Link href="/assets/addassets/addactiveassets" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl:2.8}}>
-          <AddToQueueIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+          <AddToQueueIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
             <Typography sx={{color:'#414242',fontSize:'0.75rem'}}>Add Active Assets</Typography>
           </ListItemButton>
         </List>
@@ -316,7 +307,7 @@ const SidebarAssetComponent = ({show}:any) => {
         <Link href="/assets/addassets/addstockassets" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl:2.8}}>
-          <LaptopIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+          <LaptopIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
             <Typography sx={{color:'#414242',fontSize:'0.75rem'}}>Add Stock Assets</Typography>
           </ListItemButton>
         </List>
@@ -324,7 +315,7 @@ const SidebarAssetComponent = ({show}:any) => {
         <Link href="/assets/addassets/addscrappedassets/scrappedassetlist" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl:2.8}}>
-          <DesktopAccessDisabledIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+          <DesktopAccessDisabledIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
             <Typography sx={{color:'#414242',fontSize:'0.75rem'}}>Add Scrapped Assets</Typography>
           </ListItemButton>
         </List>
@@ -332,7 +323,7 @@ const SidebarAssetComponent = ({show}:any) => {
         <Link href="/assets/addassets/employeemanagement" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl:2.8}}>
-          <PersonAddAltIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+          <PersonAddAltIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
             <Typography sx={{color:'#414242',fontSize:'0.75rem'}}>Employee Management</Typography>
           </ListItemButton>
         </List>
@@ -342,7 +333,7 @@ const SidebarAssetComponent = ({show}:any) => {
         <Link href="/assets/checkin" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 2.7 }}>
-          <PersonAddOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+          <PersonAddOutlinedIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
             {show && (
               <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Check in</Typography>
             )}
@@ -352,7 +343,7 @@ const SidebarAssetComponent = ({show}:any) => {
         <Link href="/assets/checkout" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 2.7 }}>
-          <PersonAddDisabledOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+          <PersonAddDisabledOutlinedIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
            {show && (
              <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Check out</Typography>
            )}
@@ -362,7 +353,7 @@ const SidebarAssetComponent = ({show}:any) => {
         <Link href="/assets/lease" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 2.7 }}>
-          <SendOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+          <SendOutlinedIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
             {show && (
               <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Lease</Typography>
             )}
@@ -372,7 +363,7 @@ const SidebarAssetComponent = ({show}:any) => {
         <Link href="/assets/leasereturn" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 2.7 }}>
-          <SendOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+          <SendOutlinedIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
             {show && (
               <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Lease Return</Typography>
             )}
@@ -382,7 +373,7 @@ const SidebarAssetComponent = ({show}:any) => {
         <Link href="/assets/dispose" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 2.7 }}>
-          <AcUnitIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+          <AcUnitIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
             {show && (
               <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Dispose</Typography>
             )}
@@ -392,7 +383,7 @@ const SidebarAssetComponent = ({show}:any) => {
         <Link href="/assets/maintanance" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 2.7 }}>
-          <MiscellaneousServicesOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+          <MiscellaneousServicesOutlinedIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
             {show && (
               <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Maintenance</Typography>
             )}
@@ -403,7 +394,7 @@ const SidebarAssetComponent = ({show}:any) => {
         <Link href="/assets/move" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 2.7 }}>
-          <OpenWithOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+          <OpenWithOutlinedIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
             {show && (
               <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Move</Typography>
             )}
@@ -413,7 +404,7 @@ const SidebarAssetComponent = ({show}:any) => {
         <Link href="/assets/reserve" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 2.7 }}>
-          <CalendarMonthOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+          <CalendarMonthOutlinedIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
             {show && (
               <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Reserve</Typography>
             )}
@@ -421,18 +412,18 @@ const SidebarAssetComponent = ({show}:any) => {
         </List>
         </Link>
       </Collapse>
-
+      )}
       <Divider style={{width:'100%'}}/>
       <ListItemButton selected={selectedIndex === 6}
           onClick={(event) => handleListItemClick(event, 6)}>
           <Tooltip title="Reports" arrow TransitionComponent={Fade}
           TransitionProps={{ timeout: 600 }} placement="right-start">
-          <DescriptionOutlinedIcon style={{color:"#f75757",fontSize:'1.4rem',marginRight:'0.6rem'}} />
+          <DescriptionOutlinedIcon style={{color:"#1F7DA9",fontSize:'1.4rem',marginRight:'0.6rem'}} />
           </Tooltip>
           {show && (
         <div style={{display:'flex',alignItems:'center'}} onClick={handleClickReports}>
             <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Reports</Typography>
-            {reports ? <ExpandLess style={{marginLeft:'4.7rem',color:"#f75757"}}/> : <ExpandMore style={{marginLeft:'4.7rem'}} />}
+            {reports ? <ExpandLess style={{marginLeft:'4.7rem',color:"#1F7DA9"}}/> : <ExpandMore style={{marginLeft:'4.7rem'}} />}
         </div>
           )}
         <ListItemIcon style={{marginLeft:'2rem'}}>
@@ -455,7 +446,7 @@ const SidebarAssetComponent = ({show}:any) => {
          {show && (
            <ListItemButton sx={{ pl: 5 }} onClick={handleClickCustomReports} >
            <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Custom Reports</Typography>
-           {customReports ? <ExpandLess style={{marginLeft:'2.8rem',color:"#f75757"}}/> : <ExpandMore style={{marginLeft:'2.8rem'}}/>}
+           {customReports ? <ExpandLess style={{marginLeft:'2.8rem',color:"#1F7DA9"}}/> : <ExpandMore style={{marginLeft:'2.8rem'}}/>}
          </ListItemButton>
          )}
           <Collapse in={customReports} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}>
@@ -482,7 +473,7 @@ const SidebarAssetComponent = ({show}:any) => {
       {show && (
         <ListItemButton sx={{ pl: 5 }} onClick={handleClickAssetReports} >
         <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Asset Reports</Typography>
-        {assetReports ? <ExpandLess style={{marginLeft:'3.6rem',color:"#f75757"}}/> : <ExpandMore style={{marginLeft:'3.6rem'}}/>}
+        {assetReports ? <ExpandLess style={{marginLeft:'3.6rem',color:"#1F7DA9"}}/> : <ExpandMore style={{marginLeft:'3.6rem'}}/>}
       </ListItemButton>
       )}
           <Collapse in={assetReports} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}>
@@ -553,7 +544,7 @@ const SidebarAssetComponent = ({show}:any) => {
           {show && (
              <div style={{display:'flex'}}>
              <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Audit Reports</Typography>
-              {auditReports ? <ExpandLess style={{marginLeft:'3.7rem',color:"#f75757"}}/> : <ExpandMore style={{marginLeft:'3.7rem'}}/>}
+              {auditReports ? <ExpandLess style={{marginLeft:'3.7rem',color:"#1F7DA9"}}/> : <ExpandMore style={{marginLeft:'3.7rem'}}/>}
              </div>
           )}
       </ListItemButton>
@@ -612,7 +603,7 @@ const SidebarAssetComponent = ({show}:any) => {
        {show && (
         <div style={{display:'flex'}}>
            <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Check-Out Reports</Typography>
-            {checkOutReports ? <ExpandLess style={{marginLeft:'1.8rem',color:'#f75757'}}/> : <ExpandMore style={{marginLeft:'1.8rem'}}/>}
+            {checkOutReports ? <ExpandLess style={{marginLeft:'1.8rem',color:'#1F7DA9'}}/> : <ExpandMore style={{marginLeft:'1.8rem'}}/>}
         </div>
        )}
       </ListItemButton>
@@ -664,7 +655,7 @@ const SidebarAssetComponent = ({show}:any) => {
       {show && (
         <div style={{display:'flex'}}>
             <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Leased Asset Reports</Typography>
-            {leasedReports ? <ExpandLess style={{marginLeft:'0.75rem',color:"#f75757"}}/> : <ExpandMore style={{marginLeft:'0.75rem'}}/>}
+            {leasedReports ? <ExpandLess style={{marginLeft:'0.75rem',color:"#1F7DA9"}}/> : <ExpandMore style={{marginLeft:'0.75rem'}}/>}
         </div>
       )}    
       </ListItemButton>
@@ -709,7 +700,7 @@ const SidebarAssetComponent = ({show}:any) => {
       {show && (
         <div style={{display:'flex'}}>
            <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Maintenance Reports</Typography>
-            {maintenanceReports ? <ExpandLess style={{marginLeft:'1rem',color:"#f75757"}}/> : <ExpandMore style={{marginLeft:'1rem'}}/>}
+            {maintenanceReports ? <ExpandLess style={{marginLeft:'1rem',color:"#1F7DA9"}}/> : <ExpandMore style={{marginLeft:'1rem'}}/>}
         </div>
       )}    
       </ListItemButton>
@@ -754,7 +745,7 @@ const SidebarAssetComponent = ({show}:any) => {
       {show && (
         <div style={{display:"flex"}}>
             <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Reservation Reports</Typography>
-            {reservationReports ? <ExpandLess style={{marginLeft:'1.3rem',color:"#f75757"}}/> : <ExpandMore style={{marginLeft:'1.3rem'}}/>}
+            {reservationReports ? <ExpandLess style={{marginLeft:'1.3rem',color:"#1F7DA9"}}/> : <ExpandMore style={{marginLeft:'1.3rem'}}/>}
         </div>
       )}  
       </ListItemButton>
@@ -771,7 +762,7 @@ const SidebarAssetComponent = ({show}:any) => {
       {show && (
         <div style={{display:'flex'}}>
             <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Status Reports</Typography>
-            {statusReports ? <ExpandLess style={{marginLeft:'3.3rem',color:"#f75757"}}/> : <ExpandMore style={{marginLeft:'3.3rem'}}/>}
+            {statusReports ? <ExpandLess style={{marginLeft:'3.3rem',color:"#1F7DA9"}}/> : <ExpandMore style={{marginLeft:'3.3rem'}}/>}
         </div>
       )}    
       </ListItemButton>
@@ -830,7 +821,7 @@ const SidebarAssetComponent = ({show}:any) => {
       {show && (
         <div style={{display:'flex'}}>
            <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Transaction Reports</Typography>
-            {transactionReports ? <ExpandLess style={{marginLeft:'1.3rem',color:"#f75757"}}/> : <ExpandMore style={{marginLeft:'1.3rem'}}/>}
+            {transactionReports ? <ExpandLess style={{marginLeft:'1.3rem',color:"#1F7DA9"}}/> : <ExpandMore style={{marginLeft:'1.3rem'}}/>}
         </div>
       )}     
       </ListItemButton>
@@ -938,7 +929,7 @@ const SidebarAssetComponent = ({show}:any) => {
       {show && (
         <div style={{display:'flex'}}>
             <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Other Reports</Typography>
-            {otherReports ? <ExpandLess style={{marginLeft:'3.5rem',color:"#f75757"}}/> : <ExpandMore style={{marginLeft:'3.5rem'}}/>}
+            {otherReports ? <ExpandLess style={{marginLeft:'3.5rem',color:"#1F7DA9"}}/> : <ExpandMore style={{marginLeft:'3.5rem'}}/>}
         </div>
       )}    
       </ListItemButton>
@@ -988,12 +979,12 @@ const SidebarAssetComponent = ({show}:any) => {
           onClick={(event) => handleListItemClick(event, 9)}>
           <Tooltip title="Setup" arrow TransitionComponent={Fade}
           TransitionProps={{ timeout: 600 }} placement="right-start">
-          <SettingsOutlinedIcon style={{color:"#f75757",fontSize:'1.4rem',marginRight:'0.6rem'}} />
+          <SettingsOutlinedIcon style={{color:"#1F7DA9",fontSize:'1.4rem',marginRight:'0.6rem'}} />
           </Tooltip>
        {show && (
         <div style={{display:'flex',alignItems:'center'}} onClick={handleClickSetup}>
            <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Setup</Typography> 
-            {setup ? <ExpandLess style={{marginLeft:'5.6rem',color:"#f75757"}}/> : <ExpandMore style={{marginLeft:'5.6rem'}}/>} 
+            {setup ? <ExpandLess style={{marginLeft:'5.6rem',color:"#1F7DA9"}}/> : <ExpandMore style={{marginLeft:'5.6rem'}}/>} 
         </div>
        )}
         <ListItemIcon style={{marginLeft:'2rem'}}>
@@ -1003,7 +994,7 @@ const SidebarAssetComponent = ({show}:any) => {
       <Link href="/setup/company-info" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 2.7 }}>
-          <WorkOutlineIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+          <WorkOutlineIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
            {show && (
              <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Company Info</Typography>
            )}
@@ -1016,12 +1007,12 @@ const SidebarAssetComponent = ({show}:any) => {
           onClick={(event) => handleListItemClick(event, 10)}>
           <Tooltip title="Help/Support" arrow TransitionComponent={Fade}
           TransitionProps={{ timeout: 600 }} placement="right-start">
-          <SupportOutlinedIcon style={{color:"#f75757",fontSize:'1.3rem',marginRight:'0.6rem'}} />
+          <SupportOutlinedIcon style={{color:"#1F7DA9",fontSize:'1.3rem',marginRight:'0.6rem'}} />
           </Tooltip>
        {show && (
         <div style={{display:'flex',alignItems:'center'}} onClick={handleClickHelpSupport}>
            <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Help/Support</Typography> 
-          {helpsupport ? <ExpandLess style={{marginLeft:'2.5rem',color:"#f75757"}}/> : <ExpandMore style={{marginLeft:'2.5rem'}}/>}
+          {helpsupport ? <ExpandLess style={{marginLeft:'2.5rem',color:"#1F7DA9"}}/> : <ExpandMore style={{marginLeft:'2.5rem'}}/>}
         </div>
        )}
         <ListItemIcon style={{marginLeft:'2rem'}}>
@@ -1031,7 +1022,7 @@ const SidebarAssetComponent = ({show}:any) => {
       <Link href="/help-support/aboutus" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 2.7 }}>
-          <ErrorOutlineOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+          <ErrorOutlineOutlinedIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
             {show && (
               <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>About Us</Typography>
             )}
@@ -1041,7 +1032,7 @@ const SidebarAssetComponent = ({show}:any) => {
         <Link href="/help-support/contactus" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 2.7 }}>
-          <CallOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+          <CallOutlinedIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
             {show && (
               <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Contact Us</Typography>
             )}
@@ -1051,7 +1042,7 @@ const SidebarAssetComponent = ({show}:any) => {
         <Link href="/help-support/terms-of-service" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 2.7 }}>
-          <FavoriteBorderOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+          <FavoriteBorderOutlinedIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
             {show && (
               <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Terms of Service</Typography>
             )}
@@ -1061,7 +1052,7 @@ const SidebarAssetComponent = ({show}:any) => {
         <Link href="/help-support/privacy-policy" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 2.7 }}>
-          <SentimentSatisfiedAltOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+          <SentimentSatisfiedAltOutlinedIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
            {show && (
              <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Privacy Policy</Typography>
            )}
@@ -1071,7 +1062,7 @@ const SidebarAssetComponent = ({show}:any) => {
         {/* <Link href="/help-support/videos" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 2.7 }}>
-          <SmartDisplayOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+          <SmartDisplayOutlinedIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
             {show && (
               <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Videos</Typography>
             )}
@@ -1081,7 +1072,7 @@ const SidebarAssetComponent = ({show}:any) => {
         {/* <Link href="/help-support/user-reviews" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 2.7 }}>
-          <StarBorderPurple500OutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+          <StarBorderPurple500OutlinedIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
             {show && (
               <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>User Reviews</Typography>
             )}
@@ -1091,7 +1082,7 @@ const SidebarAssetComponent = ({show}:any) => {
         {/* <Link href="/help-support/change-log" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 2.7 }}>
-          <WatchLaterOutlinedIcon style={{color:"#f75757",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+          <WatchLaterOutlinedIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
            {show && (
             <div style={{display:'flex'}}>
                <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Changelog</Typography>
@@ -1114,7 +1105,7 @@ const SidebarAssetComponent = ({show}:any) => {
     <ListItemButton  onClick={() => signOut()}>
       <Tooltip title="Logout" arrow TransitionComponent={Fade}
         TransitionProps={{ timeout: 600 }} placement="right-start">
-      <LogoutIcon style={{color:"#f75757",fontSize:'1.3rem',marginRight:'0.6rem'}} />
+      <LogoutIcon style={{color:"#1F7DA9",fontSize:'1.3rem',marginRight:'0.6rem'}} />
       </Tooltip>
        {show && (
         <div style={{display:'flex'}}>

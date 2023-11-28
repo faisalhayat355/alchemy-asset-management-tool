@@ -25,7 +25,7 @@ const useStyles = makeStyles({
     background: "white",
     width: "99.5%", 
     borderRadius:"8px",
-    borderTop:'3px solid #f87171',
+    borderTop:'3px solid #1F7DA9',
     paddingLeft:'1rem',
     paddingRight:'0.5rem',
     paddingTop:'0.5rem'
@@ -327,7 +327,7 @@ const ViewAssetComponent = ({user}:any) => {
           <Grid container>
             <Grid item xs={11.7} style={{ display: "flex", justifyContent: "flex-end" }}>
               <Link href={"/assets/listofassets"} style={{ textDecoration: "none" }}>
-                <Button variant="contained" style={{textTransform: "capitalize",background:'#f87171',color:'white',width:'110%' }}>
+                <Button variant="contained" style={{textTransform: "capitalize",background:'#1F7DA9',color:'white',width:'110%' }}>
                   Close
                 </Button>
               </Link>

@@ -10,11 +10,11 @@ const ActiveStatus = () => {
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={5.2}>
             <Link href="/assets/listofassets" passHref style={{ textDecoration: "none" }}>
-            <button style={{cursor:'pointer',background:'#f87171',color:'white',width:'90%',border:'none',height:'5vh',borderRadius:'5px'}}> Cancel</button>
+            <button style={{cursor:'pointer',background:'#1F7DA9',color:'white',width:'90%',border:'none',height:'5vh',borderRadius:'5px'}}> Cancel</button>
             </Link>
             </Grid>
             <Grid item xs={3.7}>
-            <button style={{background:'#f87171',color:'white',width:'130%',border:'none',height:'5vh',borderRadius:'5px'}}> Save</button>
+            <button style={{background:'#1F7DA9',color:'white',width:'130%',border:'none',height:'5vh',borderRadius:'5px'}}> Save</button>
             </Grid>
           </Grid>
         </Grid>

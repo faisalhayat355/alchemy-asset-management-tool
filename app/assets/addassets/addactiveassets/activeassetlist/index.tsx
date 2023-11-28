@@ -37,7 +37,7 @@ const ActiveAssetListHomeComponent = () => {
     <div>
     <Box>
      <Grid container sx={{padding:'0.8rem',alignItems:'center'}}>
-      <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #f87171',paddingTop:'0.1rem',width:'99.9%',alignItems:'center',marginLeft:"0.2rem"}}>
+      <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #1F7DA9',paddingTop:'0.1rem',width:'99.9%',alignItems:'center',marginLeft:"0.2rem"}}>
       <Link href="/dashboard" passHref style={{ textDecoration: "none" }}>
       <Grid item xs={0.6}>
       <Tooltip title="Back" TransitionComponent={Zoom} arrow>
@@ -60,7 +60,7 @@ const ActiveAssetListHomeComponent = () => {
       </Grid>
       <Grid item xs={2.2} sx={{display:'flex',justifyContent:'flex-end'}}>
       <Link href="/assets/addassets/addactiveassets" passHref style={{ textDecoration: "none" }}>
-        <Button variant='outlined' size='small' style={{background:'#f87171',border:'1px solid #f87171',color:'white',fontSize:'0.8rem',fontWeight:'bold'}}> + Add Active Asset</Button>
+        <Button variant='outlined' size='small' style={{background:'#1F7DA9',border:'1px solid #1F7DA9',color:'white',fontSize:'0.8rem',fontWeight:'bold'}}> + Add Active Asset</Button>
       </Link>
       </Grid>
      </Grid>

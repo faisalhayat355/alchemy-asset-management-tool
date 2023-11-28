@@ -5,8 +5,6 @@ import SidebarAssetComponent from "./Sidebar/sidebarAsset";
 import HeaderComponent from "./Header";
 import Logo from "./Sidebar/Logo";
 
-
-
 const LayoutComponent = ({ children }: { children: React.ReactNode }) => {
   const { data: session } = useSession();
   const [show, setShow] = useState(true);
@@ -27,9 +25,9 @@ const LayoutComponent = ({ children }: { children: React.ReactNode }) => {
            <SidebarAssetComponent show={show}/>
            {/* <AssetSidebarComponent/> */}
          </Grid>
-         <Grid item xs={show ? 10.5 : 10.5} sm={show ? 10.5 : 11.5} md={show ? 10 : 11.5} lg={show ? 10 : 11.5}>
+         <Grid item xs={show ? 10.5 : 10.5} sm={show ? 10.5 : 11.5} md={show ? 10 : 11.5} lg={show ? 10 : 11.5} style={{background:'#eff6ff',height:'100vh'}}>
            <HeaderComponent />
-           <div style={{background:'#fef2f2',height:'91.5vh',paddingLeft:'0.5rem',overflowY:'auto'}}>
+           <div style={{paddingLeft:'0.5rem',overflowY:'auto',borderTop:'3px solid #dbeafe',borderRadius:"8px 8px 0px 0px"}}>
            {children}
            </div>
          </Grid>

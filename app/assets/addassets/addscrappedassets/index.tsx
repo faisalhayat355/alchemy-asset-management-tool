@@ -43,7 +43,7 @@ const AssetScrappedAssetPage = () => {
           <Typography fontWeight={"bold"} style={{fontFamily:"cursive",fontSize:'1.3rem'}}>Add Scrapped Asset Details</Typography>
         </Grid>
       </Grid>
-      <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #f87171',paddingLeft:'2rem',paddingTop:'0.8rem',paddingBottom:'0.7rem',width:'97%',marginLeft:'1.3rem',alignItems:'center',boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}}>
+      <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #1F7DA9',paddingLeft:'2rem',paddingTop:'0.8rem',paddingBottom:'0.7rem',width:'97%',marginLeft:'1.3rem',alignItems:'center',boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}}>
         <Grid item xs={6} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
@@ -142,7 +142,7 @@ const AssetScrappedAssetPage = () => {
           <Typography fontWeight={"bold"} style={{fontFamily:"cursive",fontSize:'1.3rem'}}>Site, Location, Category and Department</Typography>
         </Grid>
       </Grid>
-      <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #f87171',paddingLeft:'2rem',paddingTop:'0.8rem',paddingBottom:'0.7rem',width:'97%',marginLeft:'1.3rem',alignItems:'center',boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}}>
+      <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #1F7DA9',paddingLeft:'2rem',paddingTop:'0.8rem',paddingBottom:'0.7rem',width:'97%',marginLeft:'1.3rem',alignItems:'center',boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}}>
         <Grid item xs={6} mt={1} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
@@ -236,11 +236,11 @@ const AssetScrappedAssetPage = () => {
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={5.2}>
             <Link href="/assets/addassets/addscrappedassets/scrappedassetlist" passHref style={{ textDecoration: "none" }}>
-            <button style={{cursor:'pointer',background:'#f87171',color:'white',width:'90%',border:'none',height:'5vh',borderRadius:'5px'}}> Cancel</button>
+            <button style={{cursor:'pointer',background:'#1F7DA9',color:'white',width:'90%',border:'none',height:'5vh',borderRadius:'5px'}}> Cancel</button>
             </Link>
             </Grid>
             <Grid item xs={3.7}>
-            <button style={{background:'#f87171',color:'white',width:'130%',border:'none',height:'5vh',borderRadius:'5px'}}> Save</button>
+            <button style={{background:'#1F7DA9',color:'white',width:'130%',border:'none',height:'5vh',borderRadius:'5px'}}> Save</button>
             </Grid>
           </Grid>
         </Grid>
@@ -254,7 +254,7 @@ const AssetScrappedAssetPage = () => {
           <Typography fontWeight={"bold"} className={classes.typography}>Status</Typography>
         </Grid>
       </Grid>
-      <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #f87171',paddingLeft:'2rem',paddingTop:'0.8rem',paddingBottom:'0.7rem',width:'97%',marginLeft:'1.3rem',alignItems:'center',boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}}>
+      <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #1F7DA9',paddingLeft:'2rem',paddingTop:'0.8rem',paddingBottom:'0.7rem',width:'97%',marginLeft:'1.3rem',alignItems:'center',boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}}>
        <StatusTab/>
       
       </Grid>

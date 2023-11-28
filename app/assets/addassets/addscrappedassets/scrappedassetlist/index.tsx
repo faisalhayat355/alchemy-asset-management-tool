@@ -57,7 +57,7 @@ const ListScrapedHomeComponent = () => {
          <Typography fontWeight={"bold"} style={{fontFamily:"cursive",fontSize:'1.3rem'}}>List of Scrapped Assets</Typography>
        </Grid>
      </Grid>
-     <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #f87171',paddingLeft:'1rem',paddingTop:'1rem',paddingBottom:'1rem',width:'97.5%',marginLeft:'1rem',alignItems:'center'}}>
+     <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #1F7DA9',paddingLeft:'1rem',paddingTop:'1rem',paddingBottom:'1rem',width:'97.5%',marginLeft:'1rem',alignItems:'center'}}>
       <Grid item xs={4}>   
         <AssetSearchComponent users={data} setData={setData}/>
       </Grid>
@@ -72,7 +72,7 @@ const ListScrapedHomeComponent = () => {
       </Grid>
       <Grid item xs={2} sx={{display:'flex',justifyContent:'flex-end'}}>
       <Link href="/assets/addassets/addscrappedassets" passHref style={{ textDecoration: "none" }}>
-        <Button variant='outlined' size='small' style={{background:'#f87171',border:'1px solid #f87171',color:'white',fontSize:'0.8rem',fontWeight:'bold'}}> + Add Scrapped Asset</Button>
+        <Button variant='outlined' size='small' style={{background:'#1F7DA9',border:'1px solid #1F7DA9',color:'white',fontSize:'0.8rem',fontWeight:'bold'}}> + Add Scrapped Asset</Button>
       </Link>
       </Grid>
       <Divider style={{width:'98.5%',marginTop:'1rem',background:'#fecaca'}}/>

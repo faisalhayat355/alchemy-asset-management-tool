@@ -26,7 +26,7 @@ const useStyles = makeStyles({
     background: "white",
     width: "99.5%", 
     borderRadius:"8px",
-    borderTop:'3px solid #f87171',
+    borderTop:'3px solid #1F7DA9',
     paddingLeft:'1rem',
     paddingRight:'0.5rem',
     paddingTop:'0.5rem'
@@ -326,11 +326,11 @@ const EditAssetComponent = ({ user }: IUserProp) => {
             <Grid container>
               <Grid item xs={12} style={{ display: "flex", justifyContent: "flex-end" }}>
                 <Link href={"/assets/listofassets"} style={{ textDecoration: "none" }}>
-                  <Button variant="contained" style={{ marginRight:'2rem',textTransform: "capitalize",background:'#f87171',color:'white',width:'110%' }}>
+                  <Button variant="contained" style={{ marginRight:'2rem',textTransform: "capitalize",background:'#1F7DA9',color:'white',width:'110%' }}>
                     Close
                   </Button>
                 </Link>
-                <Button type="submit" variant="contained" style={{ marginLeft: "2rem",textTransform: "capitalize",background:'#f87171',color:'white',width:'11%'}}>
+                <Button type="submit" variant="contained" style={{ marginLeft: "2rem",textTransform: "capitalize",background:'#1F7DA9',color:'white',width:'11%'}}>
                   Submit
                 </Button>
               </Grid>

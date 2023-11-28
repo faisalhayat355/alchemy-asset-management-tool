@@ -7,7 +7,7 @@ export default function Loading() {
   return (
     <h1>
       <Box>
-        <LinearProgress color="secondary"/>
+        <LinearProgress/>
       </Box>
     </h1>
   );
