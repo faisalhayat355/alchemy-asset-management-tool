@@ -160,12 +160,12 @@ const DashboardPage = () => {
     <div>
         <Box>
             <Grid container sx={{padding:'0.7rem',alignItems:'center'}}>
-                <Grid item lg={10.35} xs={12} md={10.35} sx={{display:'flex',alignItems:'center'}}>
+                <Grid item lg={10.4} xs={12} md={10.35} sx={{display:'flex',alignItems:'center'}}>
                     <Typography fontSize={"1.8rem"} style={{fontWeight:'bold',color:'#1e293b',fontFamily:"cursive",fontSize:'1.5rem'}}>Dashboard 
                     {/* <span style={{fontSize:'1rem'}}>dashboard & statistics</span> */}
                     </Typography>
                 </Grid>
-                <Grid item lg={1.65} xs={12} md={1.65}>
+                <Grid item lg={1.6} xs={12} md={1.65}>
                 <Link href="/assets/addassets" passHref style={{ textDecoration: "none" }}>
                     <Button variant='contained' size='small' style={{textTransform:'capitalize',fontWeight:"bold"}}  startIcon={<AddIcon style={{fontSize:'1.4rem'}}/>}> Add New Asset</Button>
                 </Link>

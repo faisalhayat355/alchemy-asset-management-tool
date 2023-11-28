@@ -9,8 +9,9 @@ import { PaginationHandler } from '../../../listofassets/utility/pagination';
 
 const useStyles = makeStyles({
   paper: {
-    background: "#fffbeb",
+    background: "#eff6ff",
     border:'1px solid #f1f5f9',
+    boxShadow: "rgba(0, 0, 0, 0.16) 0px 1px 1px",
     cursor:'pointer',
     "&:hover": {
         boxShadow: " rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
@@ -40,7 +41,7 @@ const EmployeeGridViewComponent = ({users}:AssetsProps) => {
   
   return (
     <div>
-    <Box sx={{marginTop:"-0.8rem",height:'73vh',background:'white',paddingLeft:'1rem',paddingRight:'1rem',paddingBottom:'4.5rem',width:'97.4%',marginLeft:'1rem',alignItems:'center'}} >
+    <Box sx={{marginTop:"-0.8rem",height:'73vh',background:'white',paddingLeft:'1rem',paddingRight:'1rem',paddingBottom:'4.5rem',width:'96.7%',marginLeft:'1rem',alignItems:'center'}} >
      <Grid container >
       <Divider style={{width:'100%',marginTop:'0.7rem'}}/>
         <Grid container spacing={2} mt={"0.1rem"}>

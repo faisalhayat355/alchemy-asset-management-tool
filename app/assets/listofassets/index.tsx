@@ -23,16 +23,8 @@ const ListAssetHomeComponent = () => {
   const [data, setData] = useState([]);
   const [users, setUsers] = useState([])
 
-  // const [error, setError] = useState ([]);
   const [viewType, setViewType] = useState<ViewTypes>(ViewTypes.LIST);
   const classes = useStyles();
-  // useEffect(() => {
-  //   axios .get("http://localhost:8000/users")
-  //     .then((res) => setUsers(res.data))
-  //     .catch((err) => {
-  //       setError(err.message);
-  //     });
-  // }, []);
   async function fetchData() {
     const users = await fetch("http://localhost:8000/users");
     const result = await users.json();
@@ -51,7 +43,7 @@ const ListAssetHomeComponent = () => {
 
   <Box>
      <Grid container sx={{padding:'0.8rem',alignItems:'center'}}>
-      <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #1F7DA9',paddingTop:'0.1rem',width:'99.9%',alignItems:'center',marginLeft:"0.2rem"}}>
+      <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #1F7DA9',paddingTop:'0.1rem',width:'98.7%',alignItems:'center',marginLeft:"0.2rem"}}>
       <Link href="/dashboard" passHref style={{ textDecoration: "none" }}>
       <Grid item xs={0.6}>
       <Tooltip title="Back" TransitionComponent={Zoom}>
@@ -65,11 +57,7 @@ const ListAssetHomeComponent = () => {
        <Grid item xs={1.3}>
         <AssetExportComponent users={users}/>
       </Grid>
-      {/* <Grid item xs={0.8}>
-        <AssetFilterComponent/>
-      </Grid> */}
-
-      <Grid item xs={5.5}>
+      <Grid item xs={5.37}>
         <AssetViewComponent onViewSelect={onViewSelect}/>
       </Grid>
       <Grid item xs={1.7} sx={{display:'flex',justifyContent:'flex-end'}}>
@@ -77,25 +65,18 @@ const ListAssetHomeComponent = () => {
         <Button variant='outlined' size='small' style={{background:'#1F7DA9',border:'1px solid #1F7DA9',color:'white',fontSize:'0.8rem',fontWeight:'bold'}}> + Add New Asset</Button>
       </Link>
       </Grid>
+     </Grid> 
      </Grid>
-     
-     </Grid>
-     <Grid item xs={12}>
+        <Grid item xs={12}>
           <Switch>
             <Case condition={viewType === ViewTypes.GRID}>
               <GridViewComponent users={users} />
             </Case>
-            {/* <Case condition={viewType === ViewTypes.GRAPH}>
-              <CustomerGraphView customer={copyCustomer} />
-            </Case> */}
-            {/* <Case condition={viewType === ViewTypes.KANBAN}>
-              <CustomerKanbanView customer={copyCustomer} />
-            </Case> */}
             <Case condition={viewType === ViewTypes.CALENDAR}>
               <AssetCalendarView users={users} />
             </Case>
             <Default>
-             <Grid style={{marginLeft:'1rem',width:'97.4%',marginTop:"-1rem"}}>
+             <Grid style={{marginLeft:'1rem',width:'96.5%',marginTop:"-1rem"}}>
              <Divider style={{width:'100%',marginTop:'0.2rem',background:'#eff6ff'}}/>
              <ListItemComponent />
              </Grid>

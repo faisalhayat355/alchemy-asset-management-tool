@@ -35,7 +35,7 @@ const EmployeeManagementHome = () => {
   return (
     <Box>
     <Grid container sx={{padding:'0.8rem',alignItems:'center'}}>
-     <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #1F7DA9',paddingTop:'0.1rem',width:'99.9%',alignItems:'center',marginLeft:"0.2rem"}}>
+     <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #1F7DA9',paddingTop:'0.1rem',width:'99%',alignItems:'center',marginLeft:"0.2rem"}}>
      <Link href="/dashboard" passHref style={{ textDecoration: "none" }}>
      <Grid item xs={0.6}>
      <Tooltip title="Back" TransitionComponent={Zoom} arrow>
@@ -49,7 +49,7 @@ const EmployeeManagementHome = () => {
       <Grid item xs={1}>
        <AssetExportComponent users={users}/>
      </Grid>
-     <Grid item xs={4}>
+     <Grid item xs={3.9}>
        <AssetViewComponent onViewSelect={onViewSelect}/>
      </Grid>
      <Grid item xs={2.2} sx={{display:'flex',justifyContent:'flex-end'}}>
