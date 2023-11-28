@@ -69,12 +69,12 @@ const ListAssetHomeComponent = () => {
         <AssetFilterComponent/>
       </Grid> */}
 
-      <Grid item xs={6}>
+      <Grid item xs={5.5}>
         <AssetViewComponent onViewSelect={onViewSelect}/>
       </Grid>
-      <Grid item xs={1.2} sx={{display:'flex',justifyContent:'flex-end'}}>
+      <Grid item xs={1.7} sx={{display:'flex',justifyContent:'flex-end'}}>
       <Link href="/assets/addassets" passHref style={{ textDecoration: "none" }}>
-        <Button variant='outlined' size='small' style={{background:'#1F7DA9',border:'1px solid #1F7DA9',color:'white',fontSize:'0.8rem',fontWeight:'bold'}}> + Add Asset</Button>
+        <Button variant='outlined' size='small' style={{background:'#1F7DA9',border:'1px solid #1F7DA9',color:'white',fontSize:'0.8rem',fontWeight:'bold'}}> + Add New Asset</Button>
       </Link>
       </Grid>
      </Grid>

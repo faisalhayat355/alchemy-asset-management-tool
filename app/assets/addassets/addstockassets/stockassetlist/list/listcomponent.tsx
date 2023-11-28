@@ -128,7 +128,7 @@ const StockListAssetComponent = () => {
 
   return(
 
-    <div >
+    <div style={{paddingBottom:'5vh'}}>
 
   <MaterialReactTable table={table}/>
   </div>

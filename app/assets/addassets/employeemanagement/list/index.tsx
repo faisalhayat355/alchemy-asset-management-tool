@@ -141,10 +141,9 @@ const EmployeeListComponent = () => {
 
   return(
 
-    <div >
-
-  <MaterialReactTable table={table}/>
-  </div>
+    <div style={{paddingBottom:'5vh'}} >
+      <MaterialReactTable table={table}/>
+    </div>
     ) 
   ;
 };

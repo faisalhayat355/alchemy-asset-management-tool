@@ -1,16 +1,6 @@
-import { useEffect, useMemo, useState } from 'react';
 import axios from 'axios';
-import {
-  MaterialReactTable,
-  useMaterialReactTable,
-  type MRT_ColumnDef,
-} from 'material-react-table';
-import Tooltip from '@mui/material/Tooltip';
-import IconButton from '@mui/material/IconButton';
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import EditIcon from '@mui/icons-material/Edit';
-import Link from 'next/link';
-import { Box } from '@mui/material';
+import {MaterialReactTable,useMaterialReactTable,type MRT_ColumnDef} from 'material-react-table';
+import { useEffect, useMemo, useState } from 'react';
 
 type Post = {
   id: number;
@@ -71,8 +61,6 @@ const ActiveAssetList = () => {
         isResizable: true,
         enableSorting: true,
       },
-     
-
       {
         accessorKey: 'category',
         header: 'Category',
@@ -80,8 +68,6 @@ const ActiveAssetList = () => {
         isResizable: true,
         enableSorting: true,
       },
-      
-      
     ],
     [],
   );
@@ -128,10 +114,9 @@ const ActiveAssetList = () => {
 
   return(
 
-    <div >
-
-  <MaterialReactTable table={table}/>
-  </div>
+    <div style={{paddingBottom:'5vh'}}>
+      <MaterialReactTable table={table}/>
+    </div>
     ) 
   ;
 };
