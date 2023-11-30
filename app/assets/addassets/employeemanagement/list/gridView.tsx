@@ -2,10 +2,10 @@
 import { Box, Divider, Grid, Pagination, Typography } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import { makeStyles } from '@mui/styles';
+import Link from 'next/link';
 import { useState } from 'react';
 import { IAssets } from '../../../listofassets/models/assets.model';
 import { PaginationHandler } from '../../../listofassets/utility/pagination';
-
 
 const useStyles = makeStyles({
   paper: {
@@ -37,11 +37,9 @@ const EmployeeGridViewComponent = ({users}:AssetsProps) => {
     setPage(p);
     paginationHandler.jump(p);
   };
-
-  
   return (
     <div>
-    <Box sx={{marginTop:"-0.8rem",height:'73vh',background:'white',paddingLeft:'1rem',paddingRight:'1rem',paddingBottom:'4.5rem',width:'96.7%',marginLeft:'1rem',alignItems:'center'}} >
+    <Box sx={{marginTop:"-0.8rem",height:'73vh',background:'white',paddingLeft:'1rem',paddingRight:'1rem',paddingBottom:'4.5rem',width:'96.45%',marginLeft:'1rem',alignItems:'center'}} >
      <Grid container >
       <Divider style={{width:'100%',marginTop:'0.7rem'}}/>
         <Grid container spacing={2} mt={"0.1rem"}>
@@ -49,6 +47,7 @@ const EmployeeGridViewComponent = ({users}:AssetsProps) => {
           .currentData().map((item:any) => {
               return (
                 <Grid item xs={4} md={4} sm={4} lg={4} key={item.id}>
+                <Link href={`/assets/viewemployee/${item.id}`} style={{textDecoration:'none'}}>
                   <Paper variant="outlined" className={classes.paper}>
                     <Box paddingLeft={2} paddingTop={1}>
                       <Grid container>
@@ -85,14 +84,14 @@ const EmployeeGridViewComponent = ({users}:AssetsProps) => {
                     <Box paddingLeft={2}>
                       <Grid container>
                         <Grid item xs={5}>
-                          <Typography variant="subtitle1" fontWeight={"bold"}>Department</Typography>
+                          <Typography variant="subtitle1" fontWeight={"bold"}>Work Location</Typography>
                         </Grid>
                         <Grid item xs={1}>
                           <Typography> :</Typography>
                         </Grid>
                         <Grid item xs={6} paddingLeft={2}>
                           <Typography noWrap variant="subtitle1" >
-                            {item?.department}
+                            {item?.workLocation}
                           </Typography>
                         </Grid>
                       </Grid>
@@ -122,7 +121,7 @@ const EmployeeGridViewComponent = ({users}:AssetsProps) => {
                         </Grid>
                         <Grid item xs={6} paddingLeft={2}>
                           <Typography noWrap variant="subtitle1" >
-                            {item?.employementType}
+                            {item?.site}
                           </Typography>
                         </Grid>
                       </Grid>
@@ -142,33 +141,23 @@ const EmployeeGridViewComponent = ({users}:AssetsProps) => {
                         </Grid>
                       </Grid>
                     </Box>
-                    
                   </Paper>
-                </Grid>
+                </Link>
+                </Grid>                                
               );
             })}
         </Grid>
      </Grid>     
     </Box>
 
-    <Grid container mt={2.5}>
+      <Grid container mt={2.5}>
         <Grid item xs={11.8} display={"flex"} justifyContent={"flex-end"}>
           <Grid style={{ position: "fixed" }}>
-            <Pagination
-              count={count}
-              size="small"
-              page={page}
-              variant="outlined"
-              color="primary"
-              onChange={handleChangePage}
-            />
+            <Pagination  size="small" variant="outlined" color="primary" count={count} page={page} onChange={handleChangePage}/>
           </Grid>
         </Grid>
         <Grid item xs={0.2}></Grid>
       </Grid>
-
-
-
    </div>
   )
 }

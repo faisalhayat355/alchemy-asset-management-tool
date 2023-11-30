@@ -86,64 +86,85 @@ const useStyles = makeStyles({
 const DashboardPage = () => {
     const classes = useStyles();
     const [data, setData] = useState([]);
-    const [newAsset,setNewAsset]=useState([])
+    // const [newAsset,setNewAsset]=useState([])
     const [oldAsset,setOldAsset] = useState([])
     const [scrapAsset,setScrapAsset] = useState([])
     const [employee,setEmployee] = useState([])
 
     const [events, setEvents] = useState([]);
 
-    async function fetchData() {
-        const users = await fetch("http://localhost:8000/users");
-        const result = await users.json();
-        setData(result);
-      }
-      useEffect(() => {
-        fetchData();
-      }, []);
-      let length = data.length;
-      
-      async function fetchNewData() {
-        const users = await fetch("http://localhost:8000/activeAsset");
-        const result = await users.json();
-        setNewAsset(result);
-      }
-      useEffect(() => {
-        fetchNewData();
-      }, []);
-      let newAssetData = newAsset.length;
 
-      async function fetchOldData() {
-        const users = await fetch("http://localhost:8000/stockAsset");
-        const result = await users.json();
-        setOldAsset(result);
-      }
-      useEffect(() => {
-        fetchOldData();
-      }, []);
-      let oldAssetData = oldAsset.length;
+    const fetchData = () => {
+      fetch("http://localhost:8000/users")
+        .then((r) => {
+          return r.json();
+        })
+        .then((d) => {
+          setData(d);
+        });
+    };
+    useEffect(() => {
+      fetchData();
+    }, []);
 
-      async function fetchScrapData() {
-        const users = await fetch("http://localhost:8000/scrappedAsset");
-        const result = await users.json();
-        setScrapAsset(result);
-      }
-      useEffect(() => {
-        fetchScrapData();
-      }, []);
-      
-      let scrapAssetData = scrapAsset.length;
+    let length = data.length;
+console.log("datadatadata>>>>",data);
 
-      async function fetchEmployeeData() {
-        const users = await fetch("http://localhost:8000/employeeManagement");
-        const result = await users.json();
-        setEmployee(result);
-      }
-      useEffect(() => {
-        fetchEmployeeData();
-      }, []);
+    // async function fetchData() {
+    //     const users = await fetch("http://localhost:8000/users");
+    //     const result = await users.json();
+    //     setData(result);
+    //   }
+    //   useEffect(() => {
+    //     fetchData();
+    //   }, []);
+    //   let length = data.length;
       
-      let employeeData = employee.length;
+      // async function fetchNewData() {
+      //   const users = await fetch("http://localhost:8000/users");
+      //   const result = await users.json();
+      //   setNewAsset(result);
+      // }
+      // useEffect(() => {
+      //   fetchNewData();
+      // }, []);
+      // let newAssetData = newAsset.length;
+
+// console.log("newAsset>>>>",newAsset.filter(r => r.site !== 'Active')?.length);
+
+// console.log("newAsset>>>>",newAsset);
+
+      // async function fetchOldData() {
+      //   const users = await fetch("http://localhost:8000/stockAsset");
+      //   const result = await users.json();
+      //   setOldAsset(result);
+      // }
+      // useEffect(() => {
+      //   fetchOldData();
+      // }, []);
+      // let oldAssetData = oldAsset.length;
+
+      // async function fetchScrapData() {
+      //   const users = await fetch("http://localhost:8000/scrappedAsset");
+      //   const result = await users.json();
+      //   setScrapAsset(result);
+      // }
+      // useEffect(() => {
+      //   fetchScrapData();
+      // }, []);
+      
+      // let scrapAssetData = scrapAsset.length;
+
+      // async function fetchEmployeeData() {
+      //   const users = await fetch("http://localhost:8000/employeeManagement");
+      //   const result = await users.json();
+      //   setEmployee(result);
+      // }
+      // useEffect(() => {
+      //   fetchEmployeeData();
+      // }, []);
+      
+      // let employeeData = employee.length;
 
       const calendarAsset = data?.map((data : IAssets) => {
         return {
@@ -201,10 +222,12 @@ const DashboardPage = () => {
                        <div className={classes.divIcon2}><AddToQueueIcon style={{fontSize:'1rem',marginTop:'-1rem'}}/></div>
                        </Grid>
                         <Grid item xs={8} sx={{display:'flex',justifyContent:'center'}}>
-                        <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Active Asset</Typography>
+                        <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Asset Assigned </Typography>
                         </Grid>
                         <Grid item xs={8} sx={{display:'flex',justifyContent:'flex-end',paddingTop:'1rem'}}>
-                        <Typography fontSize={"1.5rem"}>{newAssetData}</Typography>
+                        {/* <Typography fontSize={"1.5rem"}>{newAssetData}</Typography> */}
+                        {/* {data?.filter(r => r.site !== "Active")?.length} */}
+                        <Typography fontSize={"1.5rem"}>{data?.filter(r => r.site !== 'InActive')?.length}</Typography>
                         </Grid>
                        </Grid>
                     </Paper>
@@ -218,10 +241,11 @@ const DashboardPage = () => {
                        <div className={classes.divIcon3}><LaptopIcon style={{fontSize:'1rem',marginTop:'-1rem'}}/></div>
                        </Grid>
                         <Grid item xs={8.2} sx={{display:'flex',justifyContent:'center'}}>
-                        <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Stock Asset</Typography>
+                        <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Active Stock</Typography>
                         </Grid>
                         <Grid item xs={8} sx={{display:'flex',justifyContent:'flex-end',paddingTop:'1rem'}}>
-                        <Typography fontSize={"1.5rem"}>{oldAssetData}</Typography>
+                        {/* <Typography fontSize={"1.5rem"}>{oldAssetData}</Typography> */}
+                        <Typography fontSize={"1.5rem"}> {data?.filter(r => r.site !== 'Active')?.length}</Typography>
                         </Grid>
                        </Grid>
                     </Paper>
@@ -235,10 +259,11 @@ const DashboardPage = () => {
                        <div className={classes.divIcon4}><PeopleOutlineIcon style={{fontSize:'1rem',marginTop:'-1rem'}}/></div>
                        </Grid>
                         <Grid item xs={8.2} sx={{display:'flex',justifyContent:'center'}}>
-                        <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Total Employee</Typography>
+                        <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Under Maintainance</Typography>
                         </Grid>
                         <Grid item xs={8} sx={{display:'flex',justifyContent:'flex-end',paddingTop:'1rem'}}>
-                        <Typography fontSize={"1.5rem"}>{employeeData}</Typography>
+                        <Typography fontSize={"1.5rem"}>0</Typography>
+                        
                         </Grid>
                        </Grid>
                     </Paper>

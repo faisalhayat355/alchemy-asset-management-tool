@@ -21,24 +21,17 @@ type Post = {
 const EmployeeListComponent = () => {
   const columns = useMemo<MRT_ColumnDef<Post>[]>(
     () => [
+
       {
-        accessorKey: 'id',
-        header: 'ID',
-        size: 170,
+        accessorKey: 'name',
+        header: 'Name',
+        size: 140,
         isResizable: true,
         enableSorting: true,
       },
       {
         accessorKey: 'employeeid',
         header: 'Employee ID',
-        size: 140,
-        isResizable: true,
-        enableSorting: true,
-      },
-
-      {
-        accessorKey: 'name',
-        header: 'Name',
         size: 140,
         isResizable: true,
         enableSorting: true,
@@ -64,10 +57,17 @@ const EmployeeListComponent = () => {
         isResizable: true,
         enableSorting: true,
       },
-
       {
         accessorKey: 'status',
         header: 'Status.',
+        size: 150,
+        isResizable: true,
+        enableSorting: true,
+      },
+
+      {
+        accessorKey: 'site',
+        header: 'Site.',
         size: 150,
         isResizable: true,
         enableSorting: true,
@@ -100,7 +100,7 @@ const EmployeeListComponent = () => {
   );
 
   const [data, setData] = useState<Post[]>([]);
-
+  const items= data.reverse()
   useEffect(() => {
     const fetchData = async () => {
       try {

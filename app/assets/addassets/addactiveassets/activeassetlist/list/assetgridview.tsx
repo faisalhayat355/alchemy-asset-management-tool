@@ -6,11 +6,9 @@ import { useState } from 'react';
 import { IAssets } from '../../../../listofassets/models/assets.model';
 import { PaginationHandler } from '../../../../listofassets/utility/pagination';
 
-
-
 const useStyles = makeStyles({
   paper: {
-    background: "#fffbeb",
+    background: "#eff6ff",
     border:'1px solid #f1f5f9',
     cursor:'pointer',
     "&:hover": {
@@ -38,16 +36,15 @@ const ActiveAssetGridViewComponent = ({users}:AssetsProps) => {
     paginationHandler.jump(p);
   };
 
-  
   return (
     <div>
-    <Box style={{height:'63vh'}} >
-     <Grid container sx={{background:'white',paddingLeft:'1rem',paddingRight:'1rem',paddingBottom:'4.5rem',width:'97.5%',marginLeft:'1rem',alignItems:'center'}}>
+    <Box style={{height:'78vh'}} >
+     <Grid container sx={{background:'white',paddingLeft:'1rem',paddingRight:'1rem',paddingBottom:'7rem',width:'96.5%',marginLeft:'1rem',alignItems:'center',marginTop:'-0.8rem'}}>
         <Grid container spacing={2}>
           {paginationHandler
           .currentData().map((item:any) => {
               return (
-                <Grid item xs={4} md={4} sm={4} lg={4} key={item.id}>
+                <Grid item xs={4} md={4} sm={4} lg={4} key={item.id} mt={3}>
                   <Paper variant="outlined" className={classes.paper}>
                     <Box paddingLeft={2} paddingTop={1}>
                       <Grid container>
@@ -157,9 +154,6 @@ const ActiveAssetGridViewComponent = ({users}:AssetsProps) => {
         </Grid>
         <Grid item xs={0.2}></Grid>
       </Grid>
-
-
-
    </div>
   )
 }

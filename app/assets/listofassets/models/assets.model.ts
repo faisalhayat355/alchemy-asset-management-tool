@@ -18,6 +18,7 @@ type IAssets = {
     name:string;
     assigndate:string;
     disktype:string;
+    remarks:string;
     
     
   };

@@ -28,7 +28,6 @@ const useStyles = makeStyles({
     borderTop:'3px solid #1F7DA9',
     paddingLeft:'1rem',
     paddingRight:'0.5rem',
-    paddingTop:'0.5rem'
   },
 });
 type IUserProp = {
@@ -109,7 +108,7 @@ const ViewAssetComponent = ({user}:any) => {
   }
   return (
     <div className={classes.container}>
-    <Typography style={{fontFamily:"cursive", fontSize:'1.3rem',paddingBottom:'0.5rem'}} fontWeight={"bold"}>View Asset</Typography>
+    <Typography style={{fontFamily:"cursive", fontSize:'1.3rem',paddingBottom:'0.5rem'}} fontWeight={"bold"}>View Asset Details</Typography>
     <form onSubmit={handleSubmit(onSubmit)}>
       <Grid container className={classes.card} style={{height:'50vh',paddingLeft:'4rem',paddingTop:'1rem'}}>
           <Grid item xs={8}>
@@ -270,7 +269,7 @@ const ViewAssetComponent = ({user}:any) => {
           </Grid>
       </Grid>
 
-      <Grid container className={classes.card} style={{height:'30vh',marginTop:"1rem",paddingLeft:'4rem',paddingTop:'1rem'}}>
+      <Grid container className={classes.card} style={{height:'20vh',marginTop:"0.5rem",paddingLeft:'4rem',paddingTop:'1rem'}}>
         <Grid item xs={8}>
             <Grid container>
               <Grid item xs={3}>
@@ -284,7 +283,7 @@ const ViewAssetComponent = ({user}:any) => {
               </Grid>
             </Grid>
           </Grid>
-          <Grid item xs={4}>
+          {/* <Grid item xs={4}>
             <Grid container>
               <Grid item xs={4.4}>
                 <Typography fontSize={"1rem"} fontWeight={"bold"}>Site</Typography>
@@ -296,8 +295,8 @@ const ViewAssetComponent = ({user}:any) => {
               <Typography fontSize={"1rem"}>{user?.site}</Typography>
               </Grid>
             </Grid>
-          </Grid>
-          <Grid item xs={8}>
+          </Grid> */}
+          {/* <Grid item xs={8}>
             <Grid container>
               <Grid item xs={3}>
                 <Typography fontSize={"1rem"} fontWeight={"bold"}>Department</Typography>
@@ -309,7 +308,7 @@ const ViewAssetComponent = ({user}:any) => {
               <Typography fontSize={"1rem"}>{user?.department}</Typography>
               </Grid>
             </Grid>
-          </Grid>
+          </Grid> */}
           <Grid item xs={4}>
             <Grid container>
               <Grid item xs={4.4}>

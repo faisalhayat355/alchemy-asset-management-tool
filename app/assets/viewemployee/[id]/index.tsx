@@ -108,104 +108,173 @@ const ViewEmployeeAssetComponent = ({user}:any) => {
   }
   return (
     <div className={classes.container}>
-    <Typography style={{fontFamily:"cursive", fontSize:'1.3rem',paddingBottom:'0.5rem'}} fontWeight={"bold"}>View Employee</Typography>
+    <Typography style={{fontFamily:"cursive", fontSize:'1.3rem',paddingBottom:'0.5rem'}} fontWeight={"bold"}>View Employee Details</Typography>
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Grid container className={classes.card} style={{height:'50vh',paddingLeft:'4rem',paddingTop:'1rem',marginTop:'1rem'}}>
+      <Grid container className={classes.card} style={{height:'70vh',paddingLeft:'4rem',paddingTop:'1rem',marginTop:'1rem',paddingBottom:'0.5rem'}}>
           <Grid item xs={8}>
             <Grid container>
               <Grid item xs={3}>
-                <Typography fontSize={"1rem"} fontWeight={"bold"}>ID</Typography>
+                <Typography fontSize={"1rem"} fontWeight={"bold"}>Name</Typography>
               </Grid>
               <Grid item xs={1}>
                 <Typography>:</Typography>
               </Grid>
               <Grid item xs={8}>
-              <Typography fontSize={"1rem"}>{user?.id}</Typography>
-              </Grid>
-            </Grid>
-          </Grid>
-          <Grid item xs={4}>
-            <Grid container>
-              <Grid item xs={4.4}>
-                <Typography fontSize={"1rem"} fontWeight={"bold"}>Name</Typography>
-              </Grid>
-              <Grid item xs={0.6}>
-                <Typography>:</Typography>
-              </Grid>
-              <Grid item xs={7}>
               <Typography fontSize={"1rem"}>{user?.name}</Typography>
               </Grid>
             </Grid>
           </Grid>
-          <Grid item xs={8}>
+          <Grid item xs={4}>
             <Grid container>
-              <Grid item xs={3}>
+              <Grid item xs={4.4}>
                 <Typography fontSize={"1rem"} fontWeight={"bold"}>Employee ID</Typography>
               </Grid>
-              <Grid item xs={1}>
+              <Grid item xs={0.6}>
                 <Typography>:</Typography>
               </Grid>
-              <Grid item xs={8}>
+              <Grid item xs={7}>
               <Typography fontSize={"1rem"}>{user?.employeeid}</Typography>
               </Grid>
             </Grid>
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={8}>
             <Grid container>
-              <Grid item xs={4.4}>
+              <Grid item xs={3}>
                 <Typography fontSize={"1rem"} fontWeight={"bold"}>Email</Typography>
               </Grid>
-              <Grid item xs={0.6}>
+              <Grid item xs={1}>
                 <Typography>:</Typography>
               </Grid>
-              <Grid item xs={7}>
+              <Grid item xs={8}>
               <Typography fontSize={"1rem"}>{user?.email}</Typography>
               </Grid>
             </Grid>
           </Grid>
+          <Grid item xs={4}>
+            <Grid container>
+              <Grid item xs={4.4}>
+                <Typography fontSize={"1rem"} fontWeight={"bold"}>Contact No.</Typography>
+              </Grid>
+              <Grid item xs={0.6}>
+                <Typography>:</Typography>
+              </Grid>
+              <Grid item xs={7}>
+              <Typography fontSize={"1rem"}>{user?.mobile}</Typography>
+              </Grid>
+            </Grid>
+          </Grid>
           <Grid item xs={8}>
             <Grid container>
               <Grid item xs={3}>
-                <Typography fontSize={"1rem"} fontWeight={"bold"}>Contact No.</Typography>
+                <Typography fontSize={"1rem"} fontWeight={"bold"}>Position</Typography>
               </Grid>
               <Grid item xs={1}>
                 <Typography>:</Typography>
               </Grid>
               <Grid item xs={8}>
-              <Typography fontSize={"1rem"}>{user?.mobile}</Typography>
+              <Typography fontSize={"1rem"}>{user?.position}</Typography>
               </Grid>
             </Grid>
           </Grid>
           <Grid item xs={4}>
             <Grid container>
               <Grid item xs={4.4}>
-                <Typography fontSize={"1rem"} fontWeight={"bold"}>Position</Typography>
+                <Typography fontSize={"1rem"} fontWeight={"bold"}>Status</Typography>
               </Grid>
               <Grid item xs={0.6}>
                 <Typography>:</Typography>
               </Grid>
               <Grid item xs={7}>
-              <Typography fontSize={"1rem"}>{user?.position}</Typography>
+              <Typography fontSize={"1rem"}>{user?.status}</Typography>
               </Grid>
             </Grid>
           </Grid>
           <Grid item xs={8}>
             <Grid container>
               <Grid item xs={3}>
-                <Typography fontSize={"1rem"} fontWeight={"bold"}>Status</Typography>
+                <Typography fontSize={"1rem"} fontWeight={"bold"}>Site</Typography>
               </Grid>
               <Grid item xs={1}>
                 <Typography>:</Typography>
               </Grid>
               <Grid item xs={8}>
-              <Typography fontSize={"1rem"}>{user?.status}</Typography>
+              <Typography fontSize={"1rem"}>{user?.site}</Typography>
               </Grid>
             </Grid>
           </Grid>
 
-          <Grid item xs={12} sm={12} md={12} lg={12} mt={2} pl={1} pr={1}>
+          <Grid item xs={4}>
+            <Grid container>
+              <Grid item xs={4.4}>
+                <Typography fontSize={"1rem"} fontWeight={"bold"}>Project Name</Typography>
+              </Grid>
+              <Grid item xs={0.6}>
+                <Typography>:</Typography>
+              </Grid>
+              <Grid item xs={7}>
+              <Typography fontSize={"1rem"}>{user?.projectName}</Typography>
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item xs={8}>
+            <Grid container>
+              <Grid item xs={3}>
+                <Typography fontSize={"1rem"} fontWeight={"bold"}>Client</Typography>
+              </Grid>
+              <Grid item xs={1}>
+                <Typography>:</Typography>
+              </Grid>
+              <Grid item xs={8}>
+              <Typography fontSize={"1rem"}>{user?.client}</Typography>
+              </Grid>
+            </Grid>
+          </Grid>
+
+          <Grid item xs={4}>
+            <Grid container>
+              <Grid item xs={4.4}>
+                <Typography fontSize={"1rem"} fontWeight={"bold"}>Location</Typography>
+              </Grid>
+              <Grid item xs={0.6}>
+                <Typography>:</Typography>
+              </Grid>
+              <Grid item xs={7}>
+              <Typography fontSize={"1rem"}>{user?.location}</Typography>
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item xs={8}>
+            <Grid container>
+              <Grid item xs={3}>
+                <Typography fontSize={"1rem"} fontWeight={"bold"}>Work Location</Typography>
+              </Grid>
+              <Grid item xs={1}>
+                <Typography>:</Typography>
+              </Grid>
+              <Grid item xs={8}>
+              <Typography fontSize={"1rem"}>{user?.workLocation}</Typography>
+              </Grid>
+            </Grid>
+          </Grid>
+
+
+          <Grid item xs={4}>
+            <Grid container>
+              <Grid item xs={4.4}>
+                <Typography fontSize={"1rem"} fontWeight={"bold"}>Address</Typography>
+              </Grid>
+              <Grid item xs={0.6}>
+                <Typography>:</Typography>
+              </Grid>
+              <Grid item xs={7}>
+              <Typography fontSize={"1rem"}>{user?.address}</Typography>
+              </Grid>
+            </Grid>
+          </Grid>
+
+          <Grid item xs={12} sm={12} md={12} lg={12} mt={5} pl={1} pr={1}>
           <Grid container>
-            <Grid item xs={11.7} style={{ display: "flex", justifyContent: "flex-end" }}>
+            <Grid item xs={11.3} style={{ display: "flex", justifyContent: "flex-end" }}>
               <Link href={"/assets/addassets/employeemanagement"} style={{ textDecoration: "none" }}>
                 <Button variant="contained" style={{textTransform: "capitalize",background:'#1F7DA9',color:'white',width:'140%' }}>
                   Close

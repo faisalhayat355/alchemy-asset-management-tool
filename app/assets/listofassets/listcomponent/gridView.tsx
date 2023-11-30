@@ -2,6 +2,7 @@
 import { Box, Grid, Pagination, Typography } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import { makeStyles } from '@mui/styles';
+import Link from 'next/link';
 import { useState } from 'react';
 import { IAssets } from '../models/assets.model';
 import { PaginationHandler } from '../utility/pagination';
@@ -40,13 +41,14 @@ const GridViewComponent = ({users}:AssetsProps) => {
   
   return (
     <div>
-    <Box style={{height:'78vh'}} >
+    <Box style={{height:'74vh'}} >
      <Grid container sx={{background:'white',paddingLeft:'1rem',paddingRight:'1rem',paddingBottom:'7rem',width:'96.5%',marginLeft:'1rem',alignItems:'center',marginTop:'-0.8rem'}}>
         <Grid container spacing={2}>
           {paginationHandler
           .currentData().map((item:any) => {
               return (
                 <Grid item xs={4} md={4} sm={4} lg={4} key={item.id} mt={3}>
+                  <Link href={`/assets/viewassets/${item.id}`} style={{textDecoration:'none'}}>
                   <Paper variant="outlined" className={classes.paper}>
                     <Box paddingLeft={2} paddingTop={1}>
                       <Grid container>
@@ -98,14 +100,14 @@ const GridViewComponent = ({users}:AssetsProps) => {
                     <Box paddingLeft={2}>
                       <Grid container>
                         <Grid item xs={5}>
-                          <Typography variant="subtitle1" fontWeight={"bold"} >Category</Typography>
+                          <Typography variant="subtitle1" fontWeight={"bold"} >Description</Typography>
                         </Grid>
                         <Grid item xs={1}>
                           <Typography> :</Typography>
                         </Grid>
                         <Grid item xs={6} paddingLeft={2}>
                           <Typography noWrap variant="subtitle1" >
-                            {item?.category}
+                            {item?.description}
                           </Typography>
                         </Grid>
                       </Grid>
@@ -113,14 +115,14 @@ const GridViewComponent = ({users}:AssetsProps) => {
                     <Box paddingLeft={2}>
                       <Grid container>
                         <Grid item xs={5}>
-                          <Typography variant="subtitle1" fontWeight={"bold"}>Location</Typography>
+                          <Typography variant="subtitle1" fontWeight={"bold"}>Processor</Typography>
                         </Grid>
                         <Grid item xs={1}>
                           <Typography> :</Typography>
                         </Grid>
                         <Grid item xs={6} paddingLeft={2}>
                           <Typography noWrap variant="subtitle1" >
-                            {item?.location}
+                            {item?.processor}
                           </Typography>
                         </Grid>
                       </Grid>
@@ -128,30 +130,26 @@ const GridViewComponent = ({users}:AssetsProps) => {
                     <Box paddingLeft={2}>
                       <Grid container>
                         <Grid item xs={5}>
-                          <Typography variant="subtitle1" fontWeight={"bold"}>Department</Typography>
+                          <Typography variant="subtitle1" fontWeight={"bold"}>Remarks</Typography>
                         </Grid>
                         <Grid item xs={1}>
                           <Typography> :</Typography>
                         </Grid>
                         <Grid item xs={6} paddingLeft={2}>
                           <Typography noWrap variant="subtitle1">
-                            {item?.department}
+                            {item?.remarks}
                           </Typography>
                         </Grid>
                       </Grid>
                     </Box>
-                    
                   </Paper>
+                    </Link>
                 </Grid>
               );
             })}
         </Grid>
      </Grid>     
     </Box>
-
-
-
-
     <Grid container mt={-1.5}>
         <Grid item xs={11.8} display={"flex"} justifyContent={"flex-end"}>
           <Grid style={{ position: "fixed" }}>
@@ -167,9 +165,6 @@ const GridViewComponent = ({users}:AssetsProps) => {
         </Grid>
         <Grid item xs={0.2}></Grid>
       </Grid>
-
-
-
    </div>
   )
 }

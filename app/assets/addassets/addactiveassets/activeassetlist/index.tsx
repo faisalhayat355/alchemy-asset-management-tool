@@ -37,7 +37,7 @@ const ActiveAssetListHomeComponent = () => {
     <div>
     <Box>
      <Grid container sx={{padding:'0.8rem',alignItems:'center'}}>
-      <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #1F7DA9',paddingTop:'0.1rem',width:'99.9%',alignItems:'center',marginLeft:"0.2rem"}}>
+      <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #1F7DA9',paddingTop:'0.1rem',width:'98.7%',alignItems:'center',marginLeft:"0.2rem"}}>
       <Link href="/dashboard" passHref style={{ textDecoration: "none" }}>
       <Grid item xs={0.6}>
       <Tooltip title="Back" TransitionComponent={Zoom} arrow>
@@ -81,7 +81,7 @@ const ActiveAssetListHomeComponent = () => {
               <AssetCalendarView users={users} />
             </Case>
             <Default>
-             <Grid style={{marginLeft:'1rem',width:'97.5%',marginTop:"-1rem"}}>
+             <Grid style={{marginLeft:'1rem',width:'96.5%',marginTop:"-1rem"}}>
              <Divider style={{width:'100%',marginTop:'0.2rem',background:'#fecaca'}}/>
              <ActiveAssetList />
              </Grid>

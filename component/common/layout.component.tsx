@@ -12,7 +12,7 @@ const LayoutComponent = ({ children }: { children: React.ReactNode }) => {
   const handleMenu = () => {
     setShow(!show);
   };
-
+  
   return (
     <>
       {session && (

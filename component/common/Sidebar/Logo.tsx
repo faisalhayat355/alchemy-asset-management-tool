@@ -12,13 +12,13 @@ const Logo = ({ handleMenu, show }: logoProps) => {
     <div style={{ display: "flex", alignItems: "center", paddingBottom: "1rem" }}>
       {show && (
         <Grid textAlign={"left"} pt={1} display={{ xs: "none", sm: "none", md: "block" }}>
-         {/* <img src="./images/alchemyasset3.png" alt="logo not found" style={{ width: "98%",marginLeft:'0.5rem' }}/> */}
+         {/* <img src="./images/alchemyasset4.png" alt="logo not found" style={{ width: "90%",marginLeft:'0.5rem' }}/> */}
          {/* <Typography style={{ fontFamily:"cursive",fontSize:'1.9rem',paddingLeft:'0.6rem',fontWeight:'bold', 
          marginRight:'1rem', marginLeft:'1rem',color:'#1F7DA9'}}>Alchemy</Typography>
          <Divider style={{marginLeft:'1rem',width:'100%'}}>
          <Typography style={{fontFamily:"cursive",fontSize:'1.1rem', fontWeight:'bold', color:'#414242'}}>Asset Tool</Typography>
          </Divider> */}
-         <Image loading='eager' src="/images/alchemyasset3.png" width={163} height={50} alt="logo not found" style={{marginLeft:'0.5rem'}}/>
+         <Image loading='eager' src="/images/alchemyasset4.png" width={161} height={70} alt="logo not found" style={{marginLeft:'0.5rem'}}/>
         </Grid>
       )}
       <div>

@@ -37,9 +37,9 @@ const ListItemComponent = () => {
         enableSorting: true,
       },
       {
-        accessorKey: 'department',
-        header: 'Department',
-        size: 170,
+        accessorKey: 'assigndate',
+        header: 'Assign Date',
+        size: 140,
         isResizable: true,
         enableSorting: true,
       },
@@ -71,6 +71,7 @@ const ListItemComponent = () => {
         isResizable: true,
         enableSorting: true,
       },
+    
       {
         accessorKey: 'actions',
         header: 'Actions',
@@ -103,6 +104,7 @@ const ListItemComponent = () => {
   );
 
   const [data, setData] = useState<Post[]>([]);
+  const items= data.reverse()
   useEffect(() => {
     const fetchData = async () => {
       try {

@@ -88,6 +88,7 @@ const SidebarAssetComponent = ({show}:any) => {
   const [database, setDatabase] = React.useState(false);
   const [customizeForms, setCustomizeForms] = React.useState(false);
   const [assetsType, setAssetsType] = React.useState(false);
+  const [employee, setEmployee] = React.useState(false);
   const [selectedIndex, setSelectedIndex] = React.useState(1);
 
   const handleClickAlerts = () => {
@@ -161,6 +162,9 @@ const SidebarAssetComponent = ({show}:any) => {
   };
   const handleClickAssetsType = () => {
     setAssetsType(!assetsType);
+  };
+  const handleClickEmployee = () => {
+    setEmployee(!employee);
   };
   return (
     <>
@@ -250,6 +254,8 @@ const SidebarAssetComponent = ({show}:any) => {
       </Link>
       <Divider style={{width:'100%'}}/>
 
+
+
       <Link href="/assets/listofassets" passHref style={{ textDecoration: "none" }}>
       <ListItemButton selected={selectedIndex === 4} onClick={(event) => handleListItemClick(event, 4)} >
         <Tooltip title="Assets" arrow TransitionComponent={Fade}
@@ -264,6 +270,8 @@ const SidebarAssetComponent = ({show}:any) => {
      )}
       </ListItemButton>
       </Link>
+
+    
       {show && (
       <Collapse in={assets} timeout="auto" unmountOnExit>
       <Link href="/assets/listofassets" passHref style={{ textDecoration: "none" }}>
@@ -320,14 +328,14 @@ const SidebarAssetComponent = ({show}:any) => {
           </ListItemButton>
         </List>
         </Link>
-        <Link href="/assets/addassets/employeemanagement" passHref style={{ textDecoration: "none" }}>
+        {/* <Link href="/assets/addassets/employeemanagement" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl:2.8}}>
           <PersonAddAltIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
             <Typography sx={{color:'#414242',fontSize:'0.75rem'}}>Employee Management</Typography>
           </ListItemButton>
         </List>
-        </Link>
+        </Link> */}
       </Collapse>
         <Divider style={{width:'100%'}}/>
         <Link href="/assets/checkin" passHref style={{ textDecoration: "none" }}>
@@ -414,6 +422,36 @@ const SidebarAssetComponent = ({show}:any) => {
       </Collapse>
       )}
       <Divider style={{width:'100%'}}/>
+        <ListItemButton selected={selectedIndex === 13}
+          onClick={(event) => handleListItemClick(event, 13)}>
+          <Tooltip title="Setup" arrow TransitionComponent={Fade}
+          TransitionProps={{ timeout: 600 }} placement="right-start">
+          <PersonAddAltIcon style={{color:"#1F7DA9",fontSize:'1.4rem',marginRight:'0.6rem'}} />
+          </Tooltip>
+       {show && (
+        <div style={{display:'flex',alignItems:'center'}} onClick={handleClickEmployee}>
+           <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Employee</Typography> 
+            {employee ? <ExpandLess style={{marginLeft:'3.85rem',color:"#1F7DA9"}}/> : <ExpandMore style={{marginLeft:'3.85rem'}}/>} 
+        </div>
+       )}
+        <ListItemIcon style={{marginLeft:'2rem'}}>
+        </ListItemIcon>
+      </ListItemButton>
+      <Collapse in={employee} timeout="auto" unmountOnExit>
+      <Link href="/assets/addassets/employeemanagement" passHref style={{ textDecoration: "none" }}>
+        <List component="div" disablePadding>
+          <ListItemButton sx={{ pl: 2.7 }}>
+          <WorkOutlineIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+           {show && (
+             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Employee List</Typography>
+           )}
+          </ListItemButton>
+        </List>
+        </Link>
+      </Collapse>
+
+
+      <Divider style={{width:'100%'}}/>
       <ListItemButton selected={selectedIndex === 6}
           onClick={(event) => handleListItemClick(event, 6)}>
           <Tooltip title="Reports" arrow TransitionComponent={Fade}
@@ -440,7 +478,7 @@ const SidebarAssetComponent = ({show}:any) => {
         </List>
         </Link>
       </Collapse>
-      <Divider style={{width:'100%'}}/>
+      
       <Collapse in={reports} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
          {show && (

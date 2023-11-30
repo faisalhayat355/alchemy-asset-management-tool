@@ -1,0 +1,58 @@
+[
+    {
+      "region": "Alchemy Internal",
+      "country_code": "in",
+      "url": "google.co.in",
+      "languages": [
+        {
+          "name": "",
+          "code": "en"
+        }
+      ]
+    },
+    {
+      "region": "Alchemy External",
+      "country_code": "ae",
+      "url": "google.ae",
+      "languages": [
+        {
+          "name": "VI Snoc",
+          "code": "ar"
+        },
+        {
+          "name": "Nagios",
+          "code": "en"
+        }
+      ],
+      "clients": [
+        {
+          "name": "HCL",
+          "code": "ad"
+        },
+        {
+          "name": "Wipro",
+          "code": "ad"
+        }
+      ],
+      "location": [
+        {
+          "name": "Hyderabad",
+          "code": "hd"
+        },
+        {
+          "name": "Pune",
+          "code": "pn"
+        }
+      ],
+      "worklocation": [
+        {
+          "name": "Work from Home",
+          "code": "wfh"
+        },
+        {
+          "name": "Work from Office",
+          "code": "wfo"
+        }
+      ]
+    }
+  ]

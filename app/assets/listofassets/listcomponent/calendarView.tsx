@@ -14,11 +14,10 @@ type AssetsProps = {
 
 const AssetCalendarView = ({users}:AssetsProps) => {
     const [events, setEvents] = useState([]);
-
     const calendarAsset = users?.map((users) => {
       return {
-        title: users.assettagid,
-        start: new Date(users.createdAt),
+        title: users.name,
+        start: new Date(users.name),
         end: new Date(users.updatedAt),
       }
     });
@@ -27,21 +26,14 @@ const AssetCalendarView = ({users}:AssetsProps) => {
     }, []);
   return (
     <>
-    
-     <Grid container sx={{background:'white',paddingLeft:'1rem',paddingRight:'1rem',paddingBottom:'1rem',width:'97.5%',marginLeft:'1rem',alignItems:'center'}}>
-     <Grid pt={1} container height={"60vh"}>
-      <Grid item xs={12}>
-        <Calendar
-          events={events}
-          startAccessor="start"
-          endAccessor="end"
-          defaultDate={moment().toDate()}
-          localizer={localizer}
-        />
-      </Grid>
-    </Grid>
+     <Grid container  mt={-2} sx={{background:'white',paddingLeft:'1rem',paddingRight:'1rem',paddingBottom:'1rem',width:'96.5%',marginLeft:'1rem',alignItems:'center'}}>
+        <Grid pt={1} container height={"77vh"}>
+          <Grid item xs={12}>
+            <Calendar events={events} startAccessor="start"
+              endAccessor="end" defaultDate={moment().toDate()} localizer={localizer} />
+          </Grid>
+        </Grid>
      </Grid>     
-
    </>
   )
 }
