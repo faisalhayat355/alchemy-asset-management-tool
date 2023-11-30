@@ -179,13 +179,13 @@ const ViewEmployeeAssetComponent = ({user}:any) => {
           <Grid item xs={4}>
             <Grid container>
               <Grid item xs={4.4}>
-                <Typography fontSize={"1rem"} fontWeight={"bold"}>Status</Typography>
+                <Typography fontSize={"1rem"} fontWeight={"bold"}>Address</Typography>
               </Grid>
               <Grid item xs={0.6}>
                 <Typography>:</Typography>
               </Grid>
               <Grid item xs={7}>
-              <Typography fontSize={"1rem"}>{user?.status}</Typography>
+              <Typography fontSize={"1rem"}>{user?.address}</Typography>
               </Grid>
             </Grid>
           </Grid>
@@ -202,7 +202,6 @@ const ViewEmployeeAssetComponent = ({user}:any) => {
               </Grid>
             </Grid>
           </Grid>
-
           <Grid item xs={4}>
             <Grid container>
               <Grid item xs={4.4}>
@@ -229,7 +228,6 @@ const ViewEmployeeAssetComponent = ({user}:any) => {
               </Grid>
             </Grid>
           </Grid>
-
           <Grid item xs={4}>
             <Grid container>
               <Grid item xs={4.4}>
@@ -256,22 +254,6 @@ const ViewEmployeeAssetComponent = ({user}:any) => {
               </Grid>
             </Grid>
           </Grid>
-
-
-          <Grid item xs={4}>
-            <Grid container>
-              <Grid item xs={4.4}>
-                <Typography fontSize={"1rem"} fontWeight={"bold"}>Address</Typography>
-              </Grid>
-              <Grid item xs={0.6}>
-                <Typography>:</Typography>
-              </Grid>
-              <Grid item xs={7}>
-              <Typography fontSize={"1rem"}>{user?.address}</Typography>
-              </Grid>
-            </Grid>
-          </Grid>
-
           <Grid item xs={12} sm={12} md={12} lg={12} mt={5} pl={1} pr={1}>
           <Grid container>
             <Grid item xs={11.3} style={{ display: "flex", justifyContent: "flex-end" }}>

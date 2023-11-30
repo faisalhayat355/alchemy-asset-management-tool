@@ -24,18 +24,22 @@ const useStyles = makeStyles({
         cursor:'pointer',
         height:'15.5vh',
         marginTop:'0.5rem',
+        boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
         "&:hover": {
-            boxShadow: " rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
+            // boxShadow: " rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
+            background: "#eff6ff",
+            border:'5px solid #f1f5f9',
+            boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
             cursor:'pointer'
         },
     },
     divIcon: {
-        borderRadius:'5px',background:'#3b82f6',height:'3vh',width:'43%',
+        borderRadius:'5px',background:'#1F7DA9',height:'3vh',width:'43%',
         marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
         paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',color:'white',
         transition: "width 2s, height 2s, transform 2s",
         "&:hover": {
-            borderRadius:'5px',background:'#1e40af',height:'3vh',width:'43%',
+            borderRadius:'5px',background:'#3b82f6',height:'3vh',width:'43%',
             marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
             paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',transform: "rotate(180deg)",
         },
@@ -108,7 +112,6 @@ const DashboardPage = () => {
     }, []);
 
     let length = data.length;
-console.log("datadatadata>>>>",data);
 
     // async function fetchData() {
     //     const users = await fetch("http://localhost:8000/users");
@@ -181,14 +184,14 @@ console.log("datadatadata>>>>",data);
     <div>
         <Box>
             <Grid container sx={{padding:'0.7rem',alignItems:'center'}}>
-                <Grid item lg={10.4} xs={12} md={10.35} sx={{display:'flex',alignItems:'center'}}>
+                <Grid item lg={10.5} xs={12} md={10.35} sx={{display:'flex',alignItems:'center'}}>
                     <Typography fontSize={"1.8rem"} style={{fontWeight:'bold',color:'#1e293b',fontFamily:"cursive",fontSize:'1.5rem'}}>Dashboard 
                     {/* <span style={{fontSize:'1rem'}}>dashboard & statistics</span> */}
                     </Typography>
                 </Grid>
-                <Grid item lg={1.6} xs={12} md={1.65}>
+                <Grid item lg={1.5} xs={12} md={1.65}>
                 <Link href="/assets/addassets" passHref style={{ textDecoration: "none" }}>
-                    <Button variant='contained' size='small' style={{textTransform:'capitalize',fontWeight:"bold"}}  startIcon={<AddIcon style={{fontSize:'1.4rem'}}/>}> Add New Asset</Button>
+                    <Button size='small' style={{textTransform:'capitalize',fontWeight:"bold",background:'#1F7DA9',color:'white'}}  startIcon={<AddIcon style={{fontSize:'1.4rem'}}/>}> Add New Asset</Button>
                 </Link>
                 </Grid>
                 {/* <Grid item xs={2.1} style={{display:'flex',justifyContent:'flex-end'}}>
@@ -197,8 +200,8 @@ console.log("datadatadata>>>>",data);
                     </Link>
                 </Grid> */}
                <Grid container spacing={1}>
-               <Grid item lg={3} mt={1.5} xs={6} md={6}>
-               <Link href="/assets/listofassets" passHref style={{ textDecoration: "none" }}>
+                <Grid item lg={3} mt={1.5} xs={6} md={6}>
+                    <Link href="/assets/listofassets" passHref style={{ textDecoration: "none" }}>
                     <Paper className={classes.paper} elevation={0} >
                        <Grid container> 
                        <Grid item xs={4}>
@@ -212,10 +215,10 @@ console.log("datadatadata>>>>",data);
                         </Grid>
                        </Grid>
                     </Paper>
-                    </Link>
+                </Link>
                 </Grid>
                 <Grid item lg={3} mt={1.5} xs={6} md={6}>
-                <Link href="/assets/addassets/addactiveassets/activeassetlist" passHref style={{ textDecoration: "none" }}>
+                {/* <Link href="/assets/listofassets" passHref style={{ textDecoration: "none" }}> */}
                     <Paper className={classes.paper} elevation={0} >
                        <Grid container> 
                        <Grid item xs={4}>
@@ -231,10 +234,10 @@ console.log("datadatadata>>>>",data);
                         </Grid>
                        </Grid>
                     </Paper>
-                    </Link>
+                    {/* </Link> */}
                 </Grid>
                 <Grid item lg={3} mt={1.5} xs={6} md={6}>
-                <Link href="/assets/addassets/addstockassets/stockassetlist" passHref style={{ textDecoration: "none" }}>
+                {/* <Link href="/assets/addassets/addstockassets/stockassetlist" passHref style={{ textDecoration: "none" }}> */}
                     <Paper className={classes.paper} elevation={0} >
                        <Grid container> 
                        <Grid item xs={3.8}>
@@ -249,10 +252,10 @@ console.log("datadatadata>>>>",data);
                         </Grid>
                        </Grid>
                     </Paper>
-                </Link>
+                {/* </Link> */}
                 </Grid>
                 <Grid item lg={3} mt={1.5} xs={6} md={6}>
-                <Link href="/assets/addassets/employeemanagement" passHref style={{ textDecoration: "none" }}>
+                {/* <Link href="/assets/addassets/employeemanagement" passHref style={{ textDecoration: "none" }}> */}
                     <Paper className={classes.paper} elevation={0} >
                        <Grid container> 
                        <Grid item xs={3.8}>
@@ -263,31 +266,12 @@ console.log("datadatadata>>>>",data);
                         </Grid>
                         <Grid item xs={8} sx={{display:'flex',justifyContent:'flex-end',paddingTop:'1rem'}}>
                         <Typography fontSize={"1.5rem"}>0</Typography>
-                        
+                        {/* <Typography fontSize={"1.5rem"}> {data?.filter(r => r.site !== 'Under Maintainance')?.length}</Typography> */}
                         </Grid>
                        </Grid>
                     </Paper>
-                </Link>
+                {/* </Link> */}
                 </Grid>
-                
-                {/* <Grid item xs={3} mt={1.5}>
-                <Link href="/assets/addassets/addscrappedassets/scrappedassetlist" passHref style={{ textDecoration: "none" }}>
-                    <Paper className={classes.paper} elevation={0} >
-                       <Grid container> 
-                       <Grid item xs={3.8}>
-                       <div className={classes.divIcon4}><DesktopAccessDisabledIcon style={{fontSize:'1rem',marginTop:'-1rem'}}/></div>
-                       </Grid>
-                        <Grid item xs={8.2} sx={{display:'flex',justifyContent:'center'}}>
-                        <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Scrapped Asset</Typography>
-                        </Grid>
-                        <Grid item xs={8} sx={{display:'flex',justifyContent:'flex-end',paddingTop:'1rem'}}>
-                        <Typography fontSize={"1.5rem"}>{scrapAssetData}</Typography>
-                        </Grid>
-                       </Grid>
-                    </Paper>
-                    </Link>
-                </Grid> */}
-
                </Grid>  
                <Grid container spacing={1} mt={0.1}>
                 <Grid item lg={5} xs={12}>

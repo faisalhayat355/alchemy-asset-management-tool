@@ -38,7 +38,6 @@ const GridViewComponent = ({users}:AssetsProps) => {
     paginationHandler.jump(p);
   };
 
-  
   return (
     <div>
     <Box style={{height:'74vh'}} >
@@ -150,7 +149,7 @@ const GridViewComponent = ({users}:AssetsProps) => {
         </Grid>
      </Grid>     
     </Box>
-    <Grid container mt={-1.5}>
+    <Grid container mt={1.5}>
         <Grid item xs={11.8} display={"flex"} justifyContent={"flex-end"}>
           <Grid style={{ position: "fixed" }}>
             <Pagination

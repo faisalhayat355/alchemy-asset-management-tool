@@ -322,6 +322,19 @@ const ViewAssetComponent = ({user}:any) => {
               </Grid>
             </Grid>
           </Grid>
+          <Grid item xs={8}>
+            <Grid container>
+              <Grid item xs={3}>
+                <Typography fontSize={"1rem"} fontWeight={"bold"}>Status</Typography>
+              </Grid>
+              <Grid item xs={1}>
+                <Typography>:</Typography>
+              </Grid>
+              <Grid item xs={8}>
+              <Typography fontSize={"1rem"}>{user?.site}</Typography>
+              </Grid>
+            </Grid>
+          </Grid>
         <Grid item xs={12} sm={12} md={12} lg={12} mt={1} pl={1} pr={1}>
           <Grid container>
             <Grid item xs={11.7} style={{ display: "flex", justifyContent: "flex-end" }}>

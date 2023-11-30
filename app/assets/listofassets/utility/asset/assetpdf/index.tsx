@@ -11,14 +11,15 @@ const AssetPDFDownload = ({users}:AssetsProps) => {
 
   const exportPDF = async () => {
     const fileName = `asset-list-${new Date().toISOString().slice(0, 10)}`;
-    const headers = [["Asset Tag ID", "Purchased From", "Brand", "Model", "Serial No.", "Location","Ram","Processor"]];
+    const headers = [["Asset Tag ID", "Name", "Assign Date","Purchased From", "Brand", "Model", "Serial No.","Ram","Processor"]];
     const pdfSendData = users?.map((elt) => [
       elt.id,
+      elt.name,
+      elt. assigndate,
       elt.purchasefrom,
       elt.brand,
       elt.model,
       elt.serialno,
-      elt.location,
       elt.ram,
       elt.processor,
     ]);
@@ -28,8 +29,6 @@ const AssetPDFDownload = ({users}:AssetsProps) => {
       fileName,
     });
   };
-
-
   return (
     <div>
         <Typography variant="subtitle1" onClick={() => exportPDF()}>

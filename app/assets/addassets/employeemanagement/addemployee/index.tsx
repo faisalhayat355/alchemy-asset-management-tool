@@ -5,6 +5,7 @@ import { makeStyles } from '@mui/styles';
 import Link from "next/link";
 import { useRouter } from 'next/navigation';
 import { useState } from "react";
+
 const useStyles = makeStyles({
     typography: {
        fontFamily:"cursive",
@@ -29,13 +30,37 @@ const AddEmployeeManagement = () => {
   const [address, setAddress] = useState("");
   const [selected,setSelected]=useState("")
 
-const handleChange=(e)=>{
-  setSelected(e.target.value)
-  setSite(e.target.value)
-}
+
+  
+  // const [image, setImage] = useState("");
+
+
+  // const handleImageChange = (e) => {
+  //   console.log(e.target.files);
+  //   setImage(e.target.files[0]);
+  // };
+
+  // const handleApi = () => {
+  //   const url = "http://localhost:8000/employeeManagement";
+
+  //   const formData = new FormData();
+  //   formData.append("image", image);
+  //   axios .post(url, formData)
+  //     .then((result) => {
+  //       console.log(result.data);
+  //       alert("success");
+  //     })
+  //     .catch((error) => {
+  //       alert("service error");
+  //       console.log(error);
+  //     });
+  // };
+  const handleChange=(e)=>{
+    setSelected(e.target.value)
+    setSite(e.target.value)
+  }
 
   const classes = useStyles();
-  
   function handleSaveData() {
     let data = {
       employeeid,
@@ -135,7 +160,7 @@ const handleChange=(e)=>{
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={6} mt={1} >
+        {/* <Grid item xs={6} mt={1} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
             <Typography>Status</Typography>
@@ -149,7 +174,7 @@ const handleChange=(e)=>{
               </select>
             </Grid>
           </Grid>
-        </Grid>
+        </Grid> */}
 
         <Grid item xs={6} mt={1} >
           <Grid container sx={{alignItems:'center'}}>
@@ -170,7 +195,6 @@ const handleChange=(e)=>{
             </Grid>
           </Grid>
         </Grid>
-
         <Grid item xs={6} mt={1} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
@@ -184,7 +208,6 @@ const handleChange=(e)=>{
             <option>Alchemy Internal</option>
             <option>Alchemy External</option>
             </select>
-            
             </Grid>
           </Grid>
         </Grid>
@@ -224,20 +247,19 @@ const handleChange=(e)=>{
             </Grid>
           </Grid>
         </Grid>
-
         <Grid item xs={6} mt={1} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
             <Typography>Work Location</Typography>
             </Grid>
             <Grid item xs={8}>
-              {/* <select style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}  name="workLocation"
-                value={workLocation}onChange={(e) => {setWorkLocation(e.target.value);}}>
+              <select style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}  name="workLocation"
+               value={workLocation} onChange={(e) => {setWorkLocation(e.target.value);}}>
                 <option>Select Work Location</option>
                 <option>Work from Home</option>
                 <option>Work from Office</option>
-              </select> */}
-               {selected == "Alchemy External"? <AlchemyExternalWorkLocation workLocation={workLocation} setWorkLocation={setWorkLocation}/>:<AlchemyInternal/> }
+              </select>
+               {/* {selected == "Alchemy External"? <AlchemyExternalWorkLocation workLocation={workLocation} setWorkLocation={setWorkLocation}/>:<AlchemyInternal/> } */}
             </Grid>
           </Grid>
         </Grid>
@@ -252,6 +274,7 @@ const handleChange=(e)=>{
             </Grid>
           </Grid>
         </Grid>
+        
         <Grid container mt={5}>
           <Grid item xs={12} >
             <Grid container >
@@ -321,17 +344,17 @@ const AlchemyExternalLocation =({location,setLocation}:any)=>{
   )
 }
 
-const AlchemyExternalWorkLocation =({workLocation,setWorkLocation}:any)=>{
-  return(
-    <>
-    <select value={workLocation}onChange={(e) => {setWorkLocation(e.target.value);}} style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}>
-    <option>Select Work Location</option>
-      <option>Work from Office</option>
-      <option>Work from Home</option>
-    </select>
-    </>
-  )
-}
+// const AlchemyExternalWorkLocation =({workLocation,setWorkLocation}:any)=>{
+//   return(
+//     <>
+//     <select value={workLocation} onChange={(e) => {setWorkLocation(e.target.value);}} style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}>
+//     <option>Select Work Location</option>
+//       <option>Work from Office</option>
+//       <option>Work from Home</option>
+//     </select>
+//     </>
+//   )
+// }
 
 
 export default AddEmployeeManagement

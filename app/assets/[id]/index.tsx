@@ -181,7 +181,7 @@ const EditAssetComponent = ({ user }: IUserProp) => {
                     <option>Select Status</option>
                     <option>Active</option>
                     <option>InActive</option>
-                    
+                    {/* <option>Under Maintainance</option> */}
                   </select>
                   <p className={classes.errormessage}>{errors.site?.message}</p>
                   </Grid>

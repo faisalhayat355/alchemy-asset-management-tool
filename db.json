@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": 3,
+      "id": 1,
       "assettagid": "",
       "description": "ALchemy Laptop",
       "brand": "Lenovo",
@@ -18,10 +18,11 @@
       "processor": "Core i5",
       "name": "",
       "assigndate": "",
+      "disktype": "SSD",
       "remarks": "Laptop good"
     },
     {
-      "id": 4,
+      "id": 2,
       "assettagid": "",
       "description": "Alchemy Laptop",
       "brand": "Dell",
@@ -38,17 +39,18 @@
       "processor": "Core i7",
       "name": "",
       "assigndate": "",
+      "disktype": "SSD",
       "remarks": "Dell Laptop"
     },
     {
-      "id": 5,
+      "id": 3,
       "assettagid": "",
       "description": "Dell Laptop",
       "brand": "dell",
       "serialno": "gfdg5",
       "model": "dell",
       "cost": "43546",
-      "site": "Active",
+      "site": "InActive",
       "category": "",
       "location": "",
       "purchasedate": "",
@@ -56,9 +58,31 @@
       "ram": "16 GB",
       "department": "",
       "processor": "Core i5",
-      "name": "Faisal Hayat",
-      "assigndate": "2023-11-30",
+      "name": "",
+      "assigndate": "",
+      "disktype": "HDD",
       "remarks": "Dell Laptop Working"
+    },
+    {
+      "id": 4,
+      "assettagid": "",
+      "description": "Laptop",
+      "brand": "Dell",
+      "serialno": "LPO7869",
+      "model": "Inspiron",
+      "cost": "76000",
+      "site": "InActive",
+      "category": "",
+      "location": "",
+      "purchasedate": "2020-12-11",
+      "purchasefrom": "TVS Computers",
+      "ram": "8 GB",
+      "department": "",
+      "processor": "Core i7",
+      "name": "",
+      "assigndate": "",
+      "disktype": "SSD",
+      "remarks": "Laptop condition is Good "
     }
   ],
   "activeAsset": [
@@ -175,6 +199,54 @@
       "workLocation": "Work from Home",
       "address": "Banglore Koremmangla",
       "id": "DzI-16Y"
+    },
+    {
+      "employeeid": "ALS/1890",
+      "name": "Ajay Singh",
+      "email": "ajay@gmail.com",
+      "mobile": "8976577887",
+      "position": "Junior Developer",
+      "status": "",
+      "site": "Alchemy External",
+      "projectName": "Nagios",
+      "client": "HCL",
+      "location": "Hyderabad",
+      "workLocation": "Work from Office",
+      "address": "Telangana",
+      "department": "Developer",
+      "id": "0X0hg8i"
+    },
+    {
+      "employeeid": "ALS/001848",
+      "name": "Karthik ",
+      "email": "karthik@gmail.com",
+      "mobile": "9887786767",
+      "position": "Recuriter",
+      "status": "",
+      "site": "Alchemy Internal",
+      "projectName": "",
+      "client": "",
+      "location": "",
+      "workLocation": "",
+      "address": "Banglore",
+      "department": "HR",
+      "id": "85e45m4"
+    },
+    {
+      "employeeid": "ALS/1823",
+      "name": "Md Faisal Hayat",
+      "email": "hayatfaisal355@gmail.com",
+      "mobile": "+918969753445",
+      "position": "Software Developer",
+      "status": "",
+      "site": "Alchemy Internal",
+      "projectName": "",
+      "client": "",
+      "location": "",
+      "workLocation": "Work from Home",
+      "address": "Paharpur Bazar,Simri Bakhtiyarpur,Distt-Saharsa",
+      "department": "Developer",
+      "id": "RBVNzxa"
     }
   ]
 }

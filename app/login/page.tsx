@@ -6,26 +6,23 @@ import { NextPage } from "next";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { FormEventHandler, useState } from "react";
-import { makeStyles } from '@mui/styles';
-
-const useStyles = makeStyles({
-  typography: {
-      fontFamily:"cursive",
-      fontSize:'1.6rem'
-   }
-});
 
 const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
+  background: "rgba(16, 18, 27, 0.4)",
+  boxShadow:'white 0px 3px 8px',
+  backdropFilter: "blur(1px)",
   padding: theme.spacing(2),
   marginLeft: theme.spacing(1),
-  color: theme.palette.text.primary,
+  marginTop: theme.spacing(3),
+  color:"white",
+  height:'60vh'
+ 
 }));
 const Container = styled(Paper)(({ theme }) => ({
   backgroundImage: `url(${"./images/loginbackground1.png"})`,
   padding: theme.spacing(3),
   height: "100vh",
+  
 }));
 const FormGrid = styled(Grid)(({ theme }) => ({
   position: "absolute",
@@ -33,7 +30,6 @@ const FormGrid = styled(Grid)(({ theme }) => ({
 }));
 
 const SignIn: NextPage = (props): JSX.Element => {
-  const classes = useStyles();
   const [userInfo, setUserInfo] = useState({ email: "", password: "" });
   const router = useRouter();
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
@@ -50,7 +46,6 @@ const SignIn: NextPage = (props): JSX.Element => {
       }
     }
   };
-
   return (
     <Container>
       <Grid container>
@@ -59,9 +54,9 @@ const SignIn: NextPage = (props): JSX.Element => {
             <Grid container>
               <Grid item xs={12}>
                 <Grid container>
-                  <Grid item lg={6} sm={4} xs={2.5} md={5.6}></Grid>
+                  <Grid item lg={5.8} sm={4} xs={2.5} md={5.6}></Grid>
                   <Grid item xs={5}>
-                    <img src="./images/alchemyasset.png" alt="LoginImage" style={{width:'80%'}} />
+                    <img src="./images/loginpagelogo.png" alt="LoginImage" style={{width:'85%'}} />
                   </Grid>
                 </Grid>
               </Grid>
@@ -70,32 +65,28 @@ const SignIn: NextPage = (props): JSX.Element => {
                 <Item>
                   <form onSubmit={handleSubmit}>
                     <Grid item xs={12}>
-                      <Typography pb={1.5} fontWeight={"bold"} className={classes.typography}>
+                      <Typography pb={1.5} fontWeight={"bold"} style={{ fontFamily:"cursive",fontSize:'1.6rem'}}>
                         Login
                       </Typography>
                     </Grid>
                     <Grid item xs={12}>
-                      <Typography py={1}>
-                       Email Address*
+                      <Typography py={1} fontSize={"1rem"}>
+                       Email Address <span style={{color:'red'}}>*</span>
                       </Typography>
                       <TextField size="small" fullWidth placeholder="user@genesis.com" value={userInfo.email}
-                      onChange={({ target }) => setUserInfo({ ...userInfo, email: target.value })} type="email"/>
+                      style={{background:'#f8fafc',borderRadius:'5px'}} onChange={({ target }) => setUserInfo({ ...userInfo, email: target.value })} type="email"/>
                     </Grid>
                     <Grid item xs={12} py={2}>
-                      <Typography py={1}> Password</Typography>
+                      <Typography py={1} fontSize={"1rem"}> Password <span style={{color:'red'}}>*</span></Typography>
                       <TextField size="small" type="password" fullWidth placeholder="Enter Your Password" value={userInfo.password}
-                      onChange={({ target }) =>setUserInfo({ ...userInfo, password: target.value })}/>
+                     style={{background:'#f8fafc',borderRadius:'5px'}} onChange={({ target }) =>setUserInfo({ ...userInfo, password: target.value })}/>
                     </Grid>
-                    <Grid item xs={12} my={2}>
-                      <Button fullWidth type="submit" value="Login" variant="contained">
+                    <Grid item xs={12} mt={5}>
+                      <Button fullWidth type="submit" value="Login" 
+                      style={{fontSize:'1rem' ,color:'white',background: "rgba(16, 18, 27, 0.4)",boxShadow:'white 0px 3px 8px',backdropFilter: "blur(1px)",}} >
                         Log In
                       </Button>
                     </Grid>
-                    {/* <Grid item xs={12} my={1}>
-                      <Button fullWidth type="submit" value="Login"variant="contained">
-                        New User? Register Account
-                      </Button>
-                    </Grid> */}
                   </form>
                 </Item>
               </Grid>
