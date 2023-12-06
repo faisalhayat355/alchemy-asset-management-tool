@@ -452,6 +452,7 @@ const SidebarAssetComponent = ({show}:any) => {
 
 
       <Divider style={{width:'100%'}}/>
+      <Link href="/reports" passHref style={{ textDecoration: "none",color:'#414242' }}>
       <ListItemButton selected={selectedIndex === 6}
           onClick={(event) => handleListItemClick(event, 6)}>
           <Tooltip title="Reports" arrow TransitionComponent={Fade}
@@ -461,13 +462,14 @@ const SidebarAssetComponent = ({show}:any) => {
           {show && (
         <div style={{display:'flex',alignItems:'center'}} onClick={handleClickReports}>
             <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Reports</Typography>
-            {reports ? <ExpandLess style={{marginLeft:'4.7rem',color:"#1F7DA9"}}/> : <ExpandMore style={{marginLeft:'4.7rem'}} />}
+            {/* {reports ? <ExpandLess style={{marginLeft:'4.7rem',color:"#1F7DA9"}}/> : <ExpandMore style={{marginLeft:'4.7rem'}} />} */}
         </div>
           )}
         <ListItemIcon style={{marginLeft:'2rem'}}>
         </ListItemIcon>
       </ListItemButton>
-      <Collapse in={reports} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}>
+      </Link>
+      {/* <Collapse in={reports} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}>
       <Link href="/alerts/warrantiesexpire" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
          {show && (
@@ -1011,7 +1013,7 @@ const SidebarAssetComponent = ({show}:any) => {
         
       </Collapse>
         </List>
-      </Collapse>
+      </Collapse> */}
       <Divider style={{width:'100%'}}/>
       <ListItemButton selected={selectedIndex === 9}
           onClick={(event) => handleListItemClick(event, 9)}>

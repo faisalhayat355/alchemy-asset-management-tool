@@ -13,7 +13,6 @@ type IAssets = {
     ram?: string;
     processor?: string;
     category?: string;
-    location: string;
     department: string;
     name:string;
     assigndate:string;
@@ -23,6 +22,11 @@ type IAssets = {
     status:string;
     courierid:string;
     assignmode:string;
+    employeeid:string;
+    client:string;
+    projectName:string;
+    location:string;
+    mobile:string;
     returndate:number;
     
     
