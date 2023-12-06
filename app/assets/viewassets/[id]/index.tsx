@@ -269,7 +269,7 @@ const ViewAssetComponent = ({user}:any) => {
           </Grid>
       </Grid>
 
-      <Grid container className={classes.card} style={{height:'20vh',marginTop:"0.5rem",paddingLeft:'4rem',paddingTop:'1rem'}}>
+      <Grid container className={classes.card} style={{height:'30vh',marginTop:"0.5rem",paddingLeft:'4rem',paddingTop:'1rem'}}>
         <Grid item xs={8}>
             <Grid container>
               <Grid item xs={3}>
@@ -335,6 +335,33 @@ const ViewAssetComponent = ({user}:any) => {
               </Grid>
             </Grid>
           </Grid>
+          <Grid item xs={4}>
+            <Grid container>
+              <Grid item xs={4.4}>
+                <Typography fontSize={"1rem"} fontWeight={"bold"}>Courier Date</Typography>
+              </Grid>
+              <Grid item xs={0.6}>
+                <Typography>:</Typography>
+              </Grid>
+              <Grid item xs={7}>
+              <Typography fontSize={"1rem"}>{user?.courierdate}</Typography>
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item xs={8}>
+            <Grid container>
+              <Grid item xs={3}>
+                <Typography fontSize={"1rem"} fontWeight={"bold"}>Courier ID</Typography>
+              </Grid>
+              <Grid item xs={1}>
+                <Typography>:</Typography>
+              </Grid>
+              <Grid item xs={8}>
+              <Typography fontSize={"1rem"}>{user?.courierid}</Typography>
+              </Grid>
+            </Grid>
+          </Grid>
+          
         <Grid item xs={12} sm={12} md={12} lg={12} mt={1} pl={1} pr={1}>
           <Grid container>
             <Grid item xs={11.7} style={{ display: "flex", justifyContent: "flex-end" }}>

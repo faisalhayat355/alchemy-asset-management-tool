@@ -168,7 +168,6 @@ const AssetCreatePage = () => {
             </Grid>
           </Grid>
         </Grid>
-
         <Grid item lg={6} xs={12} mt={1} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
@@ -183,8 +182,6 @@ const AssetCreatePage = () => {
             </Grid>
           </Grid>
         </Grid>
-        
-
         <Grid item lg={6} xs={12} mt={1}>
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
@@ -196,9 +193,6 @@ const AssetCreatePage = () => {
             </Grid>
           </Grid>
         </Grid>
-
-
-
         <Grid container sx={{display:'flex',justifyContent:'flex-end',marginTop:'0.7rem'}}>
         <Grid item lg={2.5} xs={4} mt={1} >
           <Grid container sx={{alignItems:'center'}}>
@@ -213,7 +207,6 @@ const AssetCreatePage = () => {
           </Grid>
         </Grid>
         </Grid>
-
       </Grid>
      </Box>
      {/* <Box>

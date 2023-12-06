@@ -5,6 +5,7 @@ import { makeStyles } from '@mui/styles';
 import Link from "next/link";
 import { useRouter } from 'next/navigation';
 import { useState } from "react";
+import StatusTab from '../../status-tab';
 
 const useStyles = makeStyles({
     typography: {
@@ -29,38 +30,14 @@ const AddEmployeeManagement = () => {
   const [workLocation, setWorkLocation] = useState("");
   const [address, setAddress] = useState("");
   const [selected,setSelected]=useState("")
-
-
-  
-  // const [image, setImage] = useState("");
-
-
-  // const handleImageChange = (e) => {
-  //   console.log(e.target.files);
-  //   setImage(e.target.files[0]);
-  // };
-
-  // const handleApi = () => {
-  //   const url = "http://localhost:8000/employeeManagement";
-
-  //   const formData = new FormData();
-  //   formData.append("image", image);
-  //   axios .post(url, formData)
-  //     .then((result) => {
-  //       console.log(result.data);
-  //       alert("success");
-  //     })
-  //     .catch((error) => {
-  //       alert("service error");
-  //       console.log(error);
-  //     });
-  // };
+ 
   const handleChange=(e)=>{
     setSelected(e.target.value)
     setSite(e.target.value)
   }
 
   const classes = useStyles();
+
   function handleSaveData() {
     let data = {
       employeeid,
@@ -94,7 +71,6 @@ const AddEmployeeManagement = () => {
     });
   }
 
-  
   return (
     <div>
      <Box >
@@ -103,8 +79,8 @@ const AddEmployeeManagement = () => {
           <Typography fontWeight={"bold"} className={classes.typography}>Add Employee Details</Typography>
         </Grid>
       </Grid>
-      <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #1F7DA9',paddingLeft:'2rem',paddingTop:'0.8rem',paddingBottom:'4rem',width:'97%',marginLeft:'1.3rem',alignItems:'center',boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}}>
-        <Grid item xs={6} mt={1} >
+      <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #1F7DA9',paddingLeft:'2rem',paddingTop:'0.8rem',paddingBottom:'6rem',width:'96%',marginLeft:'1.3rem',alignItems:'center',boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}}>
+        <Grid item xs={12} lg={6} md={12} sm={12} mt={1} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
             <Typography>Employee ID <span style={{color:'red'}}>*</span></Typography>
@@ -116,7 +92,7 @@ const AddEmployeeManagement = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={6} mt={0.6}>
+        <Grid item xs={12} lg={6} md={12} sm={12} mt={0.6}>
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
             <Typography>Name</Typography>
@@ -127,7 +103,7 @@ const AddEmployeeManagement = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={6} mt={1}>
+        <Grid item xs={12} lg={6} md={12} sm={12} mt={1}>
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
             <Typography>Email</Typography>
@@ -138,7 +114,7 @@ const AddEmployeeManagement = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={6} mt={1}>
+        <Grid item xs={12} lg={6} md={12} sm={12} mt={1}>
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
             <Typography>Contact No.</Typography>
@@ -149,7 +125,7 @@ const AddEmployeeManagement = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={6} mt={1}>
+        <Grid item xs={12} lg={6} md={12} sm={12} mt={1}>
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
             <Typography>Position</Typography>
@@ -160,7 +136,7 @@ const AddEmployeeManagement = () => {
             </Grid>
           </Grid>
         </Grid>
-        {/* <Grid item xs={6} mt={1} >
+        {/* <Grid item xs={12} lg={6} md={12} sm={12} mt={1} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
             <Typography>Status</Typography>
@@ -175,8 +151,7 @@ const AddEmployeeManagement = () => {
             </Grid>
           </Grid>
         </Grid> */}
-
-        <Grid item xs={6} mt={1} >
+        <Grid item xs={12} lg={6} md={12} sm={12} mt={1} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
             <Typography>Department</Typography>
@@ -195,7 +170,7 @@ const AddEmployeeManagement = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={6} mt={1} >
+        <Grid item xs={12} lg={6} md={12} sm={12} mt={1} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
             <Typography>Site</Typography>
@@ -211,7 +186,7 @@ const AddEmployeeManagement = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={6} mt={1} >
+        <Grid item xs={12} lg={6} md={12} sm={12} mt={1} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
             <Typography>Project Name</Typography>
@@ -223,7 +198,7 @@ const AddEmployeeManagement = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={6} mt={1} >
+        <Grid item xs={12} lg={6} md={12} sm={12} mt={1} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
             <Typography>Clients</Typography>
@@ -235,7 +210,7 @@ const AddEmployeeManagement = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={6} mt={1} >
+        <Grid item xs={12} lg={6} md={12} sm={12} mt={1} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
             <Typography>Location</Typography>
@@ -247,7 +222,7 @@ const AddEmployeeManagement = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={6} mt={1} >
+        <Grid item xs={12} lg={6} md={12} sm={12} mt={1} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
             <Typography>Work Location</Typography>
@@ -263,7 +238,7 @@ const AddEmployeeManagement = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={6} mt={1} >
+        <Grid item xs={12} lg={6} md={12} sm={12} mt={1} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
             <Typography>Address</Typography>
@@ -274,11 +249,24 @@ const AddEmployeeManagement = () => {
             </Grid>
           </Grid>
         </Grid>
-        
-        <Grid container mt={5}>
+
+        <Grid item xs={12} lg={6} md={12} sm={12} mt={1} >
+          <Grid container sx={{alignItems:'center'}}>
+            <Grid item xs={3.2}>
+            <Typography>Image</Typography>
+            </Grid>
+            <Grid item xs={8}>
+            {/* <TextField id="outlined-basic"  fullWidth size='small'
+            name="address" value={address} onChange={(e) => {setAddress(e.target.value);}}/> */}
+            </Grid>
+          </Grid>
+        </Grid>
+
+
+        <Grid container mt={7}>
           <Grid item xs={12} >
             <Grid container >
-              <Grid item xs={7.6}>
+              <Grid item lg={7.6} xs={7.5} sm={7.2} md={7.5}>
               </Grid>
               <Grid item xs={4}>
                 <Grid container>
@@ -300,49 +288,47 @@ const AddEmployeeManagement = () => {
   </div>
   )
 }
-
-const AlchemyInternal =()=>{
-  return(
-    <>
-    <select disabled style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}>
-    </select>
-    </>
-  )
-}
-
-const AlchemyExternal =({projectName,setProjectName}:any)=>{
-  return(
-    <>
-    <select value={projectName} onChange={(e) => {setProjectName(e.target.value);}} style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}>
-    <option>Select Project Name</option>
-      <option>Nagios</option>
-      <option>Asset Management Tool</option>
-    </select>
-    </>
-  )
-}
-const AlchemyExternalClient =({client,setClient}:any)=>{
-  return(
-    <>
-    <select value={client} onChange={(e) => {setClient(e.target.value);}} style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}>
-    <option>Select Client</option>
-      <option>HCL</option>
-      <option>TCS</option>
-    </select>
-    </>
-  )
-}
-const AlchemyExternalLocation =({location,setLocation}:any)=>{
-  return(
-    <>
-    <select value={location} onChange={(e) => {setLocation(e.target.value);}} style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}>
-    <option>Select Location</option>
-      <option>Hyderabad</option>
-      <option>Pune</option>
-    </select>
-    </>
-  )
-}
+    const AlchemyInternal =()=>{
+      return(
+        <>
+        <select disabled style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}>
+        </select>
+        </>
+      )
+    }
+    const AlchemyExternal =({projectName,setProjectName}:any)=>{
+      return(
+        <>
+        <select value={projectName} onChange={(e) => {setProjectName(e.target.value);}} style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}>
+        <option>Select Project Name</option>
+          <option>Nagios</option>
+          <option>Asset Management Tool</option>
+        </select>
+        </>
+      )
+    }
+    const AlchemyExternalClient =({client,setClient}:any)=>{
+      return(
+        <>
+        <select value={client} onChange={(e) => {setClient(e.target.value);}} style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}>
+        <option>Select Client</option>
+          <option>HCL</option>
+          <option>TCS</option>
+        </select>
+        </>
+      )
+    }
+    const AlchemyExternalLocation =({location,setLocation}:any)=>{
+      return(
+        <>
+        <select value={location} onChange={(e) => {setLocation(e.target.value);}} style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}>
+        <option>Select Location</option>
+          <option>Hyderabad</option>
+          <option>Pune</option>
+        </select>
+        </>
+      )
+    }
 
 // const AlchemyExternalWorkLocation =({workLocation,setWorkLocation}:any)=>{
 //   return(

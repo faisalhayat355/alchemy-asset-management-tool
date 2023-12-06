@@ -19,6 +19,11 @@ type IAssets = {
     assigndate:string;
     disktype:string;
     remarks:string;
+    courierdate:string;
+    status:string;
+    courierid:string;
+    assignmode:string;
+    returndate:number;
     
     
   };

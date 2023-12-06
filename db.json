@@ -19,7 +19,8 @@
       "name": "",
       "assigndate": "",
       "disktype": "SSD",
-      "remarks": "Laptop good"
+      "remarks": "Laptop good",
+      "returndate": ""
     },
     {
       "id": 2,
@@ -60,8 +61,12 @@
       "processor": "Core i5",
       "name": "",
       "assigndate": "",
+      "courierdate": "",
       "disktype": "HDD",
-      "remarks": "Dell Laptop Working"
+      "remarks": "Dell Laptop Working",
+      "courierid": "",
+      "assignmode": "Office Pickup",
+      "returndate": ""
     },
     {
       "id": 4,
@@ -71,7 +76,7 @@
       "serialno": "LPO7869",
       "model": "Inspiron",
       "cost": "76000",
-      "site": "InActive",
+      "site": "Active",
       "category": "",
       "location": "",
       "purchasedate": "2020-12-11",
@@ -79,10 +84,13 @@
       "ram": "8 GB",
       "department": "",
       "processor": "Core i7",
-      "name": "",
-      "assigndate": "",
+      "name": "Faisal Hayat",
+      "assigndate": "2023-12-02",
+      "courierdate": "",
       "disktype": "SSD",
-      "remarks": "Laptop condition is Good "
+      "remarks": "Laptop condition is Good ",
+      "courierid": "",
+      "returndate": "2023-12-03"
     }
   ],
   "activeAsset": [
