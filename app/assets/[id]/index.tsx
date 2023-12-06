@@ -183,7 +183,7 @@ const EditAssetComponent = ({ user }: IUserProp) => {
                     <option>Select Status</option>
                     <option>Active</option>
                     <option>InActive</option>
-                    {/* <option>Under Maintainance</option> */}
+                    {/* <option>UnderMaintainance</option> */}
                   </select>
                   <p className={classes.errormessage}>{errors.site?.message}</p>
                   </Grid>
@@ -254,7 +254,7 @@ const EditAssetComponent = ({ user }: IUserProp) => {
             <Grid item xs={6}>
                 <Grid container sx={{alignItems:'center'}}>
                   <Grid item xs={3.2}>
-                  <Typography>Remarks <span style={{color:'red'}}>*</span></Typography>
+                  <Typography>Remarks</Typography>
                   </Grid>
                   <Grid item xs={8.6}>
                     <TextField fullWidth {...register("remarks")} size="small" disabled/>

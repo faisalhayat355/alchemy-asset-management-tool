@@ -41,7 +41,8 @@
       "name": "",
       "assigndate": "",
       "disktype": "SSD",
-      "remarks": "Dell Laptop"
+      "remarks": "Dell Laptop",
+      "returndate": ""
     },
     {
       "id": 3,
@@ -91,6 +92,52 @@
       "remarks": "Laptop condition is Good ",
       "courierid": "",
       "returndate": "2023-12-03"
+    },
+    {
+      "id": 5,
+      "assettagid": "",
+      "description": "Laptop Dead",
+      "brand": "Dell",
+      "serialno": "dll67377",
+      "model": "Inspiron",
+      "cost": "38000",
+      "site": "Active",
+      "category": "",
+      "location": "",
+      "purchasedate": "2023-01-06",
+      "purchasefrom": "RTL Service Center",
+      "ram": "8 GB",
+      "department": "",
+      "processor": "Core i5",
+      "name": "Harish Yadav",
+      "assigndate": "2023-12-04",
+      "disktype": "SSD",
+      "remarks": "Alchemy Laptop",
+      "returndate": ""
+    },
+    {
+      "id": 6,
+      "assettagid": "",
+      "description": "Test Data",
+      "brand": "Lenovo",
+      "serialno": "lno7846",
+      "model": "Thinpad",
+      "cost": "43423",
+      "site": "InActive",
+      "category": "",
+      "location": "",
+      "purchasedate": "2023-11-26",
+      "purchasefrom": "Maa Durga Shop",
+      "ram": "8 GB",
+      "department": "",
+      "processor": "Core i5",
+      "name": "",
+      "assigndate": "",
+      "courierdate": "2023-12-03",
+      "disktype": "SSD",
+      "remarks": "Dell Laptop",
+      "courierid": "KLP7867987",
+      "returndate": ""
     }
   ],
   "activeAsset": [

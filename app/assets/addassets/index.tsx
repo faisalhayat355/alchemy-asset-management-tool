@@ -48,7 +48,7 @@ const AssetCreatePage = () => {
         <Grid item lg={6} xs={12}>
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
-            <Typography>Asset Tag ID <span style={{color:'red'}}>*</span></Typography>
+            <Typography>Asset Tag ID</Typography>
             </Grid>
             <Grid item xs={8}>
             <TextField id="outlined-basic" fullWidth size='small'
@@ -59,7 +59,7 @@ const AssetCreatePage = () => {
         <Grid item lg={6} xs={12} mt={1} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
-            <Typography>Description <span style={{color:'red'}}>*</span></Typography>
+            <Typography>Description</Typography>
             </Grid>
             <Grid item xs={8}>
             <TextField id="outlined-basic"  fullWidth size='small'
@@ -178,6 +178,19 @@ const AssetCreatePage = () => {
                 <option>Select Disk</option>
                 <option>SSD</option>
                 <option>HDD</option>
+              </select>
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid item lg={6} xs={12} mt={1} >
+          <Grid container sx={{alignItems:'center'}}>
+            <Grid item xs={3.2}>
+            <Typography>Status</Typography>
+            </Grid>
+            <Grid item xs={8}>
+              <select style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}  onChange={(e) => setInputData({ ...inputData, site: e.target.value })}>
+                <option>Select Status</option>
+                <option>InActive</option>
               </select>
             </Grid>
           </Grid>

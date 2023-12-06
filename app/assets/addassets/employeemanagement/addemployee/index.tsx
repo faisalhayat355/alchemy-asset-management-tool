@@ -1,11 +1,9 @@
 "use client"
-import { Box, Grid, Typography } from '@mui/material';
-import TextField from '@mui/material/TextField';
-import { makeStyles } from '@mui/styles';
-import Link from "next/link";
-import { useRouter } from 'next/navigation';
 import { useState } from "react";
-import StatusTab from '../../status-tab';
+import { useRouter } from 'next/navigation';
+import Link from "next/link";
+import { Box, Grid, Typography,TextField } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles({
     typography: {
@@ -31,7 +29,7 @@ const AddEmployeeManagement = () => {
   const [address, setAddress] = useState("");
   const [selected,setSelected]=useState("")
  
-  const handleChange=(e)=>{
+  const handleChange=(e:any)=>{
     setSelected(e.target.value)
     setSite(e.target.value)
   }

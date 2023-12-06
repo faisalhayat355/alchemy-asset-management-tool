@@ -1,17 +1,15 @@
 "use client"
+import { useEffect, useState } from 'react';
+import moment from "moment";
+import Link from 'next/link';
 import AddIcon from '@mui/icons-material/Add';
 import AddToQueueIcon from '@mui/icons-material/AddToQueue';
 import LaptopIcon from '@mui/icons-material/Laptop';
-import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { Box, Button, Divider, Grid, Paper, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import moment from "moment";
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import { IAssets } from '../assets/listofassets/models/assets.model';
 
 
 const localizer = momentLocalizer(moment);
@@ -34,34 +32,34 @@ const useStyles = makeStyles({
         },
     },
     divIcon: {
-        borderRadius:'5px',background:'#1F7DA9',height:'3vh',width:'43%',
+        borderRadius:'5px',background:'#1F7DA9',height:'3vh',width:'32%',
         marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
         paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',color:'white',
         transition: "width 2s, height 2s, transform 2s",
         "&:hover": {
-            borderRadius:'5px',background:'#3b82f6',height:'3vh',width:'43%',
+            borderRadius:'5px',background:'#3b82f6',height:'3vh',width:'32%',
             marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
             paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',transform: "rotate(180deg)",
         },
     },
     divIcon2: {
-        borderRadius:'5px',background:'#a21caf',height:'3vh',width:'43%',
+        borderRadius:'5px',background:'#a21caf',height:'3vh',width:'32%',
         marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
         paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',color:'white',
         transition: "width 2s, height 2s, transform 2s",
         "&:hover": {
-            borderRadius:'5px',background:' #c026d3',height:'3vh',width:'43%',
+            borderRadius:'5px',background:' #c026d3',height:'3vh',width:'32%',
             marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
             paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',transform: "rotate(180deg)",  
         },
     },
     divIcon3: {
-        borderRadius:'5px',background:' #ef4444 ',height:'3vh',width:'45%',
+        borderRadius:'5px',background:' #ef4444 ',height:'3vh',width:'34%',
         marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
         paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',color:'white',
         transition: "width 2s, height 2s, transform 2s",
         "&:hover": {
-            borderRadius:'5px',background:'#dc2626',height:'3vh',width:'45%',
+            borderRadius:'5px',background:'#dc2626',height:'3vh',width:'34%',
             marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
             paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',transform: "rotate(180deg)",  
         },
@@ -88,15 +86,13 @@ const useStyles = makeStyles({
   });
   
 const DashboardPage = () => {
+
     const classes = useStyles();
     const [data, setData] = useState([]);
-    // const [newAsset,setNewAsset]=useState([])
     const [oldAsset,setOldAsset] = useState([])
     const [scrapAsset,setScrapAsset] = useState([])
     const [employee,setEmployee] = useState([])
-
     const [events, setEvents] = useState([]);
-
 
     const fetchData = () => {
       fetch("http://localhost:8000/users")
@@ -169,16 +165,16 @@ const DashboardPage = () => {
       
       // let employeeData = employee.length;
 
-      const calendarAsset = data?.map((data : IAssets) => {
-        return {
-          title: data.purchasefrom,
-          start: new Date(data.brand),
-          end: new Date(data.id),
-        }
-      });
-      useEffect(() => {
-        setEvents(calendarAsset);
-      }, []);
+    //   const calendarAsset = data?.map((data : IAssets) => {
+    //     return {
+    //       title: data.purchasefrom,
+    //       start: new Date(data.brand),
+    //       end: new Date(data.id),
+    //     }
+    //   });
+    //   useEffect(() => {
+    //     setEvents(calendarAsset);
+    //   }, []);
 
   return (
     <div>
@@ -186,7 +182,6 @@ const DashboardPage = () => {
             <Grid container sx={{padding:'0.7rem',alignItems:'center'}}>
                 <Grid item lg={10.5} xs={12} md={10.35} sx={{display:'flex',alignItems:'center'}}>
                     <Typography fontSize={"1.8rem"} style={{fontWeight:'bold',color:'#1e293b',fontFamily:"cursive",fontSize:'1.5rem'}}>Dashboard 
-                    {/* <span style={{fontSize:'1rem'}}>dashboard & statistics</span> */}
                     </Typography>
                 </Grid>
                 <Grid item lg={1.5} xs={12} md={1.65}>
@@ -194,31 +189,25 @@ const DashboardPage = () => {
                     <Button size='small' style={{textTransform:'capitalize',fontWeight:"bold",background:'#1F7DA9',color:'white'}}  startIcon={<AddIcon style={{fontSize:'1.4rem'}}/>}> Add New Asset</Button>
                 </Link>
                 </Grid>
-                {/* <Grid item xs={2.1} style={{display:'flex',justifyContent:'flex-end'}}>
-                    <Link href="/setup" passHref style={{ textDecoration: "none" }}>
-                    <Button variant="outlined" size='small' style={{textTransform:'capitalize',background:'white'}} endIcon={<ManageAccountsIcon style={{fontSize:'1.4rem',color:'#a21caf'}}/>}>Manage Dashboard</Button>
-                    </Link>
-                </Grid> */}
                <Grid container spacing={1}>
-                <Grid item lg={3} mt={1.5} xs={6} md={6}>
+                    <Grid item lg={4} mt={1.5} xs={6} md={6}>
                     <Link href="/assets/listofassets" passHref style={{ textDecoration: "none" }}>
                     <Paper className={classes.paper} elevation={0} >
-                       <Grid container> 
-                       <Grid item xs={4}>
-                       <div className={classes.divIcon}> <SettingsIcon style={{fontSize:'1rem',marginTop:'-1rem'}}/></div>
-                       </Grid>
-                        <Grid item xs={8} sx={{display:'flex',justifyContent:'center'}}>
-                        <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Total Asset</Typography>
+                        <Grid container> 
+                        <Grid item xs={4}>
+                        <div className={classes.divIcon}> <SettingsIcon style={{fontSize:'1rem',marginTop:'-1rem'}}/></div>
                         </Grid>
-                        <Grid item xs={8} sx={{display:'flex',justifyContent:'flex-end',paddingTop:'1rem'}}>
-                        <Typography fontSize={"1.5rem"}>{length}</Typography>
+                            <Grid item xs={8} sx={{display:'flex',justifyContent:'center'}}>
+                            <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Total Asset</Typography>
+                            </Grid>
+                            <Grid item xs={8} sx={{display:'flex',justifyContent:'flex-end',paddingTop:'1rem'}}>
+                            <Typography fontSize={"1.5rem"}>{length}</Typography>
+                            </Grid>
                         </Grid>
-                       </Grid>
                     </Paper>
-                </Link>
-                </Grid>
-                <Grid item lg={3} mt={1.5} xs={6} md={6}>
-                {/* <Link href="/assets/listofassets" passHref style={{ textDecoration: "none" }}> */}
+                    </Link>
+                    </Grid>
+                <Grid item lg={4} mt={1.5} xs={6} md={6}>
                     <Paper className={classes.paper} elevation={0} >
                        <Grid container> 
                        <Grid item xs={4}>
@@ -228,16 +217,12 @@ const DashboardPage = () => {
                         <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Asset Assigned </Typography>
                         </Grid>
                         <Grid item xs={8} sx={{display:'flex',justifyContent:'flex-end',paddingTop:'1rem'}}>
-                        {/* <Typography fontSize={"1.5rem"}>{newAssetData}</Typography> */}
-                        {/* {data?.filter(r => r.site !== "Active")?.length} */}
                         <Typography fontSize={"1.5rem"}>{data?.filter(r => r.site !== 'InActive')?.length}</Typography>
                         </Grid>
                        </Grid>
                     </Paper>
-                    {/* </Link> */}
                 </Grid>
-                <Grid item lg={3} mt={1.5} xs={6} md={6}>
-                {/* <Link href="/assets/addassets/addstockassets/stockassetlist" passHref style={{ textDecoration: "none" }}> */}
+                <Grid item lg={4} mt={1.5} xs={6} md={6}>
                     <Paper className={classes.paper} elevation={0} >
                        <Grid container> 
                        <Grid item xs={3.8}>
@@ -247,15 +232,13 @@ const DashboardPage = () => {
                         <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Active Stock</Typography>
                         </Grid>
                         <Grid item xs={8} sx={{display:'flex',justifyContent:'flex-end',paddingTop:'1rem'}}>
-                        {/* <Typography fontSize={"1.5rem"}>{oldAssetData}</Typography> */}
                         <Typography fontSize={"1.5rem"}> {data?.filter(r => r.site !== 'Active')?.length}</Typography>
                         </Grid>
                        </Grid>
                     </Paper>
-                {/* </Link> */}
                 </Grid>
-                <Grid item lg={3} mt={1.5} xs={6} md={6}>
-                {/* <Link href="/assets/addassets/employeemanagement" passHref style={{ textDecoration: "none" }}> */}
+                {/* <Grid item lg={3} mt={1.5} xs={6} md={6}>
+                <Link href="/assets/addassets/employeemanagement" passHref style={{ textDecoration: "none" }}>
                     <Paper className={classes.paper} elevation={0} >
                        <Grid container> 
                        <Grid item xs={3.8}>
@@ -266,12 +249,12 @@ const DashboardPage = () => {
                         </Grid>
                         <Grid item xs={8} sx={{display:'flex',justifyContent:'flex-end',paddingTop:'1rem'}}>
                         <Typography fontSize={"1.5rem"}>0</Typography>
-                        {/* <Typography fontSize={"1.5rem"}> {data?.filter(r => r.site !== 'Under Maintainance')?.length}</Typography> */}
+                        <Typography fontSize={"1.5rem"}> {data?.filter(r => r.site !== 'UnderMaintainance')?.length}</Typography>
                         </Grid>
                        </Grid>
                     </Paper>
-                {/* </Link> */}
-                </Grid>
+                </Link>
+                </Grid> */}
                </Grid>  
                <Grid container spacing={1} mt={0.1}>
                 <Grid item lg={5} xs={12}>
@@ -294,18 +277,14 @@ const DashboardPage = () => {
                             </Grid>
                         </Grid>
                         <Divider style={{width:'100%',paddingLeft:'0.5rem',marginTop:'0.6rem'}}/>
-                        {/* <Calendar localizer={localizer}
-                            startAccessor="start" endAccessor="end"
-                            style={{ height: 270,marginLeft:'0.6rem',marginTop:'0.5rem' }}/> */}
-                             <Calendar events={events} startAccessor="start"
-                              endAccessor="end" defaultDate={moment().toDate()} localizer={localizer} style={{ height: 305,marginLeft:'0.6rem',marginTop:'0.5rem' }}/>
+                             <Calendar events={events} startAccessor="start" endAccessor="end" 
+                             defaultDate={moment().toDate()} localizer={localizer} 
+                             style={{ height: 305,marginLeft:'0.6rem',marginTop:'0.5rem'}}/>
                     </Paper>
                 </Grid>
             </Grid>              
             </Grid>
         </Box>
-      {/* <DashboardGraphView newAsset={newAsset}/> */}
-      {/* <DashboardChart newAsset={newAsset}/> */}
 
     </div>
   )

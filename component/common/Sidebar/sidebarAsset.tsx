@@ -171,7 +171,7 @@ const SidebarAssetComponent = ({show}:any) => {
  
     <div style={{height:'78vh',overflowY:'auto',overflowX:'hidden'}}>
       <List sx={{ width: "100%", maxWidth: 360}}component="nav" aria-labelledby="nested-list-subheader">
-      <ListItemButton selected={selectedIndex === 0}
+      {/* <ListItemButton selected={selectedIndex === 0}
           onClick={(event) => handleListItemClick(event, 0)} >
             <Tooltip title="Profile" arrow TransitionComponent={Fade}
           TransitionProps={{ timeout: 600 }} placement="right-start">
@@ -216,9 +216,9 @@ const SidebarAssetComponent = ({show}:any) => {
           </ListItemButton>
         </List>
         </Link>
-      </Collapse>
+      </Collapse> */}
       <Divider style={{width:'100%'}}/>
-      <Collapse in={profile} timeout="auto" unmountOnExit style={{marginTop:'-0.1rem'}}>
+      {/* <Collapse in={profile} timeout="auto" unmountOnExit style={{marginTop:'-0.1rem'}}>
       <Link href="/alerts/setupalerts" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 2.7 }}>
@@ -239,7 +239,7 @@ const SidebarAssetComponent = ({show}:any) => {
           </ListItemButton>
         </List>
         </Link>
-      </Collapse>
+      </Collapse> */}
          <Link href="/dashboard" passHref style={{ textDecoration: "none" }}>
         <ListItemButton selected={selectedIndex === 1}
           onClick={(event) => handleListItemClick(event, 1)}>
