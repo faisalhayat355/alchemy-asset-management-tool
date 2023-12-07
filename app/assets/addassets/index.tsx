@@ -10,20 +10,39 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import TextField from '@mui/material/TextField';
   
 const AssetCreatePage = () => {
-  const [inputData, setInputData] = useState({assettagid:"",purchasefrom:"",purchasedate:"",mobile:"",address:"",description:"",brand:"",cost:"",model:"",serialno:"",site:"",category:"",location:"",department:"",processor:"",ram:"",status:"",remarks:"",disktype:""});
-  // const [ram,setRam]=useState()
   const router = useRouter()
   const [data, setData] = useState([]);
+  const [inputData, setInputData] = useState({
+    assettagid:"",
+    purchasefrom:"",
+    purchasedate:"",
+    mobile:"",
+    address:"",
+    description:"",
+    brand:"",
+    cost:"",
+    model:"",
+    serialno:"",
+    site:"",
+    category:"",
+    location:"",
+    department:"",
+    processor:"",
+    ram:"",
+    status:"",
+    remarks:"",
+    disktype:""});
 
   async function fetchData() {
-      const users = await fetch("http://localhost:8000/users");
-      const result = await users.json();
-      setData(result);
-    }
+    const users = await fetch("http://localhost:8000/users");
+    const result = await users.json();
+    setData(result);
+  }
     useEffect(() => {
       fetchData();
     }, []);
     let length = data.length;
+    
   function handleSubmit(event:any) {
     event.preventDefault();
     axios

@@ -64,7 +64,6 @@ const EmployeeListComponent = () => {
         isResizable: true,
         enableSorting: true,
       },
-
       {
         accessorKey: 'site',
         header: 'Site.',
@@ -72,7 +71,6 @@ const EmployeeListComponent = () => {
         isResizable: true,
         enableSorting: true,
       },
-
       {
         accessorKey: 'actions',
         header: 'Actions',
@@ -86,15 +84,13 @@ const EmployeeListComponent = () => {
                   <IconButton onClick={() => handleView(cell.row.original)}>
                     <VisibilityIcon style={{fontSize:'1rem'}}/>
                   </IconButton>
-                  </Link>
+                </Link>
                 </Tooltip>
-                </Box>
+              </Box>
             )}
           </div>
         ),
       },
-     
-      
     ],
     [],
   );

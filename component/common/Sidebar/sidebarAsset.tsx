@@ -429,12 +429,12 @@ const SidebarAssetComponent = ({show}:any) => {
           TransitionProps={{ timeout: 600 }} placement="right-start">
           <PersonAddAltIcon style={{color:"#1F7DA9",fontSize:'1.4rem',marginRight:'0.6rem'}} />
           </Tooltip>
-       {show && (
-        <div style={{display:'flex',alignItems:'center'}} onClick={handleClickEmployee}>
-           <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Employee</Typography> 
-            {employee ? <ExpandLess style={{marginLeft:'3.85rem',color:"#1F7DA9"}}/> : <ExpandMore style={{marginLeft:'3.85rem'}}/>} 
-        </div>
-       )}
+          {show && (
+            <div style={{display:'flex',alignItems:'center'}} onClick={handleClickEmployee}>
+              <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Employee</Typography> 
+                {employee ? <ExpandLess style={{marginLeft:'3.85rem',color:"#1F7DA9"}}/> : <ExpandMore style={{marginLeft:'3.85rem'}}/>} 
+            </div>
+          )}
         <ListItemIcon style={{marginLeft:'2rem'}}>
         </ListItemIcon>
       </ListItemButton>
@@ -450,10 +450,7 @@ const SidebarAssetComponent = ({show}:any) => {
         </List>
         </Link>
       </Collapse>
-
-
       <Divider style={{width:'100%'}}/>
-      {/* <Link href="/reports" passHref style={{ textDecoration: "none",color:'#414242' }}> */}
       <ListItemButton selected={selectedIndex === 6}
           onClick={(event) => handleListItemClick(event, 6)}>
           <Tooltip title="Reports" arrow TransitionComponent={Fade}
@@ -461,15 +458,14 @@ const SidebarAssetComponent = ({show}:any) => {
           <DescriptionOutlinedIcon style={{color:"#1F7DA9",fontSize:'1.4rem',marginRight:'0.6rem'}} />
           </Tooltip>
           {show && (
-        <div style={{display:'flex',alignItems:'center'}} onClick={handleClickReports}>
-            <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Reports</Typography>
-            {reports ? <ExpandLess style={{marginLeft:'4.7rem',color:"#1F7DA9"}}/> : <ExpandMore style={{marginLeft:'4.7rem'}} />}
-        </div>
+            <div style={{display:'flex',alignItems:'center'}} onClick={handleClickReports}>
+                <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Reports</Typography>
+                {reports ? <ExpandLess style={{marginLeft:'4.7rem',color:"#1F7DA9"}}/> : <ExpandMore style={{marginLeft:'4.7rem'}} />}
+            </div>
           )}
         <ListItemIcon style={{marginLeft:'2rem'}}>
         </ListItemIcon>
       </ListItemButton>
-      {/* </Link> */}
       <Collapse in={reports} timeout="auto" unmountOnExit style={{marginTop:'0.1rem'}}>
       <Link href="/reports/clientwise" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
@@ -481,7 +477,6 @@ const SidebarAssetComponent = ({show}:any) => {
           </ListItemButton>
         </List>
         </Link>
-
         <Link href="/reports/departmentwise" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 2.7 }}>
@@ -492,555 +487,19 @@ const SidebarAssetComponent = ({show}:any) => {
           </ListItemButton>
         </List>
         </Link>
-
       </Collapse>
-      
-      {/* <Collapse in={reports} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-         {show && (
-           <ListItemButton sx={{ pl: 5 }} onClick={handleClickCustomReports} >
-           <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Custom Reports</Typography>
-           {customReports ? <ExpandLess style={{marginLeft:'2.8rem',color:"#1F7DA9"}}/> : <ExpandMore style={{marginLeft:'2.8rem'}}/>}
-         </ListItemButton>
-         )}
-          <Collapse in={customReports} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}>
-      <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-         {show && (
-           <ListItemButton sx={{ pl:5.5}}>
-           <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>New Report</Typography>
-         </ListItemButton>
-         )}
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          {show && (
-            <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>-Asset List</Typography>
-          </ListItemButton>
-          )}
-        </List>
-        </Link>
-      </Collapse>
-
-      {show && (
-        <ListItemButton sx={{ pl: 5 }} onClick={handleClickAssetReports} >
-        <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Asset Reports</Typography>
-        {assetReports ? <ExpandLess style={{marginLeft:'3.6rem',color:"#1F7DA9"}}/> : <ExpandMore style={{marginLeft:'3.6rem'}}/>}
-      </ListItemButton>
-      )}
-          <Collapse in={assetReports} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}>
-      <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        {show && (
-          <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>by Asset Tag</Typography>
-          </ListItemButton>
-        </List>
-        )}
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          {show && (
-            <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>by Tag with Pictures</Typography>
-          </ListItemButton>
-          )}
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-         {show && (
-           <ListItemButton sx={{ pl:5.5}}>
-           <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>by Category</Typography>
-         </ListItemButton>
-         )}
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>by Site/Location</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-         {show && (
-           <ListItemButton sx={{ pl:5.5}}>
-           <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>by Department</Typography>
-         </ListItemButton>
-         )}
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-         {show && (
-           <ListItemButton sx={{ pl:5.5}}>
-           <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>by Warranty Info.</Typography>
-         </ListItemButton>
-         )}
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-        {show && (
-            <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>by Linked Assets</Typography>
-          </ListItemButton>
-        )}
-        </List>
-        </Link>
-      </Collapse>
-
-      <ListItemButton sx={{ pl: 5 }} onClick={handleClickAuditReports} >
-          {show && (
-             <div style={{display:'flex'}}>
-             <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Audit Reports</Typography>
-              {auditReports ? <ExpandLess style={{marginLeft:'3.7rem',color:"#1F7DA9"}}/> : <ExpandMore style={{marginLeft:'3.7rem'}}/>}
-             </div>
-          )}
-      </ListItemButton>
-      <Collapse in={auditReports} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}>
-      <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>by Asset Tag</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>by Audit Date</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>by Site/Location</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Non-Audited Assets</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Location Discrepancy</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>by Funding</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Non Audited-Funding</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-      </Collapse>
-      <ListItemButton sx={{ pl: 5 }} onClick={handleClickCheckOutReports} >
-       {show && (
-        <div style={{display:'flex'}}>
-           <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Check-Out Reports</Typography>
-            {checkOutReports ? <ExpandLess style={{marginLeft:'1.8rem',color:'#1F7DA9'}}/> : <ExpandMore style={{marginLeft:'1.8rem'}}/>}
-        </div>
-       )}
-      </ListItemButton>
-      <Collapse in={checkOutReports} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}>
-      <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>by Person/ Employee</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>by Asset/Tag</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>by Due Date</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>by Past Date</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>by Suite/Location</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>in a Time Frame</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-      </Collapse>
-      <ListItemButton sx={{ pl: 5 }} onClick={handleClickLeasedReports} >
-      {show && (
-        <div style={{display:'flex'}}>
-            <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Leased Asset Reports</Typography>
-            {leasedReports ? <ExpandLess style={{marginLeft:'0.75rem',color:"#1F7DA9"}}/> : <ExpandMore style={{marginLeft:'0.75rem'}}/>}
-        </div>
-      )}    
-      </ListItemButton>
-      <Collapse in={leasedReports} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}>
-      <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>by Customer</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>by Asset Tag</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>by Due Date</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>by Past Date</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>in a Time Frame</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-      </Collapse>
-      <ListItemButton sx={{ pl: 5 }} onClick={handleClickMaintenanceReports} >
-      {show && (
-        <div style={{display:'flex'}}>
-           <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Maintenance Reports</Typography>
-            {maintenanceReports ? <ExpandLess style={{marginLeft:'1rem',color:"#1F7DA9"}}/> : <ExpandMore style={{marginLeft:'1rem'}}/>}
-        </div>
-      )}    
-      </ListItemButton>
-      <Collapse in={maintenanceReports} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}>
-      <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>by Asset Tag</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>by Assigned Person</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>History by Asset Tag</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>History by Date</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Past Due</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-      </Collapse>
-      <ListItemButton sx={{ pl: 5 }} onClick={handleClickReservationReports} >
-      {show && (
-        <div style={{display:"flex"}}>
-            <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Reservation Reports</Typography>
-            {reservationReports ? <ExpandLess style={{marginLeft:'1.3rem',color:"#1F7DA9"}}/> : <ExpandMore style={{marginLeft:'1.3rem'}}/>}
-        </div>
-      )}  
-      </ListItemButton>
-      <Collapse in={reservationReports} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}>
-      <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>by Asset Tag</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-      </Collapse>
-      <ListItemButton sx={{ pl: 5 }} onClick={handleClickStatusReports} >
-      {show && (
-        <div style={{display:'flex'}}>
-            <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Status Reports</Typography>
-            {statusReports ? <ExpandLess style={{marginLeft:'3.3rem',color:"#1F7DA9"}}/> : <ExpandMore style={{marginLeft:'3.3rem'}}/>}
-        </div>
-      )}    
-      </ListItemButton>
-      <Collapse in={statusReports} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}>
-      <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Assets Under Repaire</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Broken Assets</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Disposed Assets</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Donated Assets</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Leased Assets</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Lost/Missing Assets</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Sold Assets</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-      </Collapse>
-      <ListItemButton sx={{ pl: 5 }} onClick={handleClickTransactionReports} >
-      {show && (
-        <div style={{display:'flex'}}>
-           <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Transaction Reports</Typography>
-            {transactionReports ? <ExpandLess style={{marginLeft:'1.3rem',color:"#1F7DA9"}}/> : <ExpandMore style={{marginLeft:'1.3rem'}}/>}
-        </div>
-      )}     
-      </ListItemButton>
-      <Collapse in={transactionReports} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}>
-      <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Add Assets</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Broken Assets</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Checkout/Checkin</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Dispose Assets</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Donate Assets</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Edit Assets</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Lease out/Lease return</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Lost/Missing Assets</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Move Assets</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Repaire Assets</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Reserve Assets</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Sell Assets</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Transaction History</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Actions by Users</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-      </Collapse>
-      <ListItemButton sx={{ pl: 5 }} onClick={handleClickOtherReports} >
-      {show && (
-        <div style={{display:'flex'}}>
-            <Typography sx={{color:'#414242',fontSize:'0.75rem',fontWeight:'550'}}>Other Reports</Typography>
-            {otherReports ? <ExpandLess style={{marginLeft:'3.5rem',color:"#1F7DA9"}}/> : <ExpandMore style={{marginLeft:'3.5rem'}}/>}
-        </div>
-      )}    
-      </ListItemButton>
-      <Collapse in={otherReports} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}>
-      <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Customer List</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Category List</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Department List</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Person/Employee List</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-        <Link href="/alerts/leaseexpiring" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl:5.5}}>
-            <Typography sx={{color:'#414242',fontSize:'0.8rem'}}><span style={{marginRight:'0.3rem ',fontSize:'0.6rem'}}>o</span>Site/Location List</Typography>
-          </ListItemButton>
-        </List>
-        </Link>
-       
-        
-      </Collapse>
-        </List>
-      </Collapse> */}
       <Divider style={{width:'100%'}}/>
-      <ListItemButton selected={selectedIndex === 9}
-          onClick={(event) => handleListItemClick(event, 9)}>
+      <ListItemButton selected={selectedIndex === 9} onClick={(event) => handleListItemClick(event, 9)}>
           <Tooltip title="Setup" arrow TransitionComponent={Fade}
           TransitionProps={{ timeout: 600 }} placement="right-start">
           <SettingsOutlinedIcon style={{color:"#1F7DA9",fontSize:'1.4rem',marginRight:'0.6rem'}} />
           </Tooltip>
-       {show && (
-        <div style={{display:'flex',alignItems:'center'}} onClick={handleClickSetup}>
-           <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Setup</Typography> 
-            {setup ? <ExpandLess style={{marginLeft:'5.6rem',color:"#1F7DA9"}}/> : <ExpandMore style={{marginLeft:'5.6rem'}}/>} 
-        </div>
-       )}
+          {show && (
+            <div style={{display:'flex',alignItems:'center'}} onClick={handleClickSetup}>
+              <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Setup</Typography> 
+                {setup ? <ExpandLess style={{marginLeft:'5.6rem',color:"#1F7DA9"}}/> : <ExpandMore style={{marginLeft:'5.6rem'}}/>} 
+            </div>
+          )}
         <ListItemIcon style={{marginLeft:'2rem'}}>
         </ListItemIcon>
       </ListItemButton>
@@ -1063,12 +522,12 @@ const SidebarAssetComponent = ({show}:any) => {
           TransitionProps={{ timeout: 600 }} placement="right-start">
           <SupportOutlinedIcon style={{color:"#1F7DA9",fontSize:'1.3rem',marginRight:'0.6rem'}} />
           </Tooltip>
-       {show && (
-        <div style={{display:'flex',alignItems:'center'}} onClick={handleClickHelpSupport}>
-           <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Help/Support</Typography> 
-          {helpsupport ? <ExpandLess style={{marginLeft:'2.5rem',color:"#1F7DA9"}}/> : <ExpandMore style={{marginLeft:'2.5rem'}}/>}
-        </div>
-       )}
+          {show && (
+            <div style={{display:'flex',alignItems:'center'}} onClick={handleClickHelpSupport}>
+              <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Help/Support</Typography> 
+              {helpsupport ? <ExpandLess style={{marginLeft:'2.5rem',color:"#1F7DA9"}}/> : <ExpandMore style={{marginLeft:'2.5rem'}}/>}
+            </div>
+          )}
         <ListItemIcon style={{marginLeft:'2rem'}}>
         </ListItemIcon>
       </ListItemButton>
@@ -1113,49 +572,10 @@ const SidebarAssetComponent = ({show}:any) => {
           </ListItemButton>
         </List>
         </Link>
-        {/* <Link href="/help-support/videos" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 2.7 }}>
-          <SmartDisplayOutlinedIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            {show && (
-              <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Videos</Typography>
-            )}
-          </ListItemButton>
-        </List>
-        </Link> */}
-        {/* <Link href="/help-support/user-reviews" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 2.7 }}>
-          <StarBorderPurple500OutlinedIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-            {show && (
-              <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>User Reviews</Typography>
-            )}
-          </ListItemButton>
-        </List>
-        </Link> */}
-        {/* <Link href="/help-support/change-log" passHref style={{ textDecoration: "none" }}>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 2.7 }}>
-          <WatchLaterOutlinedIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
-           {show && (
-            <div style={{display:'flex'}}>
-               <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Changelog</Typography>
-            <ListItemIcon style={{marginLeft:'1rem'}}>
-              <div style={{background:'#dc2626',width:'90%',height:'3.5vh ',borderRadius:'4px',paddingLeft:'0.6rem',paddingTop:'0.2rem',fontWeight:'bold'}}>
-                <Typography sx={{fontSize:'0.8rem',color:'white'}}>Aug01</Typography>
-              </div>
-        </ListItemIcon>
-            </div>
-           )}
-          </ListItemButton>
-          
-        </List>
-        </Link> */}
       </Collapse>
       <Divider style={{width:'100%'}}/>
     </List>
     </div>
-
     <ListItemButton  onClick={() => signOut()}>
       <Tooltip title="Logout" arrow TransitionComponent={Fade}
         TransitionProps={{ timeout: 600 }} placement="right-start">

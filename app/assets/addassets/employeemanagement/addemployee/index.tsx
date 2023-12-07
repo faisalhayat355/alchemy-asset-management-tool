@@ -1,5 +1,5 @@
 "use client"
-import { useEffect, useState } from "react";
+import React, {useState} from "react";
 import { useRouter } from 'next/navigation';
 import Link from "next/link";
 import { Box, Grid, Typography,TextField } from '@mui/material';
@@ -29,23 +29,6 @@ const AddEmployeeManagement = () => {
   const [workLocation, setWorkLocation] = useState("");
   const [address, setAddress] = useState("");
   const [selected,setSelected]=useState("")
-  const [items, setItems] = useState([]);
-
-  async function fetchData() {
-      const users = await fetch("http://localhost:8000/employeeManagement");
-      const result = await users.json();
-      setItems(result);
-    }
-    useEffect(() => {
-      fetchData();
-    }, []);
-    let length = items.length;
-
-  const handleChange=(e:any)=>{
-    setSelected(e.target.value)
-    setSite(e.target.value)
-  }
-
   const classes = useStyles();
 
   function handleSaveData() {
@@ -81,7 +64,10 @@ const AddEmployeeManagement = () => {
       router.push('/assets/employeeManagement', { scroll: false })
     });
   }
-
+  const handleChange=(e:any)=>{
+    setSelected(e.target.value)
+    setSite(e.target.value)
+  }
   return (
     <div>
      <Box >
@@ -219,7 +205,6 @@ const AddEmployeeManagement = () => {
             </Grid>
           </Grid>
         </Grid>
-
         <Grid item xs={12} lg={6} md={12} sm={12} mt={1} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
@@ -230,15 +215,14 @@ const AddEmployeeManagement = () => {
             </Grid>
           </Grid>
         </Grid>
-
         <Grid item xs={12} lg={6} md={12} sm={12} mt={1} >
           <Grid container sx={{alignItems:'center'}}>
             <Grid item xs={3.2}>
             <Typography>Work Location</Typography>
             </Grid>
             <Grid item xs={8}>
-              <select style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}  name="workLocation"
-               value={workLocation} onChange={(e) => {setWorkLocation(e.target.value);}}>
+              <select style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}} 
+                name="workLocation" value={workLocation} onChange={(e) => {setWorkLocation(e.target.value);}}>
                 <option>Select Work Location</option>
                 <option>Work from Home</option>
                 <option>Work from Office</option>
@@ -253,8 +237,8 @@ const AddEmployeeManagement = () => {
             <Typography>Address</Typography>
             </Grid>
             <Grid item xs={8}>
-            <TextField id="outlined-basic"  fullWidth size='small'
-            name="address" value={address} onChange={(e) => {setAddress(e.target.value);}}/>
+            <TextField id="outlined-basic"  fullWidth size='small' name="address" 
+                value={address} onChange={(e) => {setAddress(e.target.value);}}/>
             </Grid>
           </Grid>
         </Grid>
@@ -340,7 +324,7 @@ const AddEmployeeManagement = () => {
       return(
         <>
         <select value={clientLob} onChange={(e) => {setClientLob(e.target.value);}} style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}>
-        <option>Select Client Lob</option>
+          <option>Select Client Lob</option>
           <option>ENTERPRISE ACCOUNTS - (BPO)</option>
           <option>ENTERPRISE ACCOUNTS - (IT-SI)</option>
           <option>STRATEGIC ACCOUNTS - (CAPTIVE)</option>
@@ -350,5 +334,4 @@ const AddEmployeeManagement = () => {
         </>
       )
     }
-
 export default AddEmployeeManagement
