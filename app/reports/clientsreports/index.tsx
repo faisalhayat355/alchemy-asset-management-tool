@@ -5,7 +5,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-import { Typography } from '@mui/material';
+import { Autocomplete, TextField, Typography } from '@mui/material';
 
 const ClientsReport = ({ users, updateUsers }:any) => {
 
@@ -29,7 +29,17 @@ const ClientsReport = ({ users, updateUsers }:any) => {
                 {/* <Autocomplete size="small" id="free-solo-demo" freeSolo options={Array.from(new Set(data.map((option) => option.client)))}
                 renderInput={(params) => <TextField {...params}/>}/> */}
 
-                <Box sx={{ minWidth: 120 }}>
+              <Autocomplete size="small" freeSolo disableClearable 
+                options={Array.from(new Set(users.map((f) => f.client)))}
+                renderInput={(params) => (
+                  <TextField {...params} label="Name"
+                    InputProps={{
+                      ...params.InputProps,
+                      type: "search", }}/>)} onChange={(event, value) => setFilterData(value)}/>
+
+
+
+                {/* <Box sx={{ minWidth: 120 }}>
                 <FormControl fullWidth>
                 <Select labelId="demo-simple-select-label"
                     id="demo-simple-select" onChange={(e) => setFilterData(e.target.value)} size='small' >
@@ -38,7 +48,7 @@ const ClientsReport = ({ users, updateUsers }:any) => {
                     })} 
                 </Select>
                 </FormControl>
-                </Box>
+                </Box> */}
                 </Grid>
             </Grid>
     </div>

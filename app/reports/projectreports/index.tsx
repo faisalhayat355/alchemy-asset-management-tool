@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Typography } from '@mui/material';
+import { Autocomplete, TextField, Typography } from '@mui/material';
 import Box from "@mui/material/Box";
 import FormControl from "@mui/material/FormControl";
 import Grid from "@mui/material/Grid";
@@ -30,11 +30,26 @@ const ProjectReport = ({ users, updateUsers }:any) => {
             <Grid item xs={6.4}>
                 {/* <Autocomplete size="small" id="free-solo-demo" value={projectName} onChange={(e) => setFilterData(e.target.value)} freeSolo options={Array.from(new Set(users.map((option) => option.projectName)))}
                 renderInput={(params) => <TextField {...params} />}/> */}
-                <Box sx={{ minWidth: 120 }}>
+
+                  <Autocomplete size="small"
+                    freeSolo disableClearable options={Array.from(new Set(users.map((f) => f.projectName)))}
+                    renderInput={(params) => (
+                      <TextField
+                        {...params}
+                        label="Name"
+                        InputProps={{
+                          ...params.InputProps,
+                          type: "search",
+                        }}
+                      />
+                    )}
+                    onChange={(event, value) => setFilterData(value)}/>
+
+
+                {/* <Box sx={{ minWidth: 120 }}>
                 <FormControl fullWidth>
                 <Select labelId="demo-simple-select-label" id="demo-simple-select" 
                   onChange={(e) => setFilterData(e.target.value)} size='small'>
-                      {/* <MenuItem >ALL</MenuItem> */}
                     {users.map((f) => {
                     return(
                         <MenuItem value={f.projectName}>
@@ -43,7 +58,7 @@ const ProjectReport = ({ users, updateUsers }:any) => {
                     )})} 
                 </Select>
                 </FormControl>
-                </Box>
+                </Box> */}
             </Grid>
             </Grid>
     </div>
