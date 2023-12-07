@@ -25,20 +25,17 @@ const ClientsReport = ({ users, updateUsers }:any) => {
                 <Grid item xs={1}>
                 <Typography>:</Typography>
                 </Grid>
-                <Grid item xs={6.7}>
+                <Grid item xs={7}>
                 {/* <Autocomplete size="small" id="free-solo-demo" freeSolo options={Array.from(new Set(data.map((option) => option.client)))}
                 renderInput={(params) => <TextField {...params}/>}/> */}
 
               <Autocomplete size="small" freeSolo disableClearable 
                 options={Array.from(new Set(users.map((f) => f.client)))}
                 renderInput={(params) => (
-                  <TextField {...params} label="Name"
+                  <TextField {...params}
                     InputProps={{
                       ...params.InputProps,
                       type: "search", }}/>)} onChange={(event, value) => setFilterData(value)}/>
-
-
-
                 {/* <Box sx={{ minWidth: 120 }}>
                 <FormControl fullWidth>
                 <Select labelId="demo-simple-select-label"

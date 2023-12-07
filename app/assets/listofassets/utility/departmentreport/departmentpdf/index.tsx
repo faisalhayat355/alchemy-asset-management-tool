@@ -7,20 +7,21 @@ type AssetsProps = {
   users: Array<IAssets>;
 };
 
-const ClientReportPDFDownload = ({users}:AssetsProps) => {
+const DepartmentReportPDFDownload = ({users}:AssetsProps) => {
 
-  const exportPDF = async () => {
-    const fileName = `client-report-list-${new Date().toISOString().slice(0, 10)}`;
-    const headers = [["EMPLOYEE ID","EMPLOYEE NAME", "CLIENT NAME", "PROJECT NAME","LOCATION", "SBU HEAD","CLIENT LOB"]];
+    const exportPDF = async () => {
+    const fileName = `departmentwise-report-list-${new Date().toISOString().slice(0, 10)}`;
+    const headers = [["EMPLOYEE ID", "EMPLOYEE NAME", "CONTACT NO.", "DEPARTMENT", "DESIGNATION","EMAIL", "WORK LOCATION", "ADDRESS"]];
     const pdfSendData = users?.map((elt) => [
      
       elt.employeeid,
-      elt.name,
-      elt. client,
-      elt.projectName,
-      elt.location,
-      elt.sbuHead,
-      elt.clientLob,
+      elt. name,
+      elt.mobile,
+      elt.department,
+      elt.position,
+      elt.email,
+      elt.workLocation,
+      elt.address,
     ]);
     await download({
       headers,
@@ -37,4 +38,4 @@ const ClientReportPDFDownload = ({users}:AssetsProps) => {
   )
 }
 
-export default ClientReportPDFDownload
+export default DepartmentReportPDFDownload

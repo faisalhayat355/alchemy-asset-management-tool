@@ -61,6 +61,7 @@ import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import { signOut } from "next-auth/react";
+import GroupIcon from '@mui/icons-material/Group';
 import Link from "next/link";
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import "../../styles.css";
@@ -437,7 +438,7 @@ const SidebarAssetComponent = ({show}:any) => {
         <ListItemIcon style={{marginLeft:'2rem'}}>
         </ListItemIcon>
       </ListItemButton>
-      <Collapse in={employee} timeout="auto" unmountOnExit>
+      <Collapse in={employee} timeout="auto" unmountOnExit style={{marginTop:'0.1rem'}}>
       <Link href="/assets/addassets/employeemanagement" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 2.7 }}>
@@ -452,7 +453,7 @@ const SidebarAssetComponent = ({show}:any) => {
 
 
       <Divider style={{width:'100%'}}/>
-      <Link href="/reports" passHref style={{ textDecoration: "none",color:'#414242' }}>
+      {/* <Link href="/reports" passHref style={{ textDecoration: "none",color:'#414242' }}> */}
       <ListItemButton selected={selectedIndex === 6}
           onClick={(event) => handleListItemClick(event, 6)}>
           <Tooltip title="Reports" arrow TransitionComponent={Fade}
@@ -462,26 +463,39 @@ const SidebarAssetComponent = ({show}:any) => {
           {show && (
         <div style={{display:'flex',alignItems:'center'}} onClick={handleClickReports}>
             <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Reports</Typography>
-            {/* {reports ? <ExpandLess style={{marginLeft:'4.7rem',color:"#1F7DA9"}}/> : <ExpandMore style={{marginLeft:'4.7rem'}} />} */}
+            {reports ? <ExpandLess style={{marginLeft:'4.7rem',color:"#1F7DA9"}}/> : <ExpandMore style={{marginLeft:'4.7rem'}} />}
         </div>
           )}
         <ListItemIcon style={{marginLeft:'2rem'}}>
         </ListItemIcon>
       </ListItemButton>
-      </Link>
-      {/* <Collapse in={reports} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}>
-      <Link href="/alerts/warrantiesexpire" passHref style={{ textDecoration: "none" }}>
+      {/* </Link> */}
+      <Collapse in={reports} timeout="auto" unmountOnExit style={{marginTop:'0.1rem'}}>
+      <Link href="/reports/clientwise" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
-         {show && (
-           <ListItemButton sx={{ pl: 5 }}>
-           <Typography sx={{color:'#414242',fontSize:'0.9rem'}}>Automated Reports</Typography>
-         </ListItemButton>
-         )}
+          <ListItemButton sx={{ pl: 2.7 }}>
+          <GroupIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+           {show && (
+             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Client Wise</Typography>
+           )}
+          </ListItemButton>
         </List>
         </Link>
+
+        <Link href="/reports/departmentwise" passHref style={{ textDecoration: "none" }}>
+        <List component="div" disablePadding>
+          <ListItemButton sx={{ pl: 2.7 }}>
+          <GroupIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+           {show && (
+             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Department Wise</Typography>
+           )}
+          </ListItemButton>
+        </List>
+        </Link>
+
       </Collapse>
       
-      <Collapse in={reports} timeout="auto" unmountOnExit>
+      {/* <Collapse in={reports} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
          {show && (
            <ListItemButton sx={{ pl: 5 }} onClick={handleClickCustomReports} >

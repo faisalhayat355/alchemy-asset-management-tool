@@ -254,6 +254,36 @@ const ViewEmployeeAssetComponent = ({user}:any) => {
               </Grid>
             </Grid>
           </Grid>
+
+
+          <Grid item xs={4}>
+            <Grid container>
+              <Grid item xs={4.4}>
+                <Typography fontSize={"1rem"} fontWeight={"bold"}>SBU Head</Typography>
+              </Grid>
+              <Grid item xs={0.6}>
+                <Typography>:</Typography>
+              </Grid>
+              <Grid item xs={7}>
+              <Typography fontSize={"1rem"}>{user?.sbuHead}</Typography>
+              </Grid>
+            </Grid>
+          </Grid>
+
+          <Grid item xs={8}>
+            <Grid container>
+              <Grid item xs={3}>
+                <Typography fontSize={"1rem"} fontWeight={"bold"}>Client LOB</Typography>
+              </Grid>
+              <Grid item xs={1}>
+                <Typography>:</Typography>
+              </Grid>
+              <Grid item xs={8}>
+              <Typography fontSize={"1rem"}>{user?.clientLob}</Typography>
+              </Grid>
+            </Grid>
+          </Grid>
+
           <Grid item xs={12} sm={12} md={12} lg={12} mt={5} pl={1} pr={1}>
           <Grid container>
             <Grid item xs={11.3} style={{ display: "flex", justifyContent: "flex-end" }}>

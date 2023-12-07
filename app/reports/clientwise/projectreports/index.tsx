@@ -14,10 +14,6 @@ const ProjectReport = ({ users, updateUsers }:any) => {
       updateUsers(newUser);
     }, [filterData]);
 
-    const handleClick = (f) => {
-      setFilterData(f);
-    };
-
   return (
     <div>
         <Grid container style={{alignItems:'center'}}>
@@ -34,9 +30,7 @@ const ProjectReport = ({ users, updateUsers }:any) => {
                   <Autocomplete size="small"
                     freeSolo disableClearable options={Array.from(new Set(users.map((f) => f.projectName)))}
                     renderInput={(params) => (
-                      <TextField
-                        {...params}
-                        label="Name"
+                      <TextField {...params}
                         InputProps={{
                           ...params.InputProps,
                           type: "search",

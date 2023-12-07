@@ -27,6 +27,12 @@ type IAssets = {
     projectName:string;
     location:string;
     mobile:string;
+    position:string;
+    email:string;
+    workLocation:string;
+    address:string;
+    sbuHead:string;
+    clientLob:string;
     returndate:number;
     
     

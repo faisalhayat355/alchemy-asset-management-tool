@@ -8,11 +8,13 @@ import MenuItem from '@mui/material/MenuItem';
 // import AssetCSVDownload from '../utility/asset/assetcsv';
 // import AssetPDFDownload from '../utility/asset/assetpdf';
 // import AssetExcellDownload from '../utility/asset/assetexcell';
-import ClientReportPDFDownload from '../../assets/listofassets/utility/clientsreport/clientpdf';
-import ClientReportExcellDownload from '../../assets/listofassets/utility/clientsreport/clientexcell';
+import ClientReportPDFDownload from '../../../assets/listofassets/utility/clientsreport/clientpdf';
+import ClientReportExcellDownload from '../../../assets/listofassets/utility/clientsreport/clientexcell';
+import DepartmentReportExcellDownload from '../../../assets/listofassets/utility/departmentreport/departmentexcell';
+import DepartmentReportPDFDownload from '../../../assets/listofassets/utility/departmentreport/departmentpdf';
 
 
-const ReportsExportComponent = ({users}:any) => {
+const DepartmentReportsExportComponent = ({users}:any) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -33,17 +35,17 @@ const ReportsExportComponent = ({users}:any) => {
       <Menu id="basic-menu" anchorEl={anchorEl} open={open} onClose={handleClose}
           MenuListProps={{'aria-labelledby': 'basic-button',}}>
           <MenuItem onClick={handleClose}>
-            <ClientReportPDFDownload users={users}/>
+            <DepartmentReportPDFDownload users={users}/>
           </MenuItem>
           {/* <MenuItem onClick={handleClose}>
             <AssetCSVDownload users={users}/>
          </MenuItem> */}
           <MenuItem onClick={handleClose}>
-            <ClientReportExcellDownload users={users}/>
+            <DepartmentReportExcellDownload users={users}/>
           </MenuItem>
       </Menu>
     </>
   )
 }
 
-export default ReportsExportComponent
+export default DepartmentReportsExportComponent
