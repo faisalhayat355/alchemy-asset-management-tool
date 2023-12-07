@@ -170,7 +170,7 @@ const SidebarAssetComponent = ({show}:any) => {
   return (
     <>
  
-    <div style={{height:'78vh',overflowY:'auto',overflowX:'hidden'}}>
+    <div style={{height:'77vh',overflowY:'auto',overflowX:'hidden'}}>
       <List sx={{ width: "100%", maxWidth: 360}}component="nav" aria-labelledby="nested-list-subheader">
       {/* <ListItemButton selected={selectedIndex === 0}
           onClick={(event) => handleListItemClick(event, 0)} >

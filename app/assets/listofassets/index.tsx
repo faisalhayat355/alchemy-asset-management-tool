@@ -43,7 +43,7 @@ const ListAssetHomeComponent = () => {
 
   <Box>
      <Grid container sx={{padding:'0.8rem',alignItems:'center'}}>
-      <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #1F7DA9',paddingTop:'0.1rem',width:'98.7%',alignItems:'center',marginLeft:"0.2rem"}}>
+      <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #1F7DA9',paddingTop:'0.1rem',width:'98.7%',alignItems:'center',marginLeft:"0.2rem",boxShadow:'rgba(0, 0, 0, 0.16) 0px 1px 4px'}}>
       <Link href="/dashboard" passHref style={{ textDecoration: "none" }}>
       <Grid item xs={0.6}>
       <Tooltip title="Back" TransitionComponent={Zoom}>

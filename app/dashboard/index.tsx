@@ -80,7 +80,7 @@ const useStyles = makeStyles({
         background: "#f8fafc",
         border:'1px solid #f1f5f9',
         cursor:'pointer',
-        height:'61.8vh',
+        height:'61vh',
     },
   
   });

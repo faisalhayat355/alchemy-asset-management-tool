@@ -35,7 +35,7 @@ const EmployeeManagementHome = () => {
   return (
     <Box>
       <Grid container sx={{padding:'0.8rem',alignItems:'center'}}>
-      <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #1F7DA9',paddingTop:'0.1rem',width:'98.7%',alignItems:'center',marginLeft:"0.2rem"}}>
+      <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #1F7DA9',paddingTop:'0.1rem',width:'98.7%',alignItems:'center',marginLeft:"0.2rem",boxShadow:'rgba(0, 0, 0, 0.16) 0px 1px 4px'}}>
         <Link href="/dashboard" passHref style={{ textDecoration: "none" }}>
         <Grid item xs={0.6}>
           <Tooltip title="Back" TransitionComponent={Zoom} arrow>
@@ -52,7 +52,7 @@ const EmployeeManagementHome = () => {
       <Grid item xs={4.4}>
         <AssetViewComponent onViewSelect={onViewSelect}/>
       </Grid>
-        <Grid item xs={1.8} sx={{display:'flex',justifyContent:'flex-end'}}>
+        <Grid item xs={1.8} sx={{display:'flex',justifyContent:'flex-end'}}>   
           <Link href="/assets/addassets/employeemanagement/addemployee/" passHref style={{ textDecoration: "none" }}>
             <Button variant='outlined' size='small' style={{background:'#1F7DA9',border:'1px solid #1F7DA9',color:'white',fontSize:'0.8rem',fontWeight:'bold'}}> + Add New Employee</Button>
           </Link>
