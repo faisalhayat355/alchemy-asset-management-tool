@@ -157,9 +157,9 @@ const AddEmployeeManagement = () => {
             </Grid>
             <Grid item xs={8} >
             <select value={selected} onChange={(e)=>handleChange(e)} style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}>
-            <option>Select Site</option>
-            <option>Alchemy Internal</option>
-            <option>Alchemy External</option>
+              <option>Select Site</option>
+              <option>Alchemy Internal</option>
+              <option>Alchemy External</option>
             </select>
             </Grid>
           </Grid>
@@ -223,9 +223,9 @@ const AddEmployeeManagement = () => {
             <Grid item xs={8}>
               <select style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}} 
                 name="workLocation" value={workLocation} onChange={(e) => {setWorkLocation(e.target.value);}}>
-                <option>Select Work Location</option>
-                <option>Work from Home</option>
-                <option>Work from Office</option>
+                  <option>Select Work Location</option>
+                  <option>Work from Home</option>
+                  <option>Work from Office</option>
               </select>
                {/* {selected == "Alchemy External"? <AlchemyExternalWorkLocation workLocation={workLocation} setWorkLocation={setWorkLocation}/>:<AlchemyInternal/> } */}
             </Grid>
@@ -251,11 +251,11 @@ const AddEmployeeManagement = () => {
                 <Grid container>
                   <Grid item xs={6.4}>
                   <Link href="/assets/addassets/employeemanagement" passHref style={{ textDecoration: "none" }}>
-                  <button style={{fontWeight:'bold',fontSize:'0.9rem',cursor:'pointer',background:'#1F7DA9',color:'white',width:'94%',border:'none',height:'6vh',borderRadius:'5px'}}> Cancel</button>
+                  <button style={{fontWeight:'bold',fontSize:'0.9rem',cursor:'pointer',background:'#1F7DA9',color:'white',width:'94%',border:'none',height:'6vh',borderRadius:'5px'}}>Cancel</button>
                   </Link>
                   </Grid>
                   <Grid item xs={5.6}>
-                  <button style={{cursor:'pointer',fontWeight:'bold',fontSize:'0.9rem',background:'#1F7DA9',color:'white',width:'99%',border:'none',height:'6vh',borderRadius:'5px'}} onClick={handleSaveData}> Save</button>
+                  <button style={{cursor:'pointer',fontWeight:'bold',fontSize:'0.9rem',background:'#1F7DA9',color:'white',width:'99%',border:'none',height:'6vh',borderRadius:'5px'}} onClick={handleSaveData}>Save</button>
                   </Grid>
                 </Grid>
               </Grid>
@@ -279,7 +279,7 @@ const AddEmployeeManagement = () => {
       return(
         <>
         <select value={projectName} onChange={(e) => {setProjectName(e.target.value);}} style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}>
-        <option>Select Project Name</option>
+          <option>Select Project Name</option>
           <option>Nagios</option>
           <option>Asset Management Tool</option>
         </select>
@@ -290,7 +290,7 @@ const AddEmployeeManagement = () => {
       return(
         <>
         <select value={client} onChange={(e) => {setClient(e.target.value);}} style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}>
-        <option>Select Client</option>
+          <option>Select Client</option>
           <option>HCL</option>
           <option>TCS</option>
         </select>
@@ -301,7 +301,7 @@ const AddEmployeeManagement = () => {
       return(
         <>
         <select value={location} onChange={(e) => {setLocation(e.target.value);}} style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}>
-        <option>Select Location</option>
+          <option>Select Location</option>
           <option>Hyderabad</option>
           <option>Pune</option>
         </select>
@@ -312,7 +312,7 @@ const AddEmployeeManagement = () => {
       return(
         <>
         <select value={sbuHead} onChange={(e) => {setSbuHead(e.target.value);}} style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}>
-        <option>Select SBU Head</option>
+          <option>Select SBU Head</option>
           <option>ARINDAM BANARJEE</option>
           <option>KUSHAGRA DHAR</option>
           <option>SANJANA WADHWA</option>

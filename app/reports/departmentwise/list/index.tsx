@@ -6,7 +6,6 @@ import DepartmentInfoComponent from './info'
 import { makeStyles } from "@mui/styles";
 import { ListComponentProps } from '../../../assets/listofassets/props/props'
 
-
 const useStyles = makeStyles({
   pagination: {
     display: "flex",
@@ -23,7 +22,7 @@ const DepartmentListComponent = ({users}:ListComponentProps) => {
   const count = Math.ceil(users.length / PER_PAGE);
   const _DATA = PaginationHandler(users, PER_PAGE);
 
-  const handleChangePage = (e, p) => {
+  const handleChangePage = (e:any, p:any) => {
     setPage(p);
     _DATA.jump(p);
   };
@@ -31,7 +30,6 @@ const DepartmentListComponent = ({users}:ListComponentProps) => {
   return (
     <>
     <div>
-    
     <Grid container style={{ padding: "0.5rem", background: "#f1f5f9",width:'98.7%' }} mb={"0.3rem"} mt={"1rem"} >
         <Grid item xs={0.9}>
           <Typography style={{ fontWeight: "bold", textAlign: "left" }}>
@@ -63,20 +61,18 @@ const DepartmentListComponent = ({users}:ListComponentProps) => {
             EMAIL
           </Typography>
         </Grid>
-
         <Grid item xs={1.8} style={{ display: "flex" }}>
           <Typography style={{ fontWeight: "bold", }}>
             WORK LOCATION
           </Typography>
         </Grid>
-
         <Grid item xs={1.5} style={{ display: "flex" }}>
           <Typography style={{ fontWeight: "bold"}}>
             ADDRESS
           </Typography>
         </Grid>  
     </Grid>
-      <Grid style={{ height: "56vh" }}>
+    <Grid style={{ height: "56vh" }}>
       {_DATA.currentData().reverse().map((test:IAssets) => {
           return(
             <Typography key={test.id}>
@@ -84,8 +80,9 @@ const DepartmentListComponent = ({users}:ListComponentProps) => {
           </Typography>
           ) 
         })}
-      </Grid>
+    </Grid>
     </div>
+
     <div>
     <Grid container>
       <Grid item xs={11.8} className={classes.pagination}>
@@ -97,8 +94,6 @@ const DepartmentListComponent = ({users}:ListComponentProps) => {
       <Grid item xs={0.2}></Grid>
     </Grid>
     </div>
-
-
 </>
   )
 }
