@@ -27,7 +27,7 @@ const ReportsHomePage = () => {
         setUsers(data)
       },[data])
 
-      const updateUsers = (f)=>{
+      const updateUsers = (f:any)=>{
         setUsers(f);
       }
   return (
@@ -42,7 +42,6 @@ const ReportsHomePage = () => {
           <Grid item xs={5.5}>
             <ProjectReport users={data} updateUsers={updateUsers} />
           </Grid>
-         
           <Grid item xs={4.7}>
             <ClientsReport users={data} updateUsers={updateUsers} />
           </Grid>

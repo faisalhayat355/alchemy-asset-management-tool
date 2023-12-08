@@ -27,54 +27,51 @@ const ReportListComponent = ({users}:ListComponentProps) => {
     _DATA.jump(p);
   };
 
-
   return (
-    <>
-    <div>
-      <Grid container style={{ padding: "0.5rem", background: "#f1f5f9",width:'98.7%' }} mb={"0.3rem"} mt={"1rem"}>
-        <Grid item xs={1}>
-          <Typography fontWeight={'bold'} style={{fontSize:'0.8rem'}}>EMP ID</Typography>
-        </Grid>
-        <Grid item xs={1.5}>
-          <Typography fontWeight={'bold'} style={{fontSize:'0.8rem'}}>EMP NAME</Typography>
-        </Grid>
-        <Grid item xs={1.5}>
-          <Typography fontWeight={'bold'} style={{fontSize:'0.8rem'}}>CLIENT NAME</Typography>
-        </Grid>
-        <Grid item xs={2}>
-          <Typography fontWeight={'bold'} style={{fontSize:'0.8rem'}}>PROJECT NAME</Typography>
-        </Grid>
-        <Grid item xs={2}>
-          <Typography fontWeight={'bold'} style={{fontSize:'0.8rem'}}>LOCATION</Typography>
-        </Grid>
-        <Grid item xs={2}>
-          <Typography fontWeight={'bold'} style={{fontSize:'0.8rem'}}>SBU HEAD</Typography>
-        </Grid>
-        <Grid item xs={2}>
-          <Typography fontWeight={'bold'} style={{fontSize:'0.8rem'}}>CLIENT LOB</Typography>
-        </Grid>
-      </Grid>
-      <Grid style={{ height: "52vh" }}>
-      {_DATA.currentData().reverse().map((test:IAssets) => {
-          return(
-            <Typography key={test.id}>
-            <InfoComponent test={test}/> 
-          </Typography>
-          ) 
-        })}
-      </Grid>
-    </div>
-    <div>
-    <Grid container>
-      <Grid item xs={11.8} className={classes.pagination}>
-        <div style={{ position: "fixed" }}>
-          <Pagination count={count} size="small" page={page} variant="outlined" color="primary" onChange={handleChangePage}/>
+      <>
+        <div>
+          <Grid container style={{ padding: "0.5rem", background: "#f1f5f9",width:'98.7%' }} mb={"0.3rem"} mt={"1rem"}>
+            <Grid item xs={1}>
+              <Typography fontWeight={'bold'} style={{fontSize:'0.8rem'}}>EMP ID</Typography>
+            </Grid>
+            <Grid item xs={1.5}>
+              <Typography fontWeight={'bold'} style={{fontSize:'0.8rem'}}>EMP NAME</Typography>
+            </Grid>
+            <Grid item xs={1.5}>
+              <Typography fontWeight={'bold'} style={{fontSize:'0.8rem'}}>CLIENT NAME</Typography>
+            </Grid>
+            <Grid item xs={2}>
+              <Typography fontWeight={'bold'} style={{fontSize:'0.8rem'}}>PROJECT NAME</Typography>
+            </Grid>
+            <Grid item xs={2}>
+              <Typography fontWeight={'bold'} style={{fontSize:'0.8rem'}}>LOCATION</Typography>
+            </Grid>
+            <Grid item xs={2}>
+              <Typography fontWeight={'bold'} style={{fontSize:'0.8rem'}}>SBU HEAD</Typography>
+            </Grid>
+            <Grid item xs={2}>
+              <Typography fontWeight={'bold'} style={{fontSize:'0.8rem'}}>CLIENT LOB</Typography>
+            </Grid>
+          </Grid>
+          <Grid style={{ height: "52vh" }}>
+          {_DATA.currentData().reverse().map((test:IAssets) => {
+              return(
+                <Typography key={test.id}><InfoComponent test={test}/></Typography>
+              ) 
+            })}
+          </Grid>
         </div>
-      </Grid>
-      <Grid item xs={0.2}></Grid>
-    </Grid>
-    </div>
-</>
+        <div>
+        <Grid container>
+          <Grid item xs={11.8} className={classes.pagination}>
+            <div style={{ position: "fixed" }}>
+              <Pagination count={count} size="small" page={page} variant="outlined" color="primary" onChange={handleChangePage}/>
+            </div>
+          </Grid>
+          <Grid item xs={0.2}></Grid>
+        </Grid>
+        </div>
+      </>
   )
 }
 

@@ -18,7 +18,7 @@ const DepartmentListComponent = ({users}:ListComponentProps) => {
 
   const classes = useStyles();
   let [page, setPage] = useState(1);
-  const PER_PAGE = 8;
+  const PER_PAGE = 9;
   const count = Math.ceil(users.length / PER_PAGE);
   const _DATA = PaginationHandler(users, PER_PAGE);
 

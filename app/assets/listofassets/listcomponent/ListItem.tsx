@@ -71,7 +71,6 @@ const ListItemComponent = () => {
         isResizable: true,
         enableSorting: true,
       },
-    
       {
         accessorKey: 'actions',
         header: 'Actions',

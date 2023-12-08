@@ -1,6 +1,6 @@
 "use client"
-import { Box, Grid, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react'
+import { Box, Grid, Typography } from '@mui/material';
 import DepartmentReportsExportComponent from '../clientwise/projectreports/departmentexportcomponent';
 import DepartmentListComponent from './list'
 
@@ -17,6 +17,7 @@ const DepartmentWiseReport = () => {
           setData(d);
         });
     };
+
     useEffect(() => {
       fetchData();
     }, []);
@@ -28,8 +29,6 @@ const DepartmentWiseReport = () => {
     const updateUsers = (f)=>{
       setUsers(f);
     }
-  
-
   return (
     <div>
       <Grid container sx={{paddingLeft:'1rem',paddingTop:"0.5rem",paddingBottom:'0.5rem'}}>
@@ -48,5 +47,4 @@ const DepartmentWiseReport = () => {
     </div>
   )
 }
-
 export default DepartmentWiseReport

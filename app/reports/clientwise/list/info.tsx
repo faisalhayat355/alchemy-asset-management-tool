@@ -27,7 +27,6 @@ const InfoComponent = ({test}:any) => {
           <Typography noWrap style={{fontSize:'0.8rem'}}>{test.clientLob}</Typography>
         </Grid>
       </Grid>
-
     </div>
   )
 }
