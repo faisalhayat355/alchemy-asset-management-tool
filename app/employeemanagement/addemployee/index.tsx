@@ -12,7 +12,6 @@ const useStyles = makeStyles({
     },
   });
   
-  
 const AddEmployeeManagement = () => {
   const router = useRouter()
   const classes = useStyles();
