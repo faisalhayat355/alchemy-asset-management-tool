@@ -439,7 +439,7 @@ const SidebarAssetComponent = ({show}:any) => {
         </ListItemIcon>
       </ListItemButton>
       <Collapse in={employee} timeout="auto" unmountOnExit style={{marginTop:'0.1rem'}}>
-      <Link href="/assets/addassets/employeemanagement" passHref style={{ textDecoration: "none" }}>
+      <Link href="/employeemanagement" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 2.7 }}>
           <WorkOutlineIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />

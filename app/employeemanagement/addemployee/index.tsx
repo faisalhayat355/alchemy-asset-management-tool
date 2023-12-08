@@ -61,7 +61,7 @@ const AddEmployeeManagement = () => {
       resp.json().then((result) => {
         console.warn("result", result);
       });
-      router.push('/assets/employeeManagement', { scroll: false })
+      router.push('/employeeManagement', { scroll: false })
     });
   }
   const handleChange=(e:any)=>{
@@ -250,7 +250,7 @@ const AddEmployeeManagement = () => {
               <Grid item xs={4}>
                 <Grid container>
                   <Grid item xs={6.4}>
-                  <Link href="/assets/addassets/employeemanagement" passHref style={{ textDecoration: "none" }}>
+                  <Link href="/employeemanagement" passHref style={{ textDecoration: "none" }}>
                   <button style={{fontWeight:'bold',fontSize:'0.9rem',cursor:'pointer',background:'#1F7DA9',color:'white',width:'94%',border:'none',height:'6vh',borderRadius:'5px'}}>Cancel</button>
                   </Link>
                   </Grid>

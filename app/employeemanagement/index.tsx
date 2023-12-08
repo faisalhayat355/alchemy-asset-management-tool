@@ -4,12 +4,13 @@ import { Box, Button, Divider, Grid, IconButton, Tooltip, Typography, Zoom } fro
 import Link from 'next/link';
 import { useEffect, useState } from "react";
 import { Case, Default, Switch } from "react-if";
-import AssetCalendarView from '../../listofassets/listcomponent/calendarView';
-import AssetExportComponent from '../../listofassets/listcomponent/exportComponent';
-import AssetViewComponent from '../../listofassets/multipleview';
-import { ViewTypes } from '../../listofassets/utility/view.type';
+
 import EmployeeListComponent from './list';
 import EmployeeGridViewComponent from './list/gridView';
+import { ViewTypes } from '../assets/listofassets/utility/view.type';
+import AssetExportComponent from '../assets/listofassets/listcomponent/exportComponent';
+import AssetViewComponent from '../assets/listofassets/multipleview';
+import AssetCalendarView from '../assets/listofassets/listcomponent/calendarView';
 
 const EmployeeManagementHome = () => {
   const [data, setData] = useState([]);
@@ -53,7 +54,7 @@ const EmployeeManagementHome = () => {
         <AssetViewComponent onViewSelect={onViewSelect}/>
       </Grid>
         <Grid item xs={1.8} sx={{display:'flex',justifyContent:'flex-end'}}>   
-          <Link href="/assets/addassets/employeemanagement/addemployee/" passHref style={{ textDecoration: "none" }}>
+          <Link href="/employeemanagement/addemployee/" passHref style={{ textDecoration: "none" }}>
             <Button variant='outlined' size='small' style={{background:'#1F7DA9',border:'1px solid #1F7DA9',color:'white',fontSize:'0.8rem',fontWeight:'bold'}}> + Add New Employee</Button>
           </Link>
         </Grid>
