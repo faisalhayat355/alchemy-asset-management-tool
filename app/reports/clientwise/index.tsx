@@ -32,11 +32,11 @@ const ReportsHomePage = () => {
       }
   return (
     <div>
-       <Grid container sx={{paddingLeft:'1rem',paddingTop:"0.5rem",paddingBottom:'0.5rem'}}>
-        <Grid item xs={12}>
-          <Typography fontWeight={"bold"} style={{fontFamily:"cursive", fontSize:'1.3rem'}}>Client Wise Reports</Typography>
+        <Grid container sx={{paddingLeft:'1rem',paddingTop:"0.5rem",paddingBottom:'0.5rem'}}>
+          <Grid item xs={12}>
+            <Typography fontWeight={"bold"} style={{fontFamily:"cursive", fontSize:'1.3rem'}}>Client Wise Reports</Typography>
+          </Grid>
         </Grid>
-      </Grid>
      <Box sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #1F7DA9',paddingLeft:'1rem',paddingTop:'0.8rem',height:'82vh',width:'97%',marginLeft:'0.85rem',alignItems:'center',boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",marginTop:'0.2rem'}}>
         <Grid container spacing={2}>
           <Grid item xs={5.5}>

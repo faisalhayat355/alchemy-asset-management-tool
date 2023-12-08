@@ -14,6 +14,7 @@ const useStyles = makeStyles({
   
 const AddEmployeeManagement = () => {
   const router = useRouter()
+  const classes = useStyles();
   const [employeeid, setEmployeeId] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -29,7 +30,6 @@ const AddEmployeeManagement = () => {
   const [workLocation, setWorkLocation] = useState("");
   const [address, setAddress] = useState("");
   const [selected,setSelected]=useState("")
-  const classes = useStyles();
 
   function handleSaveData() {
     let data = {
@@ -61,7 +61,7 @@ const AddEmployeeManagement = () => {
       resp.json().then((result) => {
         console.warn("result", result);
       });
-      router.push('/employeeManagement', { scroll: false })
+      router.push('/employeemanagement', { scroll: false })
     });
   }
   const handleChange=(e:any)=>{
@@ -70,7 +70,7 @@ const AddEmployeeManagement = () => {
   }
   return (
     <div>
-     <Box >
+     <Box>
       <Grid container sx={{paddingLeft:'1rem',paddingTop:"0.5rem",paddingBottom:'0.5rem'}}>
         <Grid item xs={12}>
           <Typography fontWeight={"bold"} className={classes.typography}>Add Employee Details</Typography>

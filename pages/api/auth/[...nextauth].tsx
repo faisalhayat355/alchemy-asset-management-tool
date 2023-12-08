@@ -1,11 +1,8 @@
-
-
 import NextAuth, { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 // import prisma from "../../../lib/prismadb"
 
 const authOptions: NextAuthOptions = {
-
   providers: [
     CredentialsProvider({
       type: "credentials",
@@ -20,7 +17,6 @@ const authOptions: NextAuthOptions = {
         if (email !== "alchemy@gmail.com" || password !== "1234") {
           throw new Error("invalid credentials");
         }
-
         // if everything is fine
         return {
           id: "1234",
