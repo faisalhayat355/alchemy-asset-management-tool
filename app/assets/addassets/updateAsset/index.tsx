@@ -90,8 +90,8 @@ const UpdateAssetComponent = (props:any) => {
     const [returndate,setReturnDate]=useState(props.returndate);
 
     const handleChange=(e:any)=>{
-        setSelected(e.target.value)
-        setAssignMode(e.target.value)
+      setSelected(e.target.value)
+      setAssignMode(e.target.value)
       }
 const updateAssetData = async(event:any)=>{
     event.preventDefault();
@@ -197,7 +197,7 @@ useEffect(() => {
                     <option>Select Status</option>
                     <option>Assign</option>
                     <option>UnAssign</option>
-                    <option>UnderMaintainance</option>
+                    {/* <option>UnderMaintainance</option> */}
                   </select>
                   </Grid>
                 </Grid> 
@@ -208,7 +208,6 @@ useEffect(() => {
                   <Typography>Assign Date <span style={{color:'red'}}>*</span></Typography>
                   </Grid>
                   <Grid item xs={8.6}>
-                  {/* <input type="date" id="assign" value={assigndate} onChange={event =>setAssignDate(event.target.value)} style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}/> */}
                   <TextField type="date" id="assign" value={assigndate} onChange={event =>setAssignDate(event.target.value)} size="small" fullWidth/>
                   </Grid>
                 </Grid> 
@@ -231,7 +230,7 @@ useEffect(() => {
                   <Grid item xs={8.6}>
                   <select value={selected} onChange={(e)=>handleChange(e)} style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}>
                     <option>Select Mode</option>
-                    <option >Office Pickup</option>
+                    <option>Office Pickup</option>
                     <option>Courier</option>
                   </select>
                   </Grid>

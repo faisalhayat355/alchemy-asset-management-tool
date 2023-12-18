@@ -191,6 +191,7 @@ return (
                         <select style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}   name="department"
                         value={processor} onChange={(e) => {setProcessor(e.target.value);}}>
                         <option>Select Processor</option>
+                        <option>Dual Core</option>
                         <option>Pentium</option>
                         <option>Core I3</option>
                         <option>Core I5</option>
@@ -234,6 +235,7 @@ return (
                         <option>Select Disk Type</option>
                         <option>HDD</option>
                         <option>SSD</option>
+                        <option>HDD or SSD</option>
                         </select>
                     </Grid>
                 </Grid>

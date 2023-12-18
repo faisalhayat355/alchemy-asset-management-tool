@@ -54,7 +54,7 @@ const ViewAssetComponent = (props:any) => {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     //View Items State
-    const [id,setId]=useState(props.id);
+    const [id]=useState(props.id);
     const [assetTagID]=useState(props.assettagid);
     const [name]=useState(props.name);
     const [status]=useState(props.status);
