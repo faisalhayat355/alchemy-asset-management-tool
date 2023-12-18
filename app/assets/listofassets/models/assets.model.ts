@@ -22,8 +22,8 @@ type IAssets = {
     status:string;
     courierid:string;
     assignmode:string;
-    employeeid:string;
-    client:string;
+    employeeId:string;
+    clients:string;
     projectName:string;
     location:string;
     mobile:string;
@@ -32,7 +32,7 @@ type IAssets = {
     workLocation:string;
     address:string;
     sbuHead:string;
-    clientLob:string;
+    clientsLob:string;
     returndate:number;
     
     

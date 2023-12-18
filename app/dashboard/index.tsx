@@ -6,11 +6,26 @@ import AddIcon from '@mui/icons-material/Add';
 import AddToQueueIcon from '@mui/icons-material/AddToQueue';
 import LaptopIcon from '@mui/icons-material/Laptop';
 import SettingsIcon from '@mui/icons-material/Settings';
+import PeopleOutlineIcon from '@mui/icons-material/People';
 import { Box, Button, Divider, Grid, Paper, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
+import axios from 'axios';
 
+type Post = {
+    _id: string;
+    id: string;
+    employeeId: string;
+    name: string;
+    email: string;
+    mobile: string;
+    position: string;
+    address: string;
+    status: string;
+    assettagid:string;
+  
+  };
 
 const localizer = momentLocalizer(moment);
 
@@ -32,34 +47,34 @@ const useStyles = makeStyles({
         },
     },
     divIcon: {
-        borderRadius:'5px',background:'#1F7DA9',height:'3vh',width:'32%',
+        borderRadius:'5px',background:'#1F7DA9',height:'3vh',width:'43%',
         marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
         paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',color:'white',
         transition: "width 2s, height 2s, transform 2s",
         "&:hover": {
-            borderRadius:'5px',background:'#3b82f6',height:'3vh',width:'32%',
+            borderRadius:'5px',background:'#3b82f6',height:'3vh',width:'43%',
             marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
             paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',transform: "rotate(180deg)",
         },
     },
     divIcon2: {
-        borderRadius:'5px',background:'#a21caf',height:'3vh',width:'32%',
+        borderRadius:'5px',background:'#a21caf',height:'3vh',width:'43%',
         marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
         paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',color:'white',
         transition: "width 2s, height 2s, transform 2s",
         "&:hover": {
-            borderRadius:'5px',background:' #c026d3',height:'3vh',width:'32%',
+            borderRadius:'5px',background:' #c026d3',height:'3vh',width:'43%',
             marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
             paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',transform: "rotate(180deg)",  
         },
     },
     divIcon3: {
-        borderRadius:'5px',background:' #ef4444 ',height:'3vh',width:'34%',
+        borderRadius:'5px',background:' #ef4444 ',height:'3vh',width:'45%',
         marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
         paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',color:'white',
         transition: "width 2s, height 2s, transform 2s",
         "&:hover": {
-            borderRadius:'5px',background:'#dc2626',height:'3vh',width:'34%',
+            borderRadius:'5px',background:'#dc2626',height:'3vh',width:'45%',
             marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
             paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',transform: "rotate(180deg)",  
         },
@@ -88,26 +103,26 @@ const useStyles = makeStyles({
 const DashboardPage = () => {
 
     const classes = useStyles();
-    const [data, setData] = useState([]);
-    const [oldAsset,setOldAsset] = useState([])
-    const [scrapAsset,setScrapAsset] = useState([])
-    const [employee,setEmployee] = useState([])
-    const [events, setEvents] = useState([]);
+    // const [data, setData] = useState([]);
+    // const [oldAsset,setOldAsset] = useState([])
+    // const [scrapAsset,setScrapAsset] = useState([])
+    // const [employee,setEmployee] = useState([])
+    // const [events, setEvents] = useState([]);
 
-    const fetchData = () => {
-      fetch("http://localhost:8000/users")
-        .then((r) => {
-          return r.json();
-        })
-        .then((d) => {
-          setData(d);
-        });
-    };
-    useEffect(() => {
-      fetchData();
-    }, []);
+    // const fetchData = () => {
+    //   fetch("http://localhost:8000/users")
+    //     .then((r) => {
+    //       return r.json();
+    //     })
+    //     .then((d) => {
+    //       setData(d);
+    //     });
+    // };
+    // useEffect(() => {
+    //   fetchData();
+    // }, []);
 
-    let length = data.length;
+    // let length = data.length;
 
     // async function fetchData() {
     //     const users = await fetch("http://localhost:8000/users");
@@ -176,6 +191,24 @@ const DashboardPage = () => {
     //     setEvents(calendarAsset);
     //   }, []);
 
+
+    const [data, setData] = useState<Post[]>([]);
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const response = await axios.get<{ data: Post[] }>('http://127.0.0.1:8000/get-asset-posts');
+          setData(response.data.data);
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      };
+    
+      fetchData();
+    }, []);
+    
+    let length = data.length;
+
+
   return (
     <div>
         <Box>
@@ -190,7 +223,7 @@ const DashboardPage = () => {
                 </Link>
                 </Grid>
                <Grid container spacing={1}>
-                    <Grid item lg={4} mt={1.5} xs={6} md={6}>
+                    <Grid item lg={3} mt={1.5} xs={6} md={6}>
                     <Link href="/assets/listofassets" passHref style={{ textDecoration: "none" }}>
                     <Paper className={classes.paper} elevation={0} >
                         <Grid container> 
@@ -207,7 +240,7 @@ const DashboardPage = () => {
                     </Paper>
                     </Link>
                     </Grid>
-                <Grid item lg={4} mt={1.5} xs={6} md={6}>
+                <Grid item lg={3} mt={1.5} xs={6} md={6}>
                     <Paper className={classes.paper} elevation={0} >
                        <Grid container> 
                        <Grid item xs={4}>
@@ -217,12 +250,12 @@ const DashboardPage = () => {
                         <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Asset Assigned </Typography>
                         </Grid>
                         <Grid item xs={8} sx={{display:'flex',justifyContent:'flex-end',paddingTop:'1rem'}}>
-                        <Typography fontSize={"1.5rem"}>{data?.filter(r => r.site !== 'InActive')?.length}</Typography>
+                        <Typography fontSize={"1.5rem"}>{data?.filter(r => r.status !== 'InActive')?.length}</Typography>
                         </Grid>
                        </Grid>
                     </Paper>
                 </Grid>
-                <Grid item lg={4} mt={1.5} xs={6} md={6}>
+                <Grid item lg={3} mt={1.5} xs={6} md={6}>
                     <Paper className={classes.paper} elevation={0} >
                        <Grid container> 
                        <Grid item xs={3.8}>
@@ -232,12 +265,12 @@ const DashboardPage = () => {
                         <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Active Stock</Typography>
                         </Grid>
                         <Grid item xs={8} sx={{display:'flex',justifyContent:'flex-end',paddingTop:'1rem'}}>
-                        <Typography fontSize={"1.5rem"}> {data?.filter(r => r.site !== 'Active')?.length}</Typography>
+                        <Typography fontSize={"1.5rem"}> {data?.filter(r => r.status !== 'Active')?.length}</Typography>
                         </Grid>
                        </Grid>
                     </Paper>
                 </Grid>
-                {/* <Grid item lg={3} mt={1.5} xs={6} md={6}>
+                <Grid item lg={3} mt={1.5} xs={6} md={6}>
                 <Link href="/assets/addassets/employeemanagement" passHref style={{ textDecoration: "none" }}>
                     <Paper className={classes.paper} elevation={0} >
                        <Grid container> 
@@ -248,13 +281,13 @@ const DashboardPage = () => {
                         <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Under Maintainance</Typography>
                         </Grid>
                         <Grid item xs={8} sx={{display:'flex',justifyContent:'flex-end',paddingTop:'1rem'}}>
-                        <Typography fontSize={"1.5rem"}>0</Typography>
-                        <Typography fontSize={"1.5rem"}> {data?.filter(r => r.site !== 'UnderMaintainance')?.length}</Typography>
+                        {/* <Typography fontSize={"1.5rem"}>0</Typography> */}
+                        {/* <Typography fontSize={"1.5rem"}> {data?.filter(r => r.status !== 'UnderMaintainance')?.length}</Typography> */}
                         </Grid>
                        </Grid>
                     </Paper>
                 </Link>
-                </Grid> */}
+                </Grid>
                </Grid>  
                <Grid container spacing={1} mt={0.1}>
                 <Grid item lg={5} xs={12}>
@@ -277,9 +310,9 @@ const DashboardPage = () => {
                             </Grid>
                         </Grid>
                         <Divider style={{width:'100%',paddingLeft:'0.5rem',marginTop:'0.6rem'}}/>
-                             <Calendar events={events} startAccessor="start" endAccessor="end" 
+                             {/* <Calendar events={events} startAccessor="start" endAccessor="end" 
                              defaultDate={moment().toDate()} localizer={localizer} 
-                             style={{ height: 305,marginLeft:'0.6rem',marginTop:'0.5rem'}}/>
+                             style={{ height: 305,marginLeft:'0.6rem',marginTop:'0.5rem'}}/> */}
                     </Paper>
                 </Grid>
             </Grid>              

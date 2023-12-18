@@ -5,31 +5,73 @@ import ProjectReport from './projectreports';
 import ClientsReport from './clientsreports';
 import ReportsExportComponent from './list/exportcomponent';
 import ReportListComponent from './list';
+import postService from '../../employeemanagement/services/postService';
+import axios from 'axios';
 
+
+type Post = {
+  _id: string;
+  id: string;
+  employeeId: string;
+  name: string;
+  email: string;
+  mobile: string;
+  position: string;
+  address: string;
+  site: string;
+
+};
 const ReportsHomePage = () => {
-    const [data, setData] = useState([]);
+    // const [data, setData] = useState([]);
+    // const [users, setUsers] = useState([])
+
+    // const fetchData = () => {
+    //     fetch("http://127.0.0.1:3000/get-employee-posts")
+    //       .then((r) => {
+    //         return r.json();
+    //       })
+    //       .then((d) => {
+    //         setData(d);
+    //       });
+    //   };
+    //   useEffect(() => {
+    //     fetchData();
+    //   }, []);
+
+    //   useEffect(()=>{
+    //     setUsers(data)
+    //   },[data])
+
+    //   const updateUsers = (f:any)=>{
+    //     setUsers(f);
+    //   }
+
+    const [data, setData] = useState<Post[]>([]);
     const [users, setUsers] = useState([])
-
-    const fetchData = () => {
-        fetch("http://localhost:8000/employeeManagement")
-          .then((r) => {
-            return r.json();
-          })
-          .then((d) => {
-            setData(d);
-          });
+    const items= data.reverse()
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const response = await axios.get<{ data: Post[] }>('http://127.0.0.1:8000/get-employee-posts');
+          setData(response.data.data);
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
       };
-      useEffect(() => {
-        fetchData();
-      }, []);
+  
+      fetchData();
+    }, []);
+      
+    useEffect(()=>{
+    setUsers(data)
+    },[data])
 
-      useEffect(()=>{
-        setUsers(data)
-      },[data])
-
-      const updateUsers = (f:any)=>{
+    const updateUsers = (f:any)=>{
         setUsers(f);
       }
+
+
+      // console.log("RRRRRRRRRRRRRR>>>>>>>>>>",users)
   return (
     <div>
         <Grid container sx={{paddingLeft:'1rem',paddingTop:"0.5rem",paddingBottom:'0.5rem'}}>
@@ -44,6 +86,7 @@ const ReportsHomePage = () => {
           </Grid>
           <Grid item xs={4.7}>
             <ClientsReport users={data} updateUsers={updateUsers} />
+            {/* <ProjectReport users={data} updateUsers={updateUsers} /> */}
           </Grid>
           <Grid item xs={0.8}></Grid>
           <Grid item xs={1}>

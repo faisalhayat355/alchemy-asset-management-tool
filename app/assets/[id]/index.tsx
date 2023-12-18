@@ -10,6 +10,22 @@ import Button from "@mui/material/Button";
 import { makeStyles } from "@mui/styles";
 import { IAssets } from "../listofassets/models/assets.model";
 import { updateAsset } from "../services/assetAction";
+import axios from "axios";
+
+
+
+type Post = {
+  id: string;
+  id: string;
+  employeeId: string;
+  name: string;
+  email: string;
+  mobile: string;
+  position: string;
+  address: string;
+  site: string;
+
+};
 
 const useStyles = makeStyles({
   errormessage: {
@@ -48,7 +64,7 @@ const schema = yup .object({
   })
   .required();
 
-const EditAssetComponent = ({ user }: IUserProp) => {
+const EditAssetComponent = ({ user }:IUserProp) => {
   const [employeeData, setEmployeeData] = useState <any[]>([]);
   const [selected,setSelected]=useState("")
 
@@ -58,13 +74,34 @@ const EditAssetComponent = ({ user }: IUserProp) => {
   }
 
   async function fetchData() {
-    const users = await fetch("http://localhost:8000/employeeManagement");
+    const users = await fetch("http://127.0.0.1:8000/get-asset-posts");
     const result = await users.json();
     setEmployeeData(result);
   }
   useEffect(() => {
     fetchData();
   }, []);
+
+// var [name,...remaining]=employeeData;
+
+
+// console.log("name>>>>>>",name)
+
+// console.log("remaining>>>>>>",remaining)
+const [data, setData] = useState<Post[]>([]);
+useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const response = await axios.get<{ data: Post[] }>('http://127.0.0.1:8000/get-employee-posts');
+      setData(response.data.data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+  fetchData();
+}, []);
+
   const {register,setValue,handleSubmit,formState: { errors },reset,} = useForm({
     defaultValues: {
       assettagid:user?.assettagid,
@@ -167,7 +204,7 @@ const EditAssetComponent = ({ user }: IUserProp) => {
                 <Typography>Assign To <span style={{color:'red'}}>*</span></Typography>
                 </Grid>
                 <Grid item xs={8.6}>
-                <Autocomplete size="small" id="free-solo-demo" freeSolo options={Array.from(new Set(employeeData.map((option) => option.name)))}
+                <Autocomplete size="small" id="free-solo-demo" freeSolo options={Array.from(new Set(data.map((option) => option.name)))}
                 renderInput={(params) => <TextField {...params} {...register("name")}/>}/>
                 <p className={classes.errormessage}>{errors.name?.message}</p>
                 </Grid>

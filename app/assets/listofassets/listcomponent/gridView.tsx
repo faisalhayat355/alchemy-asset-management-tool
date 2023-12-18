@@ -22,16 +22,16 @@ const useStyles = makeStyles({
 });
 
 type AssetsProps = {
-  users: Array<IAssets>;
+  posts: Array<IAssets>;
 };
 
-const GridViewComponent = ({users}:AssetsProps) => {
+const GridViewComponent = ({posts}:any) => {
   const classes = useStyles();
 
   let [page, setPage] = useState(1);
   const PER_PAGE = 6;
-  const count = Math.ceil(users.length / PER_PAGE);
-  const paginationHandler = PaginationHandler(users, PER_PAGE);
+  const count = Math.ceil(posts.length / PER_PAGE);
+  const paginationHandler = PaginationHandler(posts, PER_PAGE);
 
   const handleChangePage = (e: any, p: number) => {
     setPage(p);
@@ -43,25 +43,24 @@ const GridViewComponent = ({users}:AssetsProps) => {
     <Box style={{height:'74vh'}} >
      <Grid container sx={{background:'white',paddingLeft:'1rem',paddingRight:'1rem',paddingBottom:'7rem',width:'96.5%',marginLeft:'1rem',alignItems:'center',marginTop:'-0.8rem'}}>
         <Grid container spacing={2}>
-          {paginationHandler
-          .currentData().map((item:any) => {
+          {posts.data.data.map((item:any) => {
               return (
-                <Grid item xs={4} md={4} sm={4} lg={4} key={item.id} mt={3}>
-                  <Link href={`/assets/viewassets/${item.id}`} style={{textDecoration:'none'}}>
+                <Grid item xs={4} md={4} sm={4} lg={4} key={item.id} mt={1}>
+                  <Link href={`/assets/viewassets/${item._id}`} style={{textDecoration:'none'}}>
                   <Paper variant="outlined" className={classes.paper}>
-                    <Box paddingLeft={2} paddingTop={1}>
+                    <Box paddingLeft={2} paddingTop={0}>
                       <Grid container>
                         <Grid item xs={5}>
                           <Typography variant="subtitle1"  fontWeight={"bold"}>
                            Asset Tag ID
                           </Typography>
                         </Grid>
-                        <Grid item xs={1}>
+                        {/* <Grid item xs={1}>
                           <Typography> :</Typography>
-                        </Grid>
+                        </Grid> */}
                         <Grid item xs={6} paddingLeft={2}>
                           <Typography noWrap variant="subtitle1" >
-                            {item.id}
+                            {item.assettagid}
                           </Typography>
                         </Grid>
                       </Grid>
@@ -71,9 +70,9 @@ const GridViewComponent = ({users}:AssetsProps) => {
                         <Grid item xs={5}>
                           <Typography variant="subtitle1" fontWeight={"bold"}>Purchased From</Typography>
                         </Grid>
-                        <Grid item xs={1}>
+                        {/* <Grid item xs={1}>
                           <Typography> :</Typography>
-                        </Grid>
+                        </Grid> */}
                         <Grid item xs={6} paddingLeft={2}>
                           <Typography noWrap variant="subtitle1" >
                             {item?.purchasefrom}
@@ -86,9 +85,9 @@ const GridViewComponent = ({users}:AssetsProps) => {
                         <Grid item xs={5}>
                           <Typography variant="subtitle1" fontWeight={"bold"}>Purchased Date</Typography>
                         </Grid>
-                        <Grid item xs={1}>
+                        {/* <Grid item xs={1}>
                           <Typography> :</Typography>
-                        </Grid>
+                        </Grid> */}
                         <Grid item xs={6} paddingLeft={2}>
                           <Typography noWrap variant="subtitle1" >
                             {item?.purchasedate}
@@ -101,9 +100,9 @@ const GridViewComponent = ({users}:AssetsProps) => {
                         <Grid item xs={5}>
                           <Typography variant="subtitle1" fontWeight={"bold"} >Description</Typography>
                         </Grid>
-                        <Grid item xs={1}>
+                        {/* <Grid item xs={1}>
                           <Typography> :</Typography>
-                        </Grid>
+                        </Grid> */}
                         <Grid item xs={6} paddingLeft={2}>
                           <Typography noWrap variant="subtitle1" >
                             {item?.description}
@@ -116,9 +115,9 @@ const GridViewComponent = ({users}:AssetsProps) => {
                         <Grid item xs={5}>
                           <Typography variant="subtitle1" fontWeight={"bold"}>Processor</Typography>
                         </Grid>
-                        <Grid item xs={1}>
+                        {/* <Grid item xs={1}>
                           <Typography> :</Typography>
-                        </Grid>
+                        </Grid> */}
                         <Grid item xs={6} paddingLeft={2}>
                           <Typography noWrap variant="subtitle1" >
                             {item?.processor}
@@ -131,9 +130,9 @@ const GridViewComponent = ({users}:AssetsProps) => {
                         <Grid item xs={5}>
                           <Typography variant="subtitle1" fontWeight={"bold"}>Remarks</Typography>
                         </Grid>
-                        <Grid item xs={1}>
+                        {/* <Grid item xs={1}>
                           <Typography> :</Typography>
-                        </Grid>
+                        </Grid> */}
                         <Grid item xs={6} paddingLeft={2}>
                           <Typography noWrap variant="subtitle1">
                             {item?.remarks}

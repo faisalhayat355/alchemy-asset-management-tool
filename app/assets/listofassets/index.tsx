@@ -11,6 +11,8 @@ import GridViewComponent from './listcomponent/gridView';
 import ListItemComponent from './listcomponent/ListItem';
 import AssetViewComponent from './multipleview';
 import { ViewTypes } from './utility/view.type';
+import postService from '../addassets/services/assetPostService'
+
 
 const useStyles = makeStyles({
   typography: {
@@ -20,25 +22,35 @@ const useStyles = makeStyles({
 });
 
 const ListAssetHomeComponent = () => {
-  const [data, setData] = useState([]);
-  const [users, setUsers] = useState([])
+  // const [data, setData] = useState([]);
+  // const [posts, setPosts] = useState([])
 
   const [viewType, setViewType] = useState<ViewTypes>(ViewTypes.LIST);
   const classes = useStyles();
-  async function fetchData() {
-    const users = await fetch("http://localhost:8000/users");
-    const result = await users.json();
-    setData(result);
-  }
-  useEffect(() => {
-    fetchData();
-  }, []);
+  // async function fetchData() {
+  //   const posts = await fetch("http://localhost:8000/api/get-asset-posts");
+  //   const result = await posts.json();
+  //   setData(result);
+  // }
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
   const onViewSelect = (view: ViewTypes) => {
     setViewType(view);
   };
-  useEffect(()=>{
-    setUsers(data)
-  },[data])
+  // useEffect(()=>{
+  //   setPosts(data)
+  // },[data])
+
+
+  // const [posts, setPosts]= useState({})
+  // const fetchPosts = async()=>{
+  //  setPosts (await postService.getPosts())
+  // }
+  // useEffect(()=>{
+  //   fetchPosts();
+  // },[])
+
   return (
 
   <Box>
@@ -55,7 +67,7 @@ const ListAssetHomeComponent = () => {
          <Typography fontWeight={"bold"} style={{fontFamily:"cursive", fontSize:'1.3rem'}}>List of Assets</Typography>
        </Grid>
        <Grid item xs={1.3}>
-        <AssetExportComponent users={users}/>
+        <AssetExportComponent />
       </Grid>
       <Grid item xs={5.37}>
         <AssetViewComponent onViewSelect={onViewSelect}/>
@@ -70,15 +82,17 @@ const ListAssetHomeComponent = () => {
         <Grid item xs={12}>
           <Switch>
             <Case condition={viewType === ViewTypes.GRID}>
-              <GridViewComponent users={users} />
+              <GridViewComponent />
             </Case>
             <Case condition={viewType === ViewTypes.CALENDAR}>
-              <AssetCalendarView users={users} />
+              {/* <AssetCalendarView users={users} /> */}
             </Case>
             <Default>
              <Grid style={{marginLeft:'1rem',width:'96.5%',marginTop:"-1rem"}}>
              <Divider style={{width:'100%',marginTop:'0.2rem',background:'#eff6ff'}}/>
-             <ListItemComponent />
+             {/* <ListItemComponent posts={posts}/> */}
+
+             <ListItemComponent/>
              </Grid>
             </Default>
           </Switch>

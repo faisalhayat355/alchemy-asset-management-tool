@@ -34,19 +34,19 @@ const ReportListComponent = ({users}:ListComponentProps) => {
             <Grid item xs={1}>
               <Typography fontWeight={'bold'} style={{fontSize:'0.8rem'}}>EMP ID</Typography>
             </Grid>
-            <Grid item xs={1.5}>
+            <Grid item xs={1.7}>
               <Typography fontWeight={'bold'} style={{fontSize:'0.8rem'}}>EMP NAME</Typography>
             </Grid>
-            <Grid item xs={1.5}>
+            <Grid item xs={1.4}>
               <Typography fontWeight={'bold'} style={{fontSize:'0.8rem'}}>CLIENT NAME</Typography>
             </Grid>
             <Grid item xs={2}>
               <Typography fontWeight={'bold'} style={{fontSize:'0.8rem'}}>PROJECT NAME</Typography>
             </Grid>
-            <Grid item xs={2}>
-              <Typography fontWeight={'bold'} style={{fontSize:'0.8rem'}}>LOCATION</Typography>
+            <Grid item xs={1.8}>
+              <Typography fontWeight={'bold'} style={{fontSize:'0.8rem'}}>CONTACT</Typography>
             </Grid>
-            <Grid item xs={2}>
+            <Grid item xs={2.1}>
               <Typography fontWeight={'bold'} style={{fontSize:'0.8rem'}}>SBU HEAD</Typography>
             </Grid>
             <Grid item xs={2}>

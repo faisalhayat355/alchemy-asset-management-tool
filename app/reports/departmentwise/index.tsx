@@ -3,32 +3,47 @@ import React, { useEffect, useState } from 'react'
 import { Box, Grid, Typography } from '@mui/material';
 import DepartmentReportsExportComponent from '../clientwise/projectreports/departmentexportcomponent';
 import DepartmentListComponent from './list'
+import axios from 'axios';
+
+
+type Post = {
+  _id: string;
+  id: string;
+  employeeId: string;
+  name: string;
+  email: string;
+  mobile: string;
+  position: string;
+  address: string;
+  site: string;
+
+};
 
 const DepartmentWiseReport = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<Post[]>([]);
   const [users, setUsers] = useState([])
-
-  const fetchData = () => {
-      fetch("http://localhost:8000/employeeManagement")
-        .then((r) => {
-          return r.json();
-        })
-        .then((d) => {
-          setData(d);
-        });
+  const items= data.reverse()
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get<{ data: Post[] }>('http://127.0.0.1:8000/get-employee-posts');
+        setData(response.data.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
     };
 
-    useEffect(() => {
-      fetchData();
-    }, []);
+    fetchData();
+  }, []);
+    
+  useEffect(()=>{
+  setUsers(data)
+  },[data])
 
-    useEffect(()=>{
-      setUsers(data)
-    },[data])
-
-    const updateUsers = (f)=>{
+  const updateUsers = (f:any)=>{
       setUsers(f);
     }
+
   return (
     <div>
       <Grid container sx={{paddingLeft:'1rem',paddingTop:"0.5rem",paddingBottom:'0.5rem'}}>

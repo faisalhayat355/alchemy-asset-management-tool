@@ -14,7 +14,7 @@ const DepartmentReportPDFDownload = ({users}:AssetsProps) => {
     const headers = [["EMPLOYEE ID", "EMPLOYEE NAME", "CONTACT NO.", "DEPARTMENT", "DESIGNATION","EMAIL", "WORK LOCATION", "ADDRESS"]];
     const pdfSendData = users?.map((elt) => [
      
-      elt.employeeid,
+      elt.employeeId,
       elt. name,
       elt.mobile,
       elt.department,

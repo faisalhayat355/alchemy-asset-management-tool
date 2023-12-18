@@ -46,7 +46,7 @@ const ViewEmployeeAssetComponent = ({user}:any) => {
   const [employeeData, setEmployeeData] = useState([]);
   
   async function fetchData() {
-    const users = await fetch("http://localhost:8000/employeeManagement");
+    const users = await fetch("http://localhost:8000/api/get-posts");
     const result = await users.json();
     setEmployeeData(result);
   }
@@ -287,7 +287,7 @@ const ViewEmployeeAssetComponent = ({user}:any) => {
           <Grid item xs={12} sm={12} md={12} lg={12} mt={5} pl={1} pr={1}>
           <Grid container>
             <Grid item xs={11.3} style={{ display: "flex", justifyContent: "flex-end" }}>
-              <Link href={"/assets/addassets/employeemanagement"} style={{ textDecoration: "none" }}>
+              <Link href={"/employeemanagement"} style={{ textDecoration: "none" }}>
                 <Button variant="contained" style={{textTransform: "capitalize",background:'#1F7DA9',color:'white',width:'140%' }}>
                   Close
                 </Button>

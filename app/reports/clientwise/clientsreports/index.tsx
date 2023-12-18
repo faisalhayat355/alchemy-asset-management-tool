@@ -12,7 +12,7 @@ const ClientsReport = ({ users, updateUsers }:any) => {
   const [filterData, setFilterData] = useState();
 
     useEffect(() => {
-      const newUser = users.filter((d) => d.client === filterData);
+      const newUser = users.filter((d) => d.clients === filterData);
       updateUsers(newUser);
     }, [filterData]);
 
@@ -30,7 +30,7 @@ const ClientsReport = ({ users, updateUsers }:any) => {
                 renderInput={(params) => <TextField {...params}/>}/> */}
 
               <Autocomplete size="small" freeSolo disableClearable 
-                options={Array.from(new Set(users.map((f) => f.client)))}
+                options={Array.from(new Set(users.map((f) => f.clients)))}
                 renderInput={(params) => (
                   <TextField {...params}
                     InputProps={{

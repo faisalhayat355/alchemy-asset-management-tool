@@ -31,6 +31,7 @@ const DepartmentListComponent = ({users}:ListComponentProps) => {
     <>
     <div>
     <Grid container style={{ padding: "0.5rem", background: "#f1f5f9",width:'98.7%' }} mb={"0.3rem"} mt={"1rem"} >
+
         <Grid item xs={0.9}>
           <Typography style={{ fontWeight: "bold", textAlign: "left" }}>
             EMP ID
@@ -46,17 +47,17 @@ const DepartmentListComponent = ({users}:ListComponentProps) => {
           CONTACT NO.
           </Typography>
         </Grid>
-        <Grid item xs={1.3}>
+        <Grid item xs={1.5}>
           <Typography style={{ fontWeight: "bold", textAlign: "left" }}>
             DEPARTMENT
           </Typography>
         </Grid>
-        <Grid item xs={1.7} style={{ display: "flex" }}>
+        <Grid item xs={1.9} style={{ display: "flex" }}>
           <Typography style={{ fontWeight: "bold"}}>
             DESIGNATION
           </Typography>
         </Grid>
-        <Grid item xs={1.8} style={{ display: "flex" }}>
+        <Grid item xs={1.9} style={{ display: "flex" }}>
           <Typography style={{ fontWeight: "bold"}}>
             EMAIL
           </Typography>
@@ -66,7 +67,7 @@ const DepartmentListComponent = ({users}:ListComponentProps) => {
             WORK LOCATION
           </Typography>
         </Grid>
-        <Grid item xs={1.5} style={{ display: "flex" }}>
+        <Grid item xs={1.2} style={{ display: "flex" }}>
           <Typography style={{ fontWeight: "bold"}}>
             ADDRESS
           </Typography>

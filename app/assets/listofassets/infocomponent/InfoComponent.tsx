@@ -2,11 +2,12 @@
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import EditIcon from '@mui/icons-material/Edit';
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
-import { Grid, Typography } from '@mui/material';
+import { Box, Divider, Grid, Paper, Typography } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import Link from 'next/link';
 
-const AssetsInfoComponent = ({items}:any) => {
+
+const AssetsInfoComponent = ({post}:any) => {
 
 const Removefunction = (id) => {
   if (window.confirm('Do you want to remove?')) {
@@ -22,54 +23,47 @@ const Removefunction = (id) => {
 }
   return (
     <>
-     <Grid container mt={0.4}>
-        <Grid container  sx={{border:'1px solid #fecaca',width:'98.5%',borderRadius:'5px',alignItems:'center'}}>
-        <Grid item xs={1.55}>
-            <Typography fontSize={"0.75rem"} ml={2} noWrap>{items.id}</Typography>
-        </Grid>
-        <Grid item xs={2}>
-            <Typography fontSize={"0.75rem"} noWrap>{items.department}</Typography>
-        </Grid>
-        <Grid item xs={2}>
-            <Typography fontSize={"0.75rem"} noWrap>{items.brand}</Typography>
-        </Grid>
-        <Grid item xs={2}>
-            <Typography fontSize={"0.75rem"} noWrap>{items.model}</Typography>
-        </Grid>
-        <Grid item xs={2.2}>
-            <Typography fontSize={"0.75rem"} noWrap>{items.serialno}</Typography>
-        </Grid>
-        <Grid item xs={1.25}>
-            <Typography fontSize={"0.75rem"} noWrap>{items.serialno}</Typography>
-        </Grid>
-        <Grid item xs={1}>
-            <Grid container>
-              <Grid item xs={7} sx={{display:'flex',justifyContent:'center'}}>
-              <Link href={`/assets/${items.id}`}>
-              <IconButton>
-                <RemoveRedEyeIcon style={{fontSize:'1.1rem'}} 
-                // onClick={() => { LoadDetail(items.id) }}
-                />
-                </IconButton>
-                </Link>
-              </Grid>
-              <Grid item xs={4}>
-              <Link href={`/assets/${items.id}`}>
+     <Box >
+        <Paper elevation={0}>
+          <Grid container ml={1}>
+            <Grid item xs={1.5}>
+              <Typography variant="subtitle1"></Typography>
+            </Grid>
+            <Grid item xs={1.3}>
+              <Typography variant="subtitle1">  </Typography>
+            </Grid>
+            <Grid item xs={1.7}>
+              <Typography variant="subtitle1">  </Typography>
+            </Grid>
+            <Grid item xs={1.2}>
+              <Typography variant="subtitle1"> </Typography>
+            </Grid>
+            <Grid item xs={1.5}>
+              <Typography variant="subtitle1"> </Typography>
+            </Grid>
+            <Grid item xs={2}>
+              <Typography variant="subtitle1"> </Typography>
+            </Grid>
+            <Grid item xs={1.85}>
+              <Typography variant="subtitle1"></Typography>
+            </Grid>
+            <Grid item xs={0.8} style={{display:'flex'}}>
+            {/* <Link href={`/assets/${post._id}`}> */}
               <IconButton>
                 <EditIcon style={{fontSize:'1.1rem'}}/>
                 </IconButton>
-                </Link>
-              </Grid>
-              {/* <Grid item xs={3}>
+                {/* </Link> */}
+                {/* <Link href={`/assets/viewassets/${post._id}`}> */}
                 <IconButton>
-                <DeleteOutlineIcon style={{fontSize:'1.1rem'}}
-                onClick={() => { Removefunction(items.id) }}/>
+                <RemoveRedEyeIcon style={{fontSize:'1.1rem'}}/>
                 </IconButton>
-              </Grid> */}
+                {/* </Link> */}
+                
             </Grid>
-        </Grid>
-        </Grid>
-     </Grid>     
+          </Grid>
+        </Paper>
+        <Divider style={{width:'100%'}}/>
+      </Box>
    </>
   )
 }

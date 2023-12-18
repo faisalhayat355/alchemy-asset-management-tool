@@ -14,13 +14,13 @@ const ClientReportPDFDownload = ({users}:AssetsProps) => {
     const headers = [["EMPLOYEE ID","EMPLOYEE NAME", "CLIENT NAME", "PROJECT NAME","LOCATION", "SBU HEAD","CLIENT LOB"]];
     const pdfSendData = users?.map((elt) => [
      
-      elt.employeeid,
+      elt.employeeId,
       elt.name,
-      elt. client,
+      elt. clients,
       elt.projectName,
       elt.location,
       elt.sbuHead,
-      elt.clientLob,
+      elt.clientsLob,
     ]);
     await download({
       headers,

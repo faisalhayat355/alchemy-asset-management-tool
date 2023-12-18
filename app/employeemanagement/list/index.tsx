@@ -8,17 +8,37 @@ import EditIcon from '@mui/icons-material/Edit';
 
 import Link from 'next/link';
 import { Box } from '@mui/material';
+import ViewEmployeeComponent from '../viewEmployee';
 
 type Post = {
-  id: number;
-  description: string;
-  brand: string;
+  _id: string;
+  id: string;
+  employeeId: string;
+  name: string;
+  email: string;
+  mobile: string;
+  position: string;
+  address: string;
+  site: string;
+  department:string;
+  projectName:string;
+  clients:string;
+  location:string;
+  sbuHead:string;
+  clientsLob:string;
+  workLocation:string;
 };
 
 const EmployeeListComponent = () => {
   const columns = useMemo<MRT_ColumnDef<Post>[]>(
     () => [
-
+      {
+        accessorKey: 's.no',
+        header: 'S.No',
+        size: 100,
+        isResizable: true,
+        Cell: ({ cell }) => cell.row.index + 1,
+      },
       {
         accessorKey: 'name',
         header: 'Name',
@@ -27,7 +47,7 @@ const EmployeeListComponent = () => {
         enableSorting: true,
       },
       {
-        accessorKey: 'employeeid',
+        accessorKey: 'employeeId',
         header: 'Employee ID',
         size: 140,
         isResizable: true,
@@ -73,19 +93,28 @@ const EmployeeListComponent = () => {
         header: 'Actions',
         size: 140,
         Cell: ({ cell }) => (
-          <div>
-            {cell.row.original && (
-             <Box>
-                <Tooltip title="View">
-                <Link href={`/assets/viewemployee/${cell.row.original.id}`}>
-                  <IconButton onClick={() => handleView(cell.row.original)}>
-                    <VisibilityIcon style={{fontSize:'1rem'}}/>
-                  </IconButton>
-                </Link>
-                </Tooltip>
-              </Box>
-            )}
-          </div>
+          <div style={{display:'flex'}}>
+          {cell.row.original && (
+           <Box sx={{display:'flex'}}>
+             <ViewEmployeeComponent id={cell.row.original._id}
+             employeeId={cell.row.original.employeeId}
+             name={cell.row.original.name}
+             email={cell.row.original.email}
+             mobile={cell.row.original.mobile}
+             position={cell.row.original.position}
+             department={cell.row.original.department} 
+             site={cell.row.original.site}
+             projectName={cell.row.original.projectName}
+             clients={cell.row.original.clients}
+             location={cell.row.original.location}
+             sbuHead={cell.row.original.sbuHead}
+             clientsLob={cell.row.original.clientsLob}
+             workLocation={cell.row.original.workLocation}
+             address={cell.row.original.address}
+             />
+            </Box>
+          )}
+        </div>
         ),
       },
     ],
@@ -97,8 +126,8 @@ const EmployeeListComponent = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get<Post[]>('http://localhost:8000/employeemanagement');
-        setData(response.data);
+        const response = await axios.get<{ data: Post[] }>('http://127.0.0.1:8000/get-employee-posts');
+        setData(response.data.data);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -107,7 +136,9 @@ const EmployeeListComponent = () => {
     fetchData();
   }, []);
 
-  const table = useMaterialReactTable({
+console.log("datatatatatata",data)
+
+const table = useMaterialReactTable({
     columns,
     data,
     enableColumnOrdering: true,

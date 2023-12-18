@@ -13,25 +13,25 @@ import AssetViewComponent from '../assets/listofassets/multipleview';
 import AssetCalendarView from '../assets/listofassets/listcomponent/calendarView';
 
 const EmployeeManagementHome = () => {
-  const [data, setData] = useState([]);
-  const [users, setUsers] = useState([])
+  // const [data, setData] = useState([]);
+  // const [users, setUsers] = useState([])
   const [viewType, setViewType] = useState<ViewTypes>(ViewTypes.LIST);
   
-  async function fetchData() {
-    const users = await fetch("http://localhost:8000/employeemanagement");
-    const result = await users.json();
-    setData(result);
-  }
-  useEffect(() => {
-    fetchData();
-  }, []);
+  // async function fetchData() {
+  //   const users = await fetch("http://localhost:8000/employeemanagement");
+  //   const result = await users.json();
+  //   setData(result);
+  // }
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
 
   const onViewSelect = (view: ViewTypes) => {
     setViewType(view);
   };
-  useEffect(()=>{
-    setUsers(data)
-  },[data])
+  // useEffect(()=>{
+  //   setUsers(data)
+  // },[data])
   
   return (
     <Box>
@@ -48,7 +48,7 @@ const EmployeeManagementHome = () => {
           <Typography fontWeight={"bold"} style={{fontFamily:"cursive", fontSize:'1.3rem'}}>List of Employee Management</Typography>
         </Grid>
         <Grid item xs={1}>
-        <AssetExportComponent users={users}/>
+        <AssetExportComponent />
       </Grid>
       <Grid item xs={4.4}>
         <AssetViewComponent onViewSelect={onViewSelect}/>
@@ -63,10 +63,10 @@ const EmployeeManagementHome = () => {
       <Grid item xs={12}>
         <Switch>
           <Case condition={viewType === ViewTypes.GRID}>
-            <EmployeeGridViewComponent users={users} />
+            <EmployeeGridViewComponent  />
           </Case>
           <Case condition={viewType === ViewTypes.CALENDAR}>
-            <AssetCalendarView users={users} />
+            <AssetCalendarView  />
           </Case>
           <Default>
             <Grid style={{marginLeft:'1rem',width:'96.5%',marginTop:"-1rem"}}>

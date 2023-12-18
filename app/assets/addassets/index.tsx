@@ -1,336 +1,308 @@
 "use client"
-import { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useState } from 'react'
+import { Alert, Box, Button, Grid, Snackbar, TextField, Typography } from '@mui/material'
+import postService from '../addassets/services/assetPostService'
 import { useRouter } from 'next/navigation';
-import Link from "next/link";
-import { Box, Grid, Typography } from '@mui/material';
-import FormControl from '@mui/material/FormControl';
-import InputAdornment from '@mui/material/InputAdornment';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import TextField from '@mui/material/TextField';
-  
+import Link from 'next/link';
+
 const AssetCreatePage = () => {
-  const router = useRouter()
-  const [data, setData] = useState([]);
-  const [inputData, setInputData] = useState({
-    assettagid:"",
-    purchasefrom:"",
-    purchasedate:"",
-    mobile:"",
-    address:"",
-    description:"",
-    brand:"",
-    cost:"",
-    model:"",
-    serialno:"",
-    site:"",
-    category:"",
-    location:"",
-    department:"",
-    processor:"",
-    ram:"",
-    status:"",
-    remarks:"",
-    disktype:""});
+const [assettagid,setAssetTagId] = useState('')
+const [description,setDescription] = useState('')
+const [purchasefrom,setPurchaseFrom] = useState('')
+const [purchasedate,setPurchaseDate] = useState('')
+const [cost,setCost] = useState('')
+const [model,setModel] = useState('')
+const [brand,setBrand] = useState('')
+const [serialno,setSerialNo] = useState('')
+const [processor,setProcessor] = useState('')
+const [ram,setRam] = useState('')
+const [disktype,setDiskType] = useState('')
+const [status,setStatus] = useState('InActive')
+const [remarks,setRemarks] = useState('')
+const [image,setImage] = useState('')
 
-  async function fetchData() {
-    const users = await fetch("http://localhost:8000/users");
-    const result = await users.json();
-    setData(result);
-  }
-    useEffect(() => {
-      fetchData();
-    }, []);
-    let length = data.length;
-    
-  function handleSubmit(event:any) {
+const [message,setMessage] = useState('')
+const router = useRouter()
+
+const handleSubmit = async (event)=>{
     event.preventDefault();
-    axios
-      .post("http://localhost:8000/users", inputData)
-      .then((res) => {
-        alert("Data Submited Successfully");
-        router.push('/assets/listofassets', { scroll: false })
-      })
-      .catch((err) => console.log(err));
-  }
-  
-  return (
-  <div>
-    <form onSubmit={handleSubmit}>
-     <Box >
-      <Grid container sx={{paddingLeft:'1rem',paddingTop:"0.5rem",paddingBottom:'0.5rem'}}>
-        <Grid item xs={12}>
-          <Typography fontWeight={"bold"} style={{fontFamily:"cursive", fontSize:'1.3rem'}}>Asset Details</Typography>
-        </Grid>
-      </Grid>
-      <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #1F7DA9',paddingLeft:'2rem',paddingTop:'0.8rem',paddingBottom:'5rem',width:'97%',marginLeft:'1.3rem',alignItems:'center',boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}}>
-        <Grid item lg={6} xs={12}>
-          <Grid container sx={{alignItems:'center'}}>
-            <Grid item xs={3.2}>
-            <Typography>Asset Tag ID</Typography>
-            </Grid>
-            <Grid item xs={8}>
-            <TextField id="outlined-basic" fullWidth size='small'
-            value={length+1} disabled/>
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item lg={6} xs={12} mt={1} >
-          <Grid container sx={{alignItems:'center'}}>
-            <Grid item xs={3.2}>
-            <Typography>Description</Typography>
-            </Grid>
-            <Grid item xs={8}>
-            <TextField id="outlined-basic"  fullWidth size='small'
-            onChange={(e) => setInputData({ ...inputData, description: e.target.value })}/>
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item lg={6} xs={12} mt={0.6}>
-          <Grid container sx={{alignItems:'center'}}>
-            <Grid item xs={3.2}>
-            <Typography>Purchased from</Typography>
-            </Grid>
-            <Grid item xs={8}>
-            <TextField id="outlined-basic"  fullWidth size='small'
-            onChange={(e) => setInputData({ ...inputData, purchasefrom: e.target.value })}/>
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item lg={6} xs={12} mt={1} >
-          <Grid container sx={{alignItems:'center'}}>
-            <Grid item xs={3.2}>
-            <Typography>Purchased Date</Typography>
-            </Grid>
-            <Grid item xs={8}>
-             <input type="date" id="birthday" name="birthday" style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}
-             onChange={(e) => setInputData({ ...inputData, purchasedate: e.target.value })}/>
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item lg={6} xs={12} >
-          <Grid container sx={{alignItems:'center'}}>
-            <Grid item xs={3}>
-            <Typography>Cost</Typography>
-            </Grid>
-            <Grid item xs={8}>
-            <FormControl fullWidth sx={{ m: 1 }}>
-          <OutlinedInput startAdornment={<InputAdornment position="start">₹</InputAdornment>} fullWidth size='small'
-           onChange={(e) => setInputData({ ...inputData, cost: e.target.value })}/>
-        </FormControl>
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item lg={6} xs={12} >
-          <Grid container sx={{alignItems:'center'}}>
-            <Grid item xs={3.2}>
-            <Typography>Model</Typography>
-            </Grid>
-            <Grid item xs={8}>
-            <TextField id="outlined-basic"  fullWidth size='small'
-            onChange={(e) => setInputData({ ...inputData, model: e.target.value })}/>
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item lg={6} xs={12} >
-          <Grid container sx={{alignItems:'center'}}>
-            <Grid item xs={3.2}>
-            <Typography>Brand</Typography>
-            </Grid>
-            <Grid item xs={8}>
-            <TextField id="outlined-basic"  fullWidth size='small'
-            onChange={(e) => setInputData({ ...inputData, brand: e.target.value })}/>
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item lg={6} xs={12} >
-          <Grid container sx={{alignItems:'center'}}>
-            <Grid item xs={3.2}>
-            <Typography>Serial No.</Typography>
-            </Grid>
-            <Grid item xs={8}>
-            <TextField id="outlined-basic"  fullWidth size='small'
-            onChange={(e) => setInputData({ ...inputData, serialno: e.target.value })}/>
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item lg={6} xs={12} mt={1} >
-          <Grid container sx={{alignItems:'center'}}>
-            <Grid item xs={3.2}>
-            <Typography>Processor</Typography>
-            </Grid>
-            <Grid item xs={8}>
-              <select style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}  onChange={(e) => setInputData({ ...inputData, processor: e.target.value })}>
-                <option>Select Processor</option>
-                <option>Pentium</option>
-                <option>Dual Core</option>
-                <option>Core i3</option>
-                <option>Core i5</option>
-                <option>Core i7</option>
-                <option>Core i9</option>
-              </select>
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item lg={6} xs={12} mt={1} >
-          <Grid container sx={{alignItems:'center'}}>
-            <Grid item xs={3.2}>
-            <Typography>Ram</Typography>
-            </Grid>
-            <Grid item xs={8}>
-              <select style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}  onChange={(e) => setInputData({ ...inputData, ram: e.target.value })}>
-                <option>Select Ram</option>
-                <option>4 GB</option>
-                <option>8 GB</option>
-                <option>16 GB</option>
-              </select>
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item lg={6} xs={12} mt={1} >
-          <Grid container sx={{alignItems:'center'}}>
-            <Grid item xs={3.2}>
-            <Typography>Disk Type</Typography>
-            </Grid>
-            <Grid item xs={8}>
-              <select style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}  onChange={(e) => setInputData({ ...inputData, disktype: e.target.value })}>
-                <option>Select Disk</option>
-                <option>SSD</option>
-                <option>HDD</option>
-              </select>
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item lg={6} xs={12} mt={1} >
-          <Grid container sx={{alignItems:'center'}}>
-            <Grid item xs={3.2}>
-            <Typography>Status</Typography>
-            </Grid>
-            <Grid item xs={8}>
-              <select style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}  onChange={(e) => setInputData({ ...inputData, site: e.target.value })}>
-                <option>Select Status</option>
-                <option>InActive</option>
-              </select>
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item lg={6} xs={12} mt={1}>
-          <Grid container sx={{alignItems:'center'}}>
-            <Grid item xs={3.2}>
-            <Typography>Remarks</Typography>
-            </Grid>
-            <Grid item xs={8}>
-            <TextField id="outlined-basic"  fullWidth size='small'
-            onChange={(e) => setInputData({ ...inputData, remarks: e.target.value })}/>
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid container sx={{display:'flex',justifyContent:'flex-end',marginTop:'0.7rem'}}>
-        <Grid item lg={2.5} xs={4} mt={1} >
-          <Grid container sx={{alignItems:'center'}}>
-            <Grid item xs={5.2}>
-            <Link href="/assets/listofassets" passHref style={{ textDecoration: "none" }}>
-            <button style={{cursor:'pointer',background:'#1F7DA9',color:'white',width:'90%',border:'none',height:'5vh',borderRadius:'5px'}}> Cancel</button>
-            </Link>
-            </Grid>
-            <Grid item xs={3.7}>
-            <button style={{cursor:'pointer',background:'#1F7DA9',color:'white',width:'130%',border:'none',height:'5vh',borderRadius:'5px'}}> Save</button>
-            </Grid>
-          </Grid>
-        </Grid>
-        </Grid>
-      </Grid>
-     </Box>
-     {/* <Box>
-      <Grid container sx={{paddingLeft:'1rem',paddingTop:'0.5rem',paddingBottom:'0.5rem',marginTop:'0.3rem'}}>
-        <Grid item xs={12}>
-          <Typography fontWeight={"bold"} style={{fontFamily:"cursive", fontSize:'1.3rem'}}>Site, Location, Category and Department</Typography>
-        </Grid>
-      </Grid>
-      <Grid container sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #1F7DA9',paddingLeft:'2rem',paddingTop:'0.8rem',paddingBottom:'0.7rem',width:'97%',marginLeft:'1.3rem',alignItems:'center',boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}}>
-        <Grid item xs={6} mt={1} >
-          <Grid container sx={{alignItems:'center'}}>
-            <Grid item xs={3.2}>
-            <Typography>Site</Typography>
-            </Grid>
-            <Grid item xs={8}>
-             <select style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}  onChange={(e) => setInputData({ ...inputData, site: e.target.value })}>
-                <option>Select Site</option>
-                <option>Alchemy Internal</option>
-                <option>Alchemy External</option>
-              </select>
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item xs={6} mt={1} >
-          <Grid container sx={{alignItems:'center'}}>
-            <Grid item xs={3.2}>
-            <Typography>Location</Typography>
-            </Grid>
-            <Grid item xs={8}>
-             <select style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}  onChange={(e) => setInputData({ ...inputData, location: e.target.value })}>
-                <option>Select Location</option>
-                <option>Banglore</option>
-                <option>Noida</option>
-                <option>Philippines</option>
-              </select>
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item xs={6} mt={1} >
-          <Grid container sx={{alignItems:'center'}}>
-            <Grid item xs={3.2}>
-            <Typography>Category</Typography>
-            </Grid>
-            <Grid item xs={8}>
-            <select style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}  onChange={(e) => setInputData({ ...inputData, category: e.target.value })}>
-                <option>Select Category</option>
-                <option>External</option>
-                <option>External-Client</option>
-                <option>Internal</option>
-                <option>Returned</option>
-                <option>Store-Room</option>
-              </select>
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item xs={6} mt={1} >
-          <Grid container sx={{alignItems:'center'}}>
-            <Grid item xs={3.2}>
-            <Typography>Department</Typography>
-            </Grid>
-            <Grid item xs={8}>
-              <select style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}  onChange={(e) => setInputData({ ...inputData, department: e.target.value })}>
-                <option>Select Department</option>
-                <option>Accounts</option>
-                <option>Admin</option>
-                <option>HR</option>
-                <option>Developer</option>
-                <option>Manager</option>
-                <option>Recruiter</option>
-              </select>
+    const formData = new FormData ();
+    formData.append('assettagid',assettagid);
+    formData.append('description',description);
+    formData.append('brand',brand);
+    formData.append('serialno',serialno);
+    formData.append('model',model);
+    formData.append('cost',cost);
+    formData.append('status',status);
+    formData.append('processor',processor);
+    formData.append('ram',ram);
+    formData.append('purchasedate',purchasedate);
+    formData.append('purchasefrom',purchasefrom);
+    formData.append('disktype',disktype);
+    formData.append('remarks',remarks);
+    formData.append('image',image);
 
-            </Grid>
-          </Grid>
-        </Grid>
-      <Grid container sx={{display:'flex',justifyContent:'flex-end',marginTop:'0.7rem'}}>
-        <Grid item xs={2.5} mt={1} >
-          <Grid container sx={{alignItems:'center'}}>
-            <Grid item xs={5.2}>
-            <Link href="/assets/listofassets" passHref style={{ textDecoration: "none" }}>
-            <button style={{cursor:'pointer',background:'#1F7DA9',color:'white',width:'90%',border:'none',height:'5vh',borderRadius:'5px'}}> Cancel</button>
-            </Link>
-            </Grid>
-            <Grid item xs={3.7}>
-            <button style={{cursor:'pointer',background:'#1F7DA9',color:'white',width:'130%',border:'none',height:'5vh',borderRadius:'5px'}}> Save</button>
-            </Grid>
-          </Grid>
-        </Grid>
+    const response = await postService.create(formData);
+
+    if (response.data.success  ==true){
+        alert("Post Created Successfully")
+    } else{
+        setMessage("Post Failed")
+    }
+
+    setTimeout(function(){
+        setMessage('');
+    },2000)
+    event.target.reset();
+    router.push('/assets/listofassets', { scroll: false })
+}
+
+
+return (
+    <div>
+      <Grid container>
+        <Grid item xs={12}>
+        <Typography style={{fontFamily:"cursive", fontSize:'1.3rem'}}>Asset Details</Typography>
         </Grid>
       </Grid>
-     </Box> */}
-     </form>
-  </div>
+      <form onSubmit={handleSubmit}>
+          <Box style={{marginTop:'1.2rem'}}>
+            <Grid container spacing={2} sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #1F7DA9',paddingLeft:'2rem',paddingTop:'0.8rem',paddingBottom:'1rem',width:'96%',marginLeft:'1.3rem',alignItems:'center',boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}}>
+            <Grid item xs={6}>
+                <Grid container alignItems={"center"}>
+                    <Grid item xs={3}>
+                        <Typography> Asset Tag ID</Typography>
+                    </Grid>
+                    <Grid item xs={2}>
+                    <Typography>:</Typography>
+                    </Grid>
+                    <Grid item xs={6.5}>
+                        <TextField size='small' fullWidth type='text' name='assettagid' placeholder='Enter Asset Tag ID' 
+                        onChange={event => setAssetTagId(event.target.value)} required />
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid item xs={6}>
+                <Grid container alignItems={"center"}>
+                    <Grid item xs={3}>
+                        <Typography>Description</Typography>
+                    </Grid>
+                    <Grid item xs={2}>
+                    <Typography>:</Typography>
+                    </Grid>
+                    <Grid item xs={6.5}>
+                        <TextField size='small'fullWidth type='text' name='description' placeholder='Enter Description' 
+                        onChange={event => setDescription(event.target.value)} required />
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid item xs={6}>
+                <Grid container alignItems={"center"}>
+                    <Grid item xs={3}>
+                        <Typography>Purchased From</Typography>
+                    </Grid>
+                    <Grid item xs={2}>
+                    <Typography>:</Typography>
+                    </Grid>
+                    <Grid item xs={6.5}>
+                        <TextField size='small' fullWidth type='text' name='purchasefrom' placeholder='Enter Purchased From' 
+                        onChange={event => setPurchaseFrom(event.target.value)} required/>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid item xs={6}>
+                <Grid container alignItems={"center"}>
+                    <Grid item xs={3}>
+                        <Typography>Purchased Date</Typography>
+                    </Grid>
+                    <Grid item xs={2}>
+                    <Typography>:</Typography>
+                    </Grid>
+                    <Grid item xs={6.5}>
+                    {/* <input type="date" id="birthday" name="birthday" style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}
+                      onChange={(e) => setInputData({ ...inputData, purchasedate: e.target.value })}/> */}
+                        <TextField size='small' fullWidth type='date' name='purchasedate' onChange={event => setPurchaseDate(event.target.value)} required/>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid item xs={6}>
+                <Grid container alignItems={"center"}>
+                    <Grid item xs={3}>
+                        <Typography>Cost</Typography>
+                    </Grid>
+                    <Grid item xs={2}>
+                    <Typography>:</Typography>
+                    </Grid>
+                    <Grid item xs={6.5}>
+                        <TextField size='small' fullWidth type='text' name='cost' placeholder='Enter Cost' 
+                        onChange={event => setCost(event.target.value)} required/>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid item xs={6}>
+                <Grid container alignItems={"center"}>
+                    <Grid item xs={3}>
+                        <Typography>Model</Typography>
+                    </Grid>
+                    <Grid item xs={2}>
+                    <Typography>:</Typography>
+                    </Grid>
+                    <Grid item xs={6.5}>
+                        <TextField size='small' fullWidth type='text' name='position' placeholder='Enter Model' 
+                        onChange={event => setModel(event.target.value)} required/>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid item xs={6}>
+                <Grid container alignItems={"center"}>
+                    <Grid item xs={3}>
+                        <Typography>Brand</Typography>
+                    </Grid>
+                    <Grid item xs={2}>
+                    <Typography>:</Typography>
+                    </Grid>
+                    <Grid item xs={6.5}>
+                        <TextField size='small' fullWidth type='text' name='position' placeholder='Enter Brand' 
+                        onChange={event => setBrand(event.target.value)} required/>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid item xs={6}>
+                <Grid container alignItems={"center"}>
+                    <Grid item xs={3}>
+                        <Typography>Serial No.</Typography>
+                    </Grid>
+                    <Grid item xs={2}>
+                    <Typography>:</Typography>
+                    </Grid>
+                    <Grid item xs={6.5}>
+                        <TextField size='small' fullWidth type='text' name='position' placeholder='Enter Serial No.' 
+                        onChange={event => setSerialNo(event.target.value)} required/>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid item xs={6}>
+                <Grid container alignItems={"center"}>
+                    <Grid item xs={3}>
+                        <Typography>Processor</Typography>
+                    </Grid>
+                    <Grid item xs={2}>
+                    <Typography>:</Typography>
+                    </Grid>
+                    <Grid item xs={6.5}>
+                        <select style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}   name="department"
+                        value={processor} onChange={(e) => {setProcessor(e.target.value);}}>
+                        <option>Select Processor</option>
+                        <option>Pentium</option>
+                        <option>Core I3</option>
+                        <option>Core I5</option>
+                        <option>Core I7</option>
+                        <option>Core I9</option>
+                        </select>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid item xs={6}>
+                <Grid container alignItems={"center"}>
+                    <Grid item xs={3}>
+                        <Typography>Ram</Typography>
+                    </Grid>
+                    <Grid item xs={2}>
+                    <Typography>:</Typography>
+                    </Grid>
+                    <Grid item xs={6.5}>
+                        <select style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}   name="department"
+                        value={ram} onChange={(e) => {setRam(e.target.value);}}>
+                        <option>Select Ram</option>
+                        <option>4 GB</option>
+                        <option>8 GB</option>
+                        <option>16 GB</option>
+                        </select>
+                    </Grid>
+                </Grid>
+            </Grid>
+
+            <Grid item xs={6}>
+                <Grid container alignItems={"center"}>
+                    <Grid item xs={3}>
+                        <Typography>Disk Type</Typography>
+                    </Grid>
+                    <Grid item xs={2}>
+                    <Typography>:</Typography>
+                    </Grid>
+                    <Grid item xs={6.5}>
+                        <select style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}} name="department"
+                        value={disktype} onChange={(e) => {setDiskType(e.target.value);}}>
+                        <option>Select Disk Type</option>
+                        <option>HDD</option>
+                        <option>SSD</option>
+                        </select>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid item xs={6}>
+                <Grid container alignItems={"center"}>
+                    <Grid item xs={3}>
+                        <Typography>Status</Typography>
+                    </Grid>
+                    <Grid item xs={2}>
+                    <Typography>:</Typography>
+                    </Grid>
+                    <Grid item xs={6.5}>
+                        <select value={status} onChange={(e) => {setStatus(e.target.value);}} style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}} disabled>
+                            <option>Active</option>
+                            <option>InActive</option>
+                        </select>
+                    </Grid>
+                </Grid>
+            </Grid>
+
+            <Grid item xs={6}>
+                <Grid container alignItems={"center"}>
+                    <Grid item xs={3}>
+                        <Typography>Remarks</Typography>
+                    </Grid>
+                    <Grid item xs={2}>
+                    <Typography>:</Typography>
+                    </Grid>
+                    <Grid item xs={6.5}>
+                        <TextField size='small' fullWidth type='text' name='remarks' placeholder='Enter Remarks' 
+                        onChange={event => setRemarks(event.target.value)} required/>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid item xs={6}>
+                <Grid container alignItems={"center"}>
+                    <Grid item xs={3}>
+                        <Typography>Image</Typography>
+                    </Grid>
+                    <Grid item xs={2}>
+                    <Typography>:</Typography>
+                    </Grid>
+                    <Grid item xs={6.5}>
+                        <TextField size='small' fullWidth type='file' name='image' 
+                        onChange={event => setImage(event.target.files[0])} required/>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid item xs={6}>
+                
+            </Grid>
+            <Grid item xs={6} >
+                <Grid container>
+                    <Grid item xs={11.5} style={{display:'flex',justifyContent:'flex-end'}}>
+                        <Link href="/employeemanagement/" passHref style={{ textDecoration: "none" }}>
+                        <Button variant='contained' size='small' style={{marginRight:'5.6rem',width:'75%',height:'40px'}}>Cancel</Button>
+                        </Link>
+                        <Button variant='contained' size='small' style={{width:'25%'}} type='submit'>Save</Button>
+                    </Grid>
+                  
+                </Grid>
+            </Grid>
+            </Grid> 
+          </Box>
+      </form>
+    </div>
   )
 }
 

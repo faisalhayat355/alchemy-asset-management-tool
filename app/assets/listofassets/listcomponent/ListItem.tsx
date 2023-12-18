@@ -1,44 +1,76 @@
 import { useEffect, useMemo, useState } from 'react';
 import axios from 'axios';
-import Link from 'next/link';
-import {MaterialReactTable, useMaterialReactTable,type MRT_ColumnDef}from 'material-react-table';
+import {MaterialReactTable, useMaterialReactTable,type MRT_ColumnDef,} from 'material-react-table';
 import Tooltip from '@mui/material/Tooltip';
-import { Box } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import EditIcon from '@mui/icons-material/Edit';
 
+import Link from 'next/link';
+import { Box } from '@mui/material';
+import UpdateAssetComponent from '../../addassets/updateAsset';
+import ViewAssetComponent from '../../addassets/viewAsset';
+
 type Post = {
-  id: number;
-  description: string;
-  brand: string;
-  name:string;
-  department:string;
-  model:string;
+  _id: string;
+  id: string;
+  employeeId: string;
+  name: string;
+  email: string;
+  mobile: string;
+  position: string;
+  address: string;
+  status: string;
+  assignmode:string;
+  image:string;
+  assettagid:string;
+  description:string;
+  brand:string;
   serialno:string;
+  model:string;
+  cost:string;
+  purchasedate:string;
+  purchasefrom:string;
+  ram:string;
+  processor:string;
+  assigndate:string;
+  courierdate:string;
+  disktype:string;
   remarks:string;
+  courierid:string;
+  returndate:string;
+
+
 };
 
-const ListItemComponent = () => {
+const EmployeeListComponent = () => {
   const columns = useMemo<MRT_ColumnDef<Post>[]>(
     () => [
       {
-        accessorKey: 'id',
-        header: 'Asset Tag ID',
+        accessorKey: 's.no',
+        header: 'S.No',
         size: 100,
         isResizable: true,
-        enableSorting: true,
+        Cell: ({ cell }) => cell.row.index + 1,
       },
       {
         accessorKey: 'name',
         header: 'Name',
-        size: 150,
+        size: 140,
         isResizable: true,
         enableSorting: true,
       },
       {
-        accessorKey: 'assigndate',
-        header: 'Assign Date',
+        accessorKey: 'assettagid',
+        header: 'Asset Tag ID',
+        size: 140,
+        isResizable: true,
+        enableSorting: true,
+      },
+     
+      {
+        accessorKey: 'description',
+        header: 'Description',
         size: 140,
         isResizable: true,
         enableSorting: true,
@@ -51,49 +83,95 @@ const ListItemComponent = () => {
         enableSorting: true,
       },
       {
-        accessorKey: 'model',
-        header: 'Model',
+        accessorKey: 'serialno',
+        header: 'Serial No',
         size: 140,
         isResizable: true,
         enableSorting: true,
       },
       {
-        accessorKey: 'serialno',
-        header: 'Serial No.',
+        accessorKey: 'status',
+        header: 'Status',
+        size: 170,
+        isResizable: true,
+        enableSorting: true,
+      },
+      {
+        accessorKey: 'model',
+        header: 'Model',
         size: 150,
         isResizable: true,
         enableSorting: true,
       },
       {
         accessorKey: 'remarks',
-        header: 'Remarks',
-        size: 140,
+        header: 'Remarks.',
+        size: 150,
         isResizable: true,
         enableSorting: true,
       },
+      // {
+      //   accessorKey: 'image',
+      //   header: 'Image',
+      //   size: 150,
+      //   isResizable: true,
+      //   enableSorting: true,
+      //   Cell: ({ cell }) => <img src={'http://127.0.0.1:8000/postImages/'+cell.row.original.image} style={{width:'120px', height:'100px'}}/>,
+      // },
       {
         accessorKey: 'actions',
         header: 'Actions',
         size: 140,
         Cell: ({ cell }) => (
-          <div>
+          <div style={{display:'flex'}}>
             {cell.row.original && (
-             <Box>
-                <Tooltip title="View">
-                <Link href={`/assets/viewassets/${cell.row.original.id}`}>
-                  <IconButton onClick={() => handleView(cell.row.original)}>
-                    <VisibilityIcon style={{fontSize:'1rem'}}/>
-                  </IconButton>
-                  </Link>
-                </Tooltip>
-                <Tooltip title="Edit">
-                  <Link href={`/assets/${cell.row.original.id}`}>
-                      <IconButton onClick={() => handleEdit(cell.row.original)}>
-                        <EditIcon style={{fontSize:'1rem'}}/>
-                      </IconButton>
-                  </Link>
-                </Tooltip>
-                </Box>
+             <Box sx={{display:'flex'}}>
+               <UpdateAssetComponent id={cell.row.original._id} assettagid={cell.row.original.assettagid} 
+               name={cell.row.original.name} status={cell.row.original.status} 
+               assignmode={cell.row.original.assignmode}
+               description={cell.row.original.description}
+               brand={cell.row.original.brand}
+               serialno={cell.row.original.serialno}
+               model={cell.row.original.model} 
+               cost={cell.row.original.cost}
+               purchasedate={cell.row.original.purchasedate}
+               purchasefrom={cell.row.original.purchasefrom}
+               ram={cell.row.original.ram}
+               processor={cell.row.original.processor}
+               assigndate={cell.row.original.assigndate}
+               courierdate={cell.row.original.courierdate}
+               disktype={cell.row.original.disktype}
+               remarks={cell.row.original.remarks}
+               courierid={cell.row.original.courierid}
+               returndate={cell.row.original.returndate}
+               
+               />
+              </Box>
+            )}
+
+            {cell.row.original && (
+             <Box sx={{display:'flex'}}>
+               <ViewAssetComponent id={cell.row.original._id} assettagid={cell.row.original.assettagid} 
+               name={cell.row.original.name} status={cell.row.original.status}
+               assignmode={cell.row.original.assignmode} 
+               description={cell.row.original.description}
+               brand={cell.row.original.brand}
+               serialno={cell.row.original.serialno}
+               model={cell.row.original.model} 
+               cost={cell.row.original.cost}
+               purchasedate={cell.row.original.purchasedate}
+               purchasefrom={cell.row.original.purchasefrom}
+               ram={cell.row.original.ram}
+               processor={cell.row.original.processor}
+               assigndate={cell.row.original.assigndate}
+               courierdate={cell.row.original.courierdate}
+               disktype={cell.row.original.disktype}
+               remarks={cell.row.original.remarks}
+               courierid={cell.row.original.courierid}
+               returndate={cell.row.original.returndate}
+               image={cell.row.original.image}
+               />
+              </Box>
             )}
           </div>
         ),
@@ -107,16 +185,19 @@ const ListItemComponent = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get<Post[]>('http://localhost:8000/users');
-        setData(response.data);
+        const response = await axios.get<{ data: Post[] }>('http://127.0.0.1:8000/get-asset-posts');
+        setData(response.data.data);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
+
     fetchData();
   }, []);
 
-  const table = useMaterialReactTable({
+// console.log("datatatatatata",data)
+
+const table = useMaterialReactTable({
     columns,
     data,
     enableColumnOrdering: true,
@@ -132,6 +213,7 @@ const ListItemComponent = () => {
     // enableRowSelection: true,
     
   });
+
   const handleView = (rowData: Post) => {
     console.log('View post:', rowData);
   };
@@ -139,13 +221,14 @@ const ListItemComponent = () => {
   const handleEdit = (rowData: Post) => {
     console.log('Edit post:', rowData);
   };
+
   return(
 
-    <div style={{paddingBottom:'5vh'}}>
-        <MaterialReactTable table={table}/>
+    <div style={{paddingBottom:'5vh'}} >
+      <MaterialReactTable table={table}/>
     </div>
     ) 
   ;
 };
 
-export default ListItemComponent;
+export default EmployeeListComponent;

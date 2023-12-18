@@ -6,25 +6,25 @@ const InfoComponent = ({test}:any) => {
     <div>
       <Grid container style={{ padding: "0.5rem", background: "#f8fafc",width:'98.7%' }} mb={"0.3rem"} mt={0.4}>
         <Grid item xs={1}>
-          <Typography style={{fontSize:'0.8rem'}}>{test.employeeid}</Typography>
+          <Typography style={{fontSize:'0.8rem'}}>{test.employeeId}</Typography>
         </Grid>
-        <Grid item xs={1.5}>
+        <Grid item xs={1.7}>
           <Typography style={{fontSize:'0.8rem'}}>{test.name}</Typography>
         </Grid>
-        <Grid item xs={1.5}>
-          <Typography style={{fontSize:'0.8rem'}}>{test.client}</Typography>
+        <Grid item xs={1.4}>
+          <Typography style={{fontSize:'0.8rem'}}>{test.clients}</Typography>
         </Grid>
         <Grid item xs={2}>
           <Typography style={{fontSize:'0.8rem'}}>{test.projectName}</Typography>
         </Grid>
-        <Grid item xs={2}>
+        <Grid item xs={1.8}>
           <Typography style={{fontSize:'0.8rem'}}>{test.mobile}</Typography>
         </Grid>
-        <Grid item xs={2}>
+        <Grid item xs={2.1}>
           <Typography style={{fontSize:'0.8rem'}}>{test.sbuHead}</Typography>
         </Grid>
         <Grid item xs={2}>
-          <Typography noWrap style={{fontSize:'0.8rem'}}>{test.clientLob}</Typography>
+          <Typography noWrap style={{fontSize:'0.8rem'}}>{test.clientsLob}</Typography>
         </Grid>
       </Grid>
     </div>
