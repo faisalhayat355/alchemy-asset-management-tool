@@ -195,8 +195,9 @@ useEffect(() => {
                   <Grid item xs={8.6}>
                   <select style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}} value={status} onChange={event =>setStatus(event.target.value)}>
                     <option>Select Status</option>
-                    <option>Active</option>
-                    <option>InActive</option>
+                    <option>Assign</option>
+                    <option>UnAssign</option>
+                    <option>UnderMaintainance</option>
                   </select>
                   </Grid>
                 </Grid> 

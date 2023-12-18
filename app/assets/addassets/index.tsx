@@ -17,14 +17,14 @@ const [serialno,setSerialNo] = useState('')
 const [processor,setProcessor] = useState('')
 const [ram,setRam] = useState('')
 const [disktype,setDiskType] = useState('')
-const [status,setStatus] = useState('InActive')
+const [status,setStatus] = useState('UnAssign')
 const [remarks,setRemarks] = useState('')
 const [image,setImage] = useState('')
 
 const [message,setMessage] = useState('')
 const router = useRouter()
 
-const handleSubmit = async (event)=>{
+const handleSubmit = async (event:any)=>{
     event.preventDefault();
     const formData = new FormData ();
     formData.append('assettagid',assettagid);
@@ -45,7 +45,7 @@ const handleSubmit = async (event)=>{
     const response = await postService.create(formData);
 
     if (response.data.success  ==true){
-        alert("Post Created Successfully")
+        alert("Asset Created Successfully")
     } else{
         setMessage("Post Failed")
     }
@@ -119,8 +119,6 @@ return (
                     <Typography>:</Typography>
                     </Grid>
                     <Grid item xs={6.5}>
-                    {/* <input type="date" id="birthday" name="birthday" style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}
-                      onChange={(e) => setInputData({ ...inputData, purchasedate: e.target.value })}/> */}
                         <TextField size='small' fullWidth type='date' name='purchasedate' onChange={event => setPurchaseDate(event.target.value)} required/>
                     </Grid>
                 </Grid>
@@ -240,23 +238,7 @@ return (
                     </Grid>
                 </Grid>
             </Grid>
-            <Grid item xs={6}>
-                <Grid container alignItems={"center"}>
-                    <Grid item xs={3}>
-                        <Typography>Status</Typography>
-                    </Grid>
-                    <Grid item xs={2}>
-                    <Typography>:</Typography>
-                    </Grid>
-                    <Grid item xs={6.5}>
-                        <select value={status} onChange={(e) => {setStatus(e.target.value);}} style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}} disabled>
-                            <option>Active</option>
-                            <option>InActive</option>
-                        </select>
-                    </Grid>
-                </Grid>
-            </Grid>
-
+          
             <Grid item xs={6}>
                 <Grid container alignItems={"center"}>
                     <Grid item xs={3}>
@@ -282,6 +264,16 @@ return (
                     <Grid item xs={6.5}>
                         <TextField size='small' fullWidth type='file' name='image' 
                         onChange={event => setImage(event.target.files[0])} required/>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid item xs={6}>
+                <Grid container alignItems={"center"}>
+                   
+                    <Grid item xs={6.5}>
+                        <select value={status} onChange={(e) => {setStatus(e.target.value);}} style={{width:"100%",height:'6.2vh',border:'1px solid white',borderRadius:'4px',padding:'0.4rem',color:'white'}} disabled>
+                            <option>UnAssign</option>
+                        </select>
                     </Grid>
                 </Grid>
             </Grid>

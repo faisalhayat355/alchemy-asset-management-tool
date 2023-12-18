@@ -1,12 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import axios from 'axios';
-import {MaterialReactTable, useMaterialReactTable,type MRT_ColumnDef,} from 'material-react-table';
-import Tooltip from '@mui/material/Tooltip';
-import IconButton from '@mui/material/IconButton';
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import EditIcon from '@mui/icons-material/Edit';
-
-import Link from 'next/link';
+import { MaterialReactTable, useMaterialReactTable, type MRT_ColumnDef } from 'material-react-table';
 import { Box } from '@mui/material';
 import UpdateAssetComponent from '../../addassets/updateAsset';
 import ViewAssetComponent from '../../addassets/viewAsset';
@@ -39,8 +33,6 @@ type Post = {
   remarks:string;
   courierid:string;
   returndate:string;
-
-
 };
 
 const EmployeeListComponent = () => {
@@ -49,28 +41,27 @@ const EmployeeListComponent = () => {
       {
         accessorKey: 's.no',
         header: 'S.No',
-        size: 100,
+        size: 90,
         isResizable: true,
         Cell: ({ cell }) => cell.row.index + 1,
       },
       {
         accessorKey: 'name',
         header: 'Name',
-        size: 140,
+        size: 130,
         isResizable: true,
         enableSorting: true,
       },
       {
         accessorKey: 'assettagid',
         header: 'Asset Tag ID',
-        size: 140,
+        size: 135,
         isResizable: true,
         enableSorting: true,
       },
-     
       {
-        accessorKey: 'description',
-        header: 'Description',
+        accessorKey: 'purchasefrom',
+        header: 'Purchased From',
         size: 140,
         isResizable: true,
         enableSorting: true,
@@ -78,7 +69,14 @@ const EmployeeListComponent = () => {
       {
         accessorKey: 'brand',
         header: 'Brand',
-        size: 140,
+        size: 125,
+        isResizable: true,
+        enableSorting: true,
+      },
+      {
+        accessorKey: 'model',
+        header: 'Model',
+        size: 130,
         isResizable: true,
         enableSorting: true,
       },
@@ -92,21 +90,14 @@ const EmployeeListComponent = () => {
       {
         accessorKey: 'status',
         header: 'Status',
-        size: 170,
-        isResizable: true,
-        enableSorting: true,
-      },
-      {
-        accessorKey: 'model',
-        header: 'Model',
-        size: 150,
+        size: 123,
         isResizable: true,
         enableSorting: true,
       },
       {
         accessorKey: 'remarks',
         header: 'Remarks.',
-        size: 150,
+        size: 140,
         isResizable: true,
         enableSorting: true,
       },
@@ -120,8 +111,8 @@ const EmployeeListComponent = () => {
       // },
       {
         accessorKey: 'actions',
-        header: 'Actions',
-        size: 140,
+        header: 'Action',
+        size: 130,
         Cell: ({ cell }) => (
           <div style={{display:'flex'}}>
             {cell.row.original && (
@@ -144,11 +135,9 @@ const EmployeeListComponent = () => {
                remarks={cell.row.original.remarks}
                courierid={cell.row.original.courierid}
                returndate={cell.row.original.returndate}
-               
                />
               </Box>
             )}
-
             {cell.row.original && (
              <Box sx={{display:'flex'}}>
                <ViewAssetComponent id={cell.row.original._id} assettagid={cell.row.original.assettagid} 
@@ -195,8 +184,6 @@ const EmployeeListComponent = () => {
     fetchData();
   }, []);
 
-// console.log("datatatatatata",data)
-
 const table = useMaterialReactTable({
     columns,
     data,
@@ -211,19 +198,14 @@ const table = useMaterialReactTable({
     enableStickyFooter: true,
     manualFiltering: true,
     // enableRowSelection: true,
-    
   });
-
   const handleView = (rowData: Post) => {
     console.log('View post:', rowData);
   };
-
   const handleEdit = (rowData: Post) => {
     console.log('Edit post:', rowData);
   };
-
   return(
-
     <div style={{paddingBottom:'5vh'}} >
       <MaterialReactTable table={table}/>
     </div>

@@ -250,7 +250,7 @@ const DashboardPage = () => {
                         <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Asset Assigned </Typography>
                         </Grid>
                         <Grid item xs={8} sx={{display:'flex',justifyContent:'flex-end',paddingTop:'1rem'}}>
-                        <Typography fontSize={"1.5rem"}>{data?.filter(r => r.status !== 'InActive')?.length}</Typography>
+                        <Typography fontSize={"1.5rem"}>{data?.filter(r => r.status !== 'UnAssign')?.length}</Typography>
                         </Grid>
                        </Grid>
                     </Paper>
@@ -265,7 +265,7 @@ const DashboardPage = () => {
                         <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Active Stock</Typography>
                         </Grid>
                         <Grid item xs={8} sx={{display:'flex',justifyContent:'flex-end',paddingTop:'1rem'}}>
-                        <Typography fontSize={"1.5rem"}> {data?.filter(r => r.status !== 'Active')?.length}</Typography>
+                        <Typography fontSize={"1.5rem"}> {data?.filter(r => r.status !== 'Assign')?.length}</Typography>
                         </Grid>
                        </Grid>
                     </Paper>

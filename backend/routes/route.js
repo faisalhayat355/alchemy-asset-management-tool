@@ -1,22 +1,5 @@
-// const express = require ('express')
-// const router = new express.Router;
-
-// const Asset = require('../controllers/assetController');
-// const Employee = require('../controllers/employeeController');
-
-// router.post('/asset/create',Asset.create);
-
-// router.post('/employee/create',Employee.create);
-
-
-// module.exports = router;
-
-
 const express = require('express')
-
-
 const post_route = express();
-
 const bodyParser = require('body-parser');
 
 post_route.use(bodyParser.json())
@@ -28,7 +11,6 @@ const path =require('path');
 const { error } = require('console');
 
 post_route.use(express.static('public'));
-
 
 //Asset Image Post
 const assetstorage = multer.diskStorage({
@@ -51,8 +33,6 @@ const assetstorage = multer.diskStorage({
 });
 
 const assetimageupload = multer({storage:assetstorage});
-
-
 
 //Employee Image Post 
 
@@ -77,9 +57,6 @@ const employeestorage = multer.diskStorage({
 
 const employeeimageupload = multer({storage:employeestorage});
 
-// const postController = require('../controllers/postController');
-// const Employee = require('../controllers/employeeController');
-
 //Employee Post
 
 const Employee = require('../controllers/employeeController');
@@ -87,8 +64,6 @@ const Employee = require('../controllers/employeeController');
 post_route.post('/employee/create',employeeimageupload.single('image'),Employee.createEmployeePost);
 
 post_route.get('/get-employee-posts',Employee.getEmployeePosts);
-
-
 
 //Asset Post
 
