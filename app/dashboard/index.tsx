@@ -69,12 +69,12 @@ const useStyles = makeStyles({
         },
     },
     divIcon3: {
-        borderRadius:'5px',background:' #ef4444 ',height:'3vh',width:'45%',
+        borderRadius:'5px',background:' #ef4444 ',height:'3vh',width:'45.5%',
         marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
         paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',color:'white',
         transition: "width 2s, height 2s, transform 2s",
         "&:hover": {
-            borderRadius:'5px',background:'#dc2626',height:'3vh',width:'45%',
+            borderRadius:'5px',background:'#dc2626',height:'3vh',width:'45.5%',
             marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
             paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',transform: "rotate(180deg)",  
         },

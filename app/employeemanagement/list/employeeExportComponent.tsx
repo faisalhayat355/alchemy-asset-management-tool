@@ -1,17 +1,13 @@
-import React from 'react'
-import ImportExportIcon from '@mui/icons-material/ImportExport';
-import { IconButton, Tooltip, Typography } from '@mui/material';
 import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
-import Button from '@mui/material/Button';
+import { IconButton, Tooltip } from '@mui/material';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import AssetPDFDownload from '../../../utility/asset/assetpdf';
-import AssetCSVDownload from '../../../utility/asset/assetcsv';
-import AssetExcellDownload from '../../../utility/asset/assetexcell';
+import React from 'react';
+import EmployeeExcellDownload from '../../utility/employee/employeeexcell';
+import EmployeePDFDownload from '../../utility/employee/employeepdf';
 
 
-
-const AssetExportComponent = ({users}:any) => {
+const EmployeeExportComponent = ({users}:any) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -32,17 +28,17 @@ const AssetExportComponent = ({users}:any) => {
       <Menu id="basic-menu" anchorEl={anchorEl} open={open} onClose={handleClose}
           MenuListProps={{'aria-labelledby': 'basic-button',}}>
           <MenuItem onClick={handleClose}>
-            <AssetPDFDownload users={users}/>
+            <EmployeePDFDownload users={users}/>
           </MenuItem>
           {/* <MenuItem onClick={handleClose}>
             <AssetCSVDownload users={users}/>
          </MenuItem> */}
           <MenuItem onClick={handleClose}>
-            <AssetExcellDownload users={users}/>
+            <EmployeeExcellDownload users={users}/>
           </MenuItem>
       </Menu>
     </>
   )
 }
 
-export default AssetExportComponent
+export default EmployeeExportComponent

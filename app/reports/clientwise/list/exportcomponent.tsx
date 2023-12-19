@@ -5,11 +5,12 @@ import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import ClientReportPDFDownload from '../../../utility/clientsreport/clientpdf';
+import ClientReportExcellDownload from '../../../utility/clientsreport/clientexcell';
 // import AssetCSVDownload from '../utility/asset/assetcsv';
 // import AssetPDFDownload from '../utility/asset/assetpdf';
 // import AssetExcellDownload from '../utility/asset/assetexcell';
-import ClientReportPDFDownload from '../../../assets/listofassets/utility/clientsreport/clientpdf';
-import ClientReportExcellDownload from '../../../assets/listofassets/utility/clientsreport/clientexcell';
+
 
 
 const ReportsExportComponent = ({users}:any) => {

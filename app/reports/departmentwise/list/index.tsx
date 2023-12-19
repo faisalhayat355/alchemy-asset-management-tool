@@ -1,10 +1,11 @@
 import { Grid, Pagination, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import { IAssets } from '../../../assets/listofassets/models/assets.model'
-import { PaginationHandler } from '../../../assets/listofassets/utility/pagination'
+
 import DepartmentInfoComponent from './info'
 import { makeStyles } from "@mui/styles";
 import { ListComponentProps } from '../../../assets/listofassets/props/props'
+import { PaginationHandler } from '../../../utility/pagination';
 
 const useStyles = makeStyles({
   pagination: {
@@ -79,7 +80,7 @@ const DepartmentListComponent = ({users}:ListComponentProps) => {
             <Typography key={test.id}>
             <DepartmentInfoComponent test={test}/> 
           </Typography>
-          ) 
+          )
         })}
     </Grid>
     </div>

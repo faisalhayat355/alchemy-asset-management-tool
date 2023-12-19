@@ -4,8 +4,9 @@ import Paper from '@mui/material/Paper';
 import { makeStyles } from '@mui/styles';
 import Link from 'next/link';
 import { useState } from 'react';
+import { PaginationHandler } from '../../../utility/pagination';
 import { IAssets } from '../models/assets.model';
-import { PaginationHandler } from '../utility/pagination';
+
 
 const useStyles = makeStyles({
   paper: {

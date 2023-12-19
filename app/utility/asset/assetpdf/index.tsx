@@ -1,7 +1,7 @@
 import React from 'react'
-import { IAssets } from '../../../models/assets.model';
 import { Typography } from '@mui/material';
 import { download } from '../../pdf-util';
+import { IAssets } from '../../../assets/listofassets/models/assets.model';
 
 type AssetsProps = {
   users: Array<IAssets>;
@@ -13,7 +13,7 @@ const AssetPDFDownload = ({users}:AssetsProps) => {
     const fileName = `asset-list-${new Date().toISOString().slice(0, 10)}`;
     const headers = [["Asset Tag ID", "Name", "Assign Date","Purchased From", "Brand", "Model", "Serial No.","Ram","Processor"]];
     const pdfSendData = users?.map((elt) => [
-      elt.id,
+      elt.assettagid,
       elt.name,
       elt. assigndate,
       elt.purchasefrom,

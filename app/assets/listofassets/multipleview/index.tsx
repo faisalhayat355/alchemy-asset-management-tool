@@ -6,7 +6,8 @@ import Stack from "@mui/material/Stack";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import React, { useState } from "react";
-import { ViewTypes } from "../utility/view.type";
+import { ViewTypes } from "../../../utility/view.type";
+
 
 const viewIconsSet = [
     {

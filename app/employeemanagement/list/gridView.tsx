@@ -5,7 +5,8 @@ import { makeStyles } from '@mui/styles';
 import Link from 'next/link';
 import { useState } from 'react';
 import { IAssets } from '../../assets/listofassets/models/assets.model';
-import { PaginationHandler } from '../../assets/listofassets/utility/pagination';
+import { PaginationHandler } from '../../utility/pagination';
+
 
 
 const useStyles = makeStyles({
@@ -38,11 +39,16 @@ const EmployeeGridViewComponent = ({users}:AssetsProps) => {
     setPage(p);
     paginationHandler.jump(p);
   };
+
+
+  // console.log("usersusersusers>>>>>",users);
+  
+
   return (
     <div>
     <Box sx={{marginTop:"-0.8rem",height:'73vh',background:'white',paddingLeft:'1rem',paddingRight:'1rem',paddingBottom:'4.5rem',width:'96.45%',marginLeft:'1rem',alignItems:'center'}} >
      <Grid container >
-      <Divider style={{width:'100%',marginTop:'0.7rem'}}/>
+      <Divider style={{width:'100%'}}/>
         <Grid container spacing={2} mt={"0.1rem"}>
           {paginationHandler
           .currentData().map((item:any) => {
@@ -50,19 +56,19 @@ const EmployeeGridViewComponent = ({users}:AssetsProps) => {
                 <Grid item xs={4} md={4} sm={4} lg={4} key={item.id}>
                 <Link href={`/assets/viewemployee/${item.id}`} style={{textDecoration:'none'}}>
                   <Paper variant="outlined" className={classes.paper}>
-                    <Box paddingLeft={2} paddingTop={1}>
+                    <Box paddingLeft={2}>
                       <Grid container>
                         <Grid item xs={5}>
                           <Typography variant="subtitle1"  fontWeight={"bold"}>
                            Employee ID
                           </Typography>
                         </Grid>
-                        <Grid item xs={1}>
+                        <Grid item xs={1} mt={1.2}>
                           <Typography> :</Typography>
                         </Grid>
                         <Grid item xs={6} paddingLeft={2}>
                           <Typography noWrap variant="subtitle1" >
-                            {item.employeeid}
+                            {item.employeeId}
                           </Typography>
                         </Grid>
                       </Grid>
@@ -72,7 +78,7 @@ const EmployeeGridViewComponent = ({users}:AssetsProps) => {
                         <Grid item xs={5}>
                           <Typography variant="subtitle1" fontWeight={"bold"}>Employee Name</Typography>
                         </Grid>
-                        <Grid item xs={1}>
+                        <Grid item xs={1} mt={1.2}>
                           <Typography> :</Typography>
                         </Grid>
                         <Grid item xs={6} paddingLeft={2}>
@@ -87,7 +93,7 @@ const EmployeeGridViewComponent = ({users}:AssetsProps) => {
                         <Grid item xs={5}>
                           <Typography variant="subtitle1" fontWeight={"bold"}>Work Location</Typography>
                         </Grid>
-                        <Grid item xs={1}>
+                        <Grid item xs={1} mt={1.2}>
                           <Typography> :</Typography>
                         </Grid>
                         <Grid item xs={6} paddingLeft={2}>
@@ -102,7 +108,7 @@ const EmployeeGridViewComponent = ({users}:AssetsProps) => {
                         <Grid item xs={5}>
                           <Typography variant="subtitle1" fontWeight={"bold"} >Position</Typography>
                         </Grid>
-                        <Grid item xs={1}>
+                        <Grid item xs={1} mt={1.2}>
                           <Typography> :</Typography>
                         </Grid>
                         <Grid item xs={6} paddingLeft={2}>
@@ -117,7 +123,7 @@ const EmployeeGridViewComponent = ({users}:AssetsProps) => {
                         <Grid item xs={5}>
                           <Typography variant="subtitle1" fontWeight={"bold"}>Employee Type</Typography>
                         </Grid>
-                        <Grid item xs={1}>
+                        <Grid item xs={1} mt={1.2}>
                           <Typography> :</Typography>
                         </Grid>
                         <Grid item xs={6} paddingLeft={2}>
@@ -132,7 +138,7 @@ const EmployeeGridViewComponent = ({users}:AssetsProps) => {
                         <Grid item xs={5}>
                           <Typography variant="subtitle1" fontWeight={"bold"}>Location</Typography>
                         </Grid>
-                        <Grid item xs={1}>
+                        <Grid item xs={1} mt={1.2}>
                           <Typography> :</Typography>
                         </Grid>
                         <Grid item xs={6} paddingLeft={2}>

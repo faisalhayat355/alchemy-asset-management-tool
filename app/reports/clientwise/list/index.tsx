@@ -1,10 +1,10 @@
 import { Grid, Pagination, Typography } from '@mui/material'
 import React, { useState } from 'react'
-import { PaginationHandler } from '../../../assets/listofassets/utility/pagination';
 import InfoComponent from './info';
 import { makeStyles } from "@mui/styles";
 import { IAssets } from '../../../assets/listofassets/models/assets.model';
 import { ListComponentProps } from '../../../assets/listofassets/props/props';
+import { PaginationHandler } from '../../../utility/pagination';
 
 const useStyles = makeStyles({
   pagination: {
