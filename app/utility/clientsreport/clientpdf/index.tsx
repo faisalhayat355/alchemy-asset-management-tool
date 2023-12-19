@@ -1,7 +1,7 @@
 import React from 'react'
-import { IAssets } from '../../../models/assets.model';
 import { Typography } from '@mui/material';
 import { download } from '../../pdf-util';
+import { IAssets } from '../../../assets/listofassets/models/assets.model';
 
 type AssetsProps = {
   users: Array<IAssets>;

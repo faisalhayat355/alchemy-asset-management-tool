@@ -30,7 +30,6 @@ const EmployeeInfoComponent = ({items}:any) => {
        <Grid item xs={1.3} sx={{display:'flex',justifyContent:'center'}}>
            <Typography fontSize={"0.75rem"} noWrap>{items.location}</Typography>
        </Grid>
-       
        </Grid>
     </Grid>     
     </div>

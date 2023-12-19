@@ -1,7 +1,7 @@
 import React from 'react'
 import Typography from "@mui/material/Typography";
 import { CSVLink } from "react-csv";
-import { IAssets } from '../../../models/assets.model';
+import { IAssets } from '../../../assets/listofassets/models/assets.model';
 
 type AssetsProps = {
   users: Array<IAssets>;

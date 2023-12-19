@@ -1,17 +1,17 @@
 "use client"
-import { useEffect, useState } from 'react';
-import moment from "moment";
-import Link from 'next/link';
 import AddIcon from '@mui/icons-material/Add';
 import AddToQueueIcon from '@mui/icons-material/AddToQueue';
 import LaptopIcon from '@mui/icons-material/Laptop';
-import SettingsIcon from '@mui/icons-material/Settings';
 import PeopleOutlineIcon from '@mui/icons-material/People';
+import SettingsIcon from '@mui/icons-material/Settings';
 import { Box, Button, Divider, Grid, Paper, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import { Calendar, momentLocalizer } from "react-big-calendar";
-import "react-big-calendar/lib/css/react-big-calendar.css";
 import axios from 'axios';
+import moment from "moment";
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { momentLocalizer } from "react-big-calendar";
+import "react-big-calendar/lib/css/react-big-calendar.css";
 
 type Post = {
     _id: string;
@@ -39,7 +39,6 @@ const useStyles = makeStyles({
         marginTop:'0.5rem',
         boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
         "&:hover": {
-            // boxShadow: " rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
             background: "#eff6ff",
             border:'5px solid #f1f5f9',
             boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
@@ -97,117 +96,26 @@ const useStyles = makeStyles({
         cursor:'pointer',
         height:'61vh',
     },
-  
   });
   
 const DashboardPage = () => {
+const classes = useStyles();
+const [data, setData] = useState<Post[]>([]);
+    
 
-    const classes = useStyles();
-    // const [data, setData] = useState([]);
-    // const [oldAsset,setOldAsset] = useState([])
-    // const [scrapAsset,setScrapAsset] = useState([])
-    // const [employee,setEmployee] = useState([])
-    // const [events, setEvents] = useState([]);
-
-    // const fetchData = () => {
-    //   fetch("http://localhost:8000/users")
-    //     .then((r) => {
-    //       return r.json();
-    //     })
-    //     .then((d) => {
-    //       setData(d);
-    //     });
-    // };
-    // useEffect(() => {
-    //   fetchData();
-    // }, []);
-
-    // let length = data.length;
-
-    // async function fetchData() {
-    //     const users = await fetch("http://localhost:8000/users");
-    //     const result = await users.json();
-    //     setData(result);
-    //   }
-    //   useEffect(() => {
-    //     fetchData();
-    //   }, []);
-    //   let length = data.length;
-      
-      // async function fetchNewData() {
-      //   const users = await fetch("http://localhost:8000/users");
-      //   const result = await users.json();
-      //   setNewAsset(result);
-      // }
-      // useEffect(() => {
-      //   fetchNewData();
-      // }, []);
-      // let newAssetData = newAsset.length;
-
-// console.log("newAsset>>>>",newAsset.filter(r => r.site !== 'Active')?.length);
-
-// console.log("newAsset>>>>",newAsset);
-
-      // async function fetchOldData() {
-      //   const users = await fetch("http://localhost:8000/stockAsset");
-      //   const result = await users.json();
-      //   setOldAsset(result);
-      // }
-      // useEffect(() => {
-      //   fetchOldData();
-      // }, []);
-      // let oldAssetData = oldAsset.length;
-
-      // async function fetchScrapData() {
-      //   const users = await fetch("http://localhost:8000/scrappedAsset");
-      //   const result = await users.json();
-      //   setScrapAsset(result);
-      // }
-      // useEffect(() => {
-      //   fetchScrapData();
-      // }, []);
-      
-      // let scrapAssetData = scrapAsset.length;
-
-      // async function fetchEmployeeData() {
-      //   const users = await fetch("http://localhost:8000/employeeManagement");
-      //   const result = await users.json();
-      //   setEmployee(result);
-      // }
-      // useEffect(() => {
-      //   fetchEmployeeData();
-      // }, []);
-      
-      // let employeeData = employee.length;
-
-    //   const calendarAsset = data?.map((data : IAssets) => {
-    //     return {
-    //       title: data.purchasefrom,
-    //       start: new Date(data.brand),
-    //       end: new Date(data.id),
-    //     }
-    //   });
-    //   useEffect(() => {
-    //     setEvents(calendarAsset);
-    //   }, []);
-
-
-    const [data, setData] = useState<Post[]>([]);
-    useEffect(() => {
-      const fetchData = async () => {
+useEffect(() => {
+    const fetchData = async () => {
         try {
           const response = await axios.get<{ data: Post[] }>('http://127.0.0.1:8000/get-asset-posts');
           setData(response.data.data);
         } catch (error) {
           console.error('Error fetching data:', error);
         }
-      };
+    };
+    fetchData();
+},[]);
     
-      fetchData();
-    }, []);
-    
-    let length = data.length;
-
+let length = data.length;
 
   return (
     <div>

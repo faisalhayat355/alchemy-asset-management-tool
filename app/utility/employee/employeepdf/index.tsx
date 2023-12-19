@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { Typography } from '@mui/material';
 import { download } from '../../pdf-util';
 import { IAssets } from '../../../assets/listofassets/models/assets.model';

@@ -7,8 +7,6 @@ import { useState } from 'react';
 import { IAssets } from '../../assets/listofassets/models/assets.model';
 import { PaginationHandler } from '../../utility/pagination';
 
-
-
 const useStyles = makeStyles({
   paper: {
     background: "#eff6ff",
@@ -29,7 +27,6 @@ type AssetsProps = {
 
 const EmployeeGridViewComponent = ({users}:AssetsProps) => {
   const classes = useStyles();
-
   let [page, setPage] = useState(1);
   const PER_PAGE = 6;
   const count = Math.ceil(users.length / PER_PAGE);
@@ -39,10 +36,6 @@ const EmployeeGridViewComponent = ({users}:AssetsProps) => {
     setPage(p);
     paginationHandler.jump(p);
   };
-
-
-  // console.log("usersusersusers>>>>>",users);
-  
 
   return (
     <div>
@@ -156,7 +149,6 @@ const EmployeeGridViewComponent = ({users}:AssetsProps) => {
         </Grid>
      </Grid>     
     </Box>
-
       <Grid container mt={2.5}>
         <Grid item xs={11.8} display={"flex"} justifyContent={"flex-end"}>
           <Grid style={{ position: "fixed" }}>

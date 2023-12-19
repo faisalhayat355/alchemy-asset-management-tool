@@ -5,12 +5,9 @@ const DepartmentInfoComponent = ({test}:any) => {
   return (
     <div>
        <Grid container style={{ padding: "0.5rem", background: "#f8fafc",width:'98.7%' }} mt={0.4} >
-       
-
         <Grid item xs={0.9}>
           <Typography noWrap>{test.employeeId}</Typography>
         </Grid>
-        
         <Grid item xs={1.4}>
           <Typography noWrap>{test.name}</Typography>
         </Grid>

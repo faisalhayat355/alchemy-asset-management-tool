@@ -2,7 +2,7 @@ import React from 'react'
 import { Typography } from "@mui/material";
 import * as FileSaver from "file-saver";
 import * as XLSX from "xlsx";
-import { IAssets } from '../../../models/assets.model';
+import { IAssets } from '../../../assets/listofassets/models/assets.model';
 
 type AssetsProps = {
   users: Array<IAssets>;

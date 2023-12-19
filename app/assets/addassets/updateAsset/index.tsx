@@ -52,7 +52,6 @@ const style = {
     transform: 'translate(-50%, -50%)',
     width: 1126,
     bgcolor: 'background.paper',
-    // border: '2px solid #000',
     boxShadow: 24,
     p: 1.5,
     borderRadius:'6px'
@@ -60,12 +59,10 @@ const style = {
 
 const UpdateAssetComponent = (props:any) => {
     const classes = useStyles();
-
     //Model Popup
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-
     //post call state
     const [selected,setSelected] = useState()
     const [id,setId]=useState(props.id);
@@ -88,6 +85,7 @@ const UpdateAssetComponent = (props:any) => {
     const [remarks,setRemarks]=useState(props.remarks);
     const [courierid,setCourierId]=useState(props.courierid);
     const [returndate,setReturnDate]=useState(props.returndate);
+    const [image, setImage] =useState(props.image)
 
     const handleChange=(e:any)=>{
       setSelected(e.target.value)
@@ -95,7 +93,6 @@ const UpdateAssetComponent = (props:any) => {
       }
 const updateAssetData = async(event:any)=>{
     event.preventDefault();
-
     const formData = new FormData();
     formData.append('id',id);
     formData.append('name',name);
@@ -117,11 +114,9 @@ const updateAssetData = async(event:any)=>{
     formData.append('remarks',remarks);
     formData.append('courierid',courierid);
     formData.append('returndate',returndate);
-
     // if(selected != '' &&  selected.length != 0){
     //     formData.append('image',selected)
     // }
-
     const response = await assetPostService.update(formData);
     if(response.data.success == true){
         alert(response.data.msg)
@@ -130,8 +125,7 @@ const updateAssetData = async(event:any)=>{
         alert(response.data.msg)
     }
     handleClose();
-    location.reload();
-    
+    location.reload(); 
 }
 
 const updateCustomerAssign = (
@@ -165,7 +159,7 @@ useEffect(() => {
       <form onSubmit={updateAssetData} >      
         <Box sx={style}>
         <Typography style={{fontFamily:"cursive", fontSize:'1.3rem',paddingBottom:'0.5rem'}} fontWeight={"bold"}>Update Asset</Typography>
-        <Grid container className={classes.card} style={{height:'34vh',paddingBottom:'0.5rem',paddingTop:'0.5rem'}}>
+        <Grid container className={classes.card} style={{height:'33vh',paddingBottom:'0.5rem',paddingTop:'0.5rem'}}>
           <Grid item xs={6}>
             <Grid container sx={{alignItems:'center'}}>
               <Grid item xs={3.2}>
@@ -182,8 +176,7 @@ useEffect(() => {
                 <Typography>Assign To <span style={{color:'red'}}>*</span></Typography>
                 </Grid>
                 <Grid item xs={8.6}>
-                <Autocomplete size="small" id="free-solo-demo" value={name} onChange={updateCustomerAssign} freeSolo options={Array.from(new Set(data.map((option) => option.name)))}
-                renderInput={(params) => <TextField {...params}/>}/>
+              <Autocomplete disablePortal id="combo-box-demo" value={name} onChange={updateCustomerAssign} size="small" options={Array.from(new Set(data.map((option) => option.name)))} fullWidth renderInput={(params) => <TextField {...params} />}/>
                 </Grid>
               </Grid> 
             </Grid>
@@ -197,7 +190,6 @@ useEffect(() => {
                     <option>Select Status</option>
                     <option>Assign</option>
                     <option>UnAssign</option>
-                    {/* <option>UnderMaintainance</option> */}
                   </select>
                   </Grid>
                 </Grid> 
@@ -257,7 +249,7 @@ useEffect(() => {
               </Grid>
             </Grid>
         </Grid>
-        <Grid container className={classes.card} style={{height:'47vh',marginTop:"0.4rem",paddingTop:'0.5rem'}}>     
+        <Grid container className={classes.card} style={{height:'55vh',marginTop:"0.1rem",paddingTop:'0.5rem'}}>     
             <Grid item xs={6}>
                 <Grid container sx={{alignItems:'center'}}>
                   <Grid item xs={3.2}>
@@ -368,14 +360,23 @@ useEffect(() => {
                 </Grid>
               </Grid> 
             </Grid>
-
             <Grid item xs={6}>
               <Grid container sx={{alignItems:'center'}}>
-                <Grid item xs={5.4}>
+                <Grid item xs={3.2}>
+                <Typography>Image</Typography>
                 </Grid>
-                <Grid item xs={6.6}>
-               <Button variant="contained" style={{background:'#1F7DA9',width:'42%'}} onClick={handleClose}>Cancel</Button>
-               <Button type="submit" variant="contained" style={{background:'#1F7DA9',width:'42%',marginLeft:'2.5rem'}}>Save</Button>
+                <Grid item xs={8.6}>
+                <TextField fullWidth value={image} onChange={event =>setImage(event.target.value)}  size="small" disabled/>
+                </Grid>
+              </Grid> 
+            </Grid>
+            <Grid item xs={6}></Grid>
+            <Grid item xs={6}>
+              <Grid container sx={{alignItems:'center'}}>
+                <Grid item xs={3.2}></Grid>
+                <Grid item xs={8.8}>
+               <Button variant="contained" style={{background:'#1F7DA9',width:'47%',marginRight:'1rem'}} onClick={handleClose}>Cancel</Button>
+               <Button type="submit" variant="contained" style={{background:'#1F7DA9',width:'46.5%'}}>Save</Button>
                 </Grid>
               </Grid> 
             </Grid>
@@ -404,7 +405,6 @@ const CourierID =({courierid,setCourierId}:any)=>{
       </>
     )
   }
-
 const CourierDate =({courierdate,setCourierDate}:any)=>{
     return(
       <>

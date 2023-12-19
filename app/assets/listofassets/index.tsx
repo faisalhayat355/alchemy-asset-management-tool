@@ -1,17 +1,15 @@
 "use client"
+import { useEffect, useState } from "react";
+import axios from 'axios';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Box, Button, Divider, Grid, IconButton, Tooltip, Typography, Zoom } from '@mui/material';
 import Link from 'next/link';
-import { useEffect, useState } from "react";
 import { Case, Default, Switch } from "react-if";
 import AssetExportComponent from './listcomponent/exportComponent';
 import GridViewComponent from './listcomponent/gridView';
 import ListItemComponent from './listcomponent/ListItem';
 import AssetViewComponent from './multipleview';
-
-import axios from 'axios';
 import { ViewTypes } from "../../utility/view.type";
-
 
 type Post = {
   _id: string;
@@ -26,15 +24,12 @@ type Post = {
 
 };
 
-
 const ListAssetHomeComponent = () => {
-
-  const [viewType, setViewType] = useState<ViewTypes>(ViewTypes.LIST);
+const [viewType, setViewType] = useState<ViewTypes>(ViewTypes.LIST);
   
-  const onViewSelect = (view: ViewTypes) => {
-    setViewType(view);
+const onViewSelect = (view: ViewTypes) => {
+  setViewType(view);
   };
-
   const [data, setData] = useState<Post[]>([]);
   const [users, setUsers] = useState([])
   const items= data.reverse()
@@ -95,8 +90,6 @@ const ListAssetHomeComponent = () => {
             <Default>
              <Grid style={{marginLeft:'1rem',width:'96.5%',marginTop:"-1rem"}}>
              <Divider style={{width:'100%',marginTop:'0.2rem',background:'#eff6ff'}}/>
-             {/* <ListItemComponent posts={posts}/> */}
-
              <ListItemComponent/>
              </Grid>
             </Default>

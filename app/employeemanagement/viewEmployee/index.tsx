@@ -1,8 +1,8 @@
+import React, { useState } from "react";
 import CloseIcon from '@mui/icons-material/Close';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { Box, Grid, IconButton, Modal, Tooltip, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import React, { useState } from "react";
 
 type Post = {
     _id: string;

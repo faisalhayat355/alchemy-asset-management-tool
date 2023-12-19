@@ -21,9 +21,7 @@ export default function RootLayout({children,...props}: { children: React.ReactN
             <ThemeProvider theme={theme}>
               <CssBaseline />
                 <main>
-                  <>
-                    <LayoutComponent>{children}</LayoutComponent>
-                  </>
+                  <><LayoutComponent>{children}</LayoutComponent></>
                 </main>
             </ThemeProvider>
           </QueryClientProvider>

@@ -1,17 +1,16 @@
 "use client"
 import { useEffect, useState } from "react";
-import axios from 'axios';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Box, Button, Divider, Grid, IconButton, Tooltip, Typography, Zoom } from '@mui/material';
+import axios from 'axios';
 import Link from 'next/link';
 import { Case, Default, Switch } from "react-if";
 import AssetCalendarView from '../assets/listofassets/listcomponent/calendarView';
-import AssetExportComponent from '../assets/listofassets/listcomponent/exportComponent';
 import AssetViewComponent from '../assets/listofassets/multipleview';
-import EmployeeListComponent from './list';
-import EmployeeGridViewComponent from './list/gridView';
-import EmployeeExportComponent from "./list/employeeExportComponent";
 import { ViewTypes } from "../utility/view.type";
+import EmployeeListComponent from './list';
+import EmployeeExportComponent from "./list/employeeExportComponent";
+import EmployeeGridViewComponent from './list/gridView';
 
 type Post = {
   _id: string;
@@ -27,18 +26,7 @@ type Post = {
 };
 
 const EmployeeManagementHome = () => {
-  // const [data, setData] = useState([]);
-  // const [users, setUsers] = useState([])
   const [viewType, setViewType] = useState<ViewTypes>(ViewTypes.LIST);
-  
-  // async function fetchData() {
-  //   const users = await fetch("http://localhost:8000/employeemanagement");
-  //   const result = await users.json();
-  //   setData(result);
-  // }
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
 
   const onViewSelect = (view: ViewTypes) => {
     setViewType(view);

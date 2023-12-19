@@ -8,7 +8,6 @@ app.use(cors({
     origin:'*'
 }));
 
-
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 mongoose.connect('mongodb://localhost:27017/BACKEND_SERVER_ASSET');

@@ -1,10 +1,9 @@
 "use client"
 import React, { useEffect, useState } from 'react'
+import axios from 'axios';
 import { Box, Grid, Typography } from '@mui/material';
 import DepartmentReportsExportComponent from '../clientwise/projectreports/departmentexportcomponent';
 import DepartmentListComponent from './list'
-import axios from 'axios';
-
 
 type Post = {
   _id: string;
@@ -35,14 +34,10 @@ const DepartmentWiseReport = () => {
 
     fetchData();
   }, []);
-    
+  
   useEffect(()=>{
   setUsers(data)
   },[data])
-
-  const updateUsers = (f:any)=>{
-      setUsers(f);
-    }
 
   return (
     <div>

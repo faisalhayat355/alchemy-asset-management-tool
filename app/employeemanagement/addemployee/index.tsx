@@ -1,13 +1,12 @@
 "use client"
-import React, { useState } from 'react'
-import { Alert, Box, Button, Grid, Snackbar, TextField, Typography } from '@mui/material'
-import postService from '../services/postService'
-import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { Box, Button, Grid, TextField, Typography } from '@mui/material';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import postService from '../services/postService';
 
 const AddEmployeeManagement = () => {
 // const [id,setId] = useState('')
-const [disktype,setDiskType] = useState('')
 const [employeeId,setEmployeeId] = useState('')
 const [name,setName] = useState('')
 const [email,setEmail] = useState('')
@@ -27,7 +26,7 @@ const [message,setMessage] = useState('')
 const [selected,setSelected]=useState("")
 const router = useRouter()
 
-const handleSubmit = async (event)=>{
+const handleSubmit = async (event:any)=>{
     event.preventDefault();
     const formData = new FormData ();
     // formData.append('id',id);
@@ -44,7 +43,6 @@ const handleSubmit = async (event)=>{
     formData.append('sbuHead',sbuHead);
     formData.append('clientsLob',clientsLob);
     formData.append('workLocation',workLocation);
-    // formData.append('disktype',disktype);
     formData.append('address',address);
     formData.append('image',image);
 
@@ -77,20 +75,6 @@ return (
       <form onSubmit={handleSubmit}>
           <Box style={{marginTop:'1.5rem'}}>
             <Grid container spacing={2} sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #1F7DA9',paddingLeft:'2rem',paddingTop:'0.8rem',paddingBottom:'3.5rem',width:'96%',marginLeft:'1.3rem',alignItems:'center',boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}}>
-            {/* <Grid item xs={6}>
-                <Grid container alignItems={"center"}>
-                    <Grid item xs={3}>
-                        <Typography> Disk</Typography>
-                    </Grid>
-                    <Grid item xs={2}>
-                    <Typography>:</Typography>
-                    </Grid>
-                    <Grid item xs={6.5}>
-                        <TextField size='small' fullWidth type='text' name='disktype' placeholder='Enter Disk' 
-                        onChange={event => setDiskType(event.target.value)} required />
-                    </Grid>
-                </Grid>
-            </Grid> */}
             <Grid item xs={6}>
                 <Grid container alignItems={"center"}>
                     <Grid item xs={3}>
@@ -170,8 +154,6 @@ return (
                     <Typography>:</Typography>
                     </Grid>
                     <Grid item xs={6.5}>
-                        {/* <TextField size='small' fullWidth type='text' name='department' placeholder='Enter Your Department' 
-                        onChange={event => setDepartment(event.target.value)} required/> */}
                         <select style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}   name="department"
                         value={department} onChange={(e) => {setDepartment(e.target.value);}}>
                         <option>Select Department</option>
@@ -194,8 +176,6 @@ return (
                     <Typography>:</Typography>
                     </Grid>
                     <Grid item xs={6.5}>
-                        {/* <TextField size='small' fullWidth type='text' name='site' placeholder='Enter Your Site' 
-                        onChange={event => setSite(event.target.value)} required/> */}
                         <select value={selected} onChange={(e)=>handleChange(e)} style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}>
                             <option>Select Site</option>
                             <option>Alchemy Internal</option>
@@ -213,8 +193,6 @@ return (
                     <Typography>:</Typography>
                     </Grid>
                     <Grid item xs={6.5}>
-                        {/* <TextField size='small' fullWidth type='text' name='projectName' placeholder='Enter Your ProjectName' 
-                        onChange={event => setProjectName(event.target.value)} required/> */}
                     {selected == "Alchemy External"? <AlchemyExternal projectName={projectName} setProjectName={setProjectName}/>:<AlchemyInternal site={site} setSite={setSite}/> }
                     </Grid>
                 </Grid>
@@ -228,9 +206,6 @@ return (
                     <Typography>:</Typography>
                     </Grid>
                     <Grid item xs={6.5}>
-                        {/* <TextField size='small' fullWidth type='text' name='clients' placeholder='Enter  Clients' 
-                        onChange={event => setClients(event.target.value)} required/> */}
-                        {/* {selected == "Alchemy External"? <AlchemyExternalClient clients={clients} setClient={setClients}/>:<AlchemyInternal site={site} setSite={setSite}/> } */}
                         {selected == "Alchemy External"? <AlchemyExternalClient clients={clients} setClients={setClients}/>:<AlchemyInternal site={site} setSite={setSite}/> }
                     </Grid>
                 </Grid>
@@ -244,8 +219,6 @@ return (
                     <Typography>:</Typography>
                     </Grid>
                     <Grid item xs={6.5}>
-                        {/* <TextField size='small' fullWidth type='text' name='location' placeholder='Enter Your Location' 
-                        onChange={event => setLocation(event.target.value)} required/> */}
                         {selected == "Alchemy External"? <AlchemyExternalLocation location={location} setLocation={setLocation}/>:<AlchemyInternal site={site} setSite={setSite}/> }
                     </Grid>
                 </Grid>
@@ -259,8 +232,6 @@ return (
                     <Typography>:</Typography>
                     </Grid>
                     <Grid item xs={6.5}>
-                        {/* <TextField size='small' fullWidth type='text' name='sbuHead' placeholder='Enter SBU Head' 
-                        onChange={event => setSubHead(event.target.value)} required/> */}
                          {selected == "Alchemy External"? <AlchemySBUHead location={location} setSubHead={setSubHead}/>:<AlchemyInternal site={site} setSite={setSite}/> }
                     </Grid>
                 </Grid>
@@ -274,8 +245,6 @@ return (
                     <Typography>:</Typography>
                     </Grid>
                     <Grid item xs={6.5}>
-                        {/* <TextField size='small' fullWidth type='text' name='clientsLob' placeholder='Enter Clients LOB' 
-                        onChange={event => setClientsLob(event.target.value)} required/> */}
                         {selected == "Alchemy External"? <AlchemyClientLob clientsLob={clientsLob} setClientsLob={setClientsLob}/>:<AlchemyInternal site={site} setSite={setSite}/> }
                     </Grid>
                 </Grid>
@@ -289,8 +258,6 @@ return (
                     <Typography>:</Typography>
                     </Grid>
                     <Grid item xs={6.5}>
-                        {/* <TextField size='small' fullWidth type='text' name='workLocation' placeholder='Enter Work Location' 
-                        onChange={event => setWorkLocation(event.target.value)} required/> */}
                         <select name='workLocation' onChange={event => setWorkLocation(event.target.value)} required style={{width:'100%',height:'38px',border:'1px solid #94a3b8',borderRadius:'5px'}}>
                             <option>Work From Office</option>
                             <option>Work From Home</option>
@@ -342,7 +309,6 @@ return (
     </div>
   )
 }
-
 const AlchemyInternal = ({site,setSite}:any)=>{
     return(
       <>
@@ -358,6 +324,9 @@ const AlchemyInternal = ({site,setSite}:any)=>{
         <option>Select Project Name</option>
         <option>Nagios</option>
         <option>Asset Management Tool</option>
+        <option>Genesis</option>
+        <option>Service Desk</option>
+        <option>Comfort Zone</option>
       </select>
       </>
     )
@@ -369,6 +338,10 @@ const AlchemyInternal = ({site,setSite}:any)=>{
         <option>Select Client</option>
         <option>HCL</option>
         <option>TCS</option>
+        <option>WIPRO</option>
+        <option>INFOSYS</option>
+        <option>COGNIZANT</option>
+        <option>IBM</option>
       </select>
       </>
     )
@@ -379,6 +352,7 @@ const AlchemyInternal = ({site,setSite}:any)=>{
       <select name='location' value={location} onChange={(e) => {setLocation(e.target.value);}} style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}>
         <option>Select Location</option>
         <option>Hyderabad</option>
+        <option>Noida</option>
         <option>Pune</option>
       </select>
       </>
@@ -401,15 +375,13 @@ const AlchemyInternal = ({site,setSite}:any)=>{
       <>
       <select name='clientsLob' value={clientsLob} onChange={(e) => {setClientsLob(e.target.value);}} style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}>
         <option>Select Client Lob</option>
-        <option>ENTERPRISE ACCOUNTS - (BPO)</option>
-        <option>ENTERPRISE ACCOUNTS - (IT-SI)</option>
-        <option>STRATEGIC ACCOUNTS - (CAPTIVE)</option>
-        <option>TECH SOLUTIONS - (CPS)</option>
-        <option>TECH SOLUTIONS - (MANAGED SERVICES)</option>
+        <option>ENTERPRISE ACCOUNTS-(BPO)</option>
+        <option>ENTERPRISE ACCOUNTS-(IT-SI)</option>
+        <option>STRATEGIC ACCOUNTS-(CAPTIVE)</option>
+        <option>TECH SOLUTIONS-(CPS)</option>
+        <option>TECH SOLUTIONS-(MANAGED SERVICES)</option>
       </select>
       </>
     )
   }
-
-
 export default AddEmployeeManagement

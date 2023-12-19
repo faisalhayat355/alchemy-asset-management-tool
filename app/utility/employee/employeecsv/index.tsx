@@ -1,19 +1,19 @@
 import React from 'react'
 import Typography from "@mui/material/Typography";
 import { CSVLink } from "react-csv";
-import { IAssets } from '../../../models/assets.model';
+import { IAssets } from '../../../assets/listofassets/models/assets.model';
 
 type AssetsProps = {
   users: Array<IAssets>;
 };
 
-const AssetCSVDownload = ({users}:AssetsProps) => {
+const EmployeeCSVDownload = ({users}:AssetsProps) => {
   return (
     <>
       <Typography variant="subtitle1">
       <CSVLink
         data={users}
-        filename={`asset-list-${new Date().toISOString().slice(0, 10)}`}
+        filename={`employee-list-${new Date().toISOString().slice(0, 10)}`}
       style={{color:'black',textDecoration:'none'}}>
         CSV
       </CSVLink>
@@ -22,4 +22,4 @@ const AssetCSVDownload = ({users}:AssetsProps) => {
   )
 }
 
-export default AssetCSVDownload
+export default EmployeeCSVDownload

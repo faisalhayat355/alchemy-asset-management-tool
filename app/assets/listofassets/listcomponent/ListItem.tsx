@@ -135,6 +135,7 @@ const EmployeeListComponent = () => {
                remarks={cell.row.original.remarks}
                courierid={cell.row.original.courierid}
                returndate={cell.row.original.returndate}
+               image={cell.row.original.image}
                />
               </Box>
             )}

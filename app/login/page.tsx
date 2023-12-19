@@ -70,16 +70,14 @@ const SignIn: NextPage = (props): JSX.Element => {
                       </Typography>
                     </Grid>
                     <Grid item xs={12}>
-                      <Typography py={1} fontSize={"1rem"}>
-                       Email Address <span style={{color:'red'}}>*</span>
-                      </Typography>
-                      <TextField size="small" fullWidth placeholder="user@genesis.com" value={userInfo.email}
-                      style={{background:'#f8fafc',borderRadius:'5px'}} onChange={({ target }) => setUserInfo({ ...userInfo, email: target.value })} type="email"/>
+                      <Typography py={1} fontSize={"1rem"}>Email Address <span style={{color:'red'}}>*</span></Typography>
+                      <TextField size="small" fullWidth placeholder="alchemy@gmail.com" value={userInfo.email}
+                      style={{background:'#f8fafc',borderRadius:'5px'}} onChange={({ target }) => setUserInfo({ ...userInfo, email: target.value })} type="email" required/>
                     </Grid>
                     <Grid item xs={12} py={2}>
                       <Typography py={1} fontSize={"1rem"}> Password <span style={{color:'red'}}>*</span></Typography>
                       <TextField size="small" type="password" fullWidth placeholder="Enter Your Password" value={userInfo.password}
-                     style={{background:'#f8fafc',borderRadius:'5px'}} onChange={({ target }) =>setUserInfo({ ...userInfo, password: target.value })}/>
+                     style={{background:'#f8fafc',borderRadius:'5px'}} onChange={({ target }) =>setUserInfo({ ...userInfo, password: target.value })} required/>
                     </Grid>
                     <Grid item xs={12} mt={5}>
                       <Button fullWidth type="submit" value="Login" 

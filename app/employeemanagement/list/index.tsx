@@ -136,8 +136,6 @@ const EmployeeListComponent = () => {
     fetchData();
   }, []);
 
-console.log("datatatatatata",data)
-
 const table = useMaterialReactTable({
     columns,
     data,
@@ -152,7 +150,6 @@ const table = useMaterialReactTable({
     enableStickyFooter: true,
     manualFiltering: true,
     // enableRowSelection: true,
-    
   });
 
   const handleView = (rowData: Post) => {
@@ -164,7 +161,6 @@ const table = useMaterialReactTable({
   };
 
   return(
-
     <div style={{paddingBottom:'5vh'}} >
       <MaterialReactTable table={table}/>
     </div>

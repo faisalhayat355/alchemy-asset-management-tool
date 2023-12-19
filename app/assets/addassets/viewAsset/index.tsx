@@ -1,8 +1,8 @@
+import React, { useState } from "react";
 import CloseIcon from '@mui/icons-material/Close';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { Box, Grid, IconButton, Modal, Tooltip, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import React, { useState } from "react";
 
 const useStyles = makeStyles({
     errormessage: {
@@ -34,7 +34,6 @@ const useStyles = makeStyles({
       overflow: "auto",
    }
   });
-
 const style = {
     position: 'absolute' as 'absolute',
     top: '53.5%',
@@ -213,7 +212,6 @@ const ViewAssetComponent = (props:any) => {
                 </Grid>
               </Grid> 
             </Grid>
-           
             <Grid item xs={6} style={{paddingLeft:'8rem'}}>
               <Grid container sx={{alignItems:'center'}}>
                 <Grid item xs={3.2}>
@@ -334,7 +332,7 @@ const ViewAssetComponent = (props:any) => {
               </Grid> 
             </Grid>
             {/* <Grid item xs={6} style={{paddingLeft:'5rem'}}>
-            <img src={'http://127.0.0.1:8000/postImages/'+image.image} style={{width:'120px', height:'100px'}}/>
+            <img src={'http://127.0.0.1:8000/get-asset-posts/postImages/'+image.image} style={{width:'120px', height:'100px'}}/>
             </Grid> */}
           </Grid>
         </Box>
