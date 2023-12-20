@@ -136,20 +136,14 @@ const EmployeeListComponent = () => {
     fetchData();
   }, []);
 
+
+
 const table = useMaterialReactTable({
-    columns,
-    data,
-    enableColumnOrdering: true,
-    enableColumnFilterModes: true,
-    // enableRowOrdering: true,
-    autoResetPageIndex: true,
-    enableSorting: true,
-    enableColumnResizing: true,
-    enableGrouping: true,
-    enableStickyHeader: true,
-    enableStickyFooter: true,
-    manualFiltering: true,
-    // enableRowSelection: true,
+  columns,
+  data,
+  enableColumnOrdering: true,
+  enableGrouping: true,
+  columnFilterDisplayMode: 'popover',
   });
 
   const handleView = (rowData: Post) => {

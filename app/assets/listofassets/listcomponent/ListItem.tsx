@@ -211,6 +211,10 @@ const EmployeeListComponent = () => {
           </div>
         ),
       },
+
+
+
+      
       // {
       //   accessorKey: 'remarks',
       //   header: 'Remarks.',
@@ -254,16 +258,8 @@ const table = useMaterialReactTable({
     columns,
     data,
     enableColumnOrdering: true,
-    enableColumnFilterModes: true,
-    // enableRowOrdering: true,
-    autoResetPageIndex: true,
-    enableSorting: true,
-    enableColumnResizing: true,
     enableGrouping: true,
-    enableStickyHeader: true,
-    enableStickyFooter: true,
-    manualFiltering: true,
-    // enableRowSelection: true,
+    columnFilterDisplayMode: 'popover',
   });
   const handleView = (rowData: Post) => {
     console.log('View post:', rowData);

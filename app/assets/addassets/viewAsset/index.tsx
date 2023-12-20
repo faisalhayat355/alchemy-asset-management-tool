@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Box, Grid, IconButton, Modal, Tooltip, Typography } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
 import VisibilityIcon from '@mui/icons-material/Visibility';
-import { Box, Grid, IconButton, Modal, Tooltip, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import axios from "axios";
-
-
 
 type Post = {
   _id: string;
@@ -36,7 +34,6 @@ type Post = {
   courierid:string;
   returndate:string;
 };
-
 
 const useStyles = makeStyles({
     errormessage: {
@@ -85,6 +82,7 @@ const style = {
 
 const ViewAssetComponent = (props:any) => {
     const classes = useStyles();
+
     //Model Popup
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
@@ -225,7 +223,6 @@ const ViewAssetComponent = (props:any) => {
                   </Grid>
                 </Grid> 
               </Grid>
-             
               <Grid item xs={6} style={{paddingLeft:'4rem'}}>
                 <Grid container sx={{alignItems:'center'}}>
                     <Grid item xs={3.2}>
@@ -252,7 +249,6 @@ const ViewAssetComponent = (props:any) => {
                     </Grid>
                 </Grid>
               </Grid>
-            
           </Grid>
           <Grid container className={classes.card} style={{height:'44vh',marginTop:"0.4rem",paddingTop:'0.5rem'}}>       
             <Grid item xs={6} style={{paddingLeft:'4rem'}}>

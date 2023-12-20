@@ -267,6 +267,16 @@ const SidebarAssetComponent = ({show}:any) => {
           </ListItemButton>
         </List>
         </Link>
+        <Link href="/employeemanagement/addEmployee" passHref style={{ textDecoration: "none" }}>
+        <List component="div" disablePadding>
+          <ListItemButton sx={{ pl: 2.7 }}>
+          <DataSaverOnIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+           {show && (
+             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Add New Employee</Typography>
+             )}
+          </ListItemButton>
+        </List>
+        </Link>
       </Collapse>
       <Divider style={{width:'100%'}}/>
       <ListItemButton selected={selectedIndex === 6}

@@ -220,8 +220,8 @@ useEffect(() => {
                   <Typography>Assign Mode <span style={{color:'red'}}>*</span></Typography>
                   </Grid>
                   <Grid item xs={8.6}>
-                  <select value={selected} onChange={(e)=>handleChange(e)} style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}>
-                    <option>Select Mode</option>
+                  <select value={selected} onChange={(e)=>handleChange(e)} style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',paddingLeft:'0.6rem',outline:'none'}}>
+                    <option >Select Mode</option>
                     <option>Office Pickup</option>
                     <option>Courier</option>
                   </select>
@@ -230,22 +230,12 @@ useEffect(() => {
               </Grid>
             <Grid item xs={6}>
               <Grid container sx={{alignItems:'center'}}>
-                  <Grid item xs={3.2}>
-                  <Typography>Courier ID <span style={{color:'red'}}>*</span></Typography>
-                  </Grid>
-                  <Grid item xs={8.6}>      
                   {selected == "Courier"? <CourierID courierid={courierid} setCourierId={setCourierId}/>:<OfficePickup/> }
-                  </Grid>
               </Grid> 
             </Grid>
             <Grid item xs={6}>
               <Grid container sx={{alignItems:'center'}}>
-                  <Grid item xs={3.2}>
-                  <Typography>Courier Date <span style={{color:'red'}}>*</span></Typography>
-                  </Grid>
-                  <Grid item xs={8.6}>      
-                  {selected == "Courier"? <CourierDate courierdate={courierdate} setCourierDate={setCourierDate} />:<OfficePickup /> }
-                  </Grid>
+                {selected == "Courier"? <CourierDate courierdate={courierdate} setCourierDate={setCourierDate} />:<OfficePickup /> }
               </Grid>
             </Grid>
         </Grid>
@@ -392,7 +382,7 @@ useEffect(() => {
 const OfficePickup =()=>{
     return(
       <>
-      <TextField size="small" fullWidth disabled />
+      {/* <TextField size="small" fullWidth disabled /> */}
       </>
     )
   }
@@ -400,8 +390,13 @@ const CourierID =({courierid,setCourierId}:any)=>{
     return(
       <>
           <Grid container sx={{alignItems:'center'}}>
+            <Grid item xs={3.2}>
+              <Typography>Courier ID <span style={{color:'red'}}>*</span></Typography>
+            </Grid>
+            <Grid item xs={8.6}>      
             <TextField size="small" placeholder="Please Enter Courier ID" fullWidth value={courierid} onChange={event =>setCourierId(event.target.value)}/>
-          </Grid> 
+            </Grid>
+          </Grid>
       </>
     )
   }
@@ -409,8 +404,15 @@ const CourierDate =({courierdate,setCourierDate}:any)=>{
     return(
       <>
           <Grid container sx={{alignItems:'center'}}>
-          <TextField type="date" id="assign" value={courierdate} onChange={event =>setCourierDate(event.target.value)} size="small" fullWidth/>
-          </Grid> 
+            <Grid item xs={3.2}>
+              <Typography>Courier Date <span style={{color:'red'}}>*</span></Typography>
+            </Grid>
+            <Grid item xs={8.6}>      
+              <TextField type="date" id="assign" value={courierdate} onChange={event =>setCourierDate(event.target.value)} size="small" fullWidth/>
+            </Grid>
+          </Grid>
+          
+           
       </>
     )
   }

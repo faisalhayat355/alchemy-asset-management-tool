@@ -259,6 +259,7 @@ return (
                     </Grid>
                     <Grid item xs={6.5}>
                         <select name='workLocation' onChange={event => setWorkLocation(event.target.value)} required style={{width:'100%',height:'38px',border:'1px solid #94a3b8',borderRadius:'5px'}}>
+                            <option>Select Work Location</option>
                             <option>Work From Office</option>
                             <option>Work From Home</option>
                         </select>
