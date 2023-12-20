@@ -4,6 +4,7 @@ import { MaterialReactTable, useMaterialReactTable, type MRT_ColumnDef } from 'm
 import { Box } from '@mui/material';
 import UpdateAssetComponent from '../../addassets/updateAsset';
 import ViewAssetComponent from '../../addassets/viewAsset';
+import ViewAssetImageComponent from '../../addassets/viewAsset/imageShow';
 
 type Post = {
   _id: string;
@@ -36,6 +37,26 @@ type Post = {
 };
 
 const EmployeeListComponent = () => {
+
+
+  const baseURL = 'http://127.0.0.1:8000/get-asset-posts/';
+    
+  const [imageList, setImageList] = useState<Post[]>([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get<{ data: Post[] }>(baseURL);
+        setImageList(response.data.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };  
+    fetchData();
+  }, []);
+
+  
+
+
   const columns = useMemo<MRT_ColumnDef<Post>[]>(
     () => [
       {
@@ -107,7 +128,22 @@ const EmployeeListComponent = () => {
       //   size: 150,
       //   isResizable: true,
       //   enableSorting: true,
-      //   Cell: ({ cell }) => <img src={'http://127.0.0.1:8000/postImages/'+cell.row.original.image} style={{width:'120px', height:'100px'}}/>,
+      // },
+      // {
+      //   accessorFn: (row) => `${row.image}`,
+      //   id: 'image',
+      //   header: 'Image',
+      //   size: 250,
+      //   Cell: ({ renderedCellValue, row }) => (
+      //     <Box
+      //       sx={{ display: 'flex', alignItems: 'center', gap: '1rem',}}>
+      //       <img alt="avatar" height={30} src={row.original.image}
+      //         loading="lazy"
+      //         style={{ borderRadius: '50%' }}
+      //       />
+      //       <span>{renderedCellValue}</span>
+      //     </Box>
+      //   ),
       // },
       {
         accessorKey: 'actions',
@@ -163,15 +199,41 @@ const EmployeeListComponent = () => {
                />
               </Box>
             )}
+            {/* <Box>
+              {imageList.map((post)=>{
+                return(
+                  <>
+                  <ViewAssetImageComponent post={post} />
+                  </>
+                )
+              })}
+            </Box> */}
           </div>
         ),
       },
+      // {
+      //   accessorKey: 'remarks',
+      //   header: 'Remarks.',
+      //   size: 140,
+      //   Cell: ({ cell }) => (
+      //     <div style={{display:'flex'}}>
+      //       <Box>
+      //         {imageList.map((post)=>{
+      //           return(
+      //             <>
+      //             <ViewAssetImageComponent post={post} />
+      //             </>
+      //           )
+      //         })}
+      //       </Box>
+      //     </div>
+      //   ),
+      // },
     ],
     [],
   );
 
   const [data, setData] = useState<Post[]>([]);
-  const items= data.reverse()
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -184,6 +246,9 @@ const EmployeeListComponent = () => {
 
     fetchData();
   }, []);
+
+
+// console.log("datadatadata>>>>",data)
 
 const table = useMaterialReactTable({
     columns,

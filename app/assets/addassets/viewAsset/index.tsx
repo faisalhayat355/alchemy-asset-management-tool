@@ -1,8 +1,42 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CloseIcon from '@mui/icons-material/Close';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { Box, Grid, IconButton, Modal, Tooltip, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+import axios from "axios";
+
+
+
+type Post = {
+  _id: string;
+  id: string;
+  employeeId: string;
+  name: string;
+  email: string;
+  mobile: string;
+  position: string;
+  address: string;
+  status: string;
+  assignmode:string;
+  image:string;
+  assettagid:string;
+  description:string;
+  brand:string;
+  serialno:string;
+  model:string;
+  cost:string;
+  purchasedate:string;
+  purchasefrom:string;
+  ram:string;
+  processor:string;
+  assigndate:string;
+  courierdate:string;
+  disktype:string;
+  remarks:string;
+  courierid:string;
+  returndate:string;
+};
+
 
 const useStyles = makeStyles({
     errormessage: {
@@ -32,6 +66,9 @@ const useStyles = makeStyles({
    scrollbar:{
       height: "65px",
       overflow: "auto",
+      display:'flex',
+      // background:'red'
+      // alignItems:'center'
    }
   });
 const style = {
@@ -52,7 +89,8 @@ const ViewAssetComponent = (props:any) => {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-    //View Items State
+    
+    //view items state
     const [id]=useState(props.id);
     const [assetTagID]=useState(props.assettagid);
     const [name]=useState(props.name);
@@ -74,6 +112,22 @@ const ViewAssetComponent = (props:any) => {
     const [courierid]=useState(props.courierid);
     const [returndate]=useState(props.returndate);
     const [image,setImage]=useState(props.image)
+    
+    const baseURL = 'http://127.0.0.1:8000/get-asset-posts/';
+    const [imageList, setData] = useState<Post[]>([]);
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const response = await axios.get<{ data: Post[] }>(baseURL);
+          setData(response.data.data);
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      };  
+      fetchData();
+    }, []);
+
+    
 
   return (
     <div>
@@ -146,45 +200,6 @@ const ViewAssetComponent = (props:any) => {
                 </Grid> 
               </Grid>
               <Grid item xs={6} style={{paddingLeft:'4rem'}}>
-                <Grid container sx={{alignItems:'center'}}>
-                  <Grid item xs={3.2}>
-                  <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Return Date</Typography>
-                  </Grid>
-                  <Grid item xs={1}>
-                  <Typography fontWeight={"bold"}>:</Typography>
-                  </Grid>
-                  <Grid item xs={7.6}>
-                  <Typography>{returndate}</Typography>
-                  </Grid>
-                </Grid> 
-              </Grid>
-              <Grid item xs={6} style={{paddingLeft:'8rem'}}>
-                <Grid container sx={{alignItems:'center'}}>
-                    <Grid item xs={3.2}>
-                    <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Courier ID </Typography>
-                    </Grid>
-                    <Grid item xs={1}>
-                    <Typography fontWeight={"bold"}>:</Typography>
-                    </Grid>
-                    <Grid item xs={7.6}>      
-                    <Typography>{courierid}</Typography>
-                    </Grid>
-                </Grid> 
-              </Grid>
-              <Grid item xs={6} style={{paddingLeft:'4rem'}}>
-                <Grid container sx={{alignItems:'center'}}>
-                    <Grid item xs={3.2}>
-                    <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Courier Date</Typography>
-                    </Grid>
-                    <Grid item xs={1}>
-                    <Typography fontWeight={"bold"}>:</Typography>
-                    </Grid>
-                    <Grid item xs={7.6}>      
-                    <Typography>{courierdate}</Typography>
-                    </Grid>
-                </Grid>
-              </Grid>
-              <Grid item xs={6} style={{paddingLeft:'8rem'}}>
                   <Grid container sx={{alignItems:'center'}}>
                     <Grid item xs={3.2}>
                     <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Remarks</Typography>
@@ -197,6 +212,47 @@ const ViewAssetComponent = (props:any) => {
                     </Grid>
                   </Grid> 
               </Grid>   
+              <Grid item xs={6} style={{paddingLeft:'8rem'}}>
+                <Grid container sx={{alignItems:'center'}}>
+                  <Grid item xs={3.2}>
+                  <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Return Date</Typography>
+                  </Grid>
+                  <Grid item xs={1}>
+                  <Typography fontWeight={"bold"}>:</Typography>
+                  </Grid>
+                  <Grid item xs={7.6}>
+                  <Typography>{returndate}</Typography>
+                  </Grid>
+                </Grid> 
+              </Grid>
+             
+              <Grid item xs={6} style={{paddingLeft:'4rem'}}>
+                <Grid container sx={{alignItems:'center'}}>
+                    <Grid item xs={3.2}>
+                    <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Courier ID </Typography>
+                    </Grid>
+                    <Grid item xs={1}>
+                    <Typography fontWeight={"bold"}>:</Typography>
+                    </Grid>
+                    <Grid item xs={7.6}>      
+                    <Typography>{courierid}</Typography>
+                    </Grid>
+                </Grid> 
+              </Grid>
+              <Grid item xs={6} style={{paddingLeft:'8rem'}}>
+                <Grid container sx={{alignItems:'center'}}>
+                    <Grid item xs={3.2}>
+                    <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Courier Date</Typography>
+                    </Grid>
+                    <Grid item xs={1}>
+                    <Typography fontWeight={"bold"}>:</Typography>
+                    </Grid>
+                    <Grid item xs={7.6}>      
+                    <Typography>{courierdate}</Typography>
+                    </Grid>
+                </Grid>
+              </Grid>
+            
           </Grid>
           <Grid container className={classes.card} style={{height:'44vh',marginTop:"0.4rem",paddingTop:'0.5rem'}}>       
             <Grid item xs={6} style={{paddingLeft:'4rem'}}>
@@ -318,11 +374,11 @@ const ViewAssetComponent = (props:any) => {
             </Grid>
             <Grid item xs={6} style={{paddingLeft:'8rem'}} >
               <Grid container sx={{alignItems:'center'}}>
-                <Grid item xs={3.2}>
+                <Grid item xs={3.2} mb={5.5}>
                 <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Description </Typography>
                 </Grid>
                 <Grid item xs={1}>
-                <Typography fontSize={"0.9rem"} fontWeight={"bold"}>:</Typography>
+                <Typography fontSize={"0.9rem"} mb={5.5} fontWeight={"bold"}>:</Typography>
                 </Grid>
                 <Grid item xs={7.6}>
                 <Grid className={classes.scrollbar}>
@@ -331,9 +387,26 @@ const ViewAssetComponent = (props:any) => {
                 </Grid>
               </Grid> 
             </Grid>
-            {/* <Grid item xs={6} style={{paddingLeft:'5rem'}}>
-            <img src={'http://127.0.0.1:8000/get-asset-posts/postImages/'+image.image} style={{width:'120px', height:'100px'}}/>
-            </Grid> */}
+            <Grid item xs={6} style={{paddingLeft:'5rem'}}>
+        {/* <Box>
+          <Grid container >
+            <Grid item xs={4} style={{display:'flex'}}>
+            {imageList?.map((post)=>{
+              return(
+                <>
+                <img src={'http://localhost:8000/assetImages/'+post.image} style={{width:'150px', height:'100px'}}/>
+               </>
+              )
+            })}
+            </Grid>
+            </Grid>
+        </Box> */}
+                    {/* {image && <img src={`${baseURL}/${image}`} alt="Product" />} */}
+
+              {/* {image && <img src={image} alt="Image not found" style={{width:'120px', height:'100px'}}/>} */}
+              {/* {image && <img src={'http://127.0.0.1:8000/get-asset-posts/'${image}} alt="Image not found" style={{width:'120px', height:'100px'}}/>} */}
+            {/* <img src={'http://127.0.0.1:8000/postImages/'${image}:any} style={{width:'120px', height:'100px'}}/> */}
+            </Grid>
           </Grid>
         </Box>
       </Modal>
