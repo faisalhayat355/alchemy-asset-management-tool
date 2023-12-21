@@ -70,7 +70,7 @@ const useStyles = makeStyles({
   });
 const style = {
     position: 'absolute' as 'absolute',
-    top: '53.5%',
+    top: '51.5%',
     left: '58.2%',
     transform: 'translate(-50%, -50%)',
     width: 1100,
@@ -124,8 +124,6 @@ const ViewAssetComponent = (props:any) => {
       };  
       fetchData();
     }, []);
-
-    
 
   return (
     <div>
@@ -209,8 +207,21 @@ const ViewAssetComponent = (props:any) => {
                     <Typography>{remarks}</Typography>
                     </Grid>
                   </Grid> 
-              </Grid>   
+              </Grid>  
               <Grid item xs={6} style={{paddingLeft:'8rem'}}>
+                <Grid container sx={{alignItems:'center'}}>
+                  <Grid item xs={3.2}>
+                  <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Assign Mode</Typography>
+                  </Grid>
+                  <Grid item xs={1}>
+                  <Typography fontWeight={"bold"}>:</Typography>
+                  </Grid>
+                  <Grid item xs={7.6}>
+                  <Typography>{assignmode}</Typography>
+                  </Grid>
+                </Grid> 
+              </Grid>
+              <Grid item xs={6} style={{paddingLeft:'4rem'}}>
                 <Grid container sx={{alignItems:'center'}}>
                   <Grid item xs={3.2}>
                   <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Return Date</Typography>
@@ -223,7 +234,7 @@ const ViewAssetComponent = (props:any) => {
                   </Grid>
                 </Grid> 
               </Grid>
-              <Grid item xs={6} style={{paddingLeft:'4rem'}}>
+              <Grid item xs={6} style={{paddingLeft:'8rem'}}>
                 <Grid container sx={{alignItems:'center'}}>
                     <Grid item xs={3.2}>
                     <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Courier ID </Typography>
@@ -236,7 +247,7 @@ const ViewAssetComponent = (props:any) => {
                     </Grid>
                 </Grid> 
               </Grid>
-              <Grid item xs={6} style={{paddingLeft:'8rem'}}>
+              <Grid item xs={6} style={{paddingLeft:'4rem'}}>
                 <Grid container sx={{alignItems:'center'}}>
                     <Grid item xs={3.2}>
                     <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Courier Date</Typography>
@@ -249,8 +260,9 @@ const ViewAssetComponent = (props:any) => {
                     </Grid>
                 </Grid>
               </Grid>
+
           </Grid>
-          <Grid container className={classes.card} style={{height:'44vh',marginTop:"0.4rem",paddingTop:'0.5rem'}}>       
+          <Grid container className={classes.card} style={{height:'45vh',marginTop:"0.9rem",paddingTop:'1.5rem'}}>       
             <Grid item xs={6} style={{paddingLeft:'4rem'}}>
               <Grid container sx={{alignItems:'center'}}>
                 <Grid item xs={3.2}>

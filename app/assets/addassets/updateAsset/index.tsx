@@ -1,8 +1,8 @@
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import EditIcon from "@mui/icons-material/Edit";
 import { Autocomplete, Box, Button, Grid, IconButton, Modal, TextField, Typography } from "@mui/material";
-import React, { useEffect, useState } from "react";
 import { makeStyles } from "@mui/styles";
-import axios from "axios";
 import assetPostService from "../services/assetPostService";
 
 type Post = {
@@ -87,10 +87,6 @@ const UpdateAssetComponent = (props:any) => {
     const [returndate,setReturnDate]=useState(props.returndate);
     const [image, setImage] =useState(props.image)
 
-    const handleChange=(e:any)=>{
-      setSelected(e.target.value)
-      setAssignMode(e.target.value)
-      }
 const updateAssetData = async(event:any)=>{
     event.preventDefault();
     const formData = new FormData();
@@ -148,6 +144,11 @@ useEffect(() => {
 
   fetchData();
 }, []);
+
+const handleChange=(e:any)=>{
+  setSelected(e.target.value)
+  setAssignMode(e.target.value)
+  }
 
   return (
     <div>

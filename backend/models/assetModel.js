@@ -36,7 +36,6 @@ const assetSchema= new mongoose.Schema({
     },
     assignmode:{
         type:String,
-     
     },
     purchasedate:{
         type:String,

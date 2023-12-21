@@ -12,6 +12,7 @@ const createAssetPost = async (req,res)=>{
             model:req.body.model,
             cost:req.body.cost,
             status:req.body.status,
+            assignmode:req.body.assignmode,
             category:req.body.category,
             purchasedate:req.body.purchasedate,
             purchasefrom:req.body.purchasefrom,
@@ -55,6 +56,7 @@ const updateAssetPost= async (req,res)=>{
             var model = req.body.model;
             var cost = req.body.cost;
             var status = req.body.status;
+            var assignmode = req.body.assignmode;
             var purchasedate = req.body.purchasedate;
             var purchasefrom = req.body.purchasefrom;
             var ram = req.body.ram;
@@ -67,7 +69,7 @@ const updateAssetPost= async (req,res)=>{
             var returndate = req.body.returndate;
             var filename = req.file.filename;
 
-          await Asset.findByIdAndUpdate({_id:id},{$set:{assettagid:assettagid,name:name,description:description,brand:brand,serialno:serialno,model:model,cost:cost,status:status,purchasedate:purchasedate,purchasefrom:purchasefrom,ram:ram,processor:processor,assigndate:assigndate,courierdate:courierdate,disktype:disktype,remarks:remarks,courierid:courierid,returndate:returndate,image:filename}})
+          await Asset.findByIdAndUpdate({_id:id},{$set:{assettagid:assettagid,name:name,description:description,brand:brand,serialno:serialno,model:model,cost:cost,status:status,assignmode:assignmode,purchasedate:purchasedate,purchasefrom:purchasefrom,ram:ram,processor:processor,assigndate:assigndate,courierdate:courierdate,disktype:disktype,remarks:remarks,courierid:courierid,returndate:returndate,image:filename}})
             res.status(200).send({success:true,msg:"Post Updated Sucessfully"});
         }
         else{
@@ -80,6 +82,7 @@ const updateAssetPost= async (req,res)=>{
             var model = req.body.model;
             var cost = req.body.cost;
             var status = req.body.status;
+            var assignmode = req.body.assignmode;
             var purchasedate = req.body.purchasedate;
             var purchasefrom = req.body.purchasefrom;
             var ram = req.body.ram;
@@ -91,7 +94,7 @@ const updateAssetPost= async (req,res)=>{
             var courierid = req.body.courierid;
             var returndate = req.body.returndate;
 
-          await Asset.findByIdAndUpdate({_id:id},{$set:{assettagid:assettagid,name:name,description:description,brand:brand,serialno:serialno,model:model,cost:cost,status:status,purchasedate:purchasedate,purchasefrom:purchasefrom,ram:ram,processor:processor,assigndate:assigndate,courierdate:courierdate,disktype:disktype,remarks:remarks,courierid:courierid,returndate:returndate}})
+          await Asset.findByIdAndUpdate({_id:id},{$set:{assettagid:assettagid,name:name,description:description,brand:brand,serialno:serialno,model:model,cost:cost,status:status,assignmode:assignmode,purchasedate:purchasedate,purchasefrom:purchasefrom,ram:ram,processor:processor,assigndate:assigndate,courierdate:courierdate,disktype:disktype,remarks:remarks,courierid:courierid,returndate:returndate}})
             res.status(200).send({success:true,msg:"Post Updated Sucessfully"});
         }
     }catch(error){

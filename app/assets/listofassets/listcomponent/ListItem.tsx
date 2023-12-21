@@ -1,10 +1,9 @@
-import { useEffect, useMemo, useState } from 'react';
+import { Box } from '@mui/material';
 import axios from 'axios';
 import { MaterialReactTable, useMaterialReactTable, type MRT_ColumnDef } from 'material-react-table';
-import { Box } from '@mui/material';
+import { useEffect, useMemo, useState } from 'react';
 import UpdateAssetComponent from '../../addassets/updateAsset';
 import ViewAssetComponent from '../../addassets/viewAsset';
-import ViewAssetImageComponent from '../../addassets/viewAsset/imageShow';
 
 type Post = {
   _id: string;
@@ -111,6 +110,13 @@ const EmployeeListComponent = () => {
       {
         accessorKey: 'status',
         header: 'Status',
+        size: 123,
+        isResizable: true,
+        enableSorting: true,
+      },
+      {
+        accessorKey: 'assignmode',
+        header: 'Assign Mode',
         size: 123,
         isResizable: true,
         enableSorting: true,
