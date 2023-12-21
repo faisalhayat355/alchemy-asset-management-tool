@@ -70,14 +70,14 @@ const useStyles = makeStyles({
   });
 const style = {
     position: 'absolute' as 'absolute',
-    top: '51.5%',
+    top: '51%',
     left: '59%',
     transform: 'translate(-50%, -50%)',
     width: 1130,
     bgcolor: 'background.paper',
-    boxShadow: 24,
+    // boxShadow: 24,
     p: 1.5,
-    borderRadius:'6px'
+    // borderRadius:'6px'
   };
 
 const ViewAssetComponent = (props:any) => {

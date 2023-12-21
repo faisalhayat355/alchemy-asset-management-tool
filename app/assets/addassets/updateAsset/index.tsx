@@ -47,7 +47,7 @@ const useStyles = makeStyles({
 
 const style = {
     position: 'absolute' as 'absolute',
-    top: '50%',
+    top: '49.7%',
     left: '59%',
     transform: 'translate(-50%, -50%)',
     width: 1130,
@@ -160,7 +160,7 @@ const handleChange=(e:any)=>{
       <form onSubmit={updateAssetData} >      
         <Box sx={style}>
         <Typography style={{fontFamily:"cursive", fontSize:'1.3rem',paddingBottom:'0.5rem'}} fontWeight={"bold"}>Update Asset</Typography>
-        <Grid container className={classes.card} style={{height:'30vh',paddingBottom:'0.5rem',paddingTop:'0.5rem'}}>
+        <Grid container className={classes.card} style={{height:'35vh',paddingBottom:'0.5rem',paddingTop:'0.5rem'}}>
           <Grid item xs={6} mt={1}>
             <Grid container sx={{alignItems:'center'}}>
               <Grid item xs={3.2}>
@@ -239,7 +239,7 @@ const handleChange=(e:any)=>{
               </Grid>
             </Grid>
         </Grid>
-        <Grid container className={classes.card} style={{height:'60vh',marginTop:"0.1rem",paddingTop:'0.5rem'}}>     
+        <Grid container className={classes.card} style={{height:'58vh',marginTop:"0.1rem",paddingTop:'0.5rem'}}>     
             <Grid item xs={6} mt={1}>
                 <Grid container sx={{alignItems:'center'}}>
                   <Grid item xs={3.2}>

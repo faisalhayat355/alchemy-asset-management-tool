@@ -47,10 +47,10 @@ const useStyles = makeStyles({
 
 const style = {
     position: 'absolute' as 'absolute',
-    top: '54.3%',
-    left: '58.2%',
+    top: '51.5%',
+    left: '59%',
     transform: 'translate(-50%, -50%)',
-    width: 1100,
+    width: 1130,
     bgcolor: 'background.paper',
     boxShadow: 24,
     p: 1.5,
@@ -95,7 +95,7 @@ const ViewEmployeeComponent = (props:any) => {
         aria-describedby="transition-modal-description" >
      
         <Box sx={style}>
-            <Grid container style={{marginBottom:'2rem'}}>
+            <Grid container style={{marginBottom:'1rem'}}>
                 <Grid item xs={11.5}>
                 <Typography style={{fontFamily:"cursive", fontSize:'1.3rem'}} fontWeight={"bold"}>View Employee Details</Typography>
                 </Grid>
@@ -107,8 +107,8 @@ const ViewEmployeeComponent = (props:any) => {
                   </Tooltip>
                 </Grid>
             </Grid>
-            <Grid container className={classes.card} style={{height:'38vh',paddingBottom:'0.5rem',paddingTop:'0.5rem',marginTop:'1rem'}}>
-                <Grid item xs={6} style={{paddingLeft:'5rem',marginTop:'1.5rem'}} >
+            <Grid container className={classes.card} style={{height:'44.7vh',paddingBottom:'0.5rem',paddingTop:'0.5rem',marginTop:'0.5rem'}}>
+                <Grid item xs={6} style={{paddingLeft:'5rem',marginTop:'1rem'}} >
                     <Grid container sx={{alignItems:'center'}}>
                     <Grid item xs={3.2}>
                     <Typography fontSize={"0.8rem"} fontWeight={"bold"}>Employee ID </Typography>
@@ -121,7 +121,7 @@ const ViewEmployeeComponent = (props:any) => {
                     </Grid>
                     </Grid> 
                 </Grid>
-                <Grid item xs={6} style={{paddingLeft:'8rem',marginTop:'1.5rem'}}>
+                <Grid item xs={6} style={{paddingLeft:'8rem',marginTop:'1rem'}}>
                     <Grid container sx={{alignItems:'center'}}>
                     <Grid item xs={3.2}>
                     <Typography fontSize={"0.8rem"} fontWeight={"bold"}>Name</Typography>
@@ -189,6 +189,34 @@ const ViewEmployeeComponent = (props:any) => {
                 <Grid item xs={6} style={{paddingLeft:'5rem'}}>
                     <Grid container sx={{alignItems:'center'}}>
                         <Grid item xs={3.2}>
+                        <Typography fontSize={"0.8rem"} fontWeight={"bold"}>Work Location</Typography>
+                        </Grid>
+                        <Grid item xs={1}>
+                        <Typography fontSize={"0.8rem"} fontWeight={"bold"}>:</Typography>
+                        </Grid>
+                        <Grid item xs={7.6}>
+                        <Typography>{workLocation}</Typography>
+                        </Grid>
+                    </Grid> 
+                </Grid>
+                <Grid item xs={6} style={{paddingLeft:'8rem'}}>
+                    <Grid container sx={{alignItems:'center'}}>
+                        <Grid item xs={3.2}>
+                        <Typography fontSize={"0.8rem"} fontWeight={"bold"}>Address</Typography>
+                        </Grid>
+                        <Grid item xs={1}>
+                        <Typography fontSize={"0.8rem"} fontWeight={"bold"}>:</Typography>
+                        </Grid>
+                        <Grid item xs={7.6}>
+                        <Typography>{address}</Typography>
+                        </Grid>
+                    </Grid> 
+                </Grid>
+            </Grid>
+            <Grid container className={classes.card} style={{height:'43.5vh',marginTop:"1rem",paddingTop:'0.5rem',paddingBottom:'2rem'}}>       
+                <Grid item xs={6} style={{paddingLeft:'5rem'}} mt={2}>
+                    <Grid container sx={{alignItems:'center'}}>
+                        <Grid item xs={3.2}>
                         <Typography fontSize={"0.8rem"} fontWeight={"bold"}>Site</Typography>
                         </Grid>
                         <Grid item xs={1}>
@@ -199,7 +227,7 @@ const ViewEmployeeComponent = (props:any) => {
                         </Grid>
                     </Grid>
                 </Grid>
-                <Grid item xs={6} style={{paddingLeft:'8rem'}}>
+                <Grid item xs={6} style={{paddingLeft:'8rem'}} mt={2}>
                     <Grid container sx={{alignItems:'center'}}>
                         <Grid item xs={3.2}>
                         <Typography fontSize={"0.8rem"} fontWeight={"bold"}>Project Name</Typography>
@@ -212,10 +240,8 @@ const ViewEmployeeComponent = (props:any) => {
                         </Grid>
                     </Grid> 
                 </Grid>   
-            </Grid>
-            <Grid container className={classes.card} style={{height:'33vh',marginTop:"1.6rem",paddingTop:'0.5rem',paddingBottom:'2rem'}}>       
                 <Grid item xs={6} style={{paddingLeft:'5rem'}}>
-                    <Grid container sx={{alignItems:'center'}} mt={2}>
+                    <Grid container sx={{alignItems:'center'}} >
                         <Grid item xs={3.2}>
                         <Typography fontSize={"0.8rem"} fontWeight={"bold"}>Clients</Typography>
                         </Grid>
@@ -227,7 +253,7 @@ const ViewEmployeeComponent = (props:any) => {
                         </Grid>
                     </Grid> 
                 </Grid>
-                <Grid item xs={6} style={{paddingLeft:'8rem'}} mt={2} >
+                <Grid item xs={6} style={{paddingLeft:'8rem'}}>
                     <Grid container sx={{alignItems:'center'}}>
                         <Grid item xs={3.2}>
                         <Typography fontSize={"0.8rem"} fontWeight={"bold"}>Location </Typography>
@@ -266,7 +292,7 @@ const ViewEmployeeComponent = (props:any) => {
                         </Grid>
                     </Grid> 
                 </Grid>
-                <Grid item xs={6} style={{paddingLeft:'5rem'}}>
+                {/* <Grid item xs={6} style={{paddingLeft:'5rem'}}>
                     <Grid container sx={{alignItems:'center'}}>
                         <Grid item xs={3.2}>
                         <Typography fontSize={"0.8rem"} fontWeight={"bold"}>Work Location</Typography>
@@ -278,20 +304,8 @@ const ViewEmployeeComponent = (props:any) => {
                         <Typography>{workLocation}</Typography>
                         </Grid>
                     </Grid> 
-                </Grid>
-                <Grid item xs={6} style={{paddingLeft:'8rem'}}>
-                    <Grid container sx={{alignItems:'center'}}>
-                        <Grid item xs={3.2}>
-                        <Typography fontSize={"0.8rem"} fontWeight={"bold"}>Address</Typography>
-                        </Grid>
-                        <Grid item xs={1}>
-                        <Typography fontSize={"0.8rem"} fontWeight={"bold"}>:</Typography>
-                        </Grid>
-                        <Grid item xs={7.6}>
-                        <Typography>{address}</Typography>
-                        </Grid>
-                    </Grid> 
-                </Grid>
+                </Grid> */}
+               
                 {/* <Grid item xs={6} style={{paddingLeft:'5rem'}}>
                 <img src={'http://127.0.0.1:8000/postImages/'+image.image} style={{width:'120px', height:'100px'}}/>
                 </Grid> */}
