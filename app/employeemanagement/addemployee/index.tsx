@@ -63,7 +63,7 @@ const handleSubmit = async (event:any)=>{
 const handleChange=(e:any)=>{
     setSelected(e.target.value)
     setSite(e.target.value)
-  }
+}
 
 return (
     <div>

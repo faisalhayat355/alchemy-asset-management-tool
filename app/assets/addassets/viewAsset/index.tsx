@@ -71,9 +71,9 @@ const useStyles = makeStyles({
 const style = {
     position: 'absolute' as 'absolute',
     top: '51.5%',
-    left: '58.2%',
+    left: '59%',
     transform: 'translate(-50%, -50%)',
-    width: 1100,
+    width: 1130,
     bgcolor: 'background.paper',
     boxShadow: 24,
     p: 1.5,
@@ -142,8 +142,8 @@ const ViewAssetComponent = (props:any) => {
                 </Tooltip>
               </Grid>
             </Grid>
-          <Grid container className={classes.card} style={{height:'34vh',paddingBottom:'0.5rem',paddingTop:'0.5rem'}}>
-              <Grid item xs={6} style={{paddingLeft:'4rem',marginTop:'1rem'}} >
+          <Grid container className={classes.card} style={{height:'32vh',paddingBottom:'0.5rem',paddingTop:'0.5rem'}}>
+              {/* <Grid item xs={6} style={{paddingLeft:'4rem',marginTop:'1rem'}} >
                 <Grid container sx={{alignItems:'center'}}>
                   <Grid item xs={3.2}>
                   <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Asset Tag ID </Typography>
@@ -155,8 +155,8 @@ const ViewAssetComponent = (props:any) => {
                   <Typography>{assetTagID}</Typography>
                   </Grid>
                 </Grid> 
-              </Grid>
-              <Grid item xs={6} style={{paddingLeft:'8rem',marginTop:'1rem'}}>
+              </Grid> */}
+              <Grid item xs={6} style={{paddingLeft:'4rem',marginTop:'1rem'}}>
                 <Grid container sx={{alignItems:'center'}}>
                   <Grid item xs={3.2}>
                   <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Assign To</Typography>
@@ -169,8 +169,8 @@ const ViewAssetComponent = (props:any) => {
                   </Grid>
                 </Grid> 
               </Grid>
-              <Grid item xs={6} style={{paddingLeft:'4rem'}}>
-                <Grid container sx={{alignItems:'center'}}>
+              <Grid item xs={6} style={{paddingLeft:'8rem'}}>
+                <Grid container sx={{alignItems:'center'}} mt={2}>
                   <Grid item xs={3.2}>
                   <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Assign Date </Typography>
                   </Grid>
@@ -182,7 +182,7 @@ const ViewAssetComponent = (props:any) => {
                   </Grid>
                 </Grid> 
               </Grid>
-              <Grid item xs={6} style={{paddingLeft:'8rem'}}>
+              {/* <Grid item xs={6} style={{paddingLeft:'4rem'}}>
                 <Grid container sx={{alignItems:'center'}}>
                   <Grid item xs={3.2}>
                   <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Status</Typography>
@@ -194,21 +194,8 @@ const ViewAssetComponent = (props:any) => {
                   <Typography>{status}</Typography>
                   </Grid>
                 </Grid> 
-              </Grid>
+              </Grid> */}
               <Grid item xs={6} style={{paddingLeft:'4rem'}}>
-                  <Grid container sx={{alignItems:'center'}}>
-                    <Grid item xs={3.2}>
-                    <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Remarks</Typography>
-                    </Grid>
-                    <Grid item xs={1}>
-                    <Typography fontWeight={"bold"}>:</Typography>
-                    </Grid>
-                    <Grid item xs={7.6}>
-                    <Typography>{remarks}</Typography>
-                    </Grid>
-                  </Grid> 
-              </Grid>  
-              <Grid item xs={6} style={{paddingLeft:'8rem'}}>
                 <Grid container sx={{alignItems:'center'}}>
                   <Grid item xs={3.2}>
                   <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Assign Mode</Typography>
@@ -218,19 +205,6 @@ const ViewAssetComponent = (props:any) => {
                   </Grid>
                   <Grid item xs={7.6}>
                   <Typography>{assignmode}</Typography>
-                  </Grid>
-                </Grid> 
-              </Grid>
-              <Grid item xs={6} style={{paddingLeft:'4rem'}}>
-                <Grid container sx={{alignItems:'center'}}>
-                  <Grid item xs={3.2}>
-                  <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Return Date</Typography>
-                  </Grid>
-                  <Grid item xs={1}>
-                  <Typography fontWeight={"bold"}>:</Typography>
-                  </Grid>
-                  <Grid item xs={7.6}>
-                  <Typography>{returndate}</Typography>
                   </Grid>
                 </Grid> 
               </Grid>
@@ -260,9 +234,52 @@ const ViewAssetComponent = (props:any) => {
                     </Grid>
                 </Grid>
               </Grid>
-
+              <Grid item xs={6} style={{paddingLeft:'8rem'}}>
+                <Grid container sx={{alignItems:'center'}}>
+                  <Grid item xs={3.2}>
+                  <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Return Date</Typography>
+                  </Grid>
+                  <Grid item xs={1}>
+                  <Typography fontWeight={"bold"}>:</Typography>
+                  </Grid>
+                  <Grid item xs={7.6}>
+                  <Typography>{returndate}</Typography>
+                  </Grid>
+                </Grid> 
+              </Grid>
           </Grid>
-          <Grid container className={classes.card} style={{height:'45vh',marginTop:"0.9rem",paddingTop:'1.5rem'}}>       
+          <Grid container className={classes.card} style={{height:'57vh',marginTop:"0.9rem",paddingTop:'1.5rem'}}>       
+            <Grid item xs={6} style={{paddingLeft:'4rem'}}>
+              <Grid container sx={{alignItems:'center'}}>
+                <Grid item xs={3.2}>
+                <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Asset Tag ID</Typography>
+                </Grid>
+                <Grid item xs={1}>
+                <Typography fontSize={"0.9rem"} fontWeight={"bold"}>:</Typography>
+                </Grid>
+                <Grid item xs={7.6}>
+                <Typography>{assetTagID}</Typography>
+                </Grid>
+              </Grid> 
+            </Grid>
+            <Grid item xs={6} style={{paddingLeft:'8rem'}}>
+              <Grid container sx={{alignItems:'center'}}>
+                <Grid item xs={3.2}>
+                <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Remarks</Typography>
+                </Grid>
+                <Grid item xs={1}>
+                <Typography fontSize={"0.9rem"} fontWeight={"bold"}>:</Typography>
+                </Grid>
+                <Grid item xs={7.6}>
+                <Typography>{remarks}</Typography>
+                </Grid>
+              </Grid> 
+            </Grid>
+
+
+
+
+
             <Grid item xs={6} style={{paddingLeft:'4rem'}}>
               <Grid container sx={{alignItems:'center'}}>
                 <Grid item xs={3.2}>

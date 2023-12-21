@@ -48,9 +48,9 @@ const useStyles = makeStyles({
 const style = {
     position: 'absolute' as 'absolute',
     top: '50%',
-    left: '58.2%',
+    left: '59%',
     transform: 'translate(-50%, -50%)',
-    width: 1126,
+    width: 1130,
     bgcolor: 'background.paper',
     boxShadow: 24,
     p: 1.5,
@@ -160,8 +160,8 @@ const handleChange=(e:any)=>{
       <form onSubmit={updateAssetData} >      
         <Box sx={style}>
         <Typography style={{fontFamily:"cursive", fontSize:'1.3rem',paddingBottom:'0.5rem'}} fontWeight={"bold"}>Update Asset</Typography>
-        <Grid container className={classes.card} style={{height:'33vh',paddingBottom:'0.5rem',paddingTop:'0.5rem'}}>
-          <Grid item xs={6}>
+        <Grid container className={classes.card} style={{height:'30vh',paddingBottom:'0.5rem',paddingTop:'0.5rem'}}>
+          <Grid item xs={6} mt={1}>
             <Grid container sx={{alignItems:'center'}}>
               <Grid item xs={3.2}>
               <Typography>Asset Tag ID </Typography>
@@ -171,7 +171,7 @@ const handleChange=(e:any)=>{
               </Grid>
             </Grid> 
           </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={6} mt={1}>
               <Grid container sx={{alignItems:'center'}}>
                 <Grid item xs={3.2}>
                 <Typography>Assign To <span style={{color:'red'}}>*</span></Typography>
@@ -188,7 +188,7 @@ const handleChange=(e:any)=>{
                   </Grid>
                   <Grid item xs={8.6}>
                   <select style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}} value={status} onChange={event =>setStatus(event.target.value)}>
-                    <option>Select Status</option>
+                    {/* <option></option> */}
                     <option>Assign</option>
                     <option>UnAssign</option>
                   </select>
@@ -220,9 +220,8 @@ const handleChange=(e:any)=>{
                   <Grid item xs={3.2}>
                   <Typography>Assign Mode <span style={{color:'red'}}>*</span></Typography>
                   </Grid>
-                  <Grid item xs={8.6}>
-                  <select value={selected} onChange={(e)=>handleChange(e)} style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',paddingLeft:'0.6rem',outline:'none'}}>
-                    <option >Select Mode</option>
+                  <Grid item xs={8.6} >
+                  <select value={assignmode} onChange={(e)=>handleChange(e)} style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',paddingLeft:'0.6rem',outline:'none'}}>
                     <option>Office Pickup</option>
                     <option>Courier</option>
                   </select>
@@ -240,8 +239,8 @@ const handleChange=(e:any)=>{
               </Grid>
             </Grid>
         </Grid>
-        <Grid container className={classes.card} style={{height:'55vh',marginTop:"0.1rem",paddingTop:'0.5rem'}}>     
-            <Grid item xs={6}>
+        <Grid container className={classes.card} style={{height:'60vh',marginTop:"0.1rem",paddingTop:'0.5rem'}}>     
+            <Grid item xs={6} mt={1}>
                 <Grid container sx={{alignItems:'center'}}>
                   <Grid item xs={3.2}>
                   <Typography>Remarks</Typography>
@@ -251,7 +250,7 @@ const handleChange=(e:any)=>{
                   </Grid>
                 </Grid> 
             </Grid>   
-            <Grid item xs={6}>
+            <Grid item xs={6} mt={1}>
               <Grid container sx={{alignItems:'center'}}>
                 <Grid item xs={3.2}>
                 <Typography>Disk Type</Typography>
@@ -362,7 +361,7 @@ const handleChange=(e:any)=>{
               </Grid> 
             </Grid>
             <Grid item xs={6}></Grid>
-            <Grid item xs={6}>
+            <Grid item xs={6} mt={1}>
               <Grid container sx={{alignItems:'center'}}>
                 <Grid item xs={3.2}></Grid>
                 <Grid item xs={8.8}>
