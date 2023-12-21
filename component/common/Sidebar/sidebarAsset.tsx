@@ -112,7 +112,27 @@ const SidebarAssetComponent = ({show}:any) => {
           </ListItemButton>
         </List>
         </Link>
-      <ListItemButton sx={{ pl: 2.7 }} onClick={handleClickAssetsType} >
+        <Link href="/assets/addassets" passHref style={{ textDecoration: "none" }}>
+        <List component="div" disablePadding>
+          <ListItemButton sx={{ pl: 2.7 }}>
+          <DataSaverOnIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+           {show &&(
+             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Add New Assets</Typography>
+           )}
+          </ListItemButton>
+        </List>
+        </Link>
+        <Link href="/assets/scrappedasset" passHref style={{ textDecoration: "none" }}>
+        <List component="div" disablePadding>
+          <ListItemButton sx={{ pl: 2.7 }}>
+          <DesktopAccessDisabledIcon style={{color:"#1F7DA9",fontSize:'1rem',marginRight:'0.6rem',marginLeft:'0.1rem'}} />
+           {show &&(
+             <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Add Scrapped Assets</Typography>
+           )}
+          </ListItemButton>
+        </List>
+        </Link>
+      {/* <ListItemButton sx={{ pl: 2.7 }} onClick={handleClickAssetsType} >
         <div style={{display:'flex',alignItems:'center'}}>
           <ManageAccountsIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
           {show && (
@@ -122,17 +142,17 @@ const SidebarAssetComponent = ({show}:any) => {
             </div>
           )} 
         </div>   
-      </ListItemButton>
-      <Collapse in={assetsType} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}>
-      <Link href="/assets/addassets" passHref style={{ textDecoration: "none" }}>
+      </ListItemButton> */}
+      {/* <Collapse in={assetsType} timeout="auto" unmountOnExit style={{marginTop:'-0.5rem'}}> */}
+      {/* <Link href="/assets/addassets" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl:2.8}}>
           <DataSaverOnIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
             <Typography sx={{color:'#414242',fontSize:'0.75rem'}}>Add an Assets</Typography>
           </ListItemButton>
         </List>
-        </Link>
-        <Link href="/assets/addassets/addactiveassets" passHref style={{ textDecoration: "none" }}>
+        </Link> */}
+        {/* <Link href="/assets/addassets/addactiveassets" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl:2.8}}>
           <AddToQueueIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
@@ -147,17 +167,17 @@ const SidebarAssetComponent = ({show}:any) => {
             <Typography sx={{color:'#414242',fontSize:'0.75rem'}}>Add Stock Assets</Typography>
           </ListItemButton>
         </List>
-        </Link>
-        <Link href="/assets/addassets/addscrappedassets/scrappedassetlist" passHref style={{ textDecoration: "none" }}>
+        </Link> */}
+        {/* <Link href="/assets/addassets/addscrappedassets/scrappedassetlist" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl:2.8}}>
           <DesktopAccessDisabledIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
             <Typography sx={{color:'#414242',fontSize:'0.75rem'}}>Add Scrapped Assets</Typography>
           </ListItemButton>
         </List>
-        </Link>
-      </Collapse>
-        <Divider style={{width:'100%'}}/>
+        </Link> */}
+      {/* </Collapse> */}
+        {/* <Divider style={{width:'100%'}}/>
         <Link href="/assets/checkin" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 2.7 }}>
@@ -237,7 +257,7 @@ const SidebarAssetComponent = ({show}:any) => {
             )}
           </ListItemButton>
         </List>
-        </Link>
+        </Link> */}
       </Collapse>
       )}
       <Divider style={{width:'100%'}}/>

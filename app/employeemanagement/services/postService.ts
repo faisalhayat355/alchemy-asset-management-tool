@@ -1,7 +1,7 @@
 import axios from "axios";
 
 class Employee{
-    create(formData){
+    create(formData:any){
         const url = "http://127.0.0.1:8000/employee/create";
         const config = {
             headers:{
@@ -18,4 +18,4 @@ class Employee{
     }
 }
 
-export default new Employee ();
+export default new Employee()

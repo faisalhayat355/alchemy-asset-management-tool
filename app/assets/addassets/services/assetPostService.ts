@@ -1,7 +1,7 @@
 import axios from "axios";
 
 class Post{
-    create(formData){
+    create(formData:any){
         const url = "http://127.0.0.1:8000/asset/create";
         const config = {
             headers:{
@@ -16,7 +16,7 @@ class Post{
         return axios.get(url);
     }
 
-    update(formData){
+    update(formData:any){
         const url = "http://127.0.0.1:8000/asset/update-asset";
         const config = {
             headers:{

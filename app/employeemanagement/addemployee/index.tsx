@@ -298,9 +298,9 @@ return (
                 <Grid container>
                     <Grid item xs={11.5} style={{display:'flex',justifyContent:'flex-end'}}>
                         <Link href="/employeemanagement/" passHref style={{ textDecoration: "none" }}>
-                        <Button variant='contained' size='small' style={{marginRight:'5.6rem',width:'75%',height:'40px'}}>Cancel</Button>
+                        <Button variant='contained' size='small' style={{marginRight:'5.3rem',width:'84%',height:'36px'}}>Cancel</Button>
                         </Link>
-                        <Button variant='contained' size='small' style={{width:'25%'}} type='submit'>Save</Button>
+                        <Button variant='contained' size='small' style={{width:'26%'}} type='submit'>Save</Button>
                     </Grid>
                 </Grid>
             </Grid>
