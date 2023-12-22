@@ -143,19 +143,6 @@ const ViewAssetComponent = (props:any) => {
               </Grid>
             </Grid>
           <Grid container className={classes.card} style={{height:'32vh',paddingBottom:'0.5rem',paddingTop:'0.5rem'}}>
-              {/* <Grid item xs={6} style={{paddingLeft:'4rem',marginTop:'1rem'}} >
-                <Grid container sx={{alignItems:'center'}}>
-                  <Grid item xs={3.2}>
-                  <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Asset Tag ID </Typography>
-                  </Grid>
-                  <Grid item xs={1}>
-                    <Typography fontWeight={"bold"}>:</Typography>
-                    </Grid>
-                  <Grid item xs={7.6}>
-                  <Typography>{assetTagID}</Typography>
-                  </Grid>
-                </Grid> 
-              </Grid> */}
               <Grid item xs={6} style={{paddingLeft:'4rem',marginTop:'1rem'}}>
                 <Grid container sx={{alignItems:'center'}}>
                   <Grid item xs={3.2}>
@@ -182,19 +169,6 @@ const ViewAssetComponent = (props:any) => {
                   </Grid>
                 </Grid> 
               </Grid>
-              {/* <Grid item xs={6} style={{paddingLeft:'4rem'}}>
-                <Grid container sx={{alignItems:'center'}}>
-                  <Grid item xs={3.2}>
-                  <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Status</Typography>
-                  </Grid>
-                  <Grid item xs={1}>
-                  <Typography fontWeight={"bold"}>:</Typography>
-                  </Grid>
-                  <Grid item xs={7.6}>
-                  <Typography>{status}</Typography>
-                  </Grid>
-                </Grid> 
-              </Grid> */}
               <Grid item xs={6} style={{paddingLeft:'4rem'}}>
                 <Grid container sx={{alignItems:'center'}}>
                   <Grid item xs={3.2}>
@@ -275,11 +249,6 @@ const ViewAssetComponent = (props:any) => {
                 </Grid>
               </Grid> 
             </Grid>
-
-
-
-
-
             <Grid item xs={6} style={{paddingLeft:'4rem'}}>
               <Grid container sx={{alignItems:'center'}}>
                 <Grid item xs={3.2}>

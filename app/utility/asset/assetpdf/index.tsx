@@ -11,7 +11,7 @@ const AssetPDFDownload = ({users}:AssetsProps) => {
 
   const exportPDF = async () => {
     const fileName = `asset-list-${new Date().toISOString().slice(0, 10)}`;
-    const headers = [["Asset Tag ID", "Name", "Assign Date","Purchased From", "Brand", "Model", "Serial No.","Ram","Processor"]];
+    const headers = [["Asset Tag ID", "Name", "Assign Date","Purchased From", "Brand", "Model", "Serial No.","Ram","Processor","Description"]];
     const pdfSendData = users?.map((elt) => [
       elt.assettagid,
       elt.name,
@@ -22,6 +22,7 @@ const AssetPDFDownload = ({users}:AssetsProps) => {
       elt.serialno,
       elt.ram,
       elt.processor,
+      elt.description,
     ]);
     await download({
       headers,

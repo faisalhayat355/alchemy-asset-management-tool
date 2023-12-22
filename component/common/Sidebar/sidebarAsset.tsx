@@ -78,7 +78,7 @@ const SidebarAssetComponent = ({show}:any) => {
             onClick={(event) => handleListItemClick(event, 1)}>
             <Tooltip title="Dashboard" arrow TransitionComponent={Fade}
             TransitionProps={{ timeout: 600 }} placement="right-start">
-            <HomeOutlinedIcon style={{color:"#1F7DA9",fontSize:'1.4rem',marginRight:'0.6rem'}}/>
+            <HomeOutlinedIcon style={{color:"#1F7DA9",fontSize:'1.4rem',marginRight:'0.4rem',marginLeft:'0.2rem'}}/>
           </Tooltip>
             {show && (
           <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'bold',marginTop:'0.2rem'}}>Dashboard</Typography>
@@ -90,7 +90,7 @@ const SidebarAssetComponent = ({show}:any) => {
       <ListItemButton selected={selectedIndex === 4} onClick={(event) => handleListItemClick(event, 4)} >
         <Tooltip title="Assets" arrow TransitionComponent={Fade}
         TransitionProps={{ timeout: 600 }} placement="right-start">
-        <ManageAccountsIcon style={{color:"#1F7DA9",fontSize:'1.4rem',marginRight:'0.6rem'}} />
+        <ManageAccountsIcon style={{color:"#1F7DA9",fontSize:'1.4rem',marginRight:'0.4rem',marginLeft:'0.2rem'}} />
         </Tooltip>
      {show &&(
        <div style={{display:'flex',alignItems:'center'}} onClick={handleClickAssets}>
@@ -115,7 +115,7 @@ const SidebarAssetComponent = ({show}:any) => {
         <Link href="/assets/addassets" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 2.7 }}>
-          <DataSaverOnIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
+          <DataSaverOnIcon style={{color:"#1F7DA9",fontSize:'1rem',marginRight:'0.6rem'}} />
            {show &&(
              <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Add New Assets</Typography>
            )}
@@ -125,7 +125,7 @@ const SidebarAssetComponent = ({show}:any) => {
         <Link href="/assets/scrappedasset" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 2.7 }}>
-          <DesktopAccessDisabledIcon style={{color:"#1F7DA9",fontSize:'1rem',marginRight:'0.6rem',marginLeft:'0.1rem'}} />
+          <DesktopAccessDisabledIcon style={{color:"#1F7DA9",fontSize:'0.9rem',marginRight:'0.6rem',marginLeft:'0.1rem'}} />
            {show &&(
              <Typography sx={{color:'#414242',fontSize:'0.8rem'}}>Add Scrapped Assets</Typography>
            )}
@@ -261,11 +261,12 @@ const SidebarAssetComponent = ({show}:any) => {
       </Collapse>
       )}
       <Divider style={{width:'100%'}}/>
+      <Link href="/employeemanagement" passHref style={{ textDecoration: "none",color:'#414242' }}>
         <ListItemButton selected={selectedIndex === 13}
           onClick={(event) => handleListItemClick(event, 13)}>
-          <Tooltip title="Setup" arrow TransitionComponent={Fade}
+          <Tooltip title="Employee" arrow TransitionComponent={Fade}
           TransitionProps={{ timeout: 600 }} placement="right-start">
-          <PersonAddAltIcon style={{color:"#1F7DA9",fontSize:'1.4rem',marginRight:'0.6rem'}} />
+          <PersonAddAltIcon style={{color:"#1F7DA9",fontSize:'1.4rem',marginRight:'0.4rem',marginLeft:'0.2rem'}} />
           </Tooltip>
           {show && (
             <div style={{display:'flex',alignItems:'center'}} onClick={handleClickEmployee}>
@@ -276,6 +277,7 @@ const SidebarAssetComponent = ({show}:any) => {
         <ListItemIcon style={{marginLeft:'2rem'}}>
         </ListItemIcon>
       </ListItemButton>
+      </Link>
       <Collapse in={employee} timeout="auto" unmountOnExit style={{marginTop:'0.1rem'}}>
       <Link href="/employeemanagement" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
@@ -368,12 +370,12 @@ const SidebarAssetComponent = ({show}:any) => {
           onClick={(event) => handleListItemClick(event, 10)}>
           <Tooltip title="Help/Support" arrow TransitionComponent={Fade}
           TransitionProps={{ timeout: 600 }} placement="right-start">
-          <SupportOutlinedIcon style={{color:"#1F7DA9",fontSize:'1.3rem',marginRight:'0.6rem'}} />
+          <SupportOutlinedIcon style={{color:"#1F7DA9",fontSize:'1.3rem',marginRight:'0.55rem',marginLeft:'0.1rem'}} />
           </Tooltip>
           {show && (
             <div style={{display:'flex',alignItems:'center'}} onClick={handleClickHelpSupport}>
               <Typography sx={{color:'#414242',fontSize:'0.9rem',fontWeight:'550'}}>Help/Support</Typography> 
-              {helpsupport ? <ExpandLess style={{marginLeft:'2.5rem',color:"#1F7DA9"}}/> : <ExpandMore style={{marginLeft:'2.5rem'}}/>}
+              {helpsupport ? <ExpandLess style={{marginLeft:'2.4rem',color:"#1F7DA9"}}/> : <ExpandMore style={{marginLeft:'2.4rem'}}/>}
             </div>
           )}
         <ListItemIcon style={{marginLeft:'2rem'}}>

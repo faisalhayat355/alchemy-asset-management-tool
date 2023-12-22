@@ -4,20 +4,6 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import { Box, Grid, IconButton, Modal, Tooltip, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
-type Post = {
-    _id: string;
-    id: string;
-    employeeId: string;
-    name: string;
-    email: string;
-    mobile: string;
-    position: string;
-    address: string;
-    site: string;
-    image:string;
-  
-  };
-
 const useStyles = makeStyles({
     errormessage: {
       fontSize: "0.75rem",
@@ -59,17 +45,13 @@ const style = {
 
 const ViewEmployeeComponent = (props:any) => {
     const classes = useStyles();
-
     //Model Popup
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-
     //view value
-    const [selected,setSelected] = useState()
     const [id,setId]=useState(props.id);
     const [employeeId] = useState(props.employeeId)
-    const [assetTagID,setAssetTagID]=useState(props.assettagid);
     const [name]=useState(props.name);
     const [email]=useState(props.email);
     const [mobile]=useState(props.mobile);
@@ -83,8 +65,6 @@ const ViewEmployeeComponent = (props:any) => {
     const [clientsLob]=useState(props.clientsLob);
     const [workLocation]=useState(props.workLocation);
     const [address]=useState(props.address);
-
-   
 
   return (
     <div>
@@ -114,7 +94,7 @@ const ViewEmployeeComponent = (props:any) => {
                     <Typography fontSize={"0.8rem"} fontWeight={"bold"}>Employee ID </Typography>
                     </Grid>
                     <Grid item xs={1}>
-                        <Typography>:</Typography>
+                        <Typography fontWeight={"bold"}>:</Typography>
                         </Grid>
                     <Grid item xs={7.6}>
                     <Typography>{employeeId}</Typography>
@@ -127,7 +107,7 @@ const ViewEmployeeComponent = (props:any) => {
                     <Typography fontSize={"0.8rem"} fontWeight={"bold"}>Name</Typography>
                     </Grid>
                     <Grid item xs={1}>
-                    <Typography>:</Typography>
+                    <Typography fontWeight={"bold"}>:</Typography>
                     </Grid>
                     <Grid item xs={7.6}>
                     <Typography>{name}</Typography>
@@ -140,7 +120,7 @@ const ViewEmployeeComponent = (props:any) => {
                     <Typography fontSize={"0.8rem"} fontWeight={"bold"}>Email </Typography>
                     </Grid>
                     <Grid item xs={1}>
-                    <Typography>:</Typography>
+                    <Typography fontWeight={"bold"}>:</Typography>
                     </Grid>
                     <Grid item xs={7.6}>
                     <Typography>{email}</Typography>
@@ -153,7 +133,7 @@ const ViewEmployeeComponent = (props:any) => {
                     <Typography fontSize={"0.8rem"} fontWeight={"bold"}>Mobile</Typography>
                     </Grid>
                     <Grid item xs={1}>
-                    <Typography>:</Typography>
+                    <Typography fontWeight={"bold"}>:</Typography>
                     </Grid>
                     <Grid item xs={7.6}>
                     <Typography>{mobile}</Typography>
@@ -166,7 +146,7 @@ const ViewEmployeeComponent = (props:any) => {
                     <Typography fontSize={"0.8rem"} fontWeight={"bold"}>Position</Typography>
                     </Grid>
                     <Grid item xs={1}>
-                    <Typography>:</Typography>
+                    <Typography fontWeight={"bold"}>:</Typography>
                     </Grid>
                     <Grid item xs={7.6}>
                     <Typography>{position}</Typography>
@@ -179,7 +159,7 @@ const ViewEmployeeComponent = (props:any) => {
                         <Typography fontSize={"0.8rem"} fontWeight={"bold"}>Department </Typography>
                         </Grid>
                         <Grid item xs={1}>
-                        <Typography>:</Typography>
+                        <Typography fontWeight={"bold"}>:</Typography>
                         </Grid>
                         <Grid item xs={7.6}>      
                         <Typography>{department}</Typography>
@@ -220,7 +200,7 @@ const ViewEmployeeComponent = (props:any) => {
                         <Typography fontSize={"0.8rem"} fontWeight={"bold"}>Site</Typography>
                         </Grid>
                         <Grid item xs={1}>
-                        <Typography>:</Typography>
+                        <Typography fontWeight={"bold"}>:</Typography>
                         </Grid>
                         <Grid item xs={7.6}>      
                         <Typography>{site}</Typography>
@@ -233,7 +213,7 @@ const ViewEmployeeComponent = (props:any) => {
                         <Typography fontSize={"0.8rem"} fontWeight={"bold"}>Project Name</Typography>
                         </Grid>
                         <Grid item xs={1}>
-                        <Typography>:</Typography>
+                        <Typography fontWeight={"bold"}>:</Typography>
                         </Grid>
                         <Grid item xs={7.6}>
                         <Typography>{projectName}</Typography>
@@ -305,7 +285,6 @@ const ViewEmployeeComponent = (props:any) => {
                         </Grid>
                     </Grid> 
                 </Grid> */}
-               
                 {/* <Grid item xs={6} style={{paddingLeft:'5rem'}}>
                 <img src={'http://127.0.0.1:8000/postImages/'+image.image} style={{width:'120px', height:'100px'}}/>
                 </Grid> */}

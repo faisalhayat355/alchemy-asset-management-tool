@@ -222,6 +222,7 @@ const handleChange=(e:any)=>{
                   </Grid>
                   <Grid item xs={8.6} >
                   <select value={assignmode} onChange={(e)=>handleChange(e)} style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',paddingLeft:'0.6rem',outline:'none'}}>
+                    <option></option>
                     <option>Office Pickup</option>
                     <option>Courier</option>
                   </select>

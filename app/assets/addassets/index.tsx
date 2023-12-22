@@ -1,9 +1,9 @@
 "use client"
-import React, { useState } from 'react'
-import { Alert, Box, Button, Grid, Snackbar, TextField, Typography } from '@mui/material'
-import postService from '../addassets/services/assetPostService'
-import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { Box, Button, Grid, TextField, Typography } from '@mui/material';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import postService from '../addassets/services/assetPostService';
 
 const AssetCreatePage = () => {
 const [assettagid,setAssetTagId] = useState('')
@@ -20,8 +20,8 @@ const [disktype,setDiskType] = useState('')
 const [status,setStatus] = useState('UnAssign')
 const [remarks,setRemarks] = useState('')
 const [image,setImage] = useState('')
-
 const [message,setMessage] = useState('')
+
 const router = useRouter()
 
 const handleSubmit = async (event:any)=>{
@@ -57,7 +57,6 @@ const handleSubmit = async (event:any)=>{
     router.push('/assets/listofassets', { scroll: false })
 }
 
-
 return (
     <div>
       <Grid container>
@@ -88,7 +87,7 @@ return (
                         <Typography>Description</Typography>
                     </Grid>
                     <Grid item xs={2}>
-                    <Typography>:</Typography>
+                        <Typography>:</Typography>
                     </Grid>
                     <Grid item xs={6.5}>
                         <TextField size='small'fullWidth type='text' name='description' placeholder='Enter Description' 
@@ -102,7 +101,7 @@ return (
                         <Typography>Purchased From</Typography>
                     </Grid>
                     <Grid item xs={2}>
-                    <Typography>:</Typography>
+                        <Typography>:</Typography>
                     </Grid>
                     <Grid item xs={6.5}>
                         <TextField size='small' fullWidth type='text' name='purchasefrom' placeholder='Enter Purchased From' 
@@ -116,7 +115,7 @@ return (
                         <Typography>Purchased Date</Typography>
                     </Grid>
                     <Grid item xs={2}>
-                    <Typography>:</Typography>
+                        <Typography>:</Typography>
                     </Grid>
                     <Grid item xs={6.5}>
                         <TextField size='small' fullWidth type='date' name='purchasedate' onChange={event => setPurchaseDate(event.target.value)} required/>
@@ -129,7 +128,7 @@ return (
                         <Typography>Cost</Typography>
                     </Grid>
                     <Grid item xs={2}>
-                    <Typography>:</Typography>
+                        <Typography>:</Typography>
                     </Grid>
                     <Grid item xs={6.5}>
                         <TextField size='small' fullWidth type='text' name='cost' placeholder='Enter Cost' 
@@ -143,7 +142,7 @@ return (
                         <Typography>Model</Typography>
                     </Grid>
                     <Grid item xs={2}>
-                    <Typography>:</Typography>
+                        <Typography>:</Typography>
                     </Grid>
                     <Grid item xs={6.5}>
                         <TextField size='small' fullWidth type='text' name='position' placeholder='Enter Model' 
@@ -157,7 +156,7 @@ return (
                         <Typography>Brand</Typography>
                     </Grid>
                     <Grid item xs={2}>
-                    <Typography>:</Typography>
+                        <Typography>:</Typography>
                     </Grid>
                     <Grid item xs={6.5}>
                         <TextField size='small' fullWidth type='text' name='position' placeholder='Enter Brand' 
@@ -171,7 +170,7 @@ return (
                         <Typography>Serial No.</Typography>
                     </Grid>
                     <Grid item xs={2}>
-                    <Typography>:</Typography>
+                        <Typography>:</Typography>
                     </Grid>
                     <Grid item xs={6.5}>
                         <TextField size='small' fullWidth type='text' name='position' placeholder='Enter Serial No.' 
@@ -185,7 +184,7 @@ return (
                         <Typography>Processor</Typography>
                     </Grid>
                     <Grid item xs={2}>
-                    <Typography>:</Typography>
+                        <Typography>:</Typography>
                     </Grid>
                     <Grid item xs={6.5}>
                         <select style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}   name="department"
@@ -193,10 +192,10 @@ return (
                         <option>Select Processor</option>
                         <option>Dual Core</option>
                         <option>Pentium</option>
-                        <option>Core I3</option>
-                        <option>Core I5</option>
-                        <option>Core I7</option>
-                        <option>Core I9</option>
+                        <option>Core i3</option>
+                        <option>Core i5</option>
+                        <option>Core i7</option>
+                        <option>Core i9</option>
                         </select>
                     </Grid>
                 </Grid>
@@ -207,7 +206,7 @@ return (
                         <Typography>Ram</Typography>
                     </Grid>
                     <Grid item xs={2}>
-                    <Typography>:</Typography>
+                        <Typography>:</Typography>
                     </Grid>
                     <Grid item xs={6.5}>
                         <select style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}   name="department"
@@ -220,14 +219,13 @@ return (
                     </Grid>
                 </Grid>
             </Grid>
-
             <Grid item xs={6}>
                 <Grid container alignItems={"center"}>
                     <Grid item xs={3}>
                         <Typography>Disk Type</Typography>
                     </Grid>
                     <Grid item xs={2}>
-                    <Typography>:</Typography>
+                        <Typography>:</Typography>
                     </Grid>
                     <Grid item xs={6.5}>
                         <select style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}} name="department"
@@ -240,7 +238,6 @@ return (
                     </Grid>
                 </Grid>
             </Grid>
-          
             <Grid item xs={6}>
                 <Grid container alignItems={"center"}>
                     <Grid item xs={3}>
@@ -271,7 +268,6 @@ return (
             </Grid>
             <Grid item xs={6}>
                 <Grid container alignItems={"center"}>
-                   
                     <Grid item xs={6.5}>
                         <select value={status} onChange={(e) => {setStatus(e.target.value);}} style={{width:"100%",height:'6.2vh',border:'1px solid white',borderRadius:'4px',padding:'0.4rem',color:'white'}} disabled>
                             <option>UnAssign</option>
@@ -279,10 +275,8 @@ return (
                     </Grid>
                 </Grid>
             </Grid>
+            <Grid item xs={6}></Grid>
             <Grid item xs={6}>
-                
-            </Grid>
-            <Grid item xs={6} >
                 <Grid container>
                     <Grid item xs={11.5} style={{display:'flex',justifyContent:'flex-end'}}>
                         <Link href="/employeemanagement/" passHref style={{ textDecoration: "none" }}>
@@ -290,7 +284,6 @@ return (
                         </Link>
                         <Button variant='contained' size='small' style={{width:'25%'}} type='submit'>Save</Button>
                     </Grid>
-                  
                 </Grid>
             </Grid>
             </Grid> 

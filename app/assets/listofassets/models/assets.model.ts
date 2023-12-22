@@ -1,4 +1,5 @@
 type IAssets = {
+    _id:string;
     id: string;
     assettagid: string;
     purchasefrom: string;
@@ -34,8 +35,6 @@ type IAssets = {
     sbuHead:string;
     clientsLob:string;
     returndate:number;
-    
-    
   };
   
   export type { IAssets } ;

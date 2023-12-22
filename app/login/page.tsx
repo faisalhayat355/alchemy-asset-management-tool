@@ -6,6 +6,7 @@ import { NextPage } from "next";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { FormEventHandler, useState } from "react";
+import Image from 'next/image'
 
 const Item = styled(Paper)(({ theme }) => ({
   background: "rgba(16, 18, 27, 0.4)",
@@ -33,6 +34,7 @@ const SignIn: NextPage = (props): JSX.Element => {
   const [userInfo, setUserInfo] = useState({ email: "", password: "" });
   const router = useRouter();
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
+    
     // validate your userinfo
     e.preventDefault();
     if (userInfo?.email === "alchemy@gmail.com" && userInfo.password) {
@@ -41,9 +43,9 @@ const SignIn: NextPage = (props): JSX.Element => {
         password: userInfo.password,
         redirect: false,
       });
-      if (!res.error) {
-        router.push("/");
-      }
+      // if (!res.error) {
+      //   router.push("/");
+      // }
     }
   };
   return (
@@ -54,14 +56,14 @@ const SignIn: NextPage = (props): JSX.Element => {
             <Grid container>
               <Grid item xs={12}>
                 <Grid container>
-                  <Grid item lg={5.8} sm={4} xs={2.5} md={5.6}></Grid>
+                  <Grid item lg={4.5} sm={4} xs={2.5} md={5.6}></Grid>
                   <Grid item xs={5}>
-                    <img src="./images/loginpagelogo.png" alt="LoginImage" style={{width:'85%'}} />
+                  <Image loading='eager' src="/images/loginpagelogo.png" width={200} height={75} alt="logo not found" style={{marginLeft:'0.5rem'}}/>
                   </Grid>
                 </Grid>
               </Grid>
-              <Grid item md={4} lg={4} sm={2} xs={0}></Grid>
-              <Grid item px={2} md={8} lg={8} sm={10} xs={12}>
+              <Grid item md={4} lg={2.5} sm={2} xs={0}></Grid>
+              <Grid item px={2} md={8} lg={9.5} sm={10} xs={12}>
                 <Item>
                   <form onSubmit={handleSubmit}>
                     <Grid item xs={12}>

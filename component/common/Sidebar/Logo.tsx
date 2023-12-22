@@ -1,7 +1,7 @@
 import ClearAllIcon from '@mui/icons-material/ClearAll';
 import MenuIcon from "@mui/icons-material/Menu";
-import { Divider, Fade, Grid, Tooltip, Typography } from "@mui/material";
-import Image from 'next/image'
+import { Fade, Grid, Tooltip } from "@mui/material";
+import Image from 'next/image';
 
 type logoProps = {
   show: boolean;
@@ -23,8 +23,8 @@ const Logo = ({ handleMenu, show }: logoProps) => {
       )}
       <div>
         <div onClick={handleMenu}>
-          {show ? <MenuIcon style={{marginLeft:'0.7rem',color:'#04425b',cursor:'pointer',marginTop:'1rem'}}/>   : <Tooltip title="Expand Menu" arrow TransitionComponent={Fade}
-          TransitionProps={{ timeout: 600 }} placement="right-start"><ClearAllIcon style={{marginTop:'1rem',marginLeft:'1.1rem',color:'#1F7DA9',cursor:'pointer',fontSize:'1.7rem'}}/> </Tooltip>}
+          {show ? <MenuIcon style={{marginLeft:'0.7rem',color:'#04425b',cursor:'pointer',marginTop:'1rem'}}/> : <Tooltip title="Expand Menu" arrow TransitionComponent={Fade}
+          TransitionProps={{ timeout: 600 }} placement="right-start"><ClearAllIcon style={{marginTop:'1rem',marginLeft:'1.3rem',color:'#1F7DA9',cursor:'pointer',fontSize:'1.7rem'}}/> </Tooltip>}
         </div>
       </div>
     </div>
