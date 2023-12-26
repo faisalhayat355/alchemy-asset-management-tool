@@ -1,4 +1,5 @@
 "use client"
+import { useEffect, useState } from 'react';
 import AddIcon from '@mui/icons-material/Add';
 import AddToQueueIcon from '@mui/icons-material/AddToQueue';
 import LaptopIcon from '@mui/icons-material/Laptop';
@@ -9,7 +10,6 @@ import { makeStyles } from '@mui/styles';
 import axios from 'axios';
 import moment from "moment";
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
 import { momentLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
@@ -130,7 +130,7 @@ let length = data.length;
                 </Link>
                 </Grid>
                <Grid container spacing={1}>
-                    <Grid item lg={3} mt={1.5} xs={6} md={6}>
+                    <Grid item lg={3} mt={1.5} xs={12} md={6} sm={6}>
                     <Link href="/assets/listofassets" passHref style={{ textDecoration: "none" }}>
                     <Paper className={classes.paper} elevation={0} >
                         <Grid container> 
@@ -147,7 +147,7 @@ let length = data.length;
                     </Paper>
                     </Link>
                     </Grid>
-                <Grid item lg={3} mt={1.5} xs={6} md={6}>
+                <Grid item lg={3} mt={1.5} xs={12} md={6} sm={6}>
                     <Paper className={classes.paper} elevation={0} >
                        <Grid container> 
                        <Grid item xs={4}>
@@ -163,7 +163,7 @@ let length = data.length;
                        </Grid>
                     </Paper>
                 </Grid>
-                <Grid item lg={3} mt={1.5} xs={6} md={6}>
+                <Grid item lg={3} mt={1.5} xs={12} md={6} sm={6}>
                     <Paper className={classes.paper} elevation={0} >
                        <Grid container> 
                        <Grid item xs={3.8}>
@@ -179,7 +179,7 @@ let length = data.length;
                        </Grid>
                     </Paper>
                 </Grid>
-                <Grid item lg={3} mt={1.5} xs={6} md={6}>
+                <Grid item lg={3} mt={1.5} xs={12} md={6} sm={6}>
                 {/* <Link href="/assets/addassets/employeemanagement" passHref style={{ textDecoration: "none" }}> */}
                     <Paper className={classes.paper} elevation={0} >
                        <Grid container> 
