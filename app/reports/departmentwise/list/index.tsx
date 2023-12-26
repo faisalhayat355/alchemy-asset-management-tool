@@ -18,7 +18,7 @@ const DepartmentListComponent = ({users}:ListComponentProps) => {
 
   const classes = useStyles();
   let [page, setPage] = useState(1);
-  const PER_PAGE = 9;
+  const PER_PAGE = 7;
   const count = Math.ceil(users.length / PER_PAGE);
   const _DATA = PaginationHandler(users, PER_PAGE);
 
@@ -56,7 +56,7 @@ const DepartmentListComponent = ({users}:ListComponentProps) => {
           <Typography style={{ fontWeight: "bold"}}>ADDRESS</Typography>
         </Grid>  
     </Grid>
-    <Grid style={{ height: "56vh" }}>
+    <Grid style={{ height: "47vh" }}>
       {_DATA.currentData().reverse().map((test:IAssets) => {
           return(
             <Typography key={test.id}>
@@ -68,7 +68,7 @@ const DepartmentListComponent = ({users}:ListComponentProps) => {
     </div>
     <div>
     <Grid container>
-      <Grid item xs={11.8} className={classes.pagination}>
+      <Grid item xs={12} className={classes.pagination}>
         <div style={{ position: "fixed" }}>
           <Pagination count={count} size="small" page={page} variant="outlined" color="primary" onChange={handleChangePage}/>
         </div>

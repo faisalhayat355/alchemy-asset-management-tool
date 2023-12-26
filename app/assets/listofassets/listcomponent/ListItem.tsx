@@ -41,6 +41,7 @@ const EmployeeListComponent = () => {
   const baseURL = 'http://127.0.0.1:8000/get-asset-posts/';
     
   const [imageList, setImageList] = useState<Post[]>([]);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -244,6 +245,7 @@ const EmployeeListComponent = () => {
   );
 
   const [data, setData] = useState<Post[]>([]);
+  const items= data.reverse()
   useEffect(() => {
     const fetchData = async () => {
       try {

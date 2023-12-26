@@ -1,8 +1,11 @@
+import ReportsHomeComponent from './reportsHome'
+
 
 const page = () => {
   return (
-    <div>
-    </div>
+    <>
+      <ReportsHomeComponent/>
+    </>
   )
 }
 

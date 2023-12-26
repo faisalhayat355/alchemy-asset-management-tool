@@ -301,6 +301,7 @@ const SidebarAssetComponent = ({show}:any) => {
         </Link>
       </Collapse>
       <Divider style={{width:'100%'}}/>
+      <Link href="/reports" passHref style={{ textDecoration: "none",color:"#414242" }}>
       <ListItemButton selected={selectedIndex === 6}
           onClick={(event) => handleListItemClick(event, 6)}>
           <Tooltip title="Reports" arrow TransitionComponent={Fade}
@@ -316,6 +317,7 @@ const SidebarAssetComponent = ({show}:any) => {
         <ListItemIcon style={{marginLeft:'2rem'}}>
         </ListItemIcon>
       </ListItemButton>
+      </Link>
       <Collapse in={reports} timeout="auto" unmountOnExit style={{marginTop:'0.1rem'}}>
       <Link href="/reports/clientwise" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>

@@ -1,10 +1,10 @@
 import React from 'react'
-import ReportsHomePage from '.'
+import ClientWiseHomeComponent from '.'
 
 const page = () => {
   return (
     <div>
-      <ReportsHomePage/>
+      <ClientWiseHomeComponent/>
     </div>
   )
 }

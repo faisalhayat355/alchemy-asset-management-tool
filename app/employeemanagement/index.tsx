@@ -73,7 +73,7 @@ const EmployeeManagementHome = () => {
         <AssetViewComponent onViewSelect={onViewSelect}/>
       </Grid>
         <Grid item xs={1.8} sx={{display:'flex',justifyContent:'flex-end'}}>   
-          <Link href="/employeemanagement/addEmployee/" passHref style={{ textDecoration: "none" }}>
+          <Link href="/employeemanagement/addemployee/" passHref style={{ textDecoration: "none" }}>
             <Button variant='outlined' size='small' style={{background:'#1F7DA9',border:'1px solid #1F7DA9',color:'white',fontSize:'0.8rem',fontWeight:'bold'}}> + Add New Employee</Button>
           </Link>
         </Grid>

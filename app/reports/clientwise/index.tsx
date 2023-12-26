@@ -21,7 +21,7 @@ type Post = {
   site: string;
 
 };
-const ReportsHomePage = () => {
+const ClientWiseHomeComponent = () => {
     // const [data, setData] = useState([]);
     // const [users, setUsers] = useState([])
 
@@ -69,17 +69,14 @@ const ReportsHomePage = () => {
     const updateUsers = (f:any)=>{
         setUsers(f);
       }
-
-
-      // console.log("RRRRRRRRRRRRRR>>>>>>>>>>",users)
   return (
     <div>
-        <Grid container sx={{paddingLeft:'1rem',paddingTop:"0.5rem",paddingBottom:'0.5rem'}}>
+        <Grid container sx={{paddingLeft:'1rem'}}>
           <Grid item xs={12}>
             <Typography fontWeight={"bold"} style={{fontFamily:"cursive", fontSize:'1.3rem'}}>Client Wise Reports</Typography>
           </Grid>
         </Grid>
-     <Box sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #1F7DA9',paddingLeft:'1rem',paddingTop:'0.8rem',height:'82vh',width:'97%',marginLeft:'0.85rem',alignItems:'center',boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",marginTop:'0.2rem'}}>
+     <Box sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #1F7DA9',paddingLeft:'1rem',paddingTop:'0.8rem',height:'70vh',width:'97%',marginLeft:'0.85rem',alignItems:'center',boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",marginTop:'0.2rem'}}>
         <Grid container spacing={2}>
           <Grid item xs={5.5}>
             <ProjectReport users={data} updateUsers={updateUsers} />
@@ -101,4 +98,4 @@ const ReportsHomePage = () => {
   )
 }
 
-export default ReportsHomePage
+export default ClientWiseHomeComponent

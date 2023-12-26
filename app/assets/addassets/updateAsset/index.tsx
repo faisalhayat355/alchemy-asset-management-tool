@@ -191,6 +191,7 @@ const handleChange=(e:any)=>{
                     {/* <option></option> */}
                     <option>Assign</option>
                     <option>UnAssign</option>
+                    <option>UnderMaintainance</option>
                   </select>
                   </Grid>
                 </Grid> 
