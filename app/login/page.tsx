@@ -1,5 +1,5 @@
 "use client";
-import { Button, Grid, TextField, Typography } from "@mui/material";
+import { Alert, Button, Grid, Snackbar, TextField, Typography } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
 import { NextPage } from "next";
@@ -32,6 +32,7 @@ const FormGrid = styled(Grid)(({ theme }) => ({
 
 const SignIn: NextPage = (props): JSX.Element => {
   const [userInfo, setUserInfo] = useState({ email: "", password: "" });
+  const [alert, showAlert] = useState(false);
   const router = useRouter();
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     
@@ -43,12 +44,27 @@ const SignIn: NextPage = (props): JSX.Element => {
         password: userInfo.password,
         redirect: false,
       });
-      // if (!res.error) {
-      //   router.push("/");
-      // }
+      if (!res.error) {
+        console.log(res);
+        router.push("/");
+      }
+    } else {
+      showAlert(true);
     }
-  };
+    }
+
+    const handleClose = (
+      event?: React.SyntheticEvent | Event,
+      reason?: string
+    ) => {
+      if (reason === "clickaway") {
+        return;
+      }
+      showAlert(false);
+    };
+
   return (
+      <>
     <Container>
       <Grid container>
         <Grid item xs={12}>
@@ -95,6 +111,14 @@ const SignIn: NextPage = (props): JSX.Element => {
         </Grid>
       </Grid>
     </Container>
+    <Snackbar open={alert} autoHideDuration={6000} onClose={handleClose}>
+    <Alert onClose={handleClose} severity="error" sx={{ width: "100%" }}>
+      <Typography >
+        Invalid Email and Password !
+      </Typography>
+    </Alert>
+    </Snackbar>
+</>
   );
 };
 

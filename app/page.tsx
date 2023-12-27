@@ -1,6 +1,6 @@
 "use client";
-import { useSession } from "next-auth/react"
-import DashboardPage from "./dashboard";
+import { useSession } from "next-auth/react";
+import AssetDashboardPage from "./dashboard/dashboard";
 import SignIn from "./login/page";
 
 const page = () => {
@@ -10,7 +10,7 @@ const page = () => {
       <>
         {/* Signed in as {session.user.email} <br />
         <button onClick={() => signOut()}>Sign out</button> */}
-        <DashboardPage />
+        <AssetDashboardPage />
       </>
     );
   }

@@ -12,6 +12,9 @@ import moment from "moment";
 import Link from 'next/link';
 import { momentLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
+import DesktopAccessDisabledIcon from '@mui/icons-material/DesktopAccessDisabled';
+import InstallDesktopIcon from '@mui/icons-material/InstallDesktop';
+import DvrIcon from '@mui/icons-material/Dvr';
 
 type Post = {
     _id: string;
@@ -46,46 +49,58 @@ const useStyles = makeStyles({
         },
     },
     divIcon: {
-        borderRadius:'5px',background:'#1F7DA9',height:'3vh',width:'43%',
-        marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
+        borderRadius:'5px',background:'#1F7DA9',height:'3vh',width:'53%',
+        marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'0.3rem',paddingTop:'0.7rem',
         paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',color:'white',
         transition: "width 2s, height 2s, transform 2s",
         "&:hover": {
-            borderRadius:'5px',background:'#3b82f6',height:'3vh',width:'43%',
-            marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
+            borderRadius:'5px',background:'#3b82f6',height:'3vh',width:'53%',
+            marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'0.3rem',paddingTop:'0.7rem',
             paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',transform: "rotate(180deg)",
         },
     },
     divIcon2: {
-        borderRadius:'5px',background:'#a21caf',height:'3vh',width:'43%',
-        marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
+        borderRadius:'5px',background:'#a21caf',height:'3vh',width:'53%',
+        marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'0.3rem',paddingTop:'0.7rem',
         paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',color:'white',
         transition: "width 2s, height 2s, transform 2s",
         "&:hover": {
-            borderRadius:'5px',background:' #c026d3',height:'3vh',width:'43%',
-            marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
+            borderRadius:'5px',background:' #c026d3',height:'3vh',width:'53%',
+            marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'0.3rem',paddingTop:'0.7rem',
             paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',transform: "rotate(180deg)",  
         },
     },
     divIcon3: {
-        borderRadius:'5px',background:' #ef4444 ',height:'3vh',width:'45.5%',
-        marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
+        borderRadius:'5px',background:' #ef4444 ',height:'3vh',width:'55.5%',
+        marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'0.3rem',paddingTop:'0.7rem',
         paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',color:'white',
         transition: "width 2s, height 2s, transform 2s",
         "&:hover": {
-            borderRadius:'5px',background:'#dc2626',height:'3vh',width:'45.5%',
-            marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
+            borderRadius:'5px',background:'#dc2626',height:'3vh',width:'55.5%',
+            marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'0.3rem',paddingTop:'0.7rem',
             paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',transform: "rotate(180deg)",  
         },
     },
     divIcon4: {
-        borderRadius:'5px',background:'#facc15',height:'3vh',width:'45%',
-        marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
+        borderRadius:'5px',background:'#facc15',height:'3vh',width:'71%',
+        marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'0.3rem',paddingTop:'0.7rem',
         paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',color:'white',
         transition: "width 2s, height 2s, transform 2s",
         "&:hover": {
-            borderRadius:'5px',background:'#eab308',height:'3vh',width:'45%',
-            marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'1rem',paddingTop:'0.7rem',
+            borderRadius:'5px',background:'#eab308',height:'3vh',width:'71%',
+            marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'0.3rem',paddingTop:'0.7rem',
+            paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',transform: "rotate(180deg)",  
+        },
+    },
+
+    divIcon5: {
+        borderRadius:'5px',background:'#84cc16',height:'3vh',width:'55%',
+        marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'0.3rem',paddingTop:'0.7rem',
+        paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',color:'white',
+        transition: "width 2s, height 2s, transform 2s",
+        "&:hover": {
+            borderRadius:'5px',background:'#65a30d',height:'3vh',width:'55%',
+            marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'0.3rem',paddingTop:'0.7rem',
             paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',transform: "rotate(180deg)",  
         },
     },
@@ -130,12 +145,12 @@ let length = data.length;
                 </Link>
                 </Grid>
                <Grid container spacing={1}>
-                    <Grid item lg={3} mt={1.5} xs={12} md={6} sm={6}>
+                    <Grid item lg={2.4} mt={1.5} xs={12} md={6} sm={6}>
                     <Link href="/assets/listofassets" passHref style={{ textDecoration: "none" }}>
                     <Paper className={classes.paper} elevation={0} >
                         <Grid container> 
                         <Grid item xs={4}>
-                        <div className={classes.divIcon}> <SettingsIcon style={{fontSize:'1rem',marginTop:'-1rem'}}/></div>
+                        <div className={classes.divIcon}> <DvrIcon style={{fontSize:'1rem',marginTop:'-1rem'}}/></div>
                         </Grid>
                             <Grid item xs={8} sx={{display:'flex',justifyContent:'center'}}>
                             <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Total Asset</Typography>
@@ -147,7 +162,7 @@ let length = data.length;
                     </Paper>
                     </Link>
                     </Grid>
-                <Grid item lg={3} mt={1.5} xs={12} md={6} sm={6}>
+                <Grid item lg={2.4} mt={1.5} xs={12} md={6} sm={6}>
                     <Paper className={classes.paper} elevation={0} >
                        <Grid container> 
                        <Grid item xs={4}>
@@ -163,7 +178,7 @@ let length = data.length;
                        </Grid>
                     </Paper>
                 </Grid>
-                <Grid item lg={3} mt={1.5} xs={12} md={6} sm={6}>
+                <Grid item lg={2.4} mt={1.5} xs={12} md={6} sm={6}>
                     <Paper className={classes.paper} elevation={0} >
                        <Grid container> 
                        <Grid item xs={3.8}>
@@ -179,20 +194,40 @@ let length = data.length;
                        </Grid>
                     </Paper>
                 </Grid>
-                <Grid item lg={3} mt={1.5} xs={12} md={6} sm={6}>
+                <Grid item lg={2.4} mt={1.5} xs={12} md={6} sm={6}>
                 {/* <Link href="/assets/addassets/employeemanagement" passHref style={{ textDecoration: "none" }}> */}
                     <Paper className={classes.paper} elevation={0} >
                        <Grid container> 
-                       <Grid item xs={3.8}>
-                       <div className={classes.divIcon4}><PeopleOutlineIcon style={{fontSize:'1rem',marginTop:'-1rem'}}/></div>
+                       <Grid item xs={3}>
+                       <div className={classes.divIcon4}><InstallDesktopIcon style={{fontSize:'1rem',marginTop:'-1rem'}}/></div>
                        </Grid>
-                        <Grid item xs={8.2} sx={{display:'flex',justifyContent:'center'}}>
+                        <Grid item xs={9} sx={{display:'flex'}}>
                         <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Under Maintainance</Typography>
                         </Grid>
                         <Grid item xs={8} sx={{display:'flex',justifyContent:'flex-end',paddingTop:'1rem'}}>
                         <Typography fontSize={"1.5rem"}> 
                         {/* {data?.filter(r => r.status !== 'UnderMaintainance')?.length} */}
                         <Typography fontSize={"1.5rem"}>{data?.filter(item=>item.status==="UnderMaintainance")?.length}</Typography>
+                        </Typography>
+                        </Grid>
+                       </Grid>
+                    </Paper>
+                {/* </Link> */}
+                </Grid>
+                <Grid item lg={2.4} mt={1.5} xs={12} md={6} sm={6}>
+                {/* <Link href="/assets/addassets/employeemanagement" passHref style={{ textDecoration: "none" }}> */}
+                    <Paper className={classes.paper} elevation={0} >
+                       <Grid container> 
+                       <Grid item xs={3.8}>
+                       <div className={classes.divIcon5}><DesktopAccessDisabledIcon style={{fontSize:'1rem',marginTop:'-1rem'}}/></div>
+                       </Grid>
+                        <Grid item xs={8.2} sx={{display:'flex',justifyContent:'center'}}>
+                        <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Scrapped Asset</Typography>
+                        </Grid>
+                        <Grid item xs={8} sx={{display:'flex',justifyContent:'flex-end',paddingTop:'1rem'}}>
+                        <Typography fontSize={"1.5rem"}> 
+                        {/* {data?.filter(r => r.status !== 'UnderMaintainance')?.length} */}
+                        <Typography fontSize={"1.5rem"}>{data?.filter(item=>item.status==="Scrap")?.length}</Typography>
                         </Typography>
                         </Grid>
                        </Grid>
