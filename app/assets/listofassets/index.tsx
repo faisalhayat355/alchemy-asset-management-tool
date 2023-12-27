@@ -10,6 +10,7 @@ import GridViewComponent from './listcomponent/gridView';
 import ListItemComponent from './listcomponent/ListItem';
 import AssetViewComponent from './multipleview';
 import { ViewTypes } from "../../utility/view.type";
+import AssetCalendarView from "./listcomponent/calendarView";
 
 type Post = {
   _id: string;
@@ -31,7 +32,7 @@ const onViewSelect = (view: ViewTypes) => {
   setViewType(view);
   };
   const [data, setData] = useState<Post[]>([]);
-  const [users, setUsers] = useState([])
+  const [users, setUsers] = useState(data)
   const items= data.reverse()
   useEffect(() => {
     const fetchData = async () => {
@@ -85,7 +86,7 @@ const onViewSelect = (view: ViewTypes) => {
               <GridViewComponent />
             </Case>
             <Case condition={viewType === ViewTypes.CALENDAR}>
-              {/* <AssetCalendarView users={users} /> */}
+              <AssetCalendarView  data={users}/>
             </Case>
             <Default>
              <Grid style={{marginLeft:'1rem',width:'96.5%',marginTop:"-1rem"}}>

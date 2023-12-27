@@ -8,13 +8,16 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import { Box, Button, Divider, Grid, Paper, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import axios from 'axios';
-import moment from "moment";
 import Link from 'next/link';
-import { momentLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import DesktopAccessDisabledIcon from '@mui/icons-material/DesktopAccessDisabled';
 import InstallDesktopIcon from '@mui/icons-material/InstallDesktop';
 import DvrIcon from '@mui/icons-material/Dvr';
+import { Calendar, momentLocalizer } from "react-big-calendar";
+import moment from "moment";
+import "react-big-calendar/lib/css/react-big-calendar.css";
+import DashboardCalender from './calendarview';
+
 
 type Post = {
     _id: string;
@@ -108,7 +111,7 @@ const useStyles = makeStyles({
         paddingRight:'0.6rem',paddingTop:'0.6rem',paddingBottom:'0.3rem',
         background: "#f8fafc",
         border:'1px solid #f1f5f9',
-        cursor:'pointer',
+        // cursor:'pointer',
         height:'61vh',
     },
   });
@@ -116,6 +119,11 @@ const useStyles = makeStyles({
 const AssetDashboardPage = () => {
 const classes = useStyles();
 const [data, setData] = useState<Post[]>([]);
+const [users, setUsers] = useState([...data])
+
+useEffect(()=>{
+    setUsers(data)
+    },[data])
 
 useEffect(() => {
     const fetchData = async () => {
@@ -130,7 +138,6 @@ useEffect(() => {
 },[]);
     
 let length = data.length;
-
   return (
     <div>
         <Box>
@@ -195,72 +202,63 @@ let length = data.length;
                     </Paper>
                 </Grid>
                 <Grid item lg={2.4} mt={1.5} xs={12} md={6} sm={6}>
-                {/* <Link href="/assets/addassets/employeemanagement" passHref style={{ textDecoration: "none" }}> */}
                     <Paper className={classes.paper} elevation={0} >
                        <Grid container> 
                        <Grid item xs={3}>
-                       <div className={classes.divIcon4}><InstallDesktopIcon style={{fontSize:'1rem',marginTop:'-1rem'}}/></div>
+                        <div className={classes.divIcon4}><InstallDesktopIcon style={{fontSize:'1rem',marginTop:'-1rem'}}/></div>
                        </Grid>
-                        <Grid item xs={9} sx={{display:'flex'}}>
+                        <Grid item xs={9} sx={{display:'flex',justifyContent:'center'}}>
                         <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Under Maintainance</Typography>
                         </Grid>
                         <Grid item xs={8} sx={{display:'flex',justifyContent:'flex-end',paddingTop:'1rem'}}>
-                        <Typography fontSize={"1.5rem"}> 
-                        {/* {data?.filter(r => r.status !== 'UnderMaintainance')?.length} */}
-                        <Typography fontSize={"1.5rem"}>{data?.filter(item=>item.status==="UnderMaintainance")?.length}</Typography>
-                        </Typography>
+                       <Typography fontSize={"1.5rem"}>{data?.filter(item=>item.status==="UnderMaintainance")?.length}</Typography> 
                         </Grid>
                        </Grid>
                     </Paper>
-                {/* </Link> */}
                 </Grid>
                 <Grid item lg={2.4} mt={1.5} xs={12} md={6} sm={6}>
-                {/* <Link href="/assets/addassets/employeemanagement" passHref style={{ textDecoration: "none" }}> */}
                     <Paper className={classes.paper} elevation={0} >
                        <Grid container> 
                        <Grid item xs={3.8}>
-                       <div className={classes.divIcon5}><DesktopAccessDisabledIcon style={{fontSize:'1rem',marginTop:'-1rem'}}/></div>
+                       <div className={classes.divIcon5}><InstallDesktopIcon style={{fontSize:'1rem',marginTop:'-1rem'}}/></div>
                        </Grid>
                         <Grid item xs={8.2} sx={{display:'flex',justifyContent:'center'}}>
                         <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Scrapped Asset</Typography>
                         </Grid>
                         <Grid item xs={8} sx={{display:'flex',justifyContent:'flex-end',paddingTop:'1rem'}}>
-                        <Typography fontSize={"1.5rem"}> 
-                        {/* {data?.filter(r => r.status !== 'UnderMaintainance')?.length} */}
-                        <Typography fontSize={"1.5rem"}>{data?.filter(item=>item.status==="Scrap")?.length}</Typography>
-                        </Typography>
+                       <Typography fontSize={"1.5rem"}>{data?.filter(item=>item.status==="Scrap")?.length}</Typography> 
                         </Grid>
                        </Grid>
                     </Paper>
-                {/* </Link> */}
                 </Grid>
                </Grid>  
                <Grid container spacing={1} mt={0.1}>
-                <Grid item lg={5} xs={12}>
+                {/* <Grid item lg={5} xs={12}>
                     <Paper elevation={0} className={classes.assetvalue}>
                         <Typography sx={{paddingLeft:'1rem'}} fontSize={"1rem"} fontWeight={"bold"}>Asset Value <span style={{fontWeight:'normal',fontSize:'0.8rem'}}>by Category</span></Typography>
                         <Divider style={{width:'100%',paddingLeft:'0.5rem',marginTop:'0.5rem'}}/>
                     </Paper>
-                </Grid>
-                <Grid item lg={7} xs={12}>
+                </Grid> */}
+                <Grid item lg={12} xs={12}>
                     <Paper elevation={0} className={classes.assetvalue}>
                         <Grid container>
                             <Grid item xs={1}>
-                            <Typography sx={{paddingLeft:'1rem'}} fontSize={"1rem"} fontWeight={"bold"}>Alerts</Typography>
+                            <Typography sx={{paddingLeft:'1rem'}} fontSize={"1rem"} fontWeight={"bold"}>Calendars</Typography>
                             </Grid>
-                            <Grid item xs={11} style={{display:'flex',justifyContent:'flex-end'}}>
+                            {/* <Grid item xs={11} style={{display:'flex',justifyContent:'flex-end'}}>
                                 <div style={{background:"#3b82f6",color:'white',padding:'0.4rem',borderRadius:'5px',fontSize:'0.7rem'}}>Assets Due</div>
                                 <div style={{background:"#a21caf",marginLeft:'0.7rem',color:'white',padding:'0.4rem',borderRadius:'5px',fontSize:'0.7rem'}}>Maintenance Due</div>
                                 <div style={{background:"#ef4444",marginLeft:'0.7rem',color:'white',padding:'0.4rem',borderRadius:'5px',fontSize:'0.7rem'}}>Warranty Expiring</div>
                                 <div style={{textAlign:'center',width:'17%',background:"#facc15",marginLeft:'0.7rem',color:'white',padding:'0.4rem',borderRadius:'5px',fontSize:'0.7rem'}}>Lease Expiring</div>
-                            </Grid>
+                            </Grid> */}
                         </Grid>
                         <Divider style={{width:'100%',paddingLeft:'0.5rem',marginTop:'0.6rem'}}/>
-                             {/* <Calendar events={events} startAccessor="start" endAccessor="end" 
-                             defaultDate={moment().toDate()} localizer={localizer} 
-                             style={{ height: 305,marginLeft:'0.6rem',marginTop:'0.5rem'}}/> */}
+                        <DashboardCalender data={users}/>
                     </Paper>
                 </Grid>
+
+
+
             </Grid>              
             </Grid>
         </Box>
