@@ -36,10 +36,7 @@ type Post = {
 };
 
 const EmployeeListComponent = () => {
-
-
   const baseURL = 'http://127.0.0.1:8000/get-asset-posts/';
-    
   const [imageList, setImageList] = useState<Post[]>([]);
 
   useEffect(() => {
@@ -53,9 +50,6 @@ const EmployeeListComponent = () => {
     };  
     fetchData();
   }, []);
-
-  
-
 
   const columns = useMemo<MRT_ColumnDef<Post>[]>(
     () => [
@@ -218,10 +212,6 @@ const EmployeeListComponent = () => {
           </div>
         ),
       },
-
-
-
-      
       // {
       //   accessorKey: 'remarks',
       //   header: 'Remarks.',

@@ -1,6 +1,6 @@
 "use client";
 import { useSession } from "next-auth/react";
-import AssetDashboardPage from "./dashboard/dashboard";
+import AssetDashboardPage from "./dashboard";
 import SignIn from "./login/page";
 
 const page = () => {

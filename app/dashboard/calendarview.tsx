@@ -1,27 +1,15 @@
-import React,{useState,useEffect} from 'react'
-import { Calendar, momentLocalizer } from "react-big-calendar";
+import React, { useEffect, useState } from "react";
+import Grid from "@mui/material/Grid";
 import moment from "moment";
+import { Calendar, momentLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import { Box, Grid } from '@mui/material';
+import { Box } from "@mui/material";
 
 const localizer = momentLocalizer(moment);
 
 const DashboardCalender = ({data}:any) => {
-
-  // const [events, setEvents] = useState([])
-
-  // const AllData = data.map((item:any)=>{
-  //   return {
-  //     title:item.assettagid, 
-  //     start: new Date(item.createdAt),
-  //     end: new Date(item.updatedAt)}
-  // })
-  // useEffect(()=>{
-  //   setEvents(AllData)
-  // },[])
   const [events, setEvents] = useState([]);
-
-  const calendarCompanies = data.map((items) => {
+  const calendarCompanies = data.map((items:any) => {
     return {
       title: items.assettagid,
       start: new Date(items.createdAt),

@@ -289,7 +289,7 @@ const SidebarAssetComponent = ({show}:any) => {
           </ListItemButton>
         </List>
         </Link>
-        <Link href="/employeemanagement/addEmployee" passHref style={{ textDecoration: "none" }}>
+        <Link href="/employeemanagement/addemployee" passHref style={{ textDecoration: "none" }}>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 2.7 }}>
           <DataSaverOnIcon style={{color:"#1F7DA9",fontSize:'1.1rem',marginRight:'0.6rem'}} />
