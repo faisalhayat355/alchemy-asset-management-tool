@@ -1,4 +1,3 @@
-
 interface IDashboard{
     _id: string;
     id: string;
@@ -28,6 +27,5 @@ interface IDashboard{
     courierid:string;
     returndate:string;
 }
-
 
 export default IDashboard

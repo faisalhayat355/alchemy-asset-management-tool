@@ -1,19 +1,19 @@
 "use client"
-import { useEffect, useState } from 'react';
+import {useEffect,useState} from 'react';
 import axios from 'axios';
-import moment from "moment";
 import Link from 'next/link';
-import { Box, Button, Divider, Grid, Paper, Typography } from '@mui/material';
+import {Box,Button,Divider,Grid,Paper,Typography} from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import AddToQueueIcon from '@mui/icons-material/AddToQueue';
 import DvrIcon from '@mui/icons-material/Dvr';
 import InstallDesktopIcon from '@mui/icons-material/InstallDesktop';
 import LaptopIcon from '@mui/icons-material/Laptop';
-import { makeStyles } from '@mui/styles';
-import { momentLocalizer } from "react-big-calendar";
-import "react-big-calendar/lib/css/react-big-calendar.css";
+import {makeStyles} from '@mui/styles';
 import DashboardCalender from './calendarview';
 import DashboardGraphView from './graphview';
+import DesktopAccessDisabledIcon from '@mui/icons-material/DesktopAccessDisabled';
+import IDashboard from './dashboard.model';
+import IDashboardComponentProps from './dashboard.props';
 
 type Post = {
     _id: string;
@@ -26,10 +26,7 @@ type Post = {
     address: string;
     status: string;
     assettagid:string;
-  
   };
-
-const localizer = momentLocalizer(moment);
 
 const useStyles = makeStyles({
     paper: {
@@ -91,7 +88,6 @@ const useStyles = makeStyles({
             paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',transform: "rotate(180deg)",  
         },
     },
-
     divIcon5: {
         borderRadius:'5px',background:'#84cc16',height:'3vh',width:'55%',
         marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'0.3rem',paddingTop:'0.7rem',
@@ -107,14 +103,13 @@ const useStyles = makeStyles({
         paddingRight:'0.6rem',paddingTop:'0.6rem',paddingBottom:'0.3rem',
         background: "#f8fafc",
         border:'1px solid #f1f5f9',
-        // cursor:'pointer',
-        height:'61vh',
+        height:'63vh',
     },
   });
   
-const AssetDashboardPage = ({items}:any) => {
+const AssetDashboardPage = ({items}:IDashboardComponentProps) => {
 const classes = useStyles();
-const [data, setData] = useState<Post[]>([]);
+const [data, setData] = useState<IDashboard[]>([]);
 const [users, setUsers] = useState([...items])
 
 useEffect(() => {
@@ -124,7 +119,7 @@ useEffect(() => {
 useEffect(() => {
     const fetchData = async () => {
         try {
-          const response = await axios.get<{ data: Post[] }>('http://127.0.0.1:8000/get-asset-posts');
+          const response = await axios.get<{ data: IDashboard[] }>('http://127.0.0.1:8000/get-asset-posts');
           setData(response.data.data);
         } catch (error) {
           console.error('Error fetching data:', error);
@@ -132,16 +127,14 @@ useEffect(() => {
     };
     fetchData();
 },[]);
-    
 let length = data.length;
 
 return (
     <div>
         <Box>
-            <Grid container sx={{padding:'0.7rem',alignItems:'center'}}>
+            <Grid container sx={{paddingBottom:'0.2rem',paddingLeft:'0.7rem',paddingRight:'0.7rem',alignItems:'center'}}>
                 <Grid item lg={10.5} xs={12} md={10.35} sx={{display:'flex',alignItems:'center'}}>
-                    <Typography fontSize={"1.8rem"} style={{fontWeight:'bold',color:'#1e293b',fontFamily:"cursive",fontSize:'1.5rem'}}>Dashboard 
-                    </Typography>
+                    <Typography fontSize={"1.8rem"} style={{fontWeight:'bold',color:'#1e293b',fontFamily:"cursive",fontSize:'1.8rem',textShadow:'3px 2px 4px #60a5fa'}}>Dashboard</Typography>
                 </Grid>
                 <Grid item lg={1.5} xs={12} md={1.65}>
                 <Link href="/assets/addassets" passHref style={{ textDecoration: "none" }}>
@@ -217,7 +210,7 @@ return (
                     <Paper className={classes.paper} elevation={0} >
                        <Grid container> 
                        <Grid item xs={3.8}>
-                       <div className={classes.divIcon5}><InstallDesktopIcon style={{fontSize:'1rem',marginTop:'-1rem'}}/></div>
+                       <div className={classes.divIcon5}><DesktopAccessDisabledIcon style={{fontSize:'1rem',marginTop:'-1rem'}}/></div>
                        </Grid>
                         <Grid item xs={8.2} sx={{display:'flex',justifyContent:'center'}}>
                         <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Scrapped Asset</Typography>
@@ -230,12 +223,6 @@ return (
                 </Grid>
                </Grid>  
                <Grid container spacing={1} mt={0.1}>
-                {/* <Grid item lg={5} xs={12}>
-                    <Paper elevation={0} className={classes.assetvalue}>
-                        <Typography sx={{paddingLeft:'1rem'}} fontSize={"1rem"} fontWeight={"bold"}>Asset Value <span style={{fontWeight:'normal',fontSize:'0.8rem'}}>by Category</span></Typography>
-                        <Divider style={{width:'100%',paddingLeft:'0.5rem',marginTop:'0.5rem'}}/>
-                    </Paper>
-                </Grid> */}
                 <Grid item xs={5}>
                     <Paper elevation={0} className={classes.assetvalue}>
                     <DashboardGraphView items={users}></DashboardGraphView>
@@ -245,14 +232,8 @@ return (
                     <Paper elevation={0} className={classes.assetvalue}>
                         <Grid container>
                             <Grid item xs={1}>
-                            <Typography sx={{paddingLeft:'1rem'}} fontSize={"1rem"} fontWeight={"bold"}>Calendars</Typography>
+                            <Typography sx={{paddingLeft:'1rem'}} fontSize={"1rem"} fontWeight={"bold"}>Calendar</Typography>
                             </Grid>
-                            {/* <Grid item xs={11} style={{display:'flex',justifyContent:'flex-end'}}>
-                                <div style={{background:"#3b82f6",color:'white',padding:'0.4rem',borderRadius:'5px',fontSize:'0.7rem'}}>Assets Due</div>
-                                <div style={{background:"#a21caf",marginLeft:'0.7rem',color:'white',padding:'0.4rem',borderRadius:'5px',fontSize:'0.7rem'}}>Maintenance Due</div>
-                                <div style={{background:"#ef4444",marginLeft:'0.7rem',color:'white',padding:'0.4rem',borderRadius:'5px',fontSize:'0.7rem'}}>Warranty Expiring</div>
-                                <div style={{textAlign:'center',width:'17%',background:"#facc15",marginLeft:'0.7rem',color:'white',padding:'0.4rem',borderRadius:'5px',fontSize:'0.7rem'}}>Lease Expiring</div>
-                            </Grid> */}
                         </Grid>
                         <Divider style={{width:'100%',paddingLeft:'0.5rem',marginTop:'0.6rem'}}/>
                         <DashboardCalender data={users}/>

@@ -23,7 +23,7 @@ const DashboardCalender = ({data}:any) => {
   return (
     <Box>
       <Grid style={{width:'96.5%',padding:'1rem',marginLeft:'1rem',marginTop:'-0.7rem'}} >
-      <div style={{ height: "50vh" }}>
+      <div style={{height:"52.5vh"}}>
         <Calendar events={events} startAccessor="start" endAccessor="end" defaultDate={moment().toDate()} localizer={localizer}/>
       </div>
       </Grid>
