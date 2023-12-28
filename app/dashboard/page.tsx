@@ -14,14 +14,31 @@ type Post = {
   position: string;
   address: string;
   status: string;
+  assignmode:string;
+  image:string;
   assettagid:string;
+  description:string;
+  brand:string;
+  serialno:string;
+  model:string;
+  cost:string;
+  purchasedate:string;
+  purchasefrom:string;
+  ram:string;
+  processor:string;
+  assigndate:string;
+  courierdate:string;
+  disktype:string;
+  remarks:string;
+  courierid:string;
+  returndate:string;
 
 };
 
 const data = Array<IDashboard>()
 
-const Home = () => {
-  const[data,setData]=useState([])
+const DashboardHome = () => {
+  const [data, setData] = useState<Post[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,10 +54,9 @@ const Home = () => {
   
   return (
     <>
-
     <AssetDashboardPage items={data} ></AssetDashboardPage>
     </>
   )
 }
 
-export default Home
+export default DashboardHome

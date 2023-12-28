@@ -21,7 +21,7 @@ import PieChart from "react-pie-graph-chart";
 import IDashboardComponentProps from "./dashboard.props";
 
 interface GraphComponentProps extends IDashboardComponentProps {}
-const DashboardGraphView = ({ items }: GraphComponentProps) => {
+const DashboardGraphView = ({ items }: any) => {
 
   const example = [
     {
