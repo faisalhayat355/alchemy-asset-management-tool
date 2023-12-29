@@ -59,7 +59,6 @@ const handleSubmit = async (event:any)=>{
     event.target.reset();
     router.push('/employeemanagement', { scroll: false })
 }
-
 const handleChange=(e:any)=>{
     setSelected(e.target.value)
     setSite(e.target.value)
@@ -69,12 +68,12 @@ return (
     <div>
       <Grid container>
         <Grid item xs={12}>
-        <Typography style={{fontFamily:"cursive", fontSize:'1.3rem'}}>Add Employee Details</Typography>
+            <Typography style={{fontFamily:"cursive", fontSize:'1.3rem'}}>Add Employee Details</Typography>
         </Grid>
       </Grid>
       <form onSubmit={handleSubmit}>
-          <Box style={{marginTop:'1.5rem'}}>
-            <Grid container spacing={2} sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #1F7DA9',paddingLeft:'2rem',paddingTop:'0.8rem',paddingBottom:'3.5rem',width:'96%',marginLeft:'1.3rem',alignItems:'center',boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}}>
+        <Box style={{marginTop:'1.5rem'}}>
+        <Grid container spacing={2} sx={{background:'white',borderRadius:"8px 8px 0px 0px",borderTop:'3px solid #1F7DA9',paddingLeft:'2rem',paddingTop:'0.8rem',paddingBottom:'3.5rem',width:'96%',marginLeft:'1.3rem',alignItems:'center',boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}}>
             <Grid item xs={6}>
                 <Grid container alignItems={"center"}>
                     <Grid item xs={3}>
@@ -304,8 +303,8 @@ return (
                     </Grid>
                 </Grid>
             </Grid>
-            </Grid> 
-          </Box>
+        </Grid> 
+        </Box>
       </form>
     </div>
   )
@@ -313,8 +312,7 @@ return (
 const AlchemyInternal = ({site,setSite}:any)=>{
     return(
       <>
-      <select name='projectName' value={site} onChange={(e) => {setSite(e.target.value);}} disabled style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}>
-      </select>
+      <select name='projectName' value={site} onChange={(e) => {setSite(e.target.value);}} disabled style={{width:"100%",height:'6.2vh',border:'1px solid #9ca3af',borderRadius:'4px',padding:'0.4rem'}}></select>
       </>
     )
   }

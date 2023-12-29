@@ -1,20 +1,18 @@
 import Grid from "@mui/material/Grid";
 import PieChart from "react-pie-graph-chart";
-import IDashboardComponentProps from "./dashboard.props";
 
-interface GraphComponentProps extends IDashboardComponentProps {}
 const DashboardGraphView = ({ items }: any) => {
 
   const example = [
     {
       type: "Assign Asset",
       value: items?.filter(item=>item.status==="Assign").length,
-      color: "#1F7DA9",
+      color: "#a21caf",
     },
     {
       type: "Active Stock",
       value: items?.filter(item=>item.status==="UnAssign").length,
-      color: "#a21caf",
+      color: "#ef4444",
     },
     {
       type: "UnderMaintainance Asset",

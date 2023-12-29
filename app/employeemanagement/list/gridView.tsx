@@ -9,14 +9,10 @@ import { PaginationHandler } from '../../utility/pagination';
 
 const useStyles = makeStyles({
   paper: {
-    background: "#eff6ff",
-    border:'1px solid #f1f5f9',
+    background: "#eff6ff",border:'1px solid #f1f5f9', cursor:'pointer',
     boxShadow: "rgba(0, 0, 0, 0.16) 0px 1px 1px",
-    cursor:'pointer',
     "&:hover": {
-        boxShadow: " rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
-        cursor:'pointer',
-        background:'white'
+        boxShadow: " rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",cursor:'pointer',background:'white'
     },
 },
 });

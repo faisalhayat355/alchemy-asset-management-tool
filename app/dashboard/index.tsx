@@ -30,18 +30,12 @@ type Post = {
 
 const useStyles = makeStyles({
     paper: {
-        paddingRight:'0.6rem',paddingTop:'0.6rem',paddingBottom:'0.3rem',
-        background: "#f8fafc",
-        border:'1px solid #f1f5f9',
-        cursor:'pointer',
-        height:'15.5vh',
-        marginTop:'0.5rem',
+        paddingRight:'0.6rem',paddingTop:'0.6rem',paddingBottom:'0.3rem',background: "#f8fafc",
+        border:'1px solid #f1f5f9',cursor:'pointer',height:'15.5vh',marginTop:'0.5rem',
         boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
         "&:hover": {
-            background: "#eff6ff",
-            border:'5px solid #f1f5f9',
-            boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
-            cursor:'pointer'
+            background: "#eff6ff",border:'5px solid #f1f5f9',cursor:'pointer',
+            boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px"
         },
     },
     divIcon: {
@@ -100,14 +94,12 @@ const useStyles = makeStyles({
         },
     },
     assetvalue: {
-        paddingRight:'0.6rem',paddingTop:'0.6rem',paddingBottom:'0.3rem',
-        background: "#f8fafc",
-        border:'1px solid #f1f5f9',
-        height:'63vh',
+        paddingRight:'0.6rem',paddingTop:'0.6rem',paddingBottom:'0.3rem',background: "#f8fafc",
+        border:'1px solid #f1f5f9',height:'62vh',
     },
   });
   
-const AssetDashboardPage = ({items}:IDashboardComponentProps) => {
+const AssetDashboardPage = ({items}:any) => {
 const classes = useStyles();
 const [data, setData] = useState<IDashboard[]>([]);
 const [users, setUsers] = useState([...items])
@@ -127,6 +119,7 @@ useEffect(() => {
     };
     fetchData();
 },[]);
+
 let length = data.length;
 
 return (
@@ -134,14 +127,15 @@ return (
         <Box>
             <Grid container sx={{paddingBottom:'0.2rem',paddingLeft:'0.7rem',paddingRight:'0.7rem',alignItems:'center'}}>
                 <Grid item lg={10.5} xs={12} md={10.35} sx={{display:'flex',alignItems:'center'}}>
-                    <Typography fontSize={"1.8rem"} style={{fontWeight:'bold',color:'#1e293b',fontFamily:"cursive",fontSize:'1.8rem',textShadow:'3px 2px 4px #60a5fa'}}>Dashboard</Typography>
+                    {/* <Typography fontSize={"1.8rem"} style={{fontWeight:'bold',color:'#1e293b',fontFamily:"cursive",fontSize:'1.8rem',textShadow:'3px 2px 4px #60a5fa'}}>Dashboard</Typography> */}
+                    <Typography id="typography">Dashboard</Typography>
                 </Grid>
                 <Grid item lg={1.5} xs={12} md={1.65}>
                 <Link href="/assets/addassets" passHref style={{ textDecoration: "none" }}>
                     <Button size='small' style={{textTransform:'capitalize',fontWeight:"bold",background:'#1F7DA9',color:'white'}}  startIcon={<AddIcon style={{fontSize:'1.4rem'}}/>}> Add New Asset</Button>
                 </Link>
                 </Grid>
-               <Grid container spacing={1}>
+                <Grid container spacing={1}>
                     <Grid item lg={2.4} mt={1.5} xs={12} md={6} sm={6}>
                     <Link href="/assets/listofassets" passHref style={{ textDecoration: "none" }}>
                     <Paper className={classes.paper} elevation={0} >
@@ -150,10 +144,10 @@ return (
                         <div className={classes.divIcon}> <DvrIcon style={{fontSize:'1rem',marginTop:'-1rem'}}/></div>
                         </Grid>
                             <Grid item xs={8} sx={{display:'flex',justifyContent:'center'}}>
-                            <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Total Asset</Typography>
+                                <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Total Asset</Typography>
                             </Grid>
                             <Grid item xs={8} sx={{display:'flex',justifyContent:'flex-end',paddingTop:'1rem'}}>
-                            <Typography fontSize={"1.5rem"}>{length}</Typography>
+                                <Typography fontSize={"1.5rem"}>{length}</Typography>
                             </Grid>
                         </Grid>
                     </Paper>
@@ -163,13 +157,13 @@ return (
                     <Paper className={classes.paper} elevation={0} >
                        <Grid container> 
                        <Grid item xs={4}>
-                       <div className={classes.divIcon2}><AddToQueueIcon style={{fontSize:'1rem',marginTop:'-1rem'}}/></div>
+                            <div className={classes.divIcon2}><AddToQueueIcon style={{fontSize:'1rem',marginTop:'-1rem'}}/></div>
                        </Grid>
                         <Grid item xs={8} sx={{display:'flex',justifyContent:'center'}}>
-                        <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Asset Assigned </Typography>
+                            <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Asset Assigned </Typography>
                         </Grid>
                         <Grid item xs={8} sx={{display:'flex',justifyContent:'flex-end',paddingTop:'1rem'}}>
-                        <Typography fontSize={"1.5rem"}> {data?.filter(item=>item.status==="Assign")?.length}</Typography>
+                            <Typography fontSize={"1.5rem"}> {data?.filter(item=>item.status==="Assign")?.length}</Typography>
                         {/* <Typography fontSize={"1.5rem"}>{data?.filter(r => r.status !== 'UnAssign')?.length}</Typography> */}
                         </Grid>
                        </Grid>
@@ -179,13 +173,13 @@ return (
                     <Paper className={classes.paper} elevation={0} >
                        <Grid container> 
                        <Grid item xs={3.8}>
-                       <div className={classes.divIcon3}><LaptopIcon style={{fontSize:'1rem',marginTop:'-1rem'}}/></div>
+                            <div className={classes.divIcon3}><LaptopIcon style={{fontSize:'1rem',marginTop:'-1rem'}}/></div>
                        </Grid>
                         <Grid item xs={8.2} sx={{display:'flex',justifyContent:'center'}}>
-                        <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Active Stock</Typography>
+                            <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Active Stock</Typography>
                         </Grid>
                         <Grid item xs={8} sx={{display:'flex',justifyContent:'flex-end',paddingTop:'1rem'}}>
-                       <Typography fontSize={"1.5rem"}>{data?.filter(item=>item.status==="UnAssign")?.length}</Typography> 
+                            <Typography fontSize={"1.5rem"}>{data?.filter(item=>item.status==="UnAssign")?.length}</Typography> 
                         {/* <Typography fontSize={"1.5rem"}> {data?.filter(r => r.status !== 'Assign')?.length}</Typography> */}
                         </Grid>
                        </Grid>
@@ -195,13 +189,13 @@ return (
                     <Paper className={classes.paper} elevation={0} >
                        <Grid container> 
                        <Grid item xs={3}>
-                        <div className={classes.divIcon4}><InstallDesktopIcon style={{fontSize:'1rem',marginTop:'-1rem'}}/></div>
+                            <div className={classes.divIcon4}><InstallDesktopIcon style={{fontSize:'1rem',marginTop:'-1rem'}}/></div>
                        </Grid>
                         <Grid item xs={9} sx={{display:'flex',justifyContent:'center'}}>
-                        <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Under Maintainance</Typography>
+                            <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Under Maintainance</Typography>
                         </Grid>
                         <Grid item xs={8} sx={{display:'flex',justifyContent:'flex-end',paddingTop:'1rem'}}>
-                       <Typography fontSize={"1.5rem"}>{data?.filter(item=>item.status==="UnderMaintainance")?.length}</Typography> 
+                            <Typography fontSize={"1.5rem"}>{data?.filter(item=>item.status==="UnderMaintainance")?.length}</Typography> 
                         </Grid>
                        </Grid>
                     </Paper>
@@ -210,39 +204,38 @@ return (
                     <Paper className={classes.paper} elevation={0} >
                        <Grid container> 
                        <Grid item xs={3.8}>
-                       <div className={classes.divIcon5}><DesktopAccessDisabledIcon style={{fontSize:'1rem',marginTop:'-1rem'}}/></div>
+                            <div className={classes.divIcon5}><DesktopAccessDisabledIcon style={{fontSize:'1rem',marginTop:'-1rem'}}/></div>
                        </Grid>
                         <Grid item xs={8.2} sx={{display:'flex',justifyContent:'center'}}>
-                        <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Scrapped Asset</Typography>
+                            <Typography fontSize={"0.9rem"} fontWeight={"bold"}>Scrapped Asset</Typography>
                         </Grid>
                         <Grid item xs={8} sx={{display:'flex',justifyContent:'flex-end',paddingTop:'1rem'}}>
-                       <Typography fontSize={"1.5rem"}>{data?.filter(item=>item.status==="Scrap")?.length}</Typography> 
+                            <Typography fontSize={"1.5rem"}>{data?.filter(item=>item.status==="Scrap")?.length}</Typography> 
                         </Grid>
                        </Grid>
                     </Paper>
                 </Grid>
-               </Grid>  
-               <Grid container spacing={1} mt={0.1}>
+                </Grid>  
+                <Grid container spacing={1} mt={0.1}>
                 <Grid item xs={5}>
                     <Paper elevation={0} className={classes.assetvalue}>
-                    <DashboardGraphView items={users}></DashboardGraphView>
+                        <DashboardGraphView items={users}></DashboardGraphView>
                     </Paper>
                 </Grid>
                 <Grid item lg={7} xs={12}>
                     <Paper elevation={0} className={classes.assetvalue}>
                         <Grid container>
                             <Grid item xs={1}>
-                            <Typography sx={{paddingLeft:'1rem'}} fontSize={"1rem"} fontWeight={"bold"}>Calendar</Typography>
+                                <Typography sx={{paddingLeft:'1rem'}} fontSize={"1rem"} fontWeight={"bold"}>Calendar</Typography>
                             </Grid>
                         </Grid>
-                        <Divider style={{width:'100%',paddingLeft:'0.5rem',marginTop:'0.6rem'}}/>
+                    <Divider style={{width:'100%',paddingLeft:'0.5rem',marginTop:'0.6rem'}}/>
                         <DashboardCalender data={users}/>
                     </Paper>
                 </Grid>
-            </Grid>              
+                </Grid>              
             </Grid>
         </Box>
-
     </div>
   )
 }

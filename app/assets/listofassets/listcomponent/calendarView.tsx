@@ -1,16 +1,14 @@
 import React,{useState,useEffect} from 'react'
-import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
-import "react-big-calendar/lib/css/react-big-calendar.css";
 import { Box, Grid } from '@mui/material';
+import { Calendar, momentLocalizer } from "react-big-calendar";
+import "react-big-calendar/lib/css/react-big-calendar.css";
 
 const localizer = momentLocalizer(moment);
 const CalenderViewComponent = ({data}:any) => {
-
-  const [events, setEvents] = useState([])
-
-  const AllData = data.map((item:any)=>{
-    return {'title':item.assettagid,  'start': new Date(item.createdAt),'end': new Date(item.updatedAt)}
+const [events, setEvents] = useState([])
+const AllData = data.map((item:any)=>{
+    return {'title':item.assettagid,'start': new Date(item.createdAt),'end': new Date(item.updatedAt)}
   })
   useEffect(()=>{
     setEvents(AllData)
@@ -25,5 +23,4 @@ const CalenderViewComponent = ({data}:any) => {
    </Box>
   )
 }
-
 export default CalenderViewComponent

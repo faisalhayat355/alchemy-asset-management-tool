@@ -32,7 +32,6 @@ type Post = {
   remarks:string;
   courierid:string;
   returndate:string;
-
 };
 
 const data = Array<IDashboard>()

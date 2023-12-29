@@ -27,14 +27,14 @@ type Post = {
 
 const EmployeeManagementHome = () => {
   const [viewType, setViewType] = useState<ViewTypes>(ViewTypes.LIST);
+  const [data, setData] = useState<Post[]>([]);
+  const [users, setUsers] = useState([])
+  
+  const items= data.reverse()
 
   const onViewSelect = (view: ViewTypes) => {
     setViewType(view);
   };
-
-  const [data, setData] = useState<Post[]>([]);
-  const [users, setUsers] = useState([])
-  const items= data.reverse()
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -98,5 +98,4 @@ const EmployeeManagementHome = () => {
    </Box>
   )
 }
-
 export default EmployeeManagementHome

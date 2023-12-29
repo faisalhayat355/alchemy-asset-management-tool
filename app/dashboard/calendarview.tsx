@@ -6,15 +6,10 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import { Box } from "@mui/material";
 
 const localizer = momentLocalizer(moment);
-
 const DashboardCalender = ({data}:any) => {
-  const [events, setEvents] = useState([]);
-  const calendarCompanies = data.map((items:any) => {
-    return {
-      title: items.assettagid,
-      start: new Date(items.createdAt),
-      end: new Date(items.updatedAt),
-    }
+const [events, setEvents] = useState([]);
+const calendarCompanies = data.map((items:any) => {
+  return {title: items.assettagid,start: new Date(items.createdAt),end: new Date(items.updatedAt),}
   });
   useEffect(() => {
     setEvents(calendarCompanies);
@@ -23,7 +18,7 @@ const DashboardCalender = ({data}:any) => {
   return (
     <Box>
       <Grid style={{width:'96.5%',padding:'1rem',marginLeft:'1rem',marginTop:'-0.7rem'}} >
-      <div style={{height:"52.5vh"}}>
+      <div style={{height:"51.5vh"}}>
         <Calendar events={events} startAccessor="start" endAccessor="end" defaultDate={moment().toDate()} localizer={localizer}/>
       </div>
       </Grid>
