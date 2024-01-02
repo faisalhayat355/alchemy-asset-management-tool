@@ -1,23 +1,24 @@
 "use client"
-import { Box, Grid, Pagination, Typography } from '@mui/material';
-import Paper from '@mui/material/Paper';
-import { makeStyles } from '@mui/styles';
-import Link from 'next/link';
 import { useState } from 'react';
+import { makeStyles } from '@mui/styles';
+import { Box, Divider, Grid, Pagination, Typography } from '@mui/material';
+import Paper from '@mui/material/Paper';
 import { PaginationHandler } from '../../../utility/pagination';
 import { IAssets } from '../models/assets.model';
 
-
 const useStyles = makeStyles({
   paper: {
-    background: "#eff6ff",
-    border:'1px solid #f1f5f9',
-    boxShadow: "rgba(0, 0, 0, 0.16) 0px 1px 1px",
+    background: "#f8fafc",
+    border:'1px solid #eff6ff',
+    // boxShadow: "rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(32, 176, 147) 0px 1px 0px inset",
     cursor:'pointer',
     "&:hover": {
-        boxShadow: " rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
+        boxShadow: " #e2e8f0 10px -50px 36px -38px inset" ,
+        // boxShadow: "rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(32, 176, 147) 0px 1px 0px inset",
+        // borderTop:'2px solid #20b093',
         cursor:'pointer',
-        background:'white'
+        background:'white',
+        border:'10px'
     },
 },
 });
@@ -26,13 +27,13 @@ type AssetsProps = {
   posts: Array<IAssets>;
 };
 
-const GridViewComponent = ({posts}:any) => {
+const GridViewComponent = ({data}:any) => {
   const classes = useStyles();
-
+  //Pagination Handler
   let [page, setPage] = useState(1);
   const PER_PAGE = 6;
-  const count = Math.ceil(posts.length / PER_PAGE);
-  const paginationHandler = PaginationHandler(posts, PER_PAGE);
+  const count = Math.ceil(data.length / PER_PAGE);
+  const paginationHandler = PaginationHandler(data, PER_PAGE);
 
   const handleChangePage = (e: any, p: number) => {
     setPage(p);
@@ -41,24 +42,26 @@ const GridViewComponent = ({posts}:any) => {
 
   return (
     <div>
-    <Box style={{height:'74vh'}} >
-     <Grid container sx={{background:'white',paddingLeft:'1rem',paddingRight:'1rem',paddingBottom:'7rem',width:'96.5%',marginLeft:'1rem',alignItems:'center',marginTop:'-0.8rem'}}>
-        <Grid container spacing={2}>
-          {posts.data.data.map((item:any) => {
+      
+     <Box sx={{marginTop:"-0.8rem",height:'75.5vh',background:'white',paddingLeft:'1rem',paddingRight:'1rem',width:'96.45%',marginLeft:'1rem',alignItems:'center'}} >
+     <Grid container >
+      {/* <Divider style={{width:'100%'}}/> */}
+        <Grid container spacing={2} mt={"0.1rem"}>
+          {paginationHandler
+            .currentData().map((item:any) => {
               return (
-                <Grid item xs={4} md={4} sm={4} lg={4} key={item.id} mt={1}>
-                  <Link href={`/assets/viewassets/${item._id}`} style={{textDecoration:'none'}}>
+                <Grid item xs={4} md={4} sm={4} lg={4} key={item.id}>
                   <Paper variant="outlined" className={classes.paper}>
-                    <Box paddingLeft={2} paddingTop={0}>
+                    <Box paddingLeft={2}>
                       <Grid container>
                         <Grid item xs={5}>
                           <Typography variant="subtitle1"  fontWeight={"bold"}>
-                           Asset Tag ID
+                          Asset Tag ID
                           </Typography>
                         </Grid>
-                        {/* <Grid item xs={1}>
+                        <Grid item xs={1} mt={1.2}>
                           <Typography> :</Typography>
-                        </Grid> */}
+                        </Grid>
                         <Grid item xs={6} paddingLeft={2}>
                           <Typography noWrap variant="subtitle1" >
                             {item.assettagid}
@@ -71,12 +74,12 @@ const GridViewComponent = ({posts}:any) => {
                         <Grid item xs={5}>
                           <Typography variant="subtitle1" fontWeight={"bold"}>Purchased From</Typography>
                         </Grid>
-                        {/* <Grid item xs={1}>
+                        <Grid item xs={1} mt={1.2}>
                           <Typography> :</Typography>
-                        </Grid> */}
+                        </Grid>
                         <Grid item xs={6} paddingLeft={2}>
                           <Typography noWrap variant="subtitle1" >
-                            {item?.purchasefrom}
+                            {item.purchasefrom}
                           </Typography>
                         </Grid>
                       </Grid>
@@ -86,9 +89,9 @@ const GridViewComponent = ({posts}:any) => {
                         <Grid item xs={5}>
                           <Typography variant="subtitle1" fontWeight={"bold"}>Purchased Date</Typography>
                         </Grid>
-                        {/* <Grid item xs={1}>
+                        <Grid item xs={1} mt={1.2}>
                           <Typography> :</Typography>
-                        </Grid> */}
+                        </Grid>
                         <Grid item xs={6} paddingLeft={2}>
                           <Typography noWrap variant="subtitle1" >
                             {item?.purchasedate}
@@ -101,9 +104,9 @@ const GridViewComponent = ({posts}:any) => {
                         <Grid item xs={5}>
                           <Typography variant="subtitle1" fontWeight={"bold"} >Description</Typography>
                         </Grid>
-                        {/* <Grid item xs={1}>
+                        <Grid item xs={1} mt={1.2}>
                           <Typography> :</Typography>
-                        </Grid> */}
+                        </Grid>
                         <Grid item xs={6} paddingLeft={2}>
                           <Typography noWrap variant="subtitle1" >
                             {item?.description}
@@ -116,9 +119,9 @@ const GridViewComponent = ({posts}:any) => {
                         <Grid item xs={5}>
                           <Typography variant="subtitle1" fontWeight={"bold"}>Processor</Typography>
                         </Grid>
-                        {/* <Grid item xs={1}>
+                        <Grid item xs={1} mt={1.2}>
                           <Typography> :</Typography>
-                        </Grid> */}
+                        </Grid>
                         <Grid item xs={6} paddingLeft={2}>
                           <Typography noWrap variant="subtitle1" >
                             {item?.processor}
@@ -131,9 +134,9 @@ const GridViewComponent = ({posts}:any) => {
                         <Grid item xs={5}>
                           <Typography variant="subtitle1" fontWeight={"bold"}>Remarks</Typography>
                         </Grid>
-                        {/* <Grid item xs={1}>
+                        <Grid item xs={1} mt={1.2}>
                           <Typography> :</Typography>
-                        </Grid> */}
+                        </Grid>
                         <Grid item xs={6} paddingLeft={2}>
                           <Typography noWrap variant="subtitle1">
                             {item?.remarks}
@@ -142,28 +145,19 @@ const GridViewComponent = ({posts}:any) => {
                       </Grid>
                     </Box>
                   </Paper>
-                    </Link>
-                </Grid>
+                </Grid>                                
               );
             })}
         </Grid>
      </Grid>     
     </Box>
-    <Grid container mt={1.5}>
-        <Grid item xs={11.8} display={"flex"} justifyContent={"flex-end"}>
-          <Grid style={{ position: "fixed" }}>
-            <Pagination
-              count={count}
-              size="small"
-              page={page}
-              variant="outlined"
-              color="primary"
-              onChange={handleChangePage}
-            />
-          </Grid>
+    <Grid container mt={0.5}>
+      <Grid item xs={11.8} display={"flex"} justifyContent={"flex-end"}>
+        <Grid style={{position: "fixed"}}>
+          <Pagination size="small" variant="outlined" color="primary" count={count} page={page} onChange={handleChangePage}/>
         </Grid>
-        <Grid item xs={0.2}></Grid>
       </Grid>
+    </Grid>
    </div>
   )
 }

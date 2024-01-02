@@ -5,10 +5,10 @@ import { Calendar, momentLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
 const localizer = momentLocalizer(moment);
-const CalenderViewComponent = ({data}:any) => {
+const CalenderViewComponent = ({users}:any) => {
 const [events, setEvents] = useState([])
-const AllData = data.map((item:any)=>{
-    return {'title':item.assettagid,'start': new Date(item.createdAt),'end': new Date(item.updatedAt)}
+const AllData = users.map((item:any)=>{
+    return {'title':item.name,'start': new Date(item.createdAt),'end': new Date(item.updatedAt)}
   })
   useEffect(()=>{
     setEvents(AllData)

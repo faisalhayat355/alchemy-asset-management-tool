@@ -1,19 +1,18 @@
 "use client"
-import {useEffect,useState} from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Link from 'next/link';
-import {Box,Button,Divider,Grid,Paper,Typography} from '@mui/material';
+import { Box, Button, Divider, Grid, Paper, Typography } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import AddToQueueIcon from '@mui/icons-material/AddToQueue';
+import DesktopAccessDisabledIcon from '@mui/icons-material/DesktopAccessDisabled';
 import DvrIcon from '@mui/icons-material/Dvr';
 import InstallDesktopIcon from '@mui/icons-material/InstallDesktop';
 import LaptopIcon from '@mui/icons-material/Laptop';
-import {makeStyles} from '@mui/styles';
+import { makeStyles } from '@mui/styles';
 import DashboardCalender from './calendarview';
-import DashboardGraphView from './graphview';
-import DesktopAccessDisabledIcon from '@mui/icons-material/DesktopAccessDisabled';
 import IDashboard from './dashboard.model';
-import IDashboardComponentProps from './dashboard.props';
+import DashboardGraphView from './graphview';
 
 type Post = {
     _id: string;
@@ -39,56 +38,56 @@ const useStyles = makeStyles({
         },
     },
     divIcon: {
-        borderRadius:'5px',background:'#1F7DA9',height:'3vh',width:'53%',
+        borderRadius:'5px',background:'#1F7DA9',height:'3vh',width:'55%',
         marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'0.3rem',paddingTop:'0.7rem',
         paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',color:'white',
         transition: "width 2s, height 2s, transform 2s",
         "&:hover": {
-            borderRadius:'5px',background:'#3b82f6',height:'3vh',width:'53%',
+            borderRadius:'5px',background:'#3b82f6',height:'3vh',width:'55%',
             marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'0.3rem',paddingTop:'0.7rem',
             paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',transform: "rotate(180deg)",
         },
     },
     divIcon2: {
-        borderRadius:'5px',background:'#a21caf',height:'3vh',width:'53%',
+        borderRadius:'5px',background:'#a21caf',height:'3vh',width:'55%',
         marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'0.3rem',paddingTop:'0.7rem',
         paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',color:'white',
         transition: "width 2s, height 2s, transform 2s",
         "&:hover": {
-            borderRadius:'5px',background:' #c026d3',height:'3vh',width:'53%',
+            borderRadius:'5px',background:' #c026d3',height:'3vh',width:'55%',
             marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'0.3rem',paddingTop:'0.7rem',
             paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',transform: "rotate(180deg)",  
         },
     },
     divIcon3: {
-        borderRadius:'5px',background:' #ef4444 ',height:'3vh',width:'55.5%',
+        borderRadius:'5px',background:' #ef4444 ',height:'3vh',width:'56.5%',
         marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'0.3rem',paddingTop:'0.7rem',
         paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',color:'white',
         transition: "width 2s, height 2s, transform 2s",
         "&:hover": {
-            borderRadius:'5px',background:'#dc2626',height:'3vh',width:'55.5%',
+            borderRadius:'5px',background:'#dc2626',height:'3vh',width:'56.5%',
             marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'0.3rem',paddingTop:'0.7rem',
             paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',transform: "rotate(180deg)",  
         },
     },
     divIcon4: {
-        borderRadius:'5px',background:'#facc15',height:'3vh',width:'71%',
+        borderRadius:'5px',background:'#facc15',height:'3vh',width:'72%',
         marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'0.3rem',paddingTop:'0.7rem',
         paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',color:'white',
         transition: "width 2s, height 2s, transform 2s",
         "&:hover": {
-            borderRadius:'5px',background:'#eab308',height:'3vh',width:'71%',
+            borderRadius:'5px',background:'#eab308',height:'3vh',width:'72%',
             marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'0.3rem',paddingTop:'0.7rem',
             paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',transform: "rotate(180deg)",  
         },
     },
     divIcon5: {
-        borderRadius:'5px',background:'#84cc16',height:'3vh',width:'55%',
+        borderRadius:'5px',background:'#84cc16',height:'3vh',width:'57%',
         marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'0.3rem',paddingTop:'0.7rem',
         paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',color:'white',
         transition: "width 2s, height 2s, transform 2s",
         "&:hover": {
-            borderRadius:'5px',background:'#65a30d',height:'3vh',width:'55%',
+            borderRadius:'5px',background:'#65a30d',height:'3vh',width:'57%',
             marginBottom:'0.5rem',marginTop:'-1.5rem',marginLeft:'0.3rem',paddingTop:'0.7rem',
             paddingLeft:'0.7rem',paddingRight:'1rem',paddingBottom:'1.5rem',transform: "rotate(180deg)",  
         },

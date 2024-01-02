@@ -51,7 +51,6 @@ const onViewSelect = (view: ViewTypes) => {
   setUsers(data)
   },[data])
 
-
   return (
 
   <Box>
@@ -83,13 +82,14 @@ const onViewSelect = (view: ViewTypes) => {
         <Grid item xs={12}>
           <Switch>
             <Case condition={viewType === ViewTypes.GRID}>
-              <GridViewComponent />
+              <GridViewComponent data={users} />
             </Case>
             <Case condition={viewType === ViewTypes.CALENDAR}>
-              <AssetCalendarView  data={users}/>
+              <AssetCalendarView data={users}/>
             </Case>
             <Default>
              <Grid style={{marginLeft:'1rem',width:'96.5%',marginTop:"-1rem"}}>
+              {/* <div style={{boxShadow:'rgba(0, 0, 0, 0.16) 0px 1px 4px',zIndex:'-1',height:'1vh',width:'100%'}}></div> */}
              <Divider style={{width:'100%',marginTop:'0.2rem',background:'#eff6ff'}}/>
              <ListItemComponent/>
              </Grid>

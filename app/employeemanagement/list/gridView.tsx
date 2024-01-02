@@ -9,10 +9,19 @@ import { PaginationHandler } from '../../utility/pagination';
 
 const useStyles = makeStyles({
   paper: {
-    background: "#eff6ff",border:'1px solid #f1f5f9', cursor:'pointer',
-    boxShadow: "rgba(0, 0, 0, 0.16) 0px 1px 1px",
+    background: "#f8fafc",
+    border:'1px solid #eff6ff',
+    // boxShadow: "rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(32, 176, 147) 0px 1px 0px inset",
+    cursor:'pointer',
+    
     "&:hover": {
-        boxShadow: " rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",cursor:'pointer',background:'white'
+        boxShadow: " #e2e8f0 10px -50px 36px -38px inset" ,
+        // boxShadow: "rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(32, 176, 147) 0px 1px 0px inset",
+        // borderTop:'2px solid #20b093',
+        cursor:'pointer',
+        background:'white',
+        border:'10px'
+        
     },
 },
 });
